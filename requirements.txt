@@ -1,0 +1,10 @@
+# FastAPI — the web framework
+fastapi==0.115.0
+# Uvicorn — the server that runs FastAPI
+uvicorn[standard]==0.32.0
+# Google Generative AI — official Gemini SDK
+google-generativeai==0.8.3
+# python-dotenv — loads your .env file so your API key isn't in code
+python-dotenv==1.0.1
+# pydantic — request/response validation (FastAPI uses it under the hood)
+pydantic==2.9.2

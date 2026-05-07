@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎯 Code Ranger — 500 Challenges</title>
+
+  <!-- Google Fonts — loaded async by browser, non-blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- All styles in one external file — cached independently by the browser -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ═══════════════════════════════
+       START SCREEN
+  ═══════════════════════════════ -->
+  <div id="startScreen">
+    <div class="start-logo" onclick="startGame()">
+      <span class="logo-grad">Code Ranger</span>
+    </div>
+    <p class="start-sub">500 sourced challenges · 19 categories · Interview Lab</p>
+
+    <div class="start-stats">
+      <div class="stat-box">
+        <div class="stat-num">500</div>
+        <div class="stat-lbl">Challenges</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">19</div>
+        <div class="stat-lbl">Categories</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Difficulty Levels</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">🎤</div>
+        <div class="stat-lbl">Interview Lab</div>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(66,133,244,0.07));border:1px solid rgba(168,85,247,0.3);border-radius:16px;padding:18px 22px;margin-bottom:20px;text-align:left">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--purple);margin-bottom:6px">🎤 Interview Lab — Unlocks after 5 wins</div>
+      <div style="font-size:14px;font-weight:800;margin-bottom:8px">5 Interview Modes to prep for your next role</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#d4b8f8">🧩 Decode</span>
+        <span style="background:rgba(66,133,244,0.12);border:1px solid rgba(66,133,244,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#a8c4f8">🎙️ Voice Explainer</span>
+        <span style="background:rgba(52,168,83,0.12);border:1px solid rgba(52,168,83,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#a8d8b8">🧠 Concept Q&amp;A</span>
+        <span style="background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#fcd0a0">🏗️ Stack Interview</span>
+        <span style="background:rgba(251,188,4,0.12);border:1px solid rgba(251,188,4,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#fde9a0">🤖 AI Prompt Lab</span>
+      </div>
+    </div>
+
+    <div class="start-cat-wrap">
+      <label class="start-cat-lbl" for="startCatSelect">Choose a category to start with:</label>
+      <select class="start-cat-select" id="startCatSelect">
+        <option value="All">🎯 All 500 Challenges</option>
+        <optgroup label="Languages">
+          <option value="JS Fundamentals">⚡ JS Fundamentals · 30</option>
+          <option value="Python">🐍 Python · 25</option>
+          <option value="TypeScript">🔷 TypeScript · 25</option>
+          <option value="JS Advanced">⚡✨ JS Advanced · 25</option>
+          <option value="Python Advanced">🐍✨ Python Advanced · 20</option>
+        </optgroup>
+        <optgroup label="Web &amp; Frontend">
+          <option value="HTML &amp; CSS">🎨 HTML &amp; CSS · 25</option>
+          <option value="React &amp; Async">⚛️ React &amp; Async · 15</option>
+          <option value="CSS Advanced">🎨✨ CSS Advanced · 20</option>
+          <option value="HTTP &amp; APIs">🌐 HTTP &amp; APIs · 15</option>
+        </optgroup>
+        <optgroup label="Core CS">
+          <option value="Algorithms">🧩 Algorithms · 115</option>
+          <option value="Data Structures">🏗️ Data Structures · 30</option>
+          <option value="String Methods">🔤 String Methods · 25</option>
+          <option value="Array Methods">📦 Array Methods · 25</option>
+        </optgroup>
+        <optgroup label="Databases &amp; Backend">
+          <option value="SQL">🗄️ SQL · 20</option>
+          <option value="Node.js">🟢 Node.js · 25</option>
+        </optgroup>
+        <optgroup label="Tools &amp; Practice">
+          <option value="Git &amp; CLI">🌿 Git &amp; CLI · 20</option>
+          <option value="Web Security">🔒 Web Security · 20</option>
+          <option value="Testing">🧪 Testing · 20</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <button class="play-btn" onclick="startGame()">▶ &nbsp;START</button>
+  </div>
+
+
+  <!-- ═══════════════════════════════
+       GAME SCREEN
+  ═══════════════════════════════ -->
+  <div id="gameScreen">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-logo" onclick="goHome()">
+        <span class="logo-grad">Code Ranger</span>
+      </div>
+      <div class="nav-links">
+        <button class="nb blue"   onclick="toggleHint()">💡 Hint</button>
+        <button class="nb cat"    onclick="openCatModal()">📂 Categories</button>
+        <button class="nb green"  onclick="openLB()">🏅 Scores</button>
+        <button class="nb yellow" onclick="openTrophies()">🏆 Trophies</button>
+        <button class="nb purple" onclick="openDashboard()">📊 Dashboard</button>
+        <button class="nb" style="border-color:rgba(252,211,77,0.4);color:#fcd34d" onclick="openCertificate()">📜 Cert</button>
+      </div>
+      <div class="nav-right">
+        <span class="lvl-lbl"  id="lvlLbl">🌱 Seedling</span>
+        <span class="score-pill">⚡ <span id="scoreDisp">0</span></span>
+        <span class="streak-pill" id="streakPill" title="Daily streak">🔥 0</span>
+        <span class="solved-notif" id="solvedNotif">✅</span>
+      </div>
+    </nav>
+
+    <!-- CATEGORY FILTER BAR (built by JS) -->
+    <div class="cat-filter" id="catFilter"></div>
+
+    <!-- HINT DRAWER -->
+    <div class="hint-drawer" id="hintDrawer">
+      <div class="hint-lbl">💡 Hint</div>
+      <div class="hint-txt" id="hintTxt"></div>
+    </div>
+
+    <!-- PROGRESS BAR + CHALLENGE NAV -->
+    <div class="progress-area">
+      <div class="ch-nav" id="chNav"></div>
+      <div class="prog-right">
+        <span class="prog-lbl" id="progLbl">0/500</span>
+        <div class="prog-bar-wrap">
+          <div class="prog-bar-fill" id="progFill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN CHALLENGE + CODE PANEL (built by JS) -->
+    <div class="main-content" id="mainContent"></div>
+
+    <!-- BOTTOM: NAV BUTTONS + SCORE WINDOW -->
+    <div class="bottom-area">
+      <div class="action-row">
+        <button class="btn-prev-ch" onclick="prevCh()">← Prev</button>
+        <span id="chResultMsg"></span>
+        <button class="btn-next-ch" onclick="nextCh()">Next →</button>
+      </div>
+
+      <div class="score-window">
+        <div class="sw-header">
+          <div class="sw-title">📊 Progress Board</div>
+          <div class="sw-stats">
+            <div class="sw-stat">
+              <div class="sw-stat-num" id="swSolved" style="color:var(--green)">0</div>
+              <div class="sw-stat-lbl">Solved</div>
+            </div>
+            <div class="sw-stat">
+              <div class="sw-stat-num" id="swScore" style="color:var(--blue)">0</div>
+              <div class="sw-stat-lbl">Points</div>
+            </div>
+            <div class="sw-stat">
+              <div class="sw-stat-num" id="swTrophies" style="color:var(--yellow)">0</div>
+              <div class="sw-stat-lbl">Trophies</div>
+            </div>
+          </div>
+        </div>
+        <div class="sw-list" id="swList">
+          <div class="sw-empty">Solve a challenge to see progress!</div>
+        </div>
+        <div style="padding:12px 14px;border-top:1px solid var(--border);text-align:center">
+          <button onclick="resetProgress()" style="background:transparent;border:1px solid rgba(234,67,53,0.35);color:var(--dim);border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s"
+            onmouseover="this.style.borderColor='var(--red)';this.style.color='var(--red)'"
+            onmouseout="this.style.borderColor='rgba(234,67,53,0.35)';this.style.color='var(--dim)'">
+            🔄 Reset Progress
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⏱️ Interview Timer -->
+    <div class="interview-timer" id="interviewTimer">
+      <span class="timer-label">⏱️</span>
+      <span class="timer-disp" id="timerDisp">1:30</span>
+      <button class="timer-toggle-btn" onclick="toggleTimer()">Start</button>
+    </div>
+
+    <!-- 📅 Daily Challenge Banner -->
+    <div id="dailyBanner" class="daily-banner"></div>
+
+    <!-- Interview Lab Banner -->
+    <div class="interview-banner" id="interviewBanner" onclick="scrollToLab()">
+      <div class="ib-left">
+        <div class="ib-tag">🎤 Interview Lab</div>
+        <div class="ib-title">Interview Lab</div>
+        <div class="ib-sub" id="bannerSub">Solve 5 challenges to unlock</div>
+      </div>
+      <div class="ib-arrow">↓</div>
+    </div>
+
+  </div><!-- /gameScreen -->
+
+<!-- ══════════════════════════════════
+     INTERVIEW LAB
+══════════════════════════════════ -->
+<section id="interviewLab">
+  <div class="lab-header">
+    <div class="lab-tag-row">
+      <div class="lab-tag">🎤 Interview Lab</div>
+      <select class="lab-lang-select" id="labLangSelect" onchange="setLabLang(this.value)">
+        <option value="js">⚡ JavaScript</option>
+        <option value="py">🐍 Python</option>
+      </select>
+    </div>
+    <h2 class="lab-title">Level Up Your <span>Interview Game</span></h2>
+    <p class="lab-sub">Five challenge modes. Heart ratings. Voice Q&A. AI code review. Full-stack questions sourced from CoderPad, GeeksforGeeks &amp; Terminal.io.</p>
+  </div>
+
+  <!-- 5 type buttons -->
+  <div class="int-type-row">
+    <button class="int-type-btn active" onclick="setIntType('decode')"><span class="int-type-icon">🧩</span>Decode</button>
+    <button class="int-type-btn" onclick="setIntType('voice')"><span class="int-type-icon">🎙️</span>Voice Explainer</button>
+    <button class="int-type-btn" onclick="setIntType('concept')"><span class="int-type-icon">🧠</span>Concept Q&amp;A</button>
+    <button class="int-type-btn" onclick="setIntType('stack')"><span class="int-type-icon">🏗️</span>Stack Interview</button>
+    <button class="int-type-btn" onclick="setIntType('ai')"><span class="int-type-icon">🤖</span>AI Prompt Lab</button>
+  </div>
+
+  <div class="int-panel" id="intPanel"></div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     BUILD LAB — unlocks at 75 solved
+══════════════════════════════════ -->
+<section id="buildLab">
+
+  <!-- Locked state -->
+  <div id="blLocked" class="bl-locked">
+    <div class="bl-lock-icon">🔒</div>
+    <div class="bl-lock-tag">🛠️ Build Lab</div>
+    <h2 class="bl-lock-title">Apply what you've <span>learned</span></h2>
+    <p class="bl-lock-sub">After 75 solved challenges, unlock a workspace where you build real projects with the skills you've practiced. AI collaborator, live preview, downloadable starter files for VS Code &amp; GitHub.</p>
+    <div class="bl-lock-progress">
+      <div class="bl-lock-progress-label">
+        <span id="blLockedSolved">0</span> / 75 solved · <span id="blLockedRemaining">75</span> to unlock
+      </div>
+      <div class="bl-lock-bar"><div class="bl-lock-bar-fill" id="blLockedFill" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <!-- Unlocked state -->
+  <div id="blUnlocked" class="bl-unlocked" style="display:none">
+
+    <div class="bl-header">
+      <div class="bl-tag">🛠️ Build Lab</div>
+      <h2 class="bl-title">Build something <span>real</span></h2>
+      <p class="bl-sub">A workspace to apply what you've learned. Try the examples, write your own code with HTML, CSS, JavaScript &amp; Python, get AI feedback, and export your work to VS Code and GitHub.</p>
+    </div>
+
+    <!-- ── Setup Guide ── -->
+    <div class="bl-section">
+      <div class="bl-section-title">📚 Setup — One-time</div>
+      <div class="bl-setup-grid">
+        <a href="https://github.com/signup" target="_blank" rel="noopener" class="bl-setup-card">
+          <div class="bl-setup-icon">🐙</div>
+          <div class="bl-setup-name">GitHub Account</div>
+          <div class="bl-setup-desc">Free. Hosts your code &amp; portfolio. github.com/signup</div>
+        </a>
+        <a href="https://code.visualstudio.com/" target="_blank" rel="noopener" class="bl-setup-card">
+          <div class="bl-setup-icon">💻</div>
+          <div class="bl-setup-name">VS Code</div>
+          <div class="bl-setup-desc">Free. The editor real engineers use. code.visualstudio.com</div>
+        </a>
+        <a href="https://pages.github.com/" target="_blank" rel="noopener" class="bl-setup-card">
+          <div class="bl-setup-icon">🌐</div>
+          <div class="bl-setup-name">GitHub Pages</div>
+          <div class="bl-setup-desc">Free. Publishes your projects to the web. pages.github.com</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── Examples ── -->
+    <div class="bl-section">
+      <div class="bl-section-title">✨ Build Inspiration — 4 examples</div>
+      <p class="bl-section-sub">Click any example to load its starter code into your workspace below.</p>
+      <div class="bl-examples-grid">
+
+        <button class="bl-example-card" onclick="blLoadExample('gradient')">
+          <div class="bl-example-preview" id="bl-prev-gradient">
+            <div class="bl-prev-gradient-bg"></div>
+          </div>
+          <div class="bl-example-name">Animated Gradient Background</div>
+          <div class="bl-example-tech">HTML · CSS</div>
+          <div class="bl-example-desc">A flowing color background that's a stunning hero for any landing page.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('rotating')">
+          <div class="bl-example-preview" id="bl-prev-rotating">
+            <div class="bl-prev-rotating-shape"></div>
+          </div>
+          <div class="bl-example-name">Rotating CSS Logo</div>
+          <div class="bl-example-tech">HTML · CSS</div>
+          <div class="bl-example-desc">A pure-CSS animated mark — useful as a brand element or loading indicator.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('landing')">
+          <div class="bl-example-preview" id="bl-prev-landing">
+            <div class="bl-prev-landing-mock">
+              <div class="bl-prev-landing-h"></div>
+              <div class="bl-prev-landing-p"></div>
+              <div class="bl-prev-landing-btn"></div>
+            </div>
+          </div>
+          <div class="bl-example-name">Minimalist Landing Page</div>
+          <div class="bl-example-tech">HTML · CSS</div>
+          <div class="bl-example-desc">A clean one-page site — great template for a portfolio or product page.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('counter')">
+          <div class="bl-example-preview" id="bl-prev-counter">
+            <div class="bl-prev-counter-num">42</div>
+            <div class="bl-prev-counter-btns">
+              <span>−</span><span>+</span>
+            </div>
+          </div>
+          <div class="bl-example-name">Interactive Counter Widget</div>
+          <div class="bl-example-tech">HTML · CSS · JavaScript</div>
+          <div class="bl-example-desc">A working counter you click — your first taste of interactivity.</div>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- ── Workspace ── -->
+    <div class="bl-section">
+      <div class="bl-section-title">⚡ Your Workspace</div>
+      <p class="bl-section-sub">Write code in any of the four files. The live preview shows HTML/CSS/JS together. Python is for download &amp; review only — run it later in VS Code.</p>
+
+      <div class="bl-workspace">
+
+        <!-- Editor side -->
+        <div class="bl-editor-pane">
+          <div class="bl-tabs">
+            <button class="bl-tab active" data-file="html" onclick="blSwitchFile('html')">📄 index.html</button>
+            <button class="bl-tab" data-file="css"  onclick="blSwitchFile('css')">🎨 style.css</button>
+            <button class="bl-tab" data-file="js"   onclick="blSwitchFile('js')">⚡ script.js</button>
+            <button class="bl-tab" data-file="py"   onclick="blSwitchFile('py')">🐍 main.py</button>
+          </div>
+          <textarea id="blEditor" class="bl-editor" spellcheck="false" oninput="blOnEditorInput()" onkeydown="blHandleTab(event)"></textarea>
+          <div class="bl-editor-actions">
+            <button class="bl-btn bl-btn-primary" onclick="blRunPreview()">▶ Run Preview</button>
+            <button class="bl-btn" onclick="blDownloadCurrent()">⬇ Download File</button>
+            <button class="bl-btn" onclick="blDownloadAll()">📦 Download All (.zip-style)</button>
+            <button class="bl-btn bl-btn-ghost" onclick="blResetWorkspace()">↺ Reset</button>
+          </div>
+        </div>
+
+        <!-- Preview side -->
+        <div class="bl-preview-pane">
+          <div class="bl-preview-header">
+            <div class="bl-preview-dots">
+              <span class="bl-dot" style="background:#ff5f57"></span>
+              <span class="bl-dot" style="background:#febc2e"></span>
+              <span class="bl-dot" style="background:#28c840"></span>
+            </div>
+            <span class="bl-preview-label">Live Preview</span>
+          </div>
+          <iframe id="blPreview" class="bl-preview-frame" sandbox="allow-scripts" title="Build Lab preview"></iframe>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── AI Collaborator ── -->
+    <div class="bl-section">
+      <div class="bl-section-title">🤖 AI Collaborator</div>
+      <p class="bl-section-sub">Get feedback on your code from Claude or Gemini. Bring your own API key — the section below explains why and how.</p>
+
+      <!-- Education panel -->
+      <div class="bl-ai-edu">
+        <details>
+          <summary>📖 What is an API key, why bring my own, and how do I stay safe?</summary>
+          <div class="bl-ai-edu-body">
+            <h4>What is an API key?</h4>
+            <p>An API key is a unique password that lets your code talk to an AI service like Anthropic's Claude or Google's Gemini. When you ask the AI to review your code, the request includes your key so the service knows who to charge.</p>
+
+            <h4>Why bring your own?</h4>
+            <p>Code Ranger is a static, free app — there's no Code Ranger server holding a shared key for all users. If we used a shared key, one demo could rack up real charges. By using your own key, <strong>you control your usage and your spending</strong>.</p>
+
+            <h4>Will other users see my key?</h4>
+            <p><strong>No.</strong> Your key is stored only in your own browser (or just this session, if you choose). It is never sent to a Code Ranger server (we don't have one). It is never shared with other users. Each user's key lives in their own browser only.</p>
+
+            <h4>What about security risks?</h4>
+            <p>Honest truth: Code Ranger is open source and runs entirely in your browser. Browser-based key handling has limits:</p>
+            <ul>
+              <li><strong>Only paste your key on the official Code Ranger URL.</strong> Anyone could fork the code and modify it to steal keys. Check the GitHub source if unsure.</li>
+              <li><strong>Use a separate, low-budget key for tools like this.</strong> Set a $5 or $25 monthly cap on your provider's console. If a key ever leaks, the damage is capped.</li>
+              <li><strong>Never paste a production key</strong> from an app where billing matters. This is for learning &amp; demos only.</li>
+              <li><strong>Choose "session only" storage</strong> if you're on a shared computer — the key disappears when you close the tab.</li>
+            </ul>
+
+            <h4>Spending caps — how much will this cost?</h4>
+            <p>Code review uses a small amount of tokens per review. At normal use you'd spend a few cents a day at most. But mistakes happen — set a hard cap so a bug in your code can't drain your account.</p>
+            <ul>
+              <li><strong>Anthropic Claude:</strong> Free trial credits when you sign up. After that, set a monthly limit at <a href="https://console.anthropic.com/settings/limits" target="_blank" rel="noopener">console.anthropic.com → Settings → Limits</a>. Recommended: $5–$25.</li>
+              <li><strong>Google Gemini:</strong> Generous free tier (15 requests/minute on Flash). Plenty for learning. Pay-as-you-go available if you hit limits — set a budget at <a href="https://aistudio.google.com/" target="_blank" rel="noopener">aistudio.google.com</a>.</li>
+            </ul>
+
+            <h4>Where do I create a key?</h4>
+            <ul>
+              <li><strong>Anthropic Claude:</strong> <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a> → API Keys → Create</li>
+              <li><strong>Google Gemini:</strong> <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a> → Create API Key</li>
+            </ul>
+
+            <h4>What will my key be used for in Code Ranger?</h4>
+            <p>Only one thing: when you click "Get AI Feedback," Code Ranger sends your code (HTML/CSS/JS/Python from your workspace) plus the question "review this code for a beginner" directly to your chosen provider. The response comes back and is shown to you. <strong>That's it.</strong> Your key is not used for anything else.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Provider + key entry -->
+      <div class="bl-ai-config">
+        <div class="bl-ai-row">
+          <label for="blAiProvider">Provider</label>
+          <select id="blAiProvider" onchange="blSaveProvider()">
+            <option value="claude">Anthropic Claude (recommended for code review)</option>
+            <option value="gemini">Google Gemini (has generous free tier)</option>
+          </select>
+        </div>
+        <div class="bl-ai-row">
+          <label for="blAiKey">API Key</label>
+          <input type="password" id="blAiKey" placeholder="sk-ant-... or AIza..." autocomplete="off" spellcheck="false">
+        </div>
+        <div class="bl-ai-row bl-ai-row-storage">
+          <label class="bl-radio-label">
+            <input type="radio" name="blKeyStorage" value="session" checked onchange="blStorageChanged()">
+            <span><strong>Session only</strong> — paste each visit. Most secure. Recommended.</span>
+          </label>
+          <label class="bl-radio-label">
+            <input type="radio" name="blKeyStorage" value="local" onchange="blStorageChanged()">
+            <span><strong>Remember in this browser</strong> — convenient but key persists in localStorage. Use only on your personal device.</span>
+          </label>
+        </div>
+        <div class="bl-ai-actions">
+          <button class="bl-btn bl-btn-primary" onclick="blReviewCode()">🤖 Get AI Feedback</button>
+          <button class="bl-btn bl-btn-ghost" onclick="blClearKey()">🗑 Clear Key</button>
+        </div>
+        <div id="blAiStatus" class="bl-ai-status"></div>
+      </div>
+
+      <div id="blAiResponse" class="bl-ai-response"></div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════════════════
+     RESUME BUILDER — appears below Build Lab
+══════════════════════════════════ -->
+<section id="resumeBuilder" class="unlocked">
+  <div class="rb-header">
+    <div class="rb-tag">📄 Resume Builder</div>
+    <h2 class="rb-title">Build your <span>professional resume</span></h2>
+    <p class="rb-sub">Fill in your personal info, projects, and experience. Code Ranger fills in the Technical Skills section automatically — based on the categories you've solved 80% or more of in the game. Keep solving to unlock more.</p>
+  </div>
+
+  <div class="rb-grid">
+
+    <!-- ── INPUT FORM ── -->
+    <aside class="rb-form">
+
+      <div class="rb-form-section">
+        <div class="rb-form-section-label">Personal</div>
+        <div class="rb-form-row">
+          <label for="rbName">Full name</label>
+          <input type="text" id="rbName" value="Your Name" oninput="rbUpdate()">
+        </div>
+        <div class="rb-form-row">
+          <label for="rbTitle">Job title</label>
+          <input type="text" id="rbTitle" value="Junior Software Engineer" oninput="rbUpdate()">
+        </div>
+        <div class="rb-form-row">
+          <label for="rbEmail">Email</label>
+          <input type="email" id="rbEmail" value="" oninput="rbUpdate()">
+        </div>
+        <div class="rb-form-row">
+          <label for="rbPhone">Phone</label>
+          <input type="tel" id="rbPhone" value="" oninput="rbUpdate()">
+        </div>
+        <div class="rb-form-row">
+          <label for="rbGithub">GitHub or profile link</label>
+          <input type="text" id="rbGithub" value="" oninput="rbUpdate()">
+        </div>
+      </div>
+
+      <div class="rb-form-section">
+        <div class="rb-form-section-label">Summary</div>
+        <div class="rb-form-row">
+          <label for="rbSummary">One-sentence summary</label>
+          <textarea id="rbSummary" oninput="rbUpdate()">Career-changer applying years of professional experience to software engineering, currently training as an AI Software Engineer apprentice.</textarea>
+          <div class="hint">Keep it to one sentence.</div>
+        </div>
+      </div>
+
+      <div class="rb-form-section">
+        <div class="rb-form-section-label">Projects</div>
+        <div id="rbProjects"></div>
+        <button class="rb-add-btn" onclick="rbAddProject()">+ Add project</button>
+      </div>
+
+      <div class="rb-form-section">
+        <div class="rb-form-section-label">Experience</div>
+        <div id="rbExperience"></div>
+        <button class="rb-add-btn" onclick="rbAddExperience()">+ Add experience</button>
+      </div>
+
+      <div class="rb-form-section">
+        <div class="rb-form-section-label">Education &amp; certifications</div>
+        <div id="rbEducation"></div>
+        <button class="rb-add-btn" onclick="rbAddEducation()">+ Add education</button>
+      </div>
+
+    </aside>
+
+
+    <!-- ── RESUME PREVIEW ── -->
+    <div class="rb-preview-frame">
+      <span class="rb-preview-label">RESUME · LIVE PREVIEW</span>
+      <span class="rb-preview-rev" id="rbRevLabel">REV · 2026</span>
+
+      <!-- Download buttons -->
+      <div class="rb-download-bar">
+        <button class="rb-dl-btn rb-dl-btn-primary" onclick="rbDownloadPDF()">
+          📄 Download PDF
+        </button>
+        <button class="rb-dl-btn" onclick="rbDownloadDOCX()">
+          📝 Download Word (.docx)
+        </button>
+        <span class="rb-dl-hint">PDF for sending. Word for editing.</span>
+      </div>
+
+      <article class="rb-resume" id="rbResumeOutput"></article>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ═══════════════════════════════
+       MODALS
+  ═══════════════════════════════ -->
+
+  <!-- Trophies -->
+  <div class="overlay" id="trModal" onclick="closeTr(event)">
+    <div class="modal">
+      <button class="m-close" onclick="closeTr()">✕</button>
+      <div class="m-title">🏆 Trophy Collection</div>
+      <div id="trContent"></div>
+    </div>
+  </div>
+
+  <!-- Leaderboard -->
+  <div class="overlay" id="lbModal" onclick="closeLB(event)">
+    <div class="modal">
+      <button class="m-close" onclick="closeLB()">✕</button>
+      <div class="m-title">🏅 Player Rankings</div>
+      <div class="lb-list" id="lbList"></div>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="overlay" id="catModal" onclick="closeCatModal(event)">
+    <div class="modal">
+      <button class="m-close" onclick="closeCatModal()">✕</button>
+      <div class="m-title">📂 Challenge Categories</div>
+      <p style="text-align:center;color:var(--dim);font-size:13px;margin-bottom:4px">
+        Click a category to jump to its first challenge
+      </p>
+      <div class="cat-grid-modal" id="catGridModal"></div>
+    </div>
+  </div>
+
+  <!-- 📊 Dashboard Modal -->
+  <div class="overlay" id="dashModal" onclick="closeDash(event)">
+    <div class="modal" style="max-width:700px">
+      <button class="m-close" onclick="closeDash()">✕</button>
+      <div class="m-title">📊 Performance Dashboard</div>
+      <div id="dashContent"></div>
+    </div>
+  </div>
+
+  <!-- 📜 Certificate Modal -->
+  <div class="overlay" id="certModal" onclick="closeCert(event)">
+    <div class="modal" style="max-width:640px">
+      <button class="m-close" onclick="closeCert()">✕</button>
+      <div class="m-title">📜 Developer Certificate</div>
+      <div id="certBody"></div>
+    </div>
+  </div>
+
+  <!-- 📤 Share Card Modal -->
+  <div class="overlay" id="shareModal" onclick="closeShare(event)">
+    <div class="modal" style="max-width:520px">
+      <button class="m-close" onclick="closeShare()">✕</button>
+      <div class="m-title">📤 Share Your Progress</div>
+      <pre id="shareText" class="share-text-box"></pre>
+      <div style="display:flex;gap:10px;justify-content:center;margin-top:16px;flex-wrap:wrap">
+        <button id="copyBtn" class="cap-action-btn blue" onclick="copyShareText()">📋 Copy</button>
+        <button class="cap-action-btn" style="background:rgba(255,255,255,0.05);border:1px solid var(--border)" onclick="closeShare()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🎉 Milestone Toast -->
+  <div class="milestone-toast" id="milestoneToast"></div>
+
+  <!-- Trophy unlock toast -->
+  <div class="tu-toast" id="tuToast">
+    <span class="tu-e" id="tuE">🏆</span>
+    <div class="tu-l">Trophy Unlocked!</div>
+    <div class="tu-n" id="tuN">—</div>
+    <div class="tu-d" id="tuD">—</div>
+  </div>
+
+
+  <!-- ═══════════════════════════════
+       SCRIPTS — defer means:
+       • downloaded in parallel with HTML parsing
+       • executed in order AFTER HTML is fully parsed
+       • page renders immediately, JS runs after
+  ═══════════════════════════════ -->
+  <!-- Resume download libraries — loaded from CDN -->
+  <!-- html2pdf for PDF generation, docx for Word document generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+
+  <script src="game.js" defer></script>
+
+
+</body>
+</html>
