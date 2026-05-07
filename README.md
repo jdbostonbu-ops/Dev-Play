@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner-hero.svg" alt="Code Ranger Logo" width="240">
+  <img src="banner-compact.svg" alt="Code Ranger Logo" width="240">
 </p>
 
 A 500-challenge coding game with an AI-powered Build Lab and Interview Lab. Players progress through bite-sized challenges across 19 categories, unlock a real coding workspace, get AI-driven code review on their projects, and build a downloadable resume that auto-fills from the categories they've mastered. The whole experience is a single continuous flow — *play to learn, learn to build, build to ship*.
@@ -48,6 +48,18 @@ The project demonstrates everything Phase II covered, deployed as a working full
 - **Progress Persistence:** All progress saves to `localStorage` — no account required, no data leaves the device.
 - **Accessible Forms Throughout:** Every label uses `for` attributes, every form supports keyboard navigation, every animation respects `@media (prefers-reduced-motion)`.
 
+## 🔒 Privacy & Your Data | Optional BYOK (bring-your-own-key)
+
+Code Ranger is designed to respect your privacy at every step.
+
+- **No account, no signup.** You can play, build, and use the AI features without creating an account or sharing personal information.
+- **Your progress stays on your device.** All game progress, trophies, and resume data are saved only in your browser's local storage. Clearing your browser data clears your progress — nothing lives on a server.
+- **Your API key is yours alone.** If you choose to use your own Gemini API key, it's stored only in your browser. When you click "Get AI Feedback," your key is sent with that one request and immediately discarded by our server — it's never saved, logged, or shared with anyone.
+- **No key? No problem.** A shared demo allowance lets you try the AI features without one. Daily limits keep usage fair for all visitors.
+- **Server keys stay server-side.** The app's own API key (used for the demo allowance) is held only on the server and is never visible in your browser.
+
+Code Ranger doesn't use cookies, doesn't track you, and doesn't have a database that stores anything about you.
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** Vanilla JavaScript (ES6+) — `IntersectionObserver`, `localStorage`, sandboxed iframes for code preview, dynamic DOM construction
@@ -55,7 +67,6 @@ The project demonstrates everything Phase II covered, deployed as a working full
 - **Typography:** Inter, JetBrains Mono — Google Fonts
 - **Backend:** Python 3.11 — FastAPI, Uvicorn, Pydantic for request validation, `python-dotenv` for environment variables
 - **AI Integration:** Google Gemini (`gemini-2.5-flash`) via the official `google-generativeai` SDK, wrapped in a swappable abstraction so providers can be swapped without touching route handlers
-- **Security:** API keys held server-side only — never exposed to the browser. Per-IP daily rate limiting prevents abuse of the demo allowance. Optional BYOK (bring-your-own-key) for power users.
 - **Resume Export:** `html2pdf.js` for PDF generation, `docx` library for Word document export — both client-side, no server round-trips
 - **Deployment:** Vercel — frontend served as static assets, backend deployed as a Python serverless function under `/api/*`. Environment variables set via Vercel dashboard. Auto-deploy on every push to `main`.
 

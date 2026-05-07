@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 90" width="600" height="90">
+  <rect width="600" height="90" rx="12" fill="#1a0b2e"/>
+  <g transform="translate(60 45)">
+    <path d="M -19 9 L -21 15 L -14 13 Z" fill="#6b21a8"/>
+    <path d="M 19 9 L 21 15 L 14 13 Z" fill="#6b21a8"/>
+    <path d="M -18 -14 L -14 -21 L -11 -16 Z" fill="#9333ea"/>
+    <path d="M 18 -14 L 14 -21 L 11 -16 Z" fill="#9333ea"/>
+    <path d="M 0 -19 L -4 -26 L 4 -26 Z" fill="#a855f7"/>
+    <path d="M -17 -4 Q -21 0 -19 9 Q -15 16 0 18 Q 15 16 19 9 Q 21 0 17 -4 Q 19 -14 11 -16 Q 4 -17 0 -14 Q -4 -17 -11 -16 Q -19 -14 -17 -4 Z" fill="#a855f7"/>
+    <path d="M -14 -5 Q -16 0 -14 6 Q -11 11 0 12 Q 11 11 14 6 Q 16 0 14 -5 Q 14 -11 9 -12 Q 4 -11 0 -8 Q -4 -11 -9 -12 Q -14 -11 -14 -5 Z" fill="#c084fc"/>
+    <ellipse cx="-6" cy="-1" rx="3" ry="3.5" fill="#1a0b2e"/>
+    <ellipse cx="6" cy="-1" rx="3" ry="3.5" fill="#1a0b2e"/>
+    <circle cx="-5.5" cy="-1.5" r="1.2" fill="#fde047"/>
+    <circle cx="6.5" cy="-1.5" r="1.2" fill="#fde047"/>
+  </g>
+  <text x="120" y="50" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="32" font-weight="700" fill="#ffffff">Code Ranger</text>
+  <text x="120" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif" font-size="13" fill="#c084fc">Play to learn · Learn to build · Build to ship</text>
+</svg>
