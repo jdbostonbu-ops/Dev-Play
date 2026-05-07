@@ -114,8 +114,8 @@ If you want to run a local copy for development:
 
 ```bash
 # Clone the repo
-git clone https://github.com/jdbostonbu-ops/Dev-Play.git
-cd Dev-Play
+git clone <your-repo-url>
+cd <your-project>
 
 # Create Python virtual environment
 python3.11 -m venv venv
