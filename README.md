@@ -1,4 +1,6 @@
-# Code Ranger 🎯
+<p align="center">
+  <img src="banner-hero.svg" alt="Code Ranger Logo" width="240">
+</p>
 
 A 500-challenge coding game with an AI-powered Build Lab and Interview Lab. Players progress through bite-sized challenges across 19 categories, unlock a real coding workspace, get AI-driven code review on their projects, and build a downloadable resume that auto-fills from the categories they've mastered. The whole experience is a single continuous flow — *play to learn, learn to build, build to ship*.
 
@@ -11,9 +13,9 @@ A 500-challenge coding game with an AI-powered Build Lab and Interview Lab. Play
   <img src="coderanger.gif" alt="Code Ranger Showcase Demo" width="600">
 </p>
 
-## 🎓 Built During Next Chapter — Phase II
+## 🎓 Built During Next Chapter — Phase I
 
-This project was designed and built during **Phase II of Thinking with AI** at Next Chapter Apprenticeship. Each lesson fed directly into this build:
+This project was designed and built during **Phase I of Thinking with AI** at Next Chapter Apprenticeship. Each lesson fed directly into this build:
 
 - **Computational Thinking** — Decomposing the project into Slices (backend → integration → voice grading → deployment), recognizing repeating patterns across the 500 challenges, abstracting the AI provider into a swappable wrapper, and writing the unlock logic as a clean algorithm.
 - **AI Prompting** — Crafting system instructions that produce reliable structured output (interview grading format, code review with strengths/weaknesses), iterating on prompts until the AI's response matched the user experience.
@@ -123,8 +125,12 @@ uvicorn api.index:app --reload --port 3001
 # (use VS Code Live Server, or any static server)
 ```
 
-## 🎓 Background
+## 🎓 Phase I
 
-This project is part of a non-traditional path into software engineering — 12 years running a full-service insurance agency (systems design, data modeling, risk analysis), 3 years as a Behavior Detection & Analysis Officer with the Department of Homeland Security (real-time anomaly detection, pattern classification), now applied to building accessible, AI-powered web applications. Code Ranger is what I built during Phase II of Thinking with AI — a single continuous experience that takes a learner from their first challenge to a published portfolio resume, with a real Python backend and a real AI integration in between.
+Code Ranger is what I built during Phase I of Thinking with AI — a single continuous experience that takes a learner from their first challenge to a published portfolio resume, with a real Python backend and a real AI integration in between.
 
 ⭐ Love this project? Give it a star and explore the other deployed projects in this portfolio.
+
+<p align="center">
+  <img src="favicon.svg" alt="Code Ranger Logo" width="240">
+</p>
