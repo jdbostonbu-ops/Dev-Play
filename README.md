@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner-compact.svg" alt="Code Ranger Logo" width="240">
+  <img src="banner-compact.svg" alt="Code Ranger Logo" width="740">
 </p>
 
 A 500-challenge coding game with an AI-powered Build Lab and Interview Lab. Players progress through bite-sized challenges across 19 categories, unlock a real coding workspace, get AI-driven code review on their projects, and build a downloadable resume that auto-fills from the categories they've mastered. The whole experience is a single continuous flow — *play to learn, learn to build, build to ship*.
