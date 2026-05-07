@@ -6378,7 +6378,12 @@ function blResetWorkspace() {
    e.g. 'https://code-ranger-api.onrender.com'
    ════════════════════════════════════════════════════════════════ */
 
-const API_BASE = 'http://localhost:3001';
+// API_BASE is empty so requests go to the same domain that's serving the page.
+// On Vercel, this means the frontend at https://yourapp.vercel.app calls
+// the backend at https://yourapp.vercel.app/api/chat — no CORS needed.
+// For local dev, run frontend AND backend on Vercel CLI, OR set this to
+// 'http://localhost:3001' temporarily.
+const API_BASE = '';
 
 function blGetStorage() {
     return blKeyStorage === 'local' ? localStorage : sessionStorage;

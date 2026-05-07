@@ -1,4 +1,4 @@
-# Code Ranger — Capstone Project
+# Code Ranger
 
 A 500-challenge coding game with an AI-powered Build Lab and Interview Lab.
 
