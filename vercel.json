@@ -16,7 +16,9 @@
     {
       "src": "game.js",
       "use": "@vercel/static"
-    }
+    },
+     { "src": "favicon.svg", 
+     "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api/index.py" },
