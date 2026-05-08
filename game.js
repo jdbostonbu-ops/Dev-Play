@@ -6169,7 +6169,6 @@ document.getElementById('reset').addEventListener('click', () => {
 
 let blCurrentFile = 'html';
 let blFiles = { ...BL_DEFAULT_FILES };
-let blKeyStorage = 'session'; // 'session' or 'local'
 
 
 /* ════════════════════════════════════════════════════════════════
@@ -6386,31 +6385,25 @@ function blResetWorkspace() {
 const API_BASE = '';
 
 function blGetStorage() {
-    return blKeyStorage === 'local' ? localStorage : sessionStorage;
+    // Session-only storage by design — your API key is erased when you close the tab.
+    // This is the most private option and prevents leaving keys on shared computers.
+    return sessionStorage;
 }
 
-function blStorageChanged() {
-    const radios = document.querySelectorAll('input[name="blKeyStorage"]');
-    const newStorage = Array.from(radios).find(r => r.checked).value;
-
-    // If switching from one to the other, move the key
-    const keyEl = document.getElementById('blAiKey');
-    const currentKey = keyEl ? keyEl.value : '';
-
-    // Clear old storage
-    sessionStorage.removeItem('cr_ai_key');
-    localStorage.removeItem('cr_ai_key');
-
-    blKeyStorage = newStorage;
-
-    // Save to new storage if a key is present
-    if (currentKey) {
-        blGetStorage().setItem('cr_ai_key', currentKey);
+function blPurgeLegacyKeyStorage() {
+    // One-time cleanup: if a returning user had a key saved in localStorage from
+    // an earlier version of this app, remove it. We're session-only now and any
+    // leftover localStorage entry would just be unused privacy debt.
+    try {
+        if (localStorage.getItem('cr_ai_key') !== null) {
+            localStorage.removeItem('cr_ai_key');
+        }
+        if (localStorage.getItem('cr_ai_provider') !== null) {
+            localStorage.removeItem('cr_ai_provider');
+        }
+    } catch (e) {
+        // localStorage can throw in some private browsing modes — ignore silently
     }
-
-    blSetStatus(newStorage === 'local'
-        ? 'Storage: localStorage (persists across visits)'
-        : 'Storage: session only (clears on tab close)');
 }
 
 function blSaveProvider() {
@@ -6419,24 +6412,14 @@ function blSaveProvider() {
 }
 
 function blLoadKeyConfig() {
-    // Determine which storage holds an existing key
-    let existingKey = sessionStorage.getItem('cr_ai_key');
-    let existingProvider = sessionStorage.getItem('cr_ai_provider');
-    let storageMode = 'session';
+    // Run one-time cleanup of any leftover localStorage keys from older versions
+    blPurgeLegacyKeyStorage();
 
-    if (!existingKey) {
-        existingKey = localStorage.getItem('cr_ai_key');
-        existingProvider = localStorage.getItem('cr_ai_provider');
-        if (existingKey) storageMode = 'local';
-    }
+    // Read existing key from sessionStorage (the only place we now store it)
+    const existingKey = sessionStorage.getItem('cr_ai_key');
+    const existingProvider = sessionStorage.getItem('cr_ai_provider');
 
-    blKeyStorage = storageMode;
-
-    // Set the radio button
-    const radio = document.querySelector(`input[name="blKeyStorage"][value="${storageMode}"]`);
-    if (radio) radio.checked = true;
-
-    // Pre-fill the field
+    // Pre-fill the field if a key is already present in this session
     const keyEl  = document.getElementById('blAiKey');
     const provEl = document.getElementById('blAiProvider');
     if (keyEl  && existingKey)      keyEl.value      = existingKey;
@@ -6446,11 +6429,14 @@ function blLoadKeyConfig() {
 function blClearKey() {
     sessionStorage.removeItem('cr_ai_key');
     sessionStorage.removeItem('cr_ai_provider');
-    localStorage.removeItem('cr_ai_key');
-    localStorage.removeItem('cr_ai_provider');
+    // Belt-and-suspenders: also clear any legacy localStorage entries
+    try {
+        localStorage.removeItem('cr_ai_key');
+        localStorage.removeItem('cr_ai_provider');
+    } catch (e) { /* ignore private-browsing errors */ }
     const keyEl = document.getElementById('blAiKey');
     if (keyEl) keyEl.value = '';
-    blSetStatus('API key cleared from storage.', 'success');
+    blSetStatus('API key cleared.', 'success');
 }
 
 function blSetStatus(msg, type = '') {
