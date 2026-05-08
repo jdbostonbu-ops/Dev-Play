@@ -17,14 +17,16 @@
       "src": "game.js",
       "use": "@vercel/static"
     },
+    { "src": "*.svg", 
+    "use": "@vercel/static" },
      { "src": "favicon.svg", 
      "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/favicon.svg", "dest": "/favicon.svg" },
     { "src": "/api/(.*)", "dest": "/api/index.py" },
     { "src": "/style.css", "dest": "/style.css" },
     { "src": "/game.js", "dest": "/game.js" },
-    { "src": "/(.*)", "dest": "/index.html" },
-    { "src": "/favicon.svg", "dest": "/favicon.svg" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
