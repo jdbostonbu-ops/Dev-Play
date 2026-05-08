@@ -24,6 +24,7 @@
     { "src": "/api/(.*)", "dest": "/api/index.py" },
     { "src": "/style.css", "dest": "/style.css" },
     { "src": "/game.js", "dest": "/game.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "/index.html" },
+    { "src": "/favicon.svg", "dest": "/favicon.svg" }
   ]
 }
