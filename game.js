@@ -3624,12 +3624,23 @@ let hintOpen=false,codeCache={},completedLog=[],optionShuffles={};
 let lang='js';
 let filteredCHS=[];
 
+/* Expose state on window so other modules in this file (resume builder,
+   build lab) can read it. `let` declarations do NOT auto-attach to window,
+   unlike `var`, so we expose them explicitly. We re-expose after any
+   reassignment in load() and resetProgress(). */
+window.solved = solved;
+window.earned = earned;
+window.CHS    = CHS;
+
 function load(){
   score=parseInt(localStorage.getItem('dp4_sc')||'0');
   solved=new Set(JSON.parse(localStorage.getItem('dp4_sv')||'[]'));
   hintUsed=new Set(JSON.parse(localStorage.getItem('dp4_hu')||'[]'));
   earned=new Set(JSON.parse(localStorage.getItem('dp4_ea')||'[]'));
   completedLog=JSON.parse(localStorage.getItem('dp4_log')||'[]');
+  // Re-sync window references after `solved` and `earned` are reassigned
+  window.solved = solved;
+  window.earned = earned;
 }
 function save(){
   localStorage.setItem('dp4_sc',score);
@@ -3643,6 +3654,9 @@ function resetProgress(){
   ['dp4_sc','dp4_sv','dp4_hu','dp4_ea','dp4_log'].forEach(k=>localStorage.removeItem(k));
   score=0; solved=new Set(); hintUsed=new Set(); earned=new Set();
   completedLog=[]; codeCache={}; optionShuffles={}; idx=0;
+  // Re-sync window references after `solved` and `earned` are reassigned
+  window.solved = solved;
+  window.earned = earned;
   updateHUD(); updateScoreWindow(); buildNav(); render();
   showMsg('🔄 Progress reset — starting fresh!','ok');
 }
@@ -5673,7 +5687,10 @@ let rbLastSolvedSize = -1;
 
 function rbWatchGameState() {
     try {
-        const currentSize = (typeof solved !== 'undefined' && solved.size) || 0;
+        // Read from window.solved (same source rbComputeEarnedSkills uses)
+        // so the watcher and the computation always agree.
+        const gameSolved = window.solved;
+        const currentSize = (gameSolved && gameSolved.size) || 0;
         if (currentSize !== rbLastSolvedSize) {
             rbLastSolvedSize = currentSize;
             rbRenderResume();
