@@ -3585,7 +3585,7 @@ controller.abort();`,
 <h4>This is heading 4</h4>`,
  goal:"Add an h5 and h6 to the list. Click Run to see all six sizes.",
  source:"MDN — Heading elements",
- hint:"Just copy the pattern: open with &lt;h5&gt;, write your text, close with &lt;/h5&gt;."},
+ hint:"Just copy the pattern: open with <h5>, write your text, close with </h5>."},
 
 {id:503,title:"Paragraphs",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;p&gt;</code> tag is for paragraphs of text. The browser automatically adds space above and below each paragraph so your writing is easy to read.",
@@ -3593,14 +3593,14 @@ controller.abort();`,
 <p>This is the second paragraph.</p>`,
  goal:"Add a third paragraph that says something about you.",
  source:"MDN — <p>: The Paragraph element",
- hint:"Paragraphs are wrapped with &lt;p&gt; at the start and &lt;/p&gt; at the end."},
+ hint:"Paragraphs are wrapped with <p> at the start and </p> at the end."},
 
 {id:504,title:"Bold and Italic",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Use <code>&lt;strong&gt;</code> to make text bold for emphasis, and <code>&lt;em&gt;</code> to make text italic. Use them sparingly — when everything is emphasized, nothing is.",
  start:`<p>This is <strong>important</strong> and this is <em>emphasized</em>.</p>`,
  goal:"Write a sentence about your favorite food with one word in bold and one in italic.",
  source:"MDN — <strong> and <em>",
- hint:"You can use both inside the same paragraph. Just wrap individual words like &lt;strong&gt;word&lt;/strong&gt;."},
+ hint:"You can use both inside the same paragraph. Just wrap individual words like <strong>word</strong>."},
 
 {id:505,title:"Links",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Links use the <code>&lt;a&gt;</code> tag with an <code>href</code> attribute. The href tells the browser where to go. Adding <code>target=\"_blank\"</code> opens the link in a new tab.<br><br><strong>Note about this practice playground:</strong> in real webpages, clicking a link redirects you to that page. Here, the link is rendered but the click is sandboxed (you stay in Code Ranger). To see where a link points, <strong>hover over it</strong> — the URL appears in the lower-left corner of your browser. On a real website, clicking would actually take you there.",
@@ -3608,7 +3608,7 @@ controller.abort();`,
 <a href="https://jdbostonbu-ops.github.io/Dev-Play/" target="_blank">Visit my site</a>`,
  goal:"Change the URL to any website you like. Hover over the link — see the URL in the lower-left? In a real page, clicking would take you there.",
  source:"MDN — <a>: The Anchor element",
- hint:"Replace the URL inside href=\"...\" with any website address. The text between &lt;a&gt; and &lt;/a&gt; is what users click."},
+ hint:"Replace the URL inside href=\"...\" with any website address. The text between <a> and </a> is what users click."},
 
 {id:506,title:"Images",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;img&gt;</code> tag shows an image. It needs <code>src</code> (the image address) and <code>alt</code> (a text description for screen readers and when the image fails to load). Alt text is required for accessibility.",
@@ -3627,7 +3627,7 @@ controller.abort();`,
 </ul>`,
  goal:"Change <ul> to <ol> (and the closing tag too) to switch to numbers.",
  source:"MDN — <ul>, <ol>, and <li>",
- hint:"Don't forget to change both the opening &lt;ul&gt; AND the closing &lt;/ul&gt;."},
+ hint:"Don't forget to change both the opening <ul> AND the closing </ul>."},
 
 {id:508,title:"Comments",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"HTML comments are notes for yourself. They start with <code>&lt;!--</code> and end with <code>--&gt;</code>. The browser ignores them. Use comments to explain tricky code or to temporarily hide things.",
@@ -3636,7 +3636,7 @@ controller.abort();`,
 <!-- <p>This paragraph is hidden because it's commented out.</p> -->`,
  goal:"Remove the comment markers around the second paragraph so it becomes visible.",
  source:"MDN — HTML comments",
- hint:"Delete the &lt;!-- at the start and the --&gt; at the end of the paragraph line."},
+ hint:"Delete the <!-- at the start and the --> at the end of the paragraph line."},
 
 {id:509,title:"Line Breaks",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;br&gt;</code> tag forces a line break without starting a new paragraph. It's a self-closing tag — no closing tag needed. Use sparingly — for poetry or addresses, not as a way to add spacing.",
@@ -3646,7 +3646,7 @@ HTML is fun<br>
 And so are you!</p>`,
  goal:"Add one more line of your own to the poem.",
  source:"MDN — <br>: The Line Break element",
- hint:"Just put &lt;br&gt; at the end of the line where you want a break."},
+ hint:"Just put <br> at the end of the line where you want a break."},
 
 {id:510,title:"Horizontal Rule",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;hr&gt;</code> tag draws a horizontal line. Like &lt;br&gt;, it's self-closing. Use it to visually separate sections of content.",
@@ -3657,7 +3657,7 @@ And so are you!</p>`,
 <p>This is the second chapter.</p>`,
  goal:"Add a third chapter with its own <hr> separator above it.",
  source:"MDN — <hr>: The Thematic Break element",
- hint:"Copy the pattern: &lt;hr&gt; on its own line, then your &lt;h2&gt; and &lt;p&gt;."},
+ hint:"Copy the pattern: <hr> on its own line, then your <h2> and <p>."},
 
 {id:511,title:"Div Containers",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"A <code>&lt;div&gt;</code> is a generic container that groups other elements together. Divs have no built-in meaning — they're for layout. You'll style them with CSS later.",
@@ -3674,7 +3674,7 @@ And so are you!</p>`,
  start:`<p>The word <span style="color:#ef4444;font-weight:bold">red</span> appears in red, but the rest of the sentence is normal.</p>`,
  goal:"Add a span around another word and color it blue (#3b82f6).",
  source:"MDN — <span>: The Content Span element",
- hint:"Wrap a word: &lt;span style=\"color:#3b82f6\"&gt;word&lt;/span&gt;."},
+ hint:"Wrap a word: <span style=\"color:#3b82f6\">word</span>."},
 
 {id:513,title:"Quotes",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Use <code>&lt;blockquote&gt;</code> for a long quoted passage (it indents). Use <code>&lt;q&gt;</code> for a short inline quote (it adds quotation marks automatically).",
@@ -3685,7 +3685,7 @@ And so are you!</p>`,
 </blockquote>`,
  goal:"Add your own short inline quote using <q> in a new paragraph.",
  source:"MDN — <q> and <blockquote>",
- hint:"&lt;p&gt;She said &lt;q&gt;hello&lt;/q&gt; to me.&lt;/p&gt;"},
+ hint:"<p>She said <q>hello</q> to me.</p>"},
 
 {id:514,title:"Tables",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Tables organize data into rows and columns. Use <code>&lt;table&gt;</code> for the table, <code>&lt;tr&gt;</code> for each row, <code>&lt;th&gt;</code> for header cells, and <code>&lt;td&gt;</code> for data cells.",
@@ -3710,7 +3710,7 @@ And so are you!</p>`,
 <button>Cancel</button>`,
  goal:"Add a fourth button labeled 'Delete'.",
  source:"MDN — <button>: The Button element",
- hint:"&lt;button&gt;Delete&lt;/button&gt; on a new line."},
+ hint:"<button>Delete</button> on a new line."},
 
 {id:516,title:"Text Input",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;input&gt;</code> tag with <code>type=\"text\"</code> creates a text box. The <code>&lt;label&gt;</code> tag describes what the input is for. The label's <code>for</code> attribute must match the input's <code>id</code> — this is required for accessibility.",
@@ -3718,7 +3718,7 @@ And so are you!</p>`,
 <input type="text" id="username" placeholder="Type your name here">`,
  goal:"Add a second label + input pair for an email field. Use id=\"email\" and type=\"email\".",
  source:"MDN — <input> and <label>",
- hint:"&lt;label for=\"email\"&gt;Email:&lt;/label&gt; followed by &lt;input type=\"email\" id=\"email\"&gt;"},
+ hint:"<label for=\"email\">Email:</label> followed by <input type=\"email\" id=\"email\">"},
 
 {id:517,title:"Checkboxes",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Checkboxes let users select multiple options. Each checkbox needs a unique <code>id</code>, and each label's <code>for</code> matches that id.",
@@ -3729,7 +3729,7 @@ And so are you!</p>`,
 <input type="checkbox" id="sushi">`,
  goal:"Add a third checkbox for 'Tacos' with id=\"tacos\".",
  source:"MDN — <input type=\"checkbox\">",
- hint:"Don't forget the &lt;br&gt; between items and the matching for/id pair."},
+ hint:"Don't forget the <br> between items and the matching for/id pair."},
 
 {id:518,title:"Radio Buttons",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Radio buttons let users pick exactly ONE option from a group. The trick: all buttons in the group share the same <code>name</code> attribute — that's what groups them.",
@@ -3753,7 +3753,7 @@ And so are you!</p>`,
 </select>`,
  goal:"Add at least two more countries to the dropdown.",
  source:"MDN — <select>",
- hint:"Just add more &lt;option&gt;Country Name&lt;/option&gt; lines inside the &lt;select&gt;."},
+ hint:"Just add more <option>Country Name</option> lines inside the <select>."},
 
 {id:520,title:"Forms",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"A <code>&lt;form&gt;</code> groups inputs together. When the user clicks submit, the form would send the data to a server (but for now we'll just see the layout).",
@@ -3768,7 +3768,7 @@ And so are you!</p>`,
 </form>`,
  goal:"Add an email field between the name and message. Use id=\"em\" with type=\"email\".",
  source:"MDN — <form>",
- hint:"Copy the name pattern — &lt;label for=\"em\"&gt; then &lt;input type=\"email\" id=\"em\"&gt;."},
+ hint:"Copy the name pattern — <label for=\"em\"> then <input type=\"email\" id=\"em\">."},
 
 {id:521,title:"Page Title and Head",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Every full HTML page has a <code>&lt;head&gt;</code> section with metadata. The <code>&lt;title&gt;</code> shows in the browser tab. The body is what's visible.",
@@ -3784,7 +3784,7 @@ And so are you!</p>`,
 </html>`,
  goal:"Change the title text to something with your name.",
  source:"MDN — <title>",
- hint:"Find &lt;title&gt;My First Page&lt;/title&gt; and replace 'My First Page' with your text."},
+ hint:"Find <title>My First Page</title> and replace 'My First Page' with your text."},
 
 {id:522,title:"Semantic Tags: header",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"<code>&lt;header&gt;</code> is a semantic tag — it tells assistive tools that this is the top section of a page. Screen readers announce it. Use one header per page for the main site header.",
@@ -3808,7 +3808,7 @@ And so are you!</p>`,
 </nav>`,
  goal:"Add a fourth link called 'Blog' to the navigation.",
  source:"MDN — <nav>",
- hint:"Add &lt;a href=\"#blog\"&gt;Blog&lt;/a&gt; with a separator (the | character) before it."},
+ hint:"Add <a href=\"#blog\">Blog</a> with a separator (the | character) before it."},
 
 {id:524,title:"Semantic Tags: footer",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"<code>&lt;footer&gt;</code> goes at the bottom of a page. It usually has copyright text, contact info, or links to legal pages.",
@@ -3821,7 +3821,7 @@ And so are you!</p>`,
 </footer>`,
  goal:"Add a second paragraph inside the footer with a link to your favorite site.",
  source:"MDN — <footer>",
- hint:"Inside the &lt;footer&gt;, add &lt;p&gt;&lt;a href=\"URL\"&gt;Site name&lt;/a&gt;&lt;/p&gt;."},
+ hint:"Inside the <footer>, add <p><a href=\"URL\">Site name</a></p>."},
 
 {id:525,title:"Semantic Tags: article",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"<code>&lt;article&gt;</code> wraps a piece of content that makes sense on its own — like a blog post, news story, or product card. Each article should be self-contained.",
@@ -3831,7 +3831,7 @@ And so are you!</p>`,
 </article>`,
  goal:"Copy the article block and add a second article about another recipe.",
  source:"MDN — <article>",
- hint:"Select the whole &lt;article&gt;...&lt;/article&gt; block, copy it, paste below, change the content."},
+ hint:"Select the whole <article>...</article> block, copy it, paste below, change the content."},
 
 {id:526,title:"Semantic Tags: section",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"<code>&lt;section&gt;</code> groups related content under a heading. A page might have multiple sections (Introduction, Features, Pricing, Contact).",
@@ -3845,7 +3845,7 @@ And so are you!</p>`,
 </section>`,
  goal:"Add a third section called 'Contact' with a paragraph inviting people to reach out.",
  source:"MDN — <section>",
- hint:"Copy the pattern: &lt;section&gt; &lt;h2&gt;Contact&lt;/h2&gt; &lt;p&gt;Your text&lt;/p&gt; &lt;/section&gt;."},
+ hint:"Copy the pattern: <section> <h2>Contact</h2> <p>Your text</p> </section>."},
 
 {id:527,title:"Symbols and Entities",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"Some characters are special in HTML. Use entities to show them: <code>&amp;lt;</code> for &lt;, <code>&amp;gt;</code> for &gt;, <code>&amp;amp;</code> for &amp;, <code>&amp;copy;</code> for ©.",
@@ -3854,7 +3854,7 @@ And so are you!</p>`,
 <p>Copyright symbol: &amp;copy; shows as &copy;</p>`,
  goal:"Add a paragraph that displays a greater-than symbol using &amp;gt;.",
  source:"MDN — Character entity references",
- hint:"&lt;p&gt;Greater than: &amp;gt; shows as &gt;&lt;/p&gt;"},
+ hint:"<p>Greater than: &amp;gt; shows as ></p>"},
 
 {id:528,title:"Emojis in HTML",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"You can put emoji characters directly into HTML — modern browsers handle them automatically. They work just like any other text.",
@@ -3863,7 +3863,7 @@ And so are you!</p>`,
 <p>Try changing or adding your own!</p>`,
  goal:"Add a paragraph with three emojis that describe your hobbies.",
  source:"web.dev — Emoji and accessibility",
- hint:"&lt;p&gt;I enjoy 🎨 painting and 📚 reading&lt;/p&gt; — you can copy emojis from anywhere."},
+ hint:"<p>I enjoy 🎨 painting and 📚 reading</p> — you can copy emojis from anywhere."},
 
 {id:529,title:"Title Attribute (Tooltips)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>title</code> attribute creates a tooltip — text that appears when the user hovers over the element. Useful for extra info, but don't rely on it for critical content (mobile users can't hover).",
@@ -3882,7 +3882,7 @@ And so are you!</p>`,
 <p>This paragraph has <span class="highlight">two</span> <span class="highlight">highlights</span>.</p>`,
  goal:"Add a third paragraph with at least one highlighted word using class=\"highlight\".",
  source:"MDN — class attribute",
- hint:"&lt;p&gt;Some text with &lt;span class=\"highlight\"&gt;highlight&lt;/span&gt;.&lt;/p&gt;"},
+ hint:"<p>Some text with <span class=\"highlight\">highlight</span>.</p>"},
 
 {id:531,title:"ID Attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>id</code> attribute is a unique name for a single element. Only ONE element on a page can have a given id. We used ids earlier for label/input pairs.",
@@ -3893,7 +3893,7 @@ And so are you!</p>`,
 <p>The CSS targeted that heading by id.</p>`,
  goal:"Add a paragraph with id=\"intro\" and add a CSS rule #intro { font-style: italic; } inside the <style> tag.",
  source:"MDN — id attribute",
- hint:"Inside &lt;style&gt;, add: #intro { font-style: italic; } — then add &lt;p id=\"intro\"&gt;Your text&lt;/p&gt;."},
+ hint:"Inside <style>, add: #intro { font-style: italic; } — then add <p id=\"intro\">Your text</p>."},
 
 {id:532,title:"Inline Styles",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>style</code> attribute lets you write CSS directly on an element. It's quick but messy — for one-offs only. Normally CSS lives in a stylesheet (next lesson section).",
@@ -3902,7 +3902,7 @@ And so are you!</p>`,
 <p style="color:#10b981;font-size:24px">This is big and green.</p>`,
  goal:"Add a fourth paragraph that's purple (#a855f7) and bold using font-weight:bold.",
  source:"MDN — Using inline CSS",
- hint:"&lt;p style=\"color:#a855f7;font-weight:bold\"&gt;Your text&lt;/p&gt; — separate properties with semicolons."},
+ hint:"<p style=\"color:#a855f7;font-weight:bold\">Your text</p> — separate properties with semicolons."},
 
 {id:533,title:"Audio Player",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;audio&gt;</code> tag embeds a sound player. Add <code>controls</code> to show play/pause buttons. The browser handles everything.",
@@ -3913,7 +3913,7 @@ And so are you!</p>`,
 <p>An audio player above plays a button click sound.</p>`,
  goal:"Add the loop attribute to the audio tag so it repeats.",
  source:"MDN — <audio>",
- hint:"Change &lt;audio controls&gt; to &lt;audio controls loop&gt;."},
+ hint:"Change <audio controls> to <audio controls loop>."},
 
 {id:534,title:"Video Player",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"The <code>&lt;video&gt;</code> tag embeds video. Like audio, add <code>controls</code> for play buttons. You can also set width and height.",
@@ -3923,7 +3923,7 @@ And so are you!</p>`,
 </video>`,
  goal:"Add a poster image that shows before the video plays. Use poster=\"https://picsum.photos/320/180\".",
  source:"MDN — <video>",
- hint:"Add the attribute inside the &lt;video&gt; tag: &lt;video controls width=\"320\" poster=\"...\"&gt;."},
+ hint:"Add the attribute inside the <video> tag: <video controls width=\"320\" poster=\"...\">."},
 
 {id:535,title:"Put It All Together",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
  desc:"You've learned the basics! Now build a small profile page using everything: a header, paragraphs, a list, an image, and a link. This is the same pattern real websites use.",
@@ -5011,12 +5011,3431 @@ console.log("Grade: " + grade);`,
  source:"w3schools — JS Syntax (all sections combined)",
  hint:"Change 92, 85, and 78 to your own test scores. Try low values to see the \"Needs work\" branch."},
 
+/* ══ BEGINNER LESSONS — HTML EXTENDED (611–630) — MDN + W3Schools + web.dev ══ */
+// Run-and-observe lessons. No multiple choice. Continues from 501-535 series.
+// Lessons added May 17, 2026. All constraints honored: labels use for=, let not var, textContent for user input.
+
+{id:611,title:"HTML: Favicon (site icon)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A <strong>favicon</strong> is the small icon that appears in browser tabs. Link one with <code>&lt;link rel=\"icon\"&gt;</code> inside the <code>&lt;head&gt;</code>. Modern sites use SVG or PNG.",
+ start:`<!DOCTYPE html>
+<html>
+<head>
+  <title>My Site</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='7' fill='%23a855f7'/></svg>">
+</head>
+<body>
+  <h1>Check the browser tab!</h1>
+  <p>The purple circle is the favicon.</p>
+</body>
+</html>`,
+ goal:"Change the favicon color from %23a855f7 (purple) to %2310b981 (green) or %23ef4444 (red).",
+ source:"W3Schools — HTML Favicon + MDN — link element",
+ hint:"Find fill='%23a855f7' and replace the hex code. The %23 is just URL-encoded #."},
+
+{id:612,title:"HTML: Page Title best practices",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;title&gt;</code> tag shows in browser tabs, bookmarks, and search results. Keep it under 60 characters, put the most important words first, and make every page unique.",
+ start:`<!DOCTYPE html>
+<html>
+<head>
+  <title>Dragon Memory Match · Code Ranger Games</title>
+</head>
+<body>
+  <h1>Look at the browser tab</h1>
+  <p>The title appears there. Good titles are descriptive and unique.</p>
+</body>
+</html>`,
+ goal:"Change the title to describe your own project. Keep it short and put keywords first.",
+ source:"W3Schools — HTML Page Title + web.dev — Document titles",
+ hint:"Replace the text between <title> and </title> with your project name."},
+
+{id:613,title:"HTML: File Paths (relative vs absolute)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Paths tell the browser where to find files. <strong>Relative</strong> paths like <code>images/cat.jpg</code> are based on the current file's location. <strong>Absolute</strong> paths like <code>https://example.com/cat.jpg</code> include the full URL. Use <code>../</code> to go up one folder.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h2>File Path Examples</h2>
+  <p>Same folder: <code>logo.png</code></p>
+  <p>Subfolder: <code>images/logo.png</code></p>
+  <p>Parent folder: <code>../logo.png</code></p>
+  <p>Absolute URL: <code>https://example.com/logo.png</code></p>
+  <img src="https://placehold.co/100x100/a855f7/white?text=ABS" alt="absolute path example">
+</body>
+</html>`,
+ goal:"Change the image text from ABS to your initials by editing the placeholder URL.",
+ source:"W3Schools — HTML File Paths",
+ hint:"Find text=ABS in the img src and change ABS to your initials (e.g. text=JD)."},
+
+{id:614,title:"HTML: Page Layout structure",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A well-structured page uses semantic layout tags: <code>&lt;header&gt;</code> for top, <code>&lt;nav&gt;</code> for links, <code>&lt;main&gt;</code> for primary content, <code>&lt;aside&gt;</code> for side content, <code>&lt;footer&gt;</code> for bottom.",
+ start:`<!DOCTYPE html>
+<html>
+<head><style>
+  header, footer { background: #a855f7; color: white; padding: 12px; }
+  nav { background: #f3e8ff; padding: 8px; }
+  main { padding: 20px; }
+  aside { background: #e9d5ff; padding: 12px; margin-top: 12px; }
+</style></head>
+<body>
+  <header><h2>My Site</h2></header>
+  <nav>Home · About · Contact</nav>
+  <main>
+    <h3>Main content here</h3>
+    <p>This is the primary content area.</p>
+    <aside>Related links sidebar</aside>
+  </main>
+  <footer>© 2026 Code Ranger</footer>
+</body>
+</html>`,
+ goal:"Change the header text from \"My Site\" to your name, and the nav links to your own.",
+ source:"W3Schools — HTML Layout + MDN — Document and website structure",
+ hint:"Edit the text inside <header><h2>...</h2></header> and inside <nav>...</nav>."},
+
+{id:615,title:"HTML: Iframes (embedding pages)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"An <code>&lt;iframe&gt;</code> embeds another page inside yours. Use <code>sandbox</code> for security when embedding untrusted content. Common uses: maps, videos, widgets.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h2>Embedded page below</h2>
+  <iframe srcdoc="<h3 style='color:#a855f7;font-family:sans-serif'>Hello from inside the iframe!</h3><p>This is a separate document.</p>" width="400" height="150" style="border:2px solid #a855f7;border-radius:8px"></iframe>
+</body>
+</html>`,
+ goal:"Change the iframe text or styles. Try changing the border color or the heading message.",
+ source:"W3Schools — HTML Iframes + MDN — iframe element",
+ hint:"Edit the srcdoc attribute — it's the mini-HTML inside the iframe."},
+
+{id:616,title:"HTML: Computer code tags",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"HTML has special tags for code: <code>&lt;code&gt;</code> for inline code, <code>&lt;pre&gt;</code> for preformatted blocks, <code>&lt;kbd&gt;</code> for keyboard input, <code>&lt;samp&gt;</code> for sample output, <code>&lt;var&gt;</code> for variables.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Showing Code in HTML</h3>
+  <p>Use <code>const</code> to declare a constant.</p>
+  <p>Press <kbd>Ctrl</kbd> + <kbd>S</kbd> to save.</p>
+  <p>Output: <samp>Hello, World!</samp></p>
+  <p>The variable <var>x</var> stores your age.</p>
+  <pre>
+function greet() {
+  console.log("Hi!");
+}
+  </pre>
+</body>
+</html>`,
+ goal:"Add another &lt;kbd&gt; line showing a shortcut you use often, like Cmd+C or Ctrl+Z.",
+ source:"W3Schools — HTML Computercode + MDN — kbd, samp, var, code",
+ hint:"Copy a <p>Press <kbd>...</kbd></p> line and change the keys."},
+
+{id:617,title:"HTML: Charset declaration",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;meta charset=\"UTF-8\"&gt;</code> tells the browser which character encoding to use. UTF-8 supports nearly every language and symbol. Always include this in the &lt;head&gt;.",
+ start:`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>UTF-8 demo</title>
+</head>
+<body>
+  <h2>UTF-8 supports everything:</h2>
+  <p>English: Hello!</p>
+  <p>Spanish: ¡Hola!</p>
+  <p>Japanese: こんにちは</p>
+  <p>Math: ∑ π ∞ ≠</p>
+  <p>Emoji: 🐉 🌟 🔥</p>
+</body>
+</html>`,
+ goal:"Add a new <p> with a greeting in another language or with symbols you like.",
+ source:"W3Schools — HTML Charsets + MDN — meta element",
+ hint:"Copy a <p> line and write text in any language or symbol set."},
+
+{id:618,title:"HTML: Block vs inline elements",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<strong>Block</strong> elements (div, p, h1, section) take full width and stack vertically. <strong>Inline</strong> elements (span, a, strong, em) flow within text. Knowing the difference is essential for layout.",
+ start:`<!DOCTYPE html>
+<html>
+<head><style>
+  div { background: #f3e8ff; padding: 8px; margin: 4px 0; }
+  span { background: #fde68a; padding: 4px; }
+</style></head>
+<body>
+  <h3>Block elements stack:</h3>
+  <div>Block 1</div>
+  <div>Block 2</div>
+  <div>Block 3</div>
+  <h3>Inline elements flow:</h3>
+  <p>This is <span>inline 1</span> and <span>inline 2</span> in a sentence.</p>
+</body>
+</html>`,
+ goal:"Add a third <span> inside the paragraph with your own text.",
+ source:"W3Schools — HTML Block & Inline + MDN — Block-level / Inline elements",
+ hint:"Find the <p> with the spans and add one more like <span>your text</span>."},
+
+{id:619,title:"HTML: Form attributes (action, method)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Forms send data with two key attributes: <code>action</code> (where data goes) and <code>method</code> (how it's sent — usually <code>POST</code> for submissions, <code>GET</code> for searches).",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Form Example (preview only — won't actually submit)</h3>
+  <form action="/submit" method="POST" style="max-width:300px">
+    <label for="emailInput">Email:</label><br>
+    <input type="email" id="emailInput" name="email" required><br><br>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p style="color:#888;font-size:12px">In real use, action would point to your backend endpoint.</p>
+</body>
+</html>`,
+ goal:"Change the action URL to \"/newsletter\" and the button text to \"Subscribe\".",
+ source:"W3Schools — HTML Form Attributes + MDN — form element",
+ hint:"Find action=\"/submit\" and change it. Find <button type=\"submit\">Sign Up</button> and change the text."},
+
+{id:620,title:"HTML: Input types overview",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"HTML has many input types beyond text. <code>email</code>, <code>tel</code>, <code>url</code>, <code>date</code>, <code>color</code>, <code>range</code>, <code>number</code>. Each gives browsers built-in validation and on mobile, the right keyboard.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Different Input Types</h3>
+  <form style="display:grid;gap:8px;max-width:300px">
+    <label for="emailF">Email:</label>
+    <input type="email" id="emailF">
+    <label for="telF">Phone:</label>
+    <input type="tel" id="telF">
+    <label for="dateF">Date:</label>
+    <input type="date" id="dateF">
+    <label for="colorF">Color:</label>
+    <input type="color" id="colorF">
+    <label for="rangeF">Volume:</label>
+    <input type="range" id="rangeF" min="0" max="100">
+  </form>
+</body>
+</html>`,
+ goal:"Add a <code>number</code> input for age with a label. Use a unique id and the for attribute.",
+ source:"W3Schools — HTML Input Types + MDN — input element",
+ hint:"Add: <label for=\"ageF\">Age:</label><input type=\"number\" id=\"ageF\">"},
+
+{id:621,title:"HTML: Input attributes (validation)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Inputs accept attributes that validate user data: <code>required</code> (must fill), <code>placeholder</code> (hint text), <code>min/max</code> (number range), <code>maxlength</code> (text length), <code>pattern</code> (regex).",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Validated Inputs</h3>
+  <form style="max-width:300px">
+    <label for="nameIn">Name (required, max 20):</label><br>
+    <input type="text" id="nameIn" required maxlength="20" placeholder="Enter your name"><br><br>
+    <label for="ageIn">Age (18-120):</label><br>
+    <input type="number" id="ageIn" min="18" max="120" placeholder="18 or older"><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>`,
+ goal:"Try submitting empty — see the browser block it. Then change maxlength to 10 and try a long name.",
+ source:"W3Schools — HTML Input Attributes + MDN — Client-side form validation",
+ hint:"Find maxlength=\"20\" and change to maxlength=\"10\". Press Run to see the change."},
+
+{id:622,title:"HTML: Label \"for\" attribute deep dive",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Every <code>&lt;label&gt;</code> should use <code>for=\"inputId\"</code> matching the input's <code>id</code>. This lets screen readers announce labels correctly AND lets users click the label to focus the input. This is a Code Ranger code-quality requirement.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Try clicking the labels themselves:</h3>
+  <p>
+    <label for="agreeBox">I agree to the terms</label>
+    <input type="checkbox" id="agreeBox">
+  </p>
+  <p>
+    <label for="newsletterBox">Subscribe to newsletter</label>
+    <input type="checkbox" id="newsletterBox">
+  </p>
+  <p style="color:#666;font-size:12px">Clicking the text toggles the checkbox because of the for attribute.</p>
+</body>
+</html>`,
+ goal:"Add a third checkbox with a label using for and a unique id, like \"remindMe\".",
+ source:"W3Schools — HTML Forms + MDN — label element + WCAG",
+ hint:"Copy a <p>...<label>...<input>...</p> block and use for=\"remindMe\" with id=\"remindMe\"."},
+
+{id:623,title:"HTML: Fieldset and legend",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;fieldset&gt;</code> groups related form fields. <code>&lt;legend&gt;</code> gives the group a title. Screen readers announce the legend when entering the group — great for accessibility.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <form style="max-width:320px">
+    <fieldset style="border:2px solid #a855f7;border-radius:8px;padding:12px">
+      <legend style="color:#a855f7;font-weight:bold">Contact Info</legend>
+      <label for="fnameF">First name:</label>
+      <input type="text" id="fnameF"><br><br>
+      <label for="lnameF">Last name:</label>
+      <input type="text" id="lnameF">
+    </fieldset>
+  </form>
+</body>
+</html>`,
+ goal:"Add a second fieldset titled \"Address\" with one input for street.",
+ source:"W3Schools — HTML Form Elements + MDN — fieldset, legend",
+ hint:"Copy the entire <fieldset>...</fieldset> block and change the legend + inputs."},
+
+{id:624,title:"HTML: Datalist (autocomplete suggestions)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;datalist&gt;</code> provides autocomplete suggestions for an input. Link them with the input's <code>list</code> attribute. Users can pick from the list OR type something else.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="langInput">Favorite programming language:</label><br>
+  <input type="text" id="langInput" list="languages" placeholder="Start typing...">
+  <datalist id="languages">
+    <option value="JavaScript">
+    <option value="Python">
+    <option value="Rust">
+    <option value="Go">
+    <option value="TypeScript">
+  </datalist>
+  <p style="color:#666;font-size:12px">Click the input to see suggestions, or type to filter.</p>
+</body>
+</html>`,
+ goal:"Add three more languages to the datalist (e.g. Ruby, Swift, Kotlin).",
+ source:"W3Schools — HTML Input Attributes + MDN — datalist element",
+ hint:"Inside <datalist>, add lines like <option value=\"Ruby\">"},
+
+{id:625,title:"HTML: Textarea (multi-line input)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;textarea&gt;</code> is for multi-line text. Use <code>rows</code> and <code>cols</code> to size it, or CSS for full control. Always pair with a label using <code>for</code>.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="msgArea">Your message:</label><br>
+  <textarea id="msgArea" rows="5" cols="40" placeholder="Type your message here..." maxlength="200"></textarea>
+  <p style="color:#666;font-size:12px">200 character limit. Try typing a long message.</p>
+</body>
+</html>`,
+ goal:"Change rows to 8 and maxlength to 500. Add a default message between the textarea tags.",
+ source:"W3Schools — HTML Form Elements + MDN — textarea element",
+ hint:"Edit rows=\"5\" to rows=\"8\" and maxlength=\"200\" to maxlength=\"500\". Put default text between <textarea ...> and </textarea>."},
+{id:626,title:"HTML: Canvas basics (draw a rectangle)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;canvas&gt;</code> is a drawing surface controlled by JavaScript. Get a 2D context, then call methods like <code>fillRect</code>. Canvas powers games, charts, image editors.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <canvas id="myCanvas" width="300" height="150" style="border:2px solid #a855f7;border-radius:8px"></canvas>
+  <script>
+    const canvas = document.getElementById("myCanvas");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#a855f7";
+    ctx.fillRect(20, 20, 100, 80);
+    ctx.fillStyle = "#10b981";
+    ctx.fillRect(150, 40, 100, 60);
+  </script>
+</body>
+</html>`,
+ goal:"Add a third rectangle at position (50, 110) with size 200×30 in any color.",
+ source:"W3Schools — HTML Canvas + MDN — Canvas API tutorial",
+ hint:"Add: ctx.fillStyle = \"#f59e0b\"; ctx.fillRect(50, 110, 200, 30);"},
+
+{id:627,title:"HTML: SVG basics (draw a circle)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;svg&gt;</code> is vector graphics — scales perfectly at any size. Use shapes like <code>&lt;circle&gt;</code>, <code>&lt;rect&gt;</code>, <code>&lt;line&gt;</code>. SVG is great for icons, logos, charts.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <svg width="300" height="150" style="border:2px solid #a855f7;border-radius:8px">
+    <circle cx="60" cy="75" r="40" fill="#a855f7" />
+    <rect x="120" y="40" width="70" height="70" fill="#10b981" />
+    <line x1="210" y1="40" x2="280" y2="110" stroke="#f59e0b" stroke-width="6" />
+  </svg>
+</body>
+</html>`,
+ goal:"Change the circle's radius (r) from 40 to 60, and pick a new fill color.",
+ source:"W3Schools — HTML SVG + MDN — SVG tutorial",
+ hint:"Find r=\"40\" and change to r=\"60\". Find fill=\"#a855f7\" and try fill=\"#ef4444\"."},
+
+{id:628,title:"HTML: YouTube embed",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Embed YouTube videos with an iframe pointing to <code>youtube.com/embed/VIDEO_ID</code>. Use <code>allow</code> for permissions and <code>allowfullscreen</code> so users can go full screen.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Embedded Video Example (placeholder)</h3>
+  <iframe width="320" height="180"
+    srcdoc="<div style='background:linear-gradient(135deg,#a855f7,#6366f1);width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:white;font-family:sans-serif;font-size:18px'>▶ Video Placeholder</div>"
+    style="border:0;border-radius:8px">
+  </iframe>
+  <p style="color:#666;font-size:12px">Real syntax: src=\"https://www.youtube.com/embed/VIDEO_ID\"</p>
+</body>
+</html>`,
+ goal:"Change the placeholder gradient colors. Try #ef4444 to #f59e0b for a red-orange gradient.",
+ source:"W3Schools — HTML YouTube + MDN — Embedding content",
+ hint:"Find linear-gradient(135deg,#a855f7,#6366f1) and replace the two hex colors."},
+
+{id:629,title:"HTML: Accessibility — aria-label",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>aria-label</code> gives screen readers a description when there's no visible text — like icon-only buttons. Always add aria-label to icon buttons, or screen-reader users won't know what they do.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Icon Buttons with aria-label:</h3>
+  <button aria-label="Close dialog" style="font-size:20px;padding:6px 12px">✕</button>
+  <button aria-label="Open menu" style="font-size:20px;padding:6px 12px">☰</button>
+  <button aria-label="Search" style="font-size:20px;padding:6px 12px">🔍</button>
+  <p style="color:#666;font-size:12px">Visually you see icons. Screen readers announce \"Close dialog\", \"Open menu\", \"Search\".</p>
+</body>
+</html>`,
+ goal:"Add a fourth icon button (try ❤️ for \"Like\" or ⭐ for \"Favorite\") with the right aria-label.",
+ source:"W3Schools — HTML Accessibility + MDN — ARIA: aria-label + WCAG",
+ hint:"Copy a <button>...</button> and change the icon + aria-label text."},
+
+{id:630,title:"HTML: Style Guide — clean HTML",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Good HTML style: lowercase tag names, always close tags, quote attribute values, indent nested elements, one element per line for complex structures. Consistency makes code readable.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <!-- Bad: messy, mixed case, missing quotes -->
+  <!-- <DIV class=card><P>Hello</P></DIV> -->
+
+  <!-- Good: lowercase, quoted, indented -->
+  <div class="card" style="padding:12px;border:1px solid #a855f7;border-radius:8px">
+    <h3>Clean HTML</h3>
+    <p>This is properly formatted.</p>
+    <ul>
+      <li>Lowercase tags</li>
+      <li>Quoted attributes</li>
+      <li>Closed elements</li>
+    </ul>
+  </div>
+</body>
+</html>`,
+ goal:"Add a fourth <li> with another good practice (like \"Indent nested elements\").",
+ source:"W3Schools — HTML Style Guide",
+ hint:"Add: <li>Indent nested elements</li> inside the <ul>."},
+
+/* ══ BEGINNER LESSONS — CSS EXTENDED (631–650) — MDN + W3Schools + web.dev ══ */
+// Continues yesterday's CSS Fundamentals (536-560). Focuses on layout, selectors, and modern CSS.
+
+{id:631,title:"CSS: Outline vs Border",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>outline</code> draws OUTSIDE the border without affecting layout (doesn't push other elements). Great for focus rings. <code>border</code> takes up space and shifts surrounding content.",
+ start:`button {
+  padding: 10px 20px;
+  margin: 8px;
+  border: 2px solid #a855f7;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+}
+button:focus {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}`,
+ goal:"Change the outline color to your favorite color and the offset to 4px.",
+ source:"W3Schools — CSS Outline + MDN — outline property",
+ hint:"Find outline: 3px solid #f59e0b and change the hex. Find outline-offset: 2px and change to 4px."},
+
+{id:632,title:"CSS: Max-width for responsive design",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>max-width</code> limits how wide an element can grow, but lets it shrink on small screens. The classic responsive pattern: <code>max-width: 800px; margin: 0 auto;</code> for a centered, capped container.",
+ start:`.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 24px;
+  background: #f3e8ff;
+  border-radius: 12px;
+}
+.container h2 { color: #6b21a8; }`,
+ goal:"Change max-width from 600px to 400px and watch the container shrink.",
+ source:"W3Schools — CSS Max-width + web.dev — Responsive design",
+ hint:"Find max-width: 600px and change to max-width: 400px."},
+
+{id:633,title:"CSS: Z-index stacking",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>z-index</code> controls which element appears on top when elements overlap. Higher numbers = higher up. Only works on positioned elements (position: relative, absolute, fixed, or sticky).",
+ start:`.box { position: absolute; width: 100px; height: 100px; }
+.box1 { background: #ef4444; top: 20px; left: 20px; z-index: 1; }
+.box2 { background: #f59e0b; top: 50px; left: 50px; z-index: 3; }
+.box3 { background: #10b981; top: 80px; left: 80px; z-index: 2; }`,
+ goal:"Swap z-index values so the red box (.box1) is on top.",
+ source:"W3Schools — CSS Z-index + MDN — z-index",
+ hint:"Change .box1's z-index from 1 to 5 (any number higher than 3)."},
+
+{id:634,title:"CSS: Overflow (hidden, scroll, auto)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>overflow</code> controls what happens when content exceeds its container. <code>hidden</code> clips it, <code>scroll</code> always shows scrollbars, <code>auto</code> shows scrollbars only when needed.",
+ start:`.scroll-box {
+  width: 200px;
+  height: 100px;
+  border: 2px solid #a855f7;
+  padding: 8px;
+  overflow: auto;
+  margin: 10px;
+}`,
+ goal:"Change overflow from auto to hidden — watch the content get clipped instead of scrolling.",
+ source:"W3Schools — CSS Overflow + MDN — overflow",
+ hint:"Find overflow: auto; and change to overflow: hidden;"},
+
+{id:635,title:"CSS: Inline-block",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>display: inline-block</code> elements sit side-by-side like inline elements BUT accept width/height like block elements. Used to be the main layout tool before flexbox/grid.",
+ start:`.box {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 8px;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 80px;
+  color: white;
+  font-weight: bold;
+}
+.b1 { background: #a855f7; }
+.b2 { background: #10b981; }
+.b3 { background: #f59e0b; }`,
+ goal:"Change .box's display from inline-block to block — watch boxes stack vertically.",
+ source:"W3Schools — CSS Inline-block + MDN — display",
+ hint:"Find display: inline-block; and change to display: block;"},
+
+{id:636,title:"CSS: Combinators (descendant, child, adjacent)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Combinators target relationships: <code>div p</code> = any p inside div (descendant). <code>div &gt; p</code> = direct child only. <code>h2 + p</code> = p directly after h2 (adjacent).",
+ start:`/* Descendant: any p inside .card */
+.card p { color: #6b21a8; }
+
+/* Direct child only */
+.card > h3 { background: #f3e8ff; padding: 6px; }
+
+/* Adjacent: p right after h3 */
+h3 + p { font-weight: bold; }`,
+ goal:"Add a rule using a descendant combinator: <code>.card span { color: red; }</code>",
+ source:"W3Schools — CSS Combinators + MDN — Combinators",
+ hint:"Add a new rule at the bottom: .card span { color: red; }"},
+
+{id:637,title:"CSS: Pseudo-elements ::before and ::after",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>::before</code> and <code>::after</code> insert content before/after an element using only CSS. Set <code>content: \"...\"</code>. Great for decorative quotes, badges, or icons.",
+ start:`.quote {
+  font-style: italic;
+  font-size: 18px;
+  color: #a855f7;
+  padding: 12px;
+}
+.quote::before {
+  content: "❝ ";
+  font-size: 28px;
+}
+.quote::after {
+  content: " ❞";
+  font-size: 28px;
+}`,
+ goal:"Change the ::before content from \"❝ \" to a different symbol, like \"→ \" or \"★ \".",
+ source:"W3Schools — CSS Pseudo-elements + MDN — ::before, ::after",
+ hint:"Find content: \"❝ \"; and change the string inside the quotes."},
+
+{id:638,title:"CSS: Opacity vs RGBA",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>opacity</code> makes the WHOLE element (including text and children) transparent. <code>rgba(r,g,b,a)</code> makes only the background semi-transparent. Use rgba for overlays where you want readable text.",
+ start:`.opacity-box {
+  background: #a855f7;
+  opacity: 0.5;
+  padding: 12px;
+  color: white;
+  margin: 8px;
+}
+.rgba-box {
+  background: rgba(168, 85, 247, 0.5);
+  padding: 12px;
+  color: white;
+  margin: 8px;
+}`,
+ goal:"Change the opacity from 0.5 to 0.2 — see how the text also fades. The rgba box keeps the text crisp.",
+ source:"W3Schools — CSS Opacity + MDN — opacity, rgba()",
+ hint:"Find opacity: 0.5; and change to opacity: 0.2;"},
+
+{id:639,title:"CSS: Attribute selectors",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Target elements by their attributes: <code>[type=\"text\"]</code> selects inputs with type text. <code>[href^=\"https\"]</code> selects links starting with https. Powerful for forms and links.",
+ start:`input[type="text"] {
+  border: 2px solid #a855f7;
+  border-radius: 6px;
+  padding: 8px;
+}
+input[type="email"] {
+  border: 2px solid #10b981;
+  border-radius: 6px;
+  padding: 8px;
+}
+input[required] {
+  background: #fef3c7;
+}`,
+ goal:"Add a rule for input[type=\"password\"] with a red border.",
+ source:"W3Schools — CSS Attribute Selectors + MDN — Attribute selectors",
+ hint:"Add: input[type=\"password\"] { border: 2px solid red; padding: 8px; }"},
+
+{id:640,title:"CSS: Units — em, rem, %, vh, vw",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"CSS has many units: <code>px</code> (fixed), <code>em</code> (relative to parent font), <code>rem</code> (relative to root font), <code>%</code> (parent size), <code>vh/vw</code> (viewport height/width). Use rem for accessibility — respects user font preferences.",
+ start:`.parent {
+  font-size: 16px;
+  padding: 1rem;
+  background: #f3e8ff;
+}
+.child-em { font-size: 1.5em; color: #a855f7; }
+.child-rem { font-size: 1.5rem; color: #10b981; }
+.full-width { width: 100%; background: #fde68a; padding: 8px; }`,
+ goal:"Change .parent font-size to 20px — em scales with it, rem stays the same.",
+ source:"W3Schools — CSS Units + web.dev — Sizes and units",
+ hint:"Find font-size: 16px; in .parent and change to 20px."},
+{id:641,title:"CSS: Specificity (which rule wins)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"When multiple rules match, the more <strong>specific</strong> one wins. Specificity: inline styles (1000) &gt; IDs (100) &gt; classes/attributes (10) &gt; tags (1). When tied, the later rule wins.",
+ start:`p { color: black; }              /* specificity: 1 */
+.note { color: blue; }            /* specificity: 10 */
+#special { color: green; }        /* specificity: 100 */
+
+/* HTML:
+   <p>Plain (black)</p>
+   <p class="note">Class note (blue)</p>
+   <p class="note" id="special">Class AND id (green wins)</p>
+*/`,
+ goal:"Add a rule <code>p.note { color: red; }</code> at the end — it's more specific than .note alone (11 vs 10), so the blue class note becomes red.",
+ source:"W3Schools — CSS Specificity + MDN — Specificity",
+ hint:"Add a new line at the bottom: p.note { color: red; }"},
+
+{id:642,title:"CSS: !important (and when NOT to use it)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>!important</code> overrides ALL other rules, regardless of specificity. It's a last resort — overuse makes CSS unmaintainable. Prefer fixing specificity instead.",
+ start:`p { color: red !important; }
+#special { color: green; }
+.note { color: blue; }
+
+/* HTML:
+   <p id="special" class="note">This stays red because !important wins.</p>
+*/`,
+ goal:"Remove the !important from the p rule and re-Run — now the green ID wins like normal.",
+ source:"W3Schools — CSS !important + MDN — Specificity",
+ hint:"Delete \" !important\" from the first rule, leaving: p { color: red; }"},
+
+{id:643,title:"CSS: calc(), min(), max()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Math functions let CSS calculate values: <code>calc(100% - 40px)</code> mixes units. <code>min(50vw, 600px)</code> picks the smaller. <code>max(40px, 5vw)</code> picks the larger. Great for responsive sizing.",
+ start:`.calc-box {
+  width: calc(100% - 40px);
+  margin: 20px;
+  padding: 12px;
+  background: #a855f7;
+  color: white;
+  border-radius: 8px;
+}
+.min-box {
+  width: min(80%, 400px);
+  margin: 12px;
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  border-radius: 8px;
+}`,
+ goal:"Change <code>calc(100% - 40px)</code> to <code>calc(100% - 80px)</code> — watch the box get narrower.",
+ source:"W3Schools — CSS Math Functions + MDN — calc(), min(), max()",
+ hint:"Find calc(100% - 40px) and change the 40px to 80px."},
+
+{id:644,title:"CSS: Linear gradients",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>linear-gradient(direction, color1, color2)</code> creates a smooth color blend. Direction can be an angle (<code>135deg</code>) or keyword (<code>to right</code>, <code>to bottom</code>).",
+ start:`.gradient-box {
+  width: 100%;
+  height: 120px;
+  margin: 12px 0;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.g1 { background: linear-gradient(to right, #a855f7, #6366f1); }
+.g2 { background: linear-gradient(135deg, #f59e0b, #ef4444); }
+.g3 { background: linear-gradient(to bottom, #10b981, #0891b2, #6366f1); }`,
+ goal:"Add a 4th gradient direction <code>to top right</code> with two of your favorite colors.",
+ source:"W3Schools — CSS Gradients + MDN — linear-gradient()",
+ hint:"Copy a .g rule and write: background: linear-gradient(to top right, #fde047, #f97316);"},
+
+{id:645,title:"CSS: Text shadows",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>text-shadow: x y blur color</code> adds shadow behind text. Subtle shadows add depth; bold shadows create retro/neon effects. Stack multiple shadows with commas.",
+ start:`h1 {
+  font-size: 36px;
+  color: white;
+  background: #0f172a;
+  padding: 24px;
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 0 8px #a855f7, 0 0 16px #a855f7;
+}
+h2 {
+  color: #6b21a8;
+  text-shadow: 2px 2px 0 #fde047;
+}`,
+ goal:"Change the h1's glow color from #a855f7 to #10b981 in both text-shadow positions.",
+ source:"W3Schools — CSS Text Effects + MDN — text-shadow",
+ hint:"Find text-shadow: 0 0 8px #a855f7, 0 0 16px #a855f7; and change both hex codes."},
+
+{id:646,title:"CSS: 2D Transforms (rotate, scale)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>transform</code> moves, rotates, or scales elements WITHOUT affecting layout. Common: <code>rotate(45deg)</code>, <code>scale(1.2)</code>, <code>translate(10px, 20px)</code>. Combine with transitions for smooth effects.",
+ start:`.box {
+  width: 80px;
+  height: 80px;
+  margin: 30px;
+  background: #a855f7;
+  border-radius: 8px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+}
+.rotate { transform: rotate(15deg); }
+.scale { transform: scale(1.3); }
+.translate { transform: translate(20px, -10px); }
+.combo { transform: rotate(45deg) scale(0.8); background: #10b981; }`,
+ goal:"Change .rotate from 15deg to 90deg. Add a new <code>.flip</code> rule using <code>scaleX(-1)</code>.",
+ source:"W3Schools — CSS 2D Transforms + MDN — transform",
+ hint:"Find transform: rotate(15deg); and change to 90deg. Add: .flip { transform: scaleX(-1); }"},
+
+{id:647,title:"CSS: Animations with @keyframes",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>@keyframes</code> defines animation steps. Apply with <code>animation: name duration timing iteration</code>. Use for loading spinners, attention pulses, micro-interactions.",
+ start:`@keyframes pulse {
+  0%   { transform: scale(1);   opacity: 1; }
+  50%  { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+.pulse-dot {
+  width: 60px;
+  height: 60px;
+  background: #a855f7;
+  border-radius: 50%;
+  margin: 40px auto;
+  animation: pulse 1.5s ease-in-out infinite;
+}`,
+ goal:"Change duration from 1.5s to 0.5s — pulse speeds up. Then try 3s for slow motion.",
+ source:"W3Schools — CSS Animations + MDN — @keyframes",
+ hint:"Find animation: pulse 1.5s ease-in-out infinite; and change 1.5s."},
+
+{id:648,title:"CSS: Tooltips with ::after",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Build a simple tooltip using <code>::after</code> + <code>data-tip</code> attribute. Show on hover, hide otherwise. No JavaScript needed.",
+ start:`.tooltip {
+  position: relative;
+  display: inline-block;
+  padding: 8px 16px;
+  background: #a855f7;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.tooltip:hover::after { opacity: 1; }
+
+/* HTML:
+   <span class="tooltip" data-tip="Hello from tooltip!">Hover me</span>
+*/`,
+ goal:"Change the tooltip background from #0f172a to #10b981 to make it green.",
+ source:"W3Schools — CSS Tooltips + MDN — ::after",
+ hint:"Find background: #0f172a; inside .tooltip::after and change the color."},
+
+{id:649,title:"CSS: Media queries (responsive)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>@media</code> applies CSS only when conditions match — screen width, dark mode, print, etc. Build mobile-first: write base styles, then add breakpoints for larger screens.",
+ start:`.card {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 12px;
+  font-size: 14px;
+}
+
+@media (min-width: 600px) {
+  .card { background: #10b981; font-size: 18px; }
+}
+
+@media (min-width: 1000px) {
+  .card { background: #f59e0b; font-size: 24px; }
+}
+
+/* Resize the preview window to see the card change colors! */`,
+ goal:"Add a 4th breakpoint at min-width: 1400px that changes the card to red (#ef4444).",
+ source:"W3Schools — CSS Media Queries + web.dev — Responsive design",
+ hint:"Add: @media (min-width: 1400px) { .card { background: #ef4444; } }"},
+
+{id:650,title:"CSS: box-sizing border-box",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"By default, padding and border ADD to an element's width. <code>box-sizing: border-box</code> includes them IN the width, making layouts predictable. Most modern sites set this globally.",
+ start:`* { box-sizing: border-box; }
+
+.box {
+  width: 200px;
+  padding: 20px;
+  border: 4px solid #a855f7;
+  background: #f3e8ff;
+  margin: 8px 0;
+}
+
+/* With border-box, the box stays exactly 200px wide.
+   Without it, the box would be 200 + 40 + 8 = 248px wide. */`,
+ goal:"Try changing the * rule to <code>* { box-sizing: content-box; }</code> — the box becomes wider.",
+ source:"W3Schools — CSS Box Sizing + MDN — box-sizing",
+ hint:"Find box-sizing: border-box; and change to box-sizing: content-box;"},
+
+/* ══ BEGINNER LESSONS — JS EXTENDED (651–670) — MDN + web.dev + W3Schools ══ */
+// Continues yesterday's JS Fundamentals + JS Syntax. Focuses on string/number/array methods and core APIs.
+// All examples use let (not var), closure-based functions where stateful, and textContent for user input.
+
+{id:651,title:"JS Strings: length and toUpperCase",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Every string has properties and methods. <code>.length</code> returns character count. <code>.toUpperCase()</code> and <code>.toLowerCase()</code> change case (return NEW strings — originals don't change).",
+ start:`const name = "Code Ranger";
+console.log("Length:", name.length);
+console.log("Upper:", name.toUpperCase());
+console.log("Lower:", name.toLowerCase());
+console.log("Original unchanged:", name);`,
+ goal:"Add a new const for your name and log its length and uppercase version.",
+ source:"MDN — String.prototype.length + .toUpperCase()",
+ hint:"const myName = \"Your Name\"; console.log(myName.length); console.log(myName.toUpperCase());"},
+
+{id:652,title:"JS Strings: slice and substring",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.slice(start, end)</code> extracts part of a string. End is exclusive. Negative numbers count from the end. <code>.substring(start, end)</code> is similar but doesn't accept negatives.",
+ start:`const s = "Hello, World!";
+console.log(s.slice(0, 5));    // "Hello"
+console.log(s.slice(7, 12));   // "World"
+console.log(s.slice(-6, -1));  // "World"
+console.log(s.slice(7));       // "World!" — no end means to the end`,
+ goal:"Use .slice() to extract just \"World\" from the string in a new way. Try .slice(7, -1).",
+ source:"MDN — String.prototype.slice()",
+ hint:"console.log(s.slice(7, -1)); — start at index 7, end one before the end."},
+
+{id:653,title:"JS Strings: split and join",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.split(sep)</code> turns a string into an array. <code>arr.join(sep)</code> turns an array back into a string. Together they're great for parsing CSV, reversing words, etc.",
+ start:`const sentence = "The quick brown fox";
+const words = sentence.split(" ");
+console.log("Words:", words);
+console.log("Count:", words.length);
+
+const joined = words.join("-");
+console.log("Joined with dash:", joined);
+
+const csv = "apple,banana,cherry";
+const fruits = csv.split(",");
+console.log("Fruits:", fruits);`,
+ goal:"Reverse the order of words: use .split, .reverse(), and .join to make \"fox brown quick The\".",
+ source:"MDN — String.split() + Array.join()",
+ hint:"console.log(sentence.split(\" \").reverse().join(\" \"));"},
+
+{id:654,title:"JS Strings: replace and trim",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.replace(find, replace)</code> swaps text (first match only — use <code>.replaceAll</code> for all). <code>.trim()</code> removes whitespace from both ends. Both return new strings.",
+ start:`const msg = "  Hello, World!  ";
+console.log("Trimmed:", msg.trim());
+
+const original = "I like cats. Cats are great.";
+console.log(original.replace("cats", "dogs"));
+console.log(original.replaceAll("cats", "dogs"));
+console.log(original.replaceAll(/cats/gi, "dogs")); // case-insensitive`,
+ goal:"Use .replaceAll to change every \"a\" to \"@\" in the string \"banana\".",
+ source:"MDN — String.replace() + .trim()",
+ hint:"console.log(\"banana\".replaceAll(\"a\", \"@\"));"},
+
+{id:655,title:"JS Numbers: parseInt and parseFloat",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>parseInt(str)</code> converts a string to a whole number. <code>parseFloat(str)</code> keeps decimals. Both ignore trailing letters. Use them when reading numbers from inputs.",
+ start:`console.log(parseInt("42"));        // 42
+console.log(parseInt("42.99"));     // 42 (drops decimal)
+console.log(parseFloat("42.99"));   // 42.99
+console.log(parseInt("100px"));     // 100 (stops at letters)
+console.log(parseInt("abc"));       // NaN (Not a Number)
+
+const userInput = "  25 years old  ";
+const age = parseInt(userInput);
+console.log("Age:", age);`,
+ goal:"Use parseFloat to convert the string \"3.14159\" and log it.",
+ source:"MDN — parseInt() + parseFloat()",
+ hint:"console.log(parseFloat(\"3.14159\"));"},
+{id:656,title:"JS Numbers: toFixed and Number()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.toFixed(n)</code> rounds a number to n decimals — returns a STRING (great for display). <code>Number(str)</code> converts strict (no trailing letters, fails on bad data).",
+ start:`const price = 19.999;
+console.log(price.toFixed(2));      // "20.00" (string)
+console.log(price.toFixed(0));      // "20"
+
+console.log(Number("42"));          // 42
+console.log(Number("3.14"));        // 3.14
+console.log(Number("42px"));        // NaN (strict — won't ignore letters)
+console.log(Number(""));            // 0 (gotcha!)
+
+const subtotal = 12.5;
+const tax = 1.25;
+const total = (subtotal + tax).toFixed(2);
+console.log("Total: $" + total);`,
+ goal:"Calculate the tax on $50 at 6% and use .toFixed(2) to display it.",
+ source:"MDN — Number.prototype.toFixed() + Number()",
+ hint:"const tax = (50 * 0.06).toFixed(2); console.log(\"Tax: $\" + tax);"},
+
+{id:657,title:"JS Math: random and floor",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Math.random()</code> returns a decimal between 0 (inclusive) and 1 (exclusive). <code>Math.floor()</code> rounds DOWN. Together they generate random whole numbers — the basis of dice, card draws, and games.",
+ start:`// Random decimal 0–1
+console.log(Math.random());
+
+// Random integer 0–9
+console.log(Math.floor(Math.random() * 10));
+
+// Random integer 1–6 (a dice roll)
+const dice = Math.floor(Math.random() * 6) + 1;
+console.log("Dice:", dice);
+
+// Run multiple times — different result each time
+for (let i = 0; i < 5; i++) {
+  console.log("Roll", i + 1, ":", Math.floor(Math.random() * 6) + 1);
+}`,
+ goal:"Make a random number between 1 and 100. Formula: Math.floor(Math.random() * 100) + 1.",
+ source:"MDN — Math.random() + Math.floor()",
+ hint:"console.log(Math.floor(Math.random() * 100) + 1);"},
+
+{id:658,title:"JS Math: max, min, abs",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Math.max(a, b, ...)</code> returns largest. <code>Math.min(a, b, ...)</code> returns smallest. <code>Math.abs(n)</code> returns absolute value (drops the minus sign).",
+ start:`console.log(Math.max(5, 12, 8, 3));      // 12
+console.log(Math.min(5, 12, 8, 3));      // 3
+console.log(Math.abs(-7));               // 7
+console.log(Math.abs(7));                // 7 (unchanged)
+
+const scores = [85, 92, 78, 95, 88];
+console.log("Highest:", Math.max(...scores)); // spread operator
+console.log("Lowest:", Math.min(...scores));`,
+ goal:"Calculate the absolute difference between -15 and 8 using Math.abs.",
+ source:"MDN — Math.max(), Math.min(), Math.abs()",
+ hint:"console.log(Math.abs(-15 - 8)); — that's the distance between two numbers."},
+
+{id:659,title:"JS Arrays: includes and indexOf",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>arr.includes(value)</code> returns true/false — clean way to check if something exists. <code>arr.indexOf(value)</code> returns position (or -1 if not found).",
+ start:`const fruits = ["apple", "banana", "cherry", "date"];
+
+console.log(fruits.includes("banana"));    // true
+console.log(fruits.includes("mango"));     // false
+
+console.log(fruits.indexOf("cherry"));     // 2
+console.log(fruits.indexOf("grape"));      // -1
+
+// Common pattern: check before adding
+const newFruit = "kiwi";
+if (!fruits.includes(newFruit)) {
+  fruits.push(newFruit);
+}
+console.log(fruits);`,
+ goal:"Add a check: if \"apple\" is in the array, log \"already have apple\".",
+ source:"MDN — Array.includes() + Array.indexOf()",
+ hint:"if (fruits.includes(\"apple\")) { console.log(\"already have apple\"); }"},
+
+{id:660,title:"JS Arrays: filter",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>arr.filter(fn)</code> returns a NEW array with only items where the function returns true. Powerful for searches, filtering UI lists, removing items.",
+ start:`const numbers = [1, 5, 8, 12, 3, 19, 7, 25];
+
+const big = numbers.filter(n => n > 10);
+console.log("Bigger than 10:", big);
+
+const evens = numbers.filter(n => n % 2 === 0);
+console.log("Even numbers:", evens);
+
+const users = [
+  { name: "Ada", age: 30 },
+  { name: "Bo",  age: 12 },
+  { name: "Cy",  age: 45 }
+];
+const adults = users.filter(u => u.age >= 18);
+console.log("Adults:", adults);`,
+ goal:"Filter the numbers array to keep only values less than 10.",
+ source:"MDN — Array.prototype.filter()",
+ hint:"const small = numbers.filter(n => n < 10); console.log(small);"},
+
+{id:661,title:"JS Arrays: reduce",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>arr.reduce(fn, initial)</code> boils an array down to a single value. Most common use: summing numbers. Function receives accumulator + current item.",
+ start:`const prices = [10, 25, 8, 42, 15];
+
+const total = prices.reduce((sum, price) => sum + price, 0);
+console.log("Total: $" + total);
+
+// Find the longest word
+const words = ["hi", "hello", "hey", "greetings"];
+const longest = words.reduce((best, current) =>
+  current.length > best.length ? current : best, "");
+console.log("Longest:", longest);`,
+ goal:"Use reduce to multiply all numbers in [2, 3, 4] together (start at 1, not 0).",
+ source:"MDN — Array.prototype.reduce()",
+ hint:"const product = [2, 3, 4].reduce((p, n) => p * n, 1); console.log(product);"},
+
+{id:662,title:"JS Arrays: find and findIndex",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>arr.find(fn)</code> returns the FIRST matching item (or undefined). <code>arr.findIndex(fn)</code> returns its position. Like .filter but stops at the first match.",
+ start:`const users = [
+  { id: 1, name: "Ada" },
+  { id: 2, name: "Bo"  },
+  { id: 3, name: "Cy"  }
+];
+
+const found = users.find(u => u.name === "Bo");
+console.log(found); // { id: 2, name: "Bo" }
+
+const idx = users.findIndex(u => u.id === 3);
+console.log("Index:", idx); // 2
+
+const missing = users.find(u => u.name === "Z");
+console.log("Missing:", missing); // undefined`,
+ goal:"Find the user with id === 1 and log their name.",
+ source:"MDN — Array.find() + Array.findIndex()",
+ hint:"const u = users.find(u => u.id === 1); console.log(u.name);"},
+
+{id:663,title:"JS Arrays: spread operator",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"The spread operator <code>...</code> expands arrays. Use it to copy arrays, combine arrays, or pass arrays as function arguments without mutation.",
+ start:`const a = [1, 2, 3];
+const b = [4, 5, 6];
+
+const combined = [...a, ...b];
+console.log("Combined:", combined);
+
+const copy = [...a];
+copy.push(99);
+console.log("Original a:", a);    // unchanged: [1, 2, 3]
+console.log("Copy:", copy);       // [1, 2, 3, 99]
+
+const numbers = [5, 12, 8, 19, 3];
+console.log("Max:", Math.max(...numbers)); // spreads as arguments`,
+ goal:"Use spread to insert the value 0 at the beginning of array a.",
+ source:"MDN — Spread syntax (...)",
+ hint:"const withZero = [0, ...a]; console.log(withZero);"},
+
+{id:664,title:"JS Date: basics",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>new Date()</code> creates a date. Methods like <code>.getFullYear()</code>, <code>.getMonth()</code>, <code>.getDate()</code>, <code>.getHours()</code> extract parts. Month is 0-indexed (January = 0).",
+ start:`const now = new Date();
+console.log("Year:", now.getFullYear());
+console.log("Month (0-11):", now.getMonth());
+console.log("Day:", now.getDate());
+console.log("Hours:", now.getHours());
+
+// Format as YYYY-MM-DD
+const yyyy = now.getFullYear();
+const mm = String(now.getMonth() + 1).padStart(2, "0");
+const dd = String(now.getDate()).padStart(2, "0");
+console.log("Today:", yyyy + "-" + mm + "-" + dd);`,
+ goal:"Log the current minute using new Date().getMinutes().",
+ source:"MDN — Date object",
+ hint:"console.log(\"Minute:\", new Date().getMinutes());"},
+
+{id:665,title:"JS Sets: unique values",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <code>Set</code> stores unique values — duplicates are ignored. Common use: removing duplicates from an array. Methods: <code>.add()</code>, <code>.has()</code>, <code>.delete()</code>, <code>.size</code>.",
+ start:`const tags = new Set();
+tags.add("javascript");
+tags.add("html");
+tags.add("css");
+tags.add("javascript"); // duplicate — ignored
+
+console.log("Size:", tags.size);          // 3
+console.log("Has CSS?", tags.has("css")); // true
+
+// Remove duplicates from an array
+const messy = [1, 2, 2, 3, 3, 3, 4];
+const unique = [...new Set(messy)];
+console.log("Unique:", unique); // [1, 2, 3, 4]`,
+ goal:"Create a Set with the days of the week and log its size.",
+ source:"MDN — Set object",
+ hint:"const days = new Set([\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"]); console.log(days.size);"},
+
+{id:666,title:"JS Functions: parameters and defaults",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Functions accept inputs called <strong>parameters</strong>. Set defaults with <code>=</code> for when the caller doesn't pass a value. Defaults make functions safer and easier to call.",
+ start:`function greet(name = "friend", greeting = "Hello") {
+  return greeting + ", " + name + "!";
+}
+
+console.log(greet());                       // "Hello, friend!"
+console.log(greet("Ada"));                  // "Hello, Ada!"
+console.log(greet("Bo", "Hey"));            // "Hey, Bo!"
+console.log(greet(undefined, "Welcome"));   // "Welcome, friend!"`,
+ goal:"Add a third parameter <code>punct = \"!\"</code> and use it instead of the hardcoded \"!\".",
+ source:"MDN — Default parameters",
+ hint:"function greet(name = \"friend\", greeting = \"Hello\", punct = \"!\") { return greeting + \", \" + name + punct; }"},
+
+{id:667,title:"JS Functions: return values",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>return</code> sends a value back from a function. If you don't return, the function returns <code>undefined</code>. Always return when the function computes something the caller needs.",
+ start:`function add(a, b) {
+  return a + b;
+}
+
+function logOnly(msg) {
+  console.log(msg);
+  // no return — implicitly returns undefined
+}
+
+const sum = add(3, 4);
+console.log("Sum:", sum);
+
+const result = logOnly("hi");
+console.log("Result:", result); // undefined`,
+ goal:"Write a function <code>square(n)</code> that returns n*n. Call it with 5 and log the result.",
+ source:"MDN — return statement",
+ hint:"function square(n) { return n * n; } console.log(square(5));"},
+
+{id:668,title:"JS Scope: block vs function",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>let</code> and <code>const</code> are <strong>block-scoped</strong> — only exist inside the nearest <code>{ }</code>. This is why we use let/const (NEVER var, which is function-scoped and confusing).",
+ start:`function example() {
+  if (true) {
+    let inner = "I'm inside the if block";
+    console.log(inner); // works
+  }
+  // console.log(inner); // would error — inner doesn't exist here
+
+  for (let i = 0; i < 3; i++) {
+    // i only exists inside the loop
+  }
+  // console.log(i); // would error
+
+  let outside = "function-level";
+  if (true) {
+    console.log(outside); // works — inner blocks can see outer
+  }
+}
+
+example();`,
+ goal:"Add a new block <code>{ let secret = \"hidden\"; console.log(secret); }</code> and try to log secret outside it (will fail).",
+ source:"MDN — Block scoping with let",
+ hint:"Add: { let secret = \"hidden\"; console.log(secret); } — note: console.log(secret) outside the braces would throw."},
+
+{id:669,title:"JS Error Handling: try/catch",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>try/catch</code> handles errors gracefully. Code in <code>try</code> runs; if it throws, control jumps to <code>catch</code> with the error object. Keeps your app from crashing.",
+ start:`function safeDivide(a, b) {
+  try {
+    if (b === 0) {
+      throw new Error("Cannot divide by zero!");
+    }
+    return a / b;
+  } catch (err) {
+    console.log("Caught:", err.message);
+    return null;
+  }
+}
+
+console.log(safeDivide(10, 2));    // 5
+console.log(safeDivide(10, 0));    // logs error, returns null
+console.log(safeDivide(20, 4));    // 5`,
+ goal:"Add a third call with safeDivide(100, 0) — see how it handles the error.",
+ source:"MDN — try...catch",
+ hint:"console.log(safeDivide(100, 0));"},
+
+{id:670,title:"JS JSON: parse and stringify",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>JSON.stringify(obj)</code> turns objects into strings (for sending or saving). <code>JSON.parse(str)</code> turns strings back into objects. This is how localStorage, APIs, and config files work.",
+ start:`const user = {
+  name: "Ada",
+  age: 30,
+  hobbies: ["coding", "reading"]
+};
+
+// Object → string
+const jsonString = JSON.stringify(user);
+console.log("As string:", jsonString);
+
+// String → object
+const back = JSON.parse(jsonString);
+console.log("Back to object:", back);
+console.log("Name from parsed:", back.name);
+
+// Pretty-print with indentation
+console.log(JSON.stringify(user, null, 2));`,
+ goal:"Create your own object with name and favorite color, then stringify and log it.",
+ source:"MDN — JSON.stringify() + JSON.parse()",
+ hint:"const me = { name: \"Your Name\", color: \"purple\" }; console.log(JSON.stringify(me));"},
+
+/* ══ BEGINNER LESSONS — HTML DEEP DIVE (671–703) — MDN Web Docs ══ */
+// Continues 611-630. Covers Web APIs, semantic elements, and modern HTML attributes.
+// All examples follow Code Ranger constraints: label for=, let not var, textContent for input.
+
+{id:671,title:"HTML: Drag and Drop API",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Make any element draggable with <code>draggable=\"true\"</code>. JavaScript handles drag events: <code>dragstart</code>, <code>dragover</code>, <code>drop</code>. The drop target needs <code>preventDefault()</code> on dragover to accept the drop.",
+ start:`<!DOCTYPE html>
+<html>
+<head><style>
+  .item { padding: 10px; background: #a855f7; color: white; border-radius: 6px; cursor: move; margin: 4px; display: inline-block; }
+  .drop-zone { border: 2px dashed #a855f7; padding: 30px; margin-top: 10px; min-height: 60px; border-radius: 8px; }
+</style></head>
+<body>
+  <div class="item" draggable="true" id="dragItem">Drag me!</div>
+  <div class="drop-zone" id="dropZone">Drop here</div>
+  <script>
+    const item = document.getElementById("dragItem");
+    const zone = document.getElementById("dropZone");
+    item.addEventListener("dragstart", (e) => { e.dataTransfer.setData("text", "dragItem"); });
+    zone.addEventListener("dragover", (e) => { e.preventDefault(); zone.style.background = "#f3e8ff"; });
+    zone.addEventListener("dragleave", () => { zone.style.background = ""; });
+    zone.addEventListener("drop", (e) => {
+      e.preventDefault();
+      zone.textContent = "Dropped!";
+      zone.style.background = "#10b981";
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the drop zone's text from \"Dropped!\" to your own success message.",
+ source:"MDN — HTML Drag and Drop API",
+ hint:"Find zone.textContent = \"Dropped!\"; and change the string."},
+
+{id:672,title:"HTML: Geolocation API",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>navigator.geolocation.getCurrentPosition</code> gets the user's location (with permission). Browsers ask for consent first — never silent. Useful for weather, store locators, maps.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="locBtn">Get my location:</label><br><br>
+  <button id="locBtn">Find Me</button>
+  <p id="locResult" style="margin-top:12px;color:#a855f7;font-weight:bold"></p>
+  <script>
+    const btn = document.getElementById("locBtn");
+    const out = document.getElementById("locResult");
+    btn.addEventListener("click", () => {
+      if (!navigator.geolocation) {
+        out.textContent = "Geolocation not supported";
+        return;
+      }
+      out.textContent = "Asking for permission...";
+      navigator.geolocation.getCurrentPosition(
+        (pos) => { out.textContent = "Lat: " + pos.coords.latitude.toFixed(2) + ", Lng: " + pos.coords.longitude.toFixed(2); },
+        (err) => { out.textContent = "Error: " + err.message; }
+      );
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the button text from \"Find Me\" to \"Show My Coordinates\".",
+ source:"MDN — Geolocation API",
+ hint:"Find <button id=\"locBtn\">Find Me</button> and change the inner text."},
+
+{id:673,title:"HTML: localStorage (save data)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>localStorage</code> stores strings in the browser permanently — survives page reloads. Use <code>.setItem(key, val)</code> and <code>.getItem(key)</code>. Common for theme preferences, draft saves, settings.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="noteField">Your note:</label><br>
+  <textarea id="noteField" rows="4" cols="40" placeholder="Type something — it saves automatically"></textarea>
+  <p id="status" style="color:#10b981"></p>
+  <script>
+    const field = document.getElementById("noteField");
+    const status = document.getElementById("status");
+    // Load saved note on page open
+    field.value = localStorage.getItem("myNote") || "";
+    // Save as user types
+    field.addEventListener("input", () => {
+      localStorage.setItem("myNote", field.value);
+      status.textContent = "Saved!";
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the localStorage key from \"myNote\" to \"draft\" in both places (setItem and getItem).",
+ source:"MDN — Window.localStorage",
+ hint:"Find both occurrences of \"myNote\" and replace with \"draft\"."},
+
+{id:674,title:"HTML: sessionStorage (temporary save)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>sessionStorage</code> works exactly like localStorage but clears when the tab closes. Useful for: form drafts within one session, multi-step wizards, temporary cart state.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="tempInput">Temporary note (clears on tab close):</label><br>
+  <input type="text" id="tempInput" style="width:300px;padding:6px">
+  <p style="color:#666;font-size:12px">Try refreshing — value stays. Close the tab — value disappears.</p>
+  <script>
+    const input = document.getElementById("tempInput");
+    input.value = sessionStorage.getItem("tempNote") || "";
+    input.addEventListener("input", () => {
+      sessionStorage.setItem("tempNote", input.value);
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the placeholder by adding placeholder=\"Type here\" to the input tag.",
+ source:"MDN — Window.sessionStorage",
+ hint:"Modify the <input> tag: <input type=\"text\" id=\"tempInput\" placeholder=\"Type here\" style=...>"},
+
+{id:675,title:"HTML: History API",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>history.pushState</code> changes the URL without reloading the page. <code>history.back()</code> and <code>.forward()</code> navigate. Powers single-page apps and smooth back-button behavior.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Fake Single-Page App</h3>
+  <button id="page1Btn">Go to /page1</button>
+  <button id="page2Btn">Go to /page2</button>
+  <button id="backBtn">Back</button>
+  <p id="pathDisplay" style="margin-top:12px"></p>
+  <script>
+    const display = document.getElementById("pathDisplay");
+    function updateDisplay(){ display.textContent = "Current path: " + window.location.pathname; }
+    document.getElementById("page1Btn").addEventListener("click", () => { history.pushState({}, "", "/page1"); updateDisplay(); });
+    document.getElementById("page2Btn").addEventListener("click", () => { history.pushState({}, "", "/page2"); updateDisplay(); });
+    document.getElementById("backBtn").addEventListener("click", () => { history.back(); });
+    window.addEventListener("popstate", updateDisplay);
+    updateDisplay();
+  </script>
+</body>
+</html>`,
+ goal:"Add a third button that pushes \"/about\" to the URL.",
+ source:"MDN — History API",
+ hint:"Copy a button + listener pair and change the path string to \"/about\"."},
+
+{id:676,title:"HTML: Fullscreen API",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>element.requestFullscreen()</code> makes any element fill the screen. <code>document.exitFullscreen()</code> brings it back. Great for image viewers, videos, presentations.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <div id="fsBox" style="width:300px;height:150px;background:linear-gradient(135deg,#a855f7,#6366f1);color:white;display:flex;align-items:center;justify-content:center;border-radius:12px;font-size:18px">
+    Full-screen me!
+  </div>
+  <br>
+  <button id="fsBtn">Go Fullscreen</button>
+  <button id="exitBtn">Exit Fullscreen</button>
+  <script>
+    const box = document.getElementById("fsBox");
+    document.getElementById("fsBtn").addEventListener("click", () => {
+      if (box.requestFullscreen) box.requestFullscreen();
+    });
+    document.getElementById("exitBtn").addEventListener("click", () => {
+      if (document.exitFullscreen) document.exitFullscreen();
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the gradient colors in the box. Try linear-gradient(135deg, #10b981, #f59e0b).",
+ source:"MDN — Fullscreen API",
+ hint:"Find background:linear-gradient(135deg,#a855f7,#6366f1) and change both hex codes."},
+
+{id:677,title:"HTML: Clipboard API (copy text)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>navigator.clipboard.writeText(str)</code> copies text to the clipboard. Returns a Promise. Use it for \"copy code\" buttons, share links, color codes.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="textToCopy">Text to copy:</label><br>
+  <input type="text" id="textToCopy" value="Hello from Code Ranger!" style="width:300px;padding:6px">
+  <button id="copyBtn" style="padding:6px 12px">Copy</button>
+  <p id="copyStatus" style="color:#10b981;margin-top:8px"></p>
+  <script>
+    const input = document.getElementById("textToCopy");
+    const status = document.getElementById("copyStatus");
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(input.value);
+        status.textContent = "✓ Copied!";
+        setTimeout(() => { status.textContent = ""; }, 2000);
+      } catch (err) {
+        status.textContent = "Could not copy";
+      }
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the copy confirmation from \"✓ Copied!\" to your own message.",
+ source:"MDN — Clipboard API",
+ hint:"Find status.textContent = \"✓ Copied!\"; and change the string."},
+
+{id:678,title:"HTML: Notification API",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>new Notification(title, options)</code> shows a system notification — even when the tab isn't active. Always request permission first. Used for chat apps, calendar reminders, build completions.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <button id="notifBtn" style="padding:8px 16px">Show Notification</button>
+  <p id="notifStatus" style="margin-top:12px"></p>
+  <script>
+    const status = document.getElementById("notifStatus");
+    document.getElementById("notifBtn").addEventListener("click", async () => {
+      if (!("Notification" in window)) { status.textContent = "Not supported"; return; }
+      let permission = Notification.permission;
+      if (permission === "default") permission = await Notification.requestPermission();
+      if (permission === "granted") {
+        new Notification("Code Ranger", { body: "You clicked the button!" });
+        status.textContent = "Notification sent";
+      } else {
+        status.textContent = "Permission: " + permission;
+      }
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the notification body text from \"You clicked the button!\" to your own.",
+ source:"MDN — Notification API",
+ hint:"Find body: \"You clicked the button!\" and change the string."},
+
+{id:679,title:"HTML: IntersectionObserver intro",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>IntersectionObserver</code> tells you when an element enters or leaves the viewport. Powers lazy loading, scroll animations, infinite scroll. More efficient than scroll event listeners.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Scroll down inside the preview...</p>
+  <div style="height:200px"></div>
+  <div id="watchMe" style="background:#a855f7;color:white;padding:30px;text-align:center;border-radius:12px;transition:all 0.5s">Watch me</div>
+  <div style="height:200px"></div>
+  <script>
+    const target = document.getElementById("watchMe");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          target.style.background = "#10b981";
+          target.textContent = "Visible!";
+        } else {
+          target.style.background = "#a855f7";
+          target.textContent = "Watch me";
+        }
+      });
+    });
+    observer.observe(target);
+  </script>
+</body>
+</html>`,
+ goal:"Change the visible color from #10b981 (green) to #f59e0b (orange).",
+ source:"MDN — IntersectionObserver",
+ hint:"Find target.style.background = \"#10b981\"; and change the hex."},
+
+{id:680,title:"HTML: details and summary",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;details&gt;</code> creates a native collapsible section. <code>&lt;summary&gt;</code> is the always-visible header. Browser handles the toggle — no JavaScript needed.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <details style="border:2px solid #a855f7;padding:12px;border-radius:8px;margin:8px 0">
+    <summary style="cursor:pointer;font-weight:bold;color:#a855f7">What is Code Ranger?</summary>
+    <p>A learning platform with 770 coding challenges, an Interview Lab, and a Build Lab.</p>
+  </details>
+
+  <details style="border:2px solid #10b981;padding:12px;border-radius:8px;margin:8px 0" open>
+    <summary style="cursor:pointer;font-weight:bold;color:#10b981">FAQ (open by default)</summary>
+    <p>The <code>open</code> attribute makes the details start expanded.</p>
+  </details>
+</body>
+</html>`,
+ goal:"Add a third details/summary block about a topic you like, with your own question and answer.",
+ source:"MDN — details / summary elements",
+ hint:"Copy a <details>...</details> block and change the summary text and paragraph."},
+
+{id:681,title:"HTML: dialog element (native modal)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;dialog&gt;</code> is a native modal popup. Open with <code>.showModal()</code> (blocks the page) or <code>.show()</code> (non-blocking). Browser handles focus trap and Esc key.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <button id="openBtn" style="padding:8px 16px">Open Dialog</button>
+
+  <dialog id="myDialog" style="padding:24px;border:2px solid #a855f7;border-radius:12px;max-width:300px">
+    <h3>Hello from a native dialog!</h3>
+    <p>The browser dims the background automatically.</p>
+    <button id="closeBtn">Close</button>
+  </dialog>
+
+  <script>
+    const dialog = document.getElementById("myDialog");
+    document.getElementById("openBtn").addEventListener("click", () => dialog.showModal());
+    document.getElementById("closeBtn").addEventListener("click", () => dialog.close());
+  </script>
+</body>
+</html>`,
+ goal:"Change the dialog's heading from \"Hello from a native dialog!\" to your own.",
+ source:"MDN — dialog element",
+ hint:"Find <h3>Hello from a native dialog!</h3> and change the text."},
+
+{id:682,title:"HTML: progress bar",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;progress value max&gt;</code> shows task completion. Browsers style it natively. Use for file uploads, downloads, multi-step forms.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="dlProgress">Download progress:</label><br>
+  <progress id="dlProgress" value="30" max="100" style="width:100%;height:20px"></progress>
+  <p id="pctText">30%</p>
+  <button id="speedBtn">Add 10%</button>
+  <script>
+    const bar = document.getElementById("dlProgress");
+    const txt = document.getElementById("pctText");
+    document.getElementById("speedBtn").addEventListener("click", () => {
+      let next = bar.value + 10;
+      if (next > 100) next = 100;
+      bar.value = next;
+      txt.textContent = next + "%";
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the starting value from 30 to 50 (in both the progress tag and the <p>).",
+ source:"MDN — progress element",
+ hint:"Find value=\"30\" in the progress tag and 30% in the <p>. Change both."},
+
+{id:683,title:"HTML: meter element",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;meter&gt;</code> shows a value within a known range — like disk usage or password strength. Unlike progress (a task in motion), meter shows a fixed measurement.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Disk usage: <meter value="0.7" min="0" max="1">70%</meter></p>
+  <p>Battery: <meter value="35" min="0" max="100" low="20" high="80" optimum="100">35%</meter></p>
+  <p>Score: <meter value="92" min="0" max="100" low="40" high="80" optimum="100">92</meter></p>
+  <p style="color:#666;font-size:12px">Notice: meter changes color based on low/high/optimum zones.</p>
+</body>
+</html>`,
+ goal:"Add a fourth meter showing fuel at 12 out of 60 with low=15.",
+ source:"MDN — meter element",
+ hint:"Add: <p>Fuel: <meter value=\"12\" min=\"0\" max=\"60\" low=\"15\">12</meter></p>"},
+
+{id:684,title:"HTML: time element",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;time datetime=\"...\"&gt;</code> marks up dates and times semantically. The <code>datetime</code> attribute uses machine-readable format (ISO 8601). Helps search engines and assistive tech.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Published on <time datetime="2026-05-17">May 17, 2026</time></p>
+  <p>The show starts at <time datetime="20:00">8:00 PM</time></p>
+  <p>I was born in <time datetime="1995-04-15">April 1995</time></p>
+  <article style="border:1px solid #a855f7;padding:12px;border-radius:8px;margin-top:12px">
+    <h3>Blog Post Title</h3>
+    <p>By Author · <time datetime="2026-05-17T09:30">May 17 at 9:30 AM</time></p>
+  </article>
+</body>
+</html>`,
+ goal:"Add a new <p> with today's date in a <time> tag.",
+ source:"MDN — time element",
+ hint:"Add: <p>Today is <time datetime=\"2026-05-17\">May 17, 2026</time></p>"},
+
+{id:685,title:"HTML: picture and srcset (responsive images)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;picture&gt;</code> with <code>&lt;source&gt;</code> tags lets the browser pick the best image for the screen size or format. Modern responsive images.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Responsive Image</h3>
+  <picture>
+    <source media="(min-width: 800px)" srcset="https://placehold.co/600x300/a855f7/white?text=Big+Screen">
+    <source media="(min-width: 400px)" srcset="https://placehold.co/400x200/10b981/white?text=Medium">
+    <img src="https://placehold.co/200x100/f59e0b/white?text=Small" alt="Responsive demo" style="border-radius:8px">
+  </picture>
+  <p style="color:#666;font-size:12px">Resize the preview window — the image source changes.</p>
+</body>
+</html>`,
+ goal:"Change the \"Big+Screen\" text in the first source to your own label.",
+ source:"MDN — picture element",
+ hint:"Find text=Big+Screen and change to text=Your+Label (use + for spaces)."},
+
+{id:686,title:"HTML: viewport meta tag",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;meta name=\"viewport\"&gt;</code> tells mobile browsers how to size the page. Without it, mobile shows a tiny zoomed-out desktop view. <code>width=device-width</code> + <code>initial-scale=1</code> is the standard.",
+ start:`<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile-friendly page</title>
+</head>
+<body style="font-family:sans-serif;padding:12px">
+  <h2 style="color:#a855f7">Mobile-Ready Page</h2>
+  <p>This page scales properly on phones because of the viewport meta tag.</p>
+  <p>Without it, mobile devices would render at 980px width and zoom out.</p>
+</body>
+</html>`,
+ goal:"Try changing initial-scale=1 to initial-scale=0.5 — text will look smaller.",
+ source:"MDN — Viewport meta tag",
+ hint:"Find initial-scale=1 and change to initial-scale=0.5."},
+
+{id:687,title:"HTML: input type search",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;input type=\"search\"&gt;</code> looks like a text input but browsers add a built-in clear (×) button. Mobile keyboards show a search-optimized layout.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="searchBox">Search:</label><br>
+  <input type="search" id="searchBox" placeholder="Type to search..." style="width:300px;padding:8px;font-size:14px;border:2px solid #a855f7;border-radius:6px">
+  <p id="searchOut" style="margin-top:12px"></p>
+  <script>
+    const box = document.getElementById("searchBox");
+    const out = document.getElementById("searchOut");
+    box.addEventListener("input", () => {
+      out.textContent = box.value ? "Searching for: " + box.value : "";
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the placeholder to something specific, like \"Search dragons...\".",
+ source:"MDN — input type=search",
+ hint:"Find placeholder=\"Type to search...\" and change the string."},
+
+{id:688,title:"HTML: input type hidden",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;input type=\"hidden\"&gt;</code> stores values invisible to users but sent with forms. Used for user IDs, CSRF tokens, form state.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <form id="orderForm">
+    <input type="hidden" id="userIdField" value="user_12345">
+    <input type="hidden" id="cartIdField" value="cart_abc">
+
+    <label for="qtyField">Quantity:</label>
+    <input type="number" id="qtyField" value="1" min="1" max="10">
+
+    <button type="button" id="submitBtn">Place Order</button>
+  </form>
+  <p id="orderOut" style="margin-top:12px;color:#a855f7"></p>
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", () => {
+      const userId = document.getElementById("userIdField").value;
+      const cartId = document.getElementById("cartIdField").value;
+      const qty = document.getElementById("qtyField").value;
+      document.getElementById("orderOut").textContent = "Order: " + qty + " items for " + userId + " (" + cartId + ")";
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the hidden userIdField value from \"user_12345\" to a different ID, then place an order.",
+ source:"MDN — input type=hidden",
+ hint:"Find value=\"user_12345\" in the hidden input and change it."},
+
+{id:689,title:"HTML: input type file",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;input type=\"file\"&gt;</code> opens a file picker. Use <code>accept=\"...\"</code> to filter file types. <code>multiple</code> allows several files. Read details from the <code>files</code> property.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <label for="fileInput">Pick an image:</label><br>
+  <input type="file" id="fileInput" accept="image/*">
+  <ul id="fileList" style="margin-top:12px;padding-left:20px"></ul>
+  <script>
+    const input = document.getElementById("fileInput");
+    const list = document.getElementById("fileList");
+    input.addEventListener("change", () => {
+      list.textContent = "";
+      for (const file of input.files) {
+        const li = document.createElement("li");
+        li.textContent = file.name + " — " + (file.size / 1024).toFixed(1) + " KB";
+        list.appendChild(li);
+      }
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Add the <code>multiple</code> attribute to the file input to allow picking several files at once.",
+ source:"MDN — input type=file",
+ hint:"Change <input type=\"file\" id=\"fileInput\" accept=\"image/*\"> to add multiple: <input type=\"file\" id=\"fileInput\" accept=\"image/*\" multiple>"},
+
+{id:690,title:"HTML: output element",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;output&gt;</code> displays the result of a calculation. Screen readers announce updates automatically. Pair with the <code>for</code> attribute pointing to input IDs.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <form id="addForm" style="display:flex;gap:8px;align-items:center">
+    <label for="numA">A:</label>
+    <input type="number" id="numA" value="5" style="width:60px">
+    <span>+</span>
+    <label for="numB">B:</label>
+    <input type="number" id="numB" value="3" style="width:60px">
+    <span>=</span>
+    <output for="numA numB" id="sumOut" style="font-weight:bold;color:#a855f7;font-size:18px">8</output>
+  </form>
+  <script>
+    const a = document.getElementById("numA");
+    const b = document.getElementById("numB");
+    const out = document.getElementById("sumOut");
+    function recalc(){ out.textContent = parseFloat(a.value || 0) + parseFloat(b.value || 0); }
+    a.addEventListener("input", recalc);
+    b.addEventListener("input", recalc);
+  </script>
+</body>
+</html>`,
+ goal:"Change the + to × and update recalc to multiply (* instead of +).",
+ source:"MDN — output element",
+ hint:"Change <span>+</span> to <span>×</span>. In recalc, change a.value + b.value to a.value * b.value."},
+{id:691,title:"HTML: autocomplete attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>autocomplete=\"...\"</code> tells browsers what kind of data an input expects (email, given-name, postal-code, etc). Helps password managers and autofill work properly.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <form style="display:grid;gap:8px;max-width:300px">
+    <label for="emailFld">Email:</label>
+    <input type="email" id="emailFld" autocomplete="email" placeholder="Browser may autofill">
+
+    <label for="nameFld">Full name:</label>
+    <input type="text" id="nameFld" autocomplete="name">
+
+    <label for="phoneFld">Phone:</label>
+    <input type="tel" id="phoneFld" autocomplete="tel">
+
+    <label for="zipFld">ZIP code:</label>
+    <input type="text" id="zipFld" autocomplete="postal-code">
+  </form>
+  <p style="color:#666;font-size:12px;margin-top:12px">If you've saved info in your browser, click a field to see suggestions.</p>
+</body>
+</html>`,
+ goal:"Add a field for street address using autocomplete=\"street-address\" with a proper label.",
+ source:"MDN — Autocomplete attribute",
+ hint:"Add: <label for=\"streetFld\">Street:</label><input type=\"text\" id=\"streetFld\" autocomplete=\"street-address\">"},
+
+{id:692,title:"HTML: lang attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>lang=\"en\"</code> on the <code>&lt;html&gt;</code> tag declares the page's language. Screen readers use it for pronunciation. Browsers offer translation. Use ISO codes (en, es, ja, fr).",
+ start:`<!DOCTYPE html>
+<html lang="en">
+<body>
+  <p>This English text is read with an English accent.</p>
+  <p lang="es">Hola, soy un párrafo en español.</p>
+  <p lang="ja">こんにちは、私は日本語の段落です。</p>
+  <p lang="fr">Bonjour, je suis un paragraphe en français.</p>
+  <p style="color:#666;font-size:12px">Each &lt;p&gt; declares its own language so screen readers switch voices.</p>
+</body>
+</html>`,
+ goal:"Add a fifth paragraph in another language with the right lang code (try lang=\"de\" for German).",
+ source:"MDN — Global lang attribute",
+ hint:"Add: <p lang=\"de\">Hallo, ich bin ein deutscher Absatz.</p>"},
+
+{id:693,title:"HTML: dir attribute (rtl/ltr)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>dir=\"rtl\"</code> reverses text direction for right-to-left languages (Arabic, Hebrew, Persian). Browsers flip the layout including padding, margins, and lists.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Left-to-right (default):</h3>
+  <div dir="ltr" style="border:1px solid #a855f7;padding:8px">
+    Hello, this reads left to right.
+  </div>
+
+  <h3>Right-to-left:</h3>
+  <div dir="rtl" style="border:1px solid #10b981;padding:8px">
+    مرحبا، يقرأ هذا من اليمين إلى اليسار.
+  </div>
+
+  <h3>RTL list:</h3>
+  <ul dir="rtl" style="border:1px solid #f59e0b;padding:12px">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+</body>
+</html>`,
+ goal:"Change the second div's dir to \"ltr\" and watch the Arabic text re-align.",
+ source:"MDN — Global dir attribute",
+ hint:"Find dir=\"rtl\" on the second div and change to dir=\"ltr\"."},
+
+{id:694,title:"HTML: download attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>download</code> on a link makes it download the file instead of navigating. Optional value sets the filename. Works only for same-origin URLs.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Download Examples</h3>
+  <p><a href="data:text/plain;charset=utf-8,Hello%20Code%20Ranger!" download="greeting.txt">Download greeting.txt</a></p>
+  <p><a href="data:text/csv;charset=utf-8,Name,Score%0AAda,95%0ABo,82" download="scores.csv">Download scores.csv</a></p>
+  <p style="color:#666;font-size:12px">Click a link — it downloads instead of opening.</p>
+</body>
+</html>`,
+ goal:"Add a third download link for a file called \"notes.txt\" with content \"My first note\".",
+ source:"MDN — download attribute",
+ hint:"Add: <p><a href=\"data:text/plain;charset=utf-8,My%20first%20note\" download=\"notes.txt\">Download notes.txt</a></p>"},
+
+{id:695,title:"HTML: target=_blank with rel=noopener",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>target=\"_blank\"</code> opens a link in a new tab. But it gives the new page access to <code>window.opener</code> — a security risk. Always add <code>rel=\"noopener noreferrer\"</code> with it.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>External Links — Safe Pattern</h3>
+  <p><a href="https://example.com" target="_blank" rel="noopener noreferrer">Example.com (safe)</a></p>
+  <p><a href="https://developer.mozilla.org" target="_blank" rel="noopener noreferrer">MDN docs (safe)</a></p>
+
+  <h3>External Link — Unsafe (don't do this)</h3>
+  <p><a href="https://example.com" target="_blank">Example.com (no rel — security risk)</a></p>
+
+  <p style="color:#666;font-size:12px">Always pair target=\"_blank\" with rel=\"noopener noreferrer\".</p>
+</body>
+</html>`,
+ goal:"Add the missing rel=\"noopener noreferrer\" to the unsafe link.",
+ source:"MDN — rel=noopener + web.dev — External anchors and rel=noopener",
+ hint:"Find the third link and add rel=\"noopener noreferrer\" before its closing >."},
+
+{id:696,title:"HTML: template element",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;template&gt;</code> holds HTML that isn't rendered. Clone its content with JavaScript to build dynamic lists efficiently. Cleaner than building HTML as strings.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <button id="addBtn">Add Card</button>
+  <div id="cardList" style="margin-top:12px;display:grid;gap:8px"></div>
+
+  <template id="cardTpl">
+    <div style="padding:12px;background:#a855f7;color:white;border-radius:8px">
+      <strong>Card</strong>
+      <p>Cloned from a template</p>
+    </div>
+  </template>
+
+  <script>
+    const tpl = document.getElementById("cardTpl");
+    const list = document.getElementById("cardList");
+    document.getElementById("addBtn").addEventListener("click", () => {
+      const clone = tpl.content.cloneNode(true);
+      list.appendChild(clone);
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the card background from #a855f7 to #10b981, then click Add Card to see new green cards.",
+ source:"MDN — template element",
+ hint:"Find background:#a855f7 inside the <template> and change to #10b981."},
+
+{id:697,title:"HTML: contenteditable",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>contenteditable=\"true\"</code> turns any element into an editable area — like a built-in mini text editor. Get the value via <code>.textContent</code> or <code>.innerHTML</code>.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Click the boxes and type:</h3>
+  <div contenteditable="true" style="border:2px solid #a855f7;padding:12px;border-radius:8px;min-height:40px;margin-bottom:8px">
+    Edit this text directly in the browser!
+  </div>
+  <div contenteditable="true" style="border:2px solid #10b981;padding:12px;border-radius:8px;min-height:40px">
+    Another editable box. Click and type.
+  </div>
+  <button id="readBtn" style="margin-top:8px">Read first box</button>
+  <p id="readOut" style="margin-top:8px"></p>
+  <script>
+    document.getElementById("readBtn").addEventListener("click", () => {
+      const first = document.querySelector("[contenteditable]");
+      document.getElementById("readOut").textContent = "Content: " + first.textContent;
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change one of the divs from contenteditable=\"true\" to contenteditable=\"false\" and see how it locks.",
+ source:"MDN — contenteditable global attribute",
+ hint:"Change contenteditable=\"true\" to contenteditable=\"false\" on either div."},
+
+{id:698,title:"HTML: draggable attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>draggable=\"true\"</code> makes any element draggable (combined with drag events from lesson 671). By default, only images and links are draggable.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Try dragging the items:</h3>
+  <div style="display:flex;gap:8px;flex-wrap:wrap">
+    <div draggable="true" style="background:#a855f7;color:white;padding:12px;border-radius:8px;cursor:move">Draggable</div>
+    <div style="background:#ddd;padding:12px;border-radius:8px">Not draggable</div>
+    <div draggable="true" style="background:#10b981;color:white;padding:12px;border-radius:8px;cursor:move">Also draggable</div>
+  </div>
+  <p style="color:#666;font-size:12px">The cursor:move style hints the element is draggable.</p>
+</body>
+</html>`,
+ goal:"Make the middle (gray) box draggable by adding draggable=\"true\" and cursor:move.",
+ source:"MDN — draggable global attribute",
+ hint:"Change the middle div: <div draggable=\"true\" style=\"background:#ddd;padding:12px;border-radius:8px;cursor:move\">."},
+
+{id:699,title:"HTML: spellcheck attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>spellcheck=\"true\"</code> or <code>\"false\"</code> turns the browser spell-checker on or off. Useful: disable on usernames, passwords, code fields where misspellings are expected.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <h3>Spellcheck Demos</h3>
+  <label for="emailField">Email (no spellcheck):</label><br>
+  <input type="text" id="emailField" spellcheck="false" value="myuser123" style="width:300px;padding:6px"><br><br>
+
+  <label for="msgField">Message (spellcheck on):</label><br>
+  <textarea id="msgField" spellcheck="true" rows="3" cols="40">Try misspeling somthing on purpose.</textarea>
+</body>
+</html>`,
+ goal:"Toggle the textarea's spellcheck from \"true\" to \"false\" — red underlines should disappear.",
+ source:"MDN — spellcheck global attribute",
+ hint:"Find spellcheck=\"true\" on the textarea and change to spellcheck=\"false\"."},
+
+{id:700,title:"HTML: hidden attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>hidden</code> boolean attribute hides an element entirely (like <code>display: none</code>). Cleaner than CSS for true \"this content isn't here\" semantics.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Visible paragraph</p>
+  <p hidden>Hidden paragraph (you can't see this)</p>
+  <p>Another visible paragraph</p>
+
+  <button id="toggleBtn">Toggle the secret</button>
+  <p id="secret" hidden style="color:#a855f7;font-weight:bold">🐉 Secret revealed!</p>
+
+  <script>
+    const secret = document.getElementById("secret");
+    document.getElementById("toggleBtn").addEventListener("click", () => {
+      secret.hidden = !secret.hidden;
+    });
+  </script>
+</body>
+</html>`,
+ goal:"Change the secret message text from \"🐉 Secret revealed!\" to your own.",
+ source:"MDN — hidden global attribute",
+ hint:"Find <p id=\"secret\" hidden ...>🐉 Secret revealed!</p> and change the text."},
+
+{id:701,title:"HTML: translate attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>translate=\"no\"</code> tells translation services (like Google Translate) to leave the content alone. Use on brand names, code snippets, untranslatable terms.",
+ start:`<!DOCTYPE html>
+<html lang="en">
+<body>
+  <p>Welcome to <strong translate="no">Code Ranger</strong>!</p>
+  <p>Your favorite framework is <span translate="no">React</span>.</p>
+
+  <pre translate="no" style="background:#0f172a;color:#10b981;padding:12px;border-radius:6px;font-family:monospace">
+const greeting = "Hello, World!";
+console.log(greeting);
+  </pre>
+
+  <p style="color:#666;font-size:12px">When this page is translated, the brand names and code stay in English.</p>
+</body>
+</html>`,
+ goal:"Add another <strong translate=\"no\"> for a brand name of your choice.",
+ source:"MDN — translate global attribute",
+ hint:"Add a <p>My favorite editor is <strong translate=\"no\">VS Code</strong>.</p>"},
+
+{id:702,title:"HTML: tabindex attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>tabindex=\"0\"</code> makes any element focusable via Tab. <code>-1</code> = focusable by script only. Positive numbers create a specific tab order (avoid — confusing).",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Press Tab repeatedly to move through the focusable items:</p>
+  <button>Normal button (auto-focusable)</button><br><br>
+  <div tabindex="0" style="display:inline-block;padding:8px 16px;background:#a855f7;color:white;border-radius:6px;cursor:pointer">
+    Custom focusable div (tabindex=0)
+  </div><br><br>
+  <span tabindex="0" style="display:inline-block;padding:8px 16px;background:#10b981;color:white;border-radius:6px;cursor:pointer">
+    Focusable span (tabindex=0)
+  </span>
+  <p style="color:#666;font-size:12px;margin-top:12px">Without tabindex, divs and spans can't be reached by keyboard.</p>
+</body>
+</html>`,
+ goal:"Remove tabindex=\"0\" from the span and Tab through — span will be skipped.",
+ source:"MDN — tabindex global attribute",
+ hint:"Delete tabindex=\"0\" from the <span> element."},
+
+{id:703,title:"HTML: title attribute (native tooltip)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>title=\"...\"</code> shows a browser tooltip on hover. Free and accessible — but mobile users can't see it. For critical info, use visible text instead.",
+ start:`<!DOCTYPE html>
+<html>
+<body>
+  <p>Hover the underlined words:</p>
+  <p>
+    The <abbr title="HyperText Markup Language">HTML</abbr> spec is maintained by the
+    <abbr title="World Wide Web Consortium">W3C</abbr> and <abbr title="Web Hypertext Application Technology Working Group">WHATWG</abbr>.
+  </p>
+  <button title="Saves your work to local storage">💾 Save</button>
+  <button title="Permanently deletes the current document">🗑️ Delete</button>
+  <p>
+    <a href="#" title="Opens in a new tab">External link</a>
+  </p>
+</body>
+</html>`,
+ goal:"Add a new <abbr> for \"CSS\" with the title \"Cascading Style Sheets\".",
+ source:"MDN — title global attribute",
+ hint:"Add somewhere in a <p>: <abbr title=\"Cascading Style Sheets\">CSS</abbr>"},
+/* ══ BEGINNER LESSONS — CSS DEEP DIVE (704–736) — MDN Web Docs ══ */
+// Continues 631-650. Covers modern CSS: Grid/Flexbox deep dive, container queries, modern selectors.
+
+{id:704,title:"CSS Grid: template-areas",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>grid-template-areas</code> lets you draw your layout as text. Name each area, then assign elements with <code>grid-area: name</code>. Wildly readable.",
+ start:`.layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "side   main"
+    "footer footer";
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+  height: 240px;
+}
+.layout > * { padding: 12px; border-radius: 6px; color: white; font-weight: bold; }
+.h { grid-area: header; background: #a855f7; }
+.s { grid-area: side;   background: #10b981; }
+.m { grid-area: main;   background: #f59e0b; }
+.f { grid-area: footer; background: #6366f1; }`,
+ goal:"Swap \"side\" and \"main\" in the template-areas string so the sidebar appears on the right.",
+ source:"MDN — grid-template-areas",
+ hint:"Change \"side   main\" to \"main   side\" in the grid-template-areas string."},
+
+{id:705,title:"CSS Grid: auto-fit with minmax",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>repeat(auto-fit, minmax(180px, 1fr))</code> creates as many columns as fit, each at least 180px wide. Responsive without media queries — the killer feature of CSS Grid.",
+ start:`.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+}
+.card {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}`,
+ goal:"Change minmax(120px, 1fr) to minmax(200px, 1fr) — cards get wider, fewer per row.",
+ source:"MDN — auto-fit / auto-fill + CSS Grid",
+ hint:"Find minmax(120px, 1fr) and change 120px to 200px."},
+
+{id:706,title:"CSS Grid: auto-fill vs auto-fit",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>auto-fill</code> keeps empty columns for the maximum count. <code>auto-fit</code> collapses empty columns so items stretch. Subtle but important difference.",
+ start:`.row { display: grid; gap: 8px; margin-bottom: 12px; }
+.fit  { grid-template-columns: repeat(auto-fit,  minmax(80px, 1fr)); }
+.fill { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); }
+
+.cell {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+}`,
+ goal:"Change auto-fit to auto-fill in .fit and watch the difference disappear if you have many cells.",
+ source:"MDN — repeat() with auto-fit and auto-fill",
+ hint:"Find .fit { grid-template-columns: repeat(auto-fit, ...); } and change auto-fit to auto-fill."},
+
+{id:707,title:"CSS Grid: gap (rows and columns)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>gap: 16px</code> sets equal row+column gaps. <code>gap: 8px 24px</code> sets row-gap and column-gap separately. Works in Grid AND Flexbox.",
+ start:`.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px 24px;
+}
+.cell {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+}`,
+ goal:"Change gap to 32px (single value — equal gaps).",
+ source:"MDN — gap property",
+ hint:"Find gap: 8px 24px; and change to gap: 32px;"},
+
+{id:708,title:"CSS Flexbox: flex-grow",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>flex-grow: 1</code> on a flex item lets it expand to fill extra space. Use different growth ratios (1 vs 2) to make some items larger.",
+ start:`.flex {
+  display: flex;
+  gap: 8px;
+}
+.box {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+}
+.b1 { flex-grow: 1; }
+.b2 { flex-grow: 2; background: #10b981; }
+.b3 { flex-grow: 1; }`,
+ goal:"Change .b2's flex-grow from 2 to 3 — it gets even bigger relative to siblings.",
+ source:"MDN — flex-grow property",
+ hint:"Find .b2 { flex-grow: 2; ... } and change 2 to 3."},
+
+{id:709,title:"CSS Flexbox: flex-shrink",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>flex-shrink: 0</code> prevents an item from shrinking when there's not enough room. Useful for icons or logos that should keep their size.",
+ start:`.flex {
+  display: flex;
+  gap: 8px;
+  max-width: 250px;
+  border: 2px dashed #ccc;
+  padding: 8px;
+}
+.box {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  width: 100px;
+}
+.fixed { flex-shrink: 0; background: #10b981; }`,
+ goal:"Add flex-shrink: 0 to .box too — both boxes will overflow instead of shrinking.",
+ source:"MDN — flex-shrink property",
+ hint:"Add flex-shrink: 0; inside .box { ... }."},
+
+{id:710,title:"CSS Flexbox: flex-basis",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>flex-basis</code> sets the initial size of a flex item before grow/shrink calculations. Use it instead of width when working with flexbox.",
+ start:`.flex {
+  display: flex;
+  gap: 8px;
+}
+.box {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+}
+.b1 { flex-basis: 100px; }
+.b2 { flex-basis: 200px; }
+.b3 { flex-basis: 50px; }`,
+ goal:"Change .b3's flex-basis from 50px to 150px.",
+ source:"MDN — flex-basis property",
+ hint:"Find .b3 { flex-basis: 50px; } and change to 150px."},
+
+{id:711,title:"CSS Flexbox: order",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>order</code> changes a flex item's position WITHOUT touching HTML. Lower numbers come first. Great for responsive reordering with media queries.",
+ start:`.flex {
+  display: flex;
+  gap: 8px;
+}
+.box {
+  background: #a855f7;
+  color: white;
+  padding: 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+.first  { order: -1; background: #10b981; }
+.middle { order: 0; }
+.last   { order: 1; background: #f59e0b; }`,
+ goal:"Change .middle's order from 0 to 2 — it now appears last.",
+ source:"MDN — order property",
+ hint:"Find .middle { order: 0; } and change to order: 2."},
+
+{id:712,title:"CSS Logical Properties",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Use <code>margin-inline-start</code> instead of <code>margin-left</code>. Logical properties flip automatically in RTL languages. Future-proof your CSS.",
+ start:`.box {
+  background: #a855f7;
+  color: white;
+  padding: 12px;
+  margin-block-end: 12px;
+  border-inline-start: 4px solid #f59e0b;
+  border-radius: 8px;
+}
+.rtl-box {
+  background: #10b981;
+  color: white;
+  padding: 12px;
+  border-inline-start: 4px solid #f59e0b;
+  border-radius: 8px;
+  direction: rtl;
+}`,
+ goal:"Change border-inline-start to border-inline-end on .box and watch the orange bar move.",
+ source:"MDN — CSS Logical Properties",
+ hint:"Find border-inline-start in .box and change to border-inline-end."},
+
+{id:713,title:"CSS Container Queries (intro)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>@container</code> queries respond to a PARENT'S size, not the whole viewport. Components adapt to wherever they're placed. Modern alternative to media queries for components.",
+ start:`.card-wrap {
+  container-type: inline-size;
+  resize: horizontal;
+  overflow: auto;
+  border: 2px dashed #ccc;
+  padding: 8px;
+  max-width: 100%;
+}
+
+.card {
+  background: #a855f7;
+  color: white;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+@container (min-width: 300px) {
+  .card { background: #10b981; }
+}
+@container (min-width: 500px) {
+  .card { background: #f59e0b; font-size: 18px; }
+}`,
+ goal:"Add a third @container breakpoint at min-width: 700px changing the card to red (#ef4444).",
+ source:"MDN — CSS container queries",
+ hint:"Add: @container (min-width: 700px) { .card { background: #ef4444; } }"},
+
+{id:714,title:"CSS :has() selector",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>:has()</code> is the \"parent selector\" — style an element based on what it contains. Game-changer for things like \"highlight any card that has an image\".",
+ start:`.card {
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  background: white;
+}
+
+/* Style cards that contain an image */
+.card:has(img) {
+  border-color: #a855f7;
+  background: #f3e8ff;
+}
+
+/* Style cards that have a button labeled "Buy" */
+.card:has(button.buy) {
+  background: #d1fae5;
+  border-color: #10b981;
+}
+
+img { max-width: 60px; border-radius: 4px; }`,
+ goal:"Add a new rule: .card:has(h3) { font-style: italic; } — italicizes any card with a heading.",
+ source:"MDN — :has() pseudo-class",
+ hint:"Add at the bottom: .card:has(h3) { font-style: italic; }"},
+
+{id:715,title:"CSS :is() and :where()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>:is(h1, h2, h3)</code> groups selectors compactly. <code>:where()</code> is identical BUT has zero specificity — great for resets and defaults.",
+ start:`/* Without :is() — repetitive */
+/* article h1, article h2, article h3 { color: #a855f7; } */
+
+/* With :is() — concise */
+article :is(h1, h2, h3) {
+  color: #a855f7;
+  font-family: sans-serif;
+}
+
+/* :where() — same effect but specificity zero, easy to override */
+article :where(p, li) {
+  line-height: 1.6;
+}`,
+ goal:"Add another :is() rule grouping <strong> and <em>: article :is(strong, em) { color: #10b981; }",
+ source:"MDN — :is() and :where()",
+ hint:"Add at the bottom: article :is(strong, em) { color: #10b981; }"},
+
+{id:716,title:"CSS scroll-snap",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>scroll-snap-type</code> on a scroller plus <code>scroll-snap-align</code> on items creates snap-to-position scrolling. Used for carousels, image galleries, full-page scrolling.",
+ start:`.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 12px 0;
+  scroll-behavior: smooth;
+}
+.slide {
+  scroll-snap-align: start;
+  flex: 0 0 200px;
+  height: 100px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 8px;
+}`,
+ goal:"Change scroll-snap-type from \"x mandatory\" to \"x proximity\" — snapping becomes optional.",
+ source:"MDN — CSS scroll snap",
+ hint:"Find scroll-snap-type: x mandatory; and change to scroll-snap-type: x proximity;"},
+
+{id:717,title:"CSS position: sticky",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>position: sticky</code> is part-relative, part-fixed. Element scrolls normally until it hits the offset (e.g., top: 0), then it stays. Perfect for sticky headers and section labels.",
+ start:`.container {
+  height: 300px;
+  overflow-y: auto;
+  border: 2px solid #ccc;
+}
+.sticky-header {
+  position: sticky;
+  top: 0;
+  background: #a855f7;
+  color: white;
+  padding: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+.content { padding: 12px; }
+.content p { margin-bottom: 20px; }`,
+ goal:"Change top: 0 to top: 20px — the sticky header will stop 20px from the top.",
+ source:"MDN — position: sticky",
+ hint:"Find top: 0; in .sticky-header and change to top: 20px;"},
+
+{id:718,title:"CSS aspect-ratio",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>aspect-ratio: 16 / 9</code> keeps an element's width:height ratio fixed. Set just the width, height calculates automatically. Perfect for video embeds, image cards.",
+ start:`.video {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.square {
+  width: 150px;
+  aspect-ratio: 1 / 1;
+  background: #10b981;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}`,
+ goal:"Change .video's aspect-ratio from 16 / 9 to 4 / 3 — the box becomes more square.",
+ source:"MDN — aspect-ratio property",
+ hint:"Find aspect-ratio: 16 / 9; and change to aspect-ratio: 4 / 3;"},
+
+{id:719,title:"CSS clamp() — fluid sizing",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>clamp(min, preferred, max)</code> picks the middle value, never going below min or above max. Perfect for fluid typography: scales with screen but stays readable.",
+ start:`h1 {
+  font-size: clamp(24px, 5vw, 48px);
+  color: #a855f7;
+}
+
+.container {
+  width: clamp(200px, 80%, 600px);
+  background: #f3e8ff;
+  padding: 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+}
+
+p { color: #6b21a8; }`,
+ goal:"Change h1's clamp to clamp(18px, 8vw, 64px) — bigger range, more dramatic scaling.",
+ source:"MDN — clamp() function",
+ hint:"Find font-size: clamp(24px, 5vw, 48px); and change to clamp(18px, 8vw, 64px)."},
+
+{id:720,title:"CSS counters (auto-numbering)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"CSS can auto-number elements using <code>counter-reset</code>, <code>counter-increment</code>, and <code>content: counter(name)</code>. Used for sectioned docs, custom lists, step indicators.",
+ start:`ol.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+}
+ol.steps li {
+  counter-increment: step;
+  padding: 12px;
+  margin-bottom: 8px;
+  background: #f3e8ff;
+  border-radius: 8px;
+}
+ol.steps li::before {
+  content: "Step " counter(step) ": ";
+  color: #a855f7;
+  font-weight: bold;
+}`,
+ goal:"Change \"Step \" to your own prefix, like \"Phase \" or \"Move \".",
+ source:"MDN — CSS Counters",
+ hint:"Find content: \"Step \" counter(step) \": \"; and change \"Step \" to your prefix."},
+{id:721,title:"CSS multi-column layout",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>column-count</code> or <code>column-width</code> flow text across multiple columns — like a newspaper. Browser handles all the splitting.",
+ start:`.article {
+  column-count: 3;
+  column-gap: 24px;
+  column-rule: 1px solid #a855f7;
+  padding: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}`,
+ goal:"Change column-count from 3 to 2 — fewer, wider columns.",
+ source:"MDN — Multi-column layout",
+ hint:"Find column-count: 3; and change to column-count: 2;"},
+
+{id:722,title:"CSS mask-image",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>mask-image</code> hides parts of an element. Use a gradient as a mask to create fade effects. Replaces complicated SVG tricks.",
+ start:`.fade-img {
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  background: linear-gradient(135deg, #a855f7, #6366f1, #10b981);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  border-radius: 8px;
+}`,
+ goal:"Change \"to bottom\" to \"to right\" in both mask-image lines for a left-to-right fade.",
+ source:"MDN — mask-image property",
+ hint:"Find both \"linear-gradient(to bottom, ...\" lines and change to \"to right\"."},
+
+{id:723,title:"CSS clip-path (shapes)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>clip-path</code> clips an element to a shape — circle, polygon, ellipse. The rest of the box is hidden. Used for avatars, decorative cuts, hero sections.",
+ start:`.shape {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: inline-block;
+  margin: 8px;
+}
+.circle  { clip-path: circle(50%); }
+.diamond { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.cut     { clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%); }`,
+ goal:"Change the diamond's clip-path to a triangle: polygon(50% 0, 100% 100%, 0 100%).",
+ source:"MDN — clip-path property",
+ hint:"Find .diamond { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); } and change the polygon."},
+
+{id:724,title:"CSS filter (effects)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>filter</code> applies visual effects: <code>blur()</code>, <code>grayscale()</code>, <code>brightness()</code>, <code>contrast()</code>, <code>hue-rotate()</code>, etc. Stack them with spaces.",
+ start:`.demo {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  display: inline-block;
+  margin: 8px;
+  border-radius: 8px;
+}
+.blur       { filter: blur(4px); }
+.gray       { filter: grayscale(1); }
+.bright     { filter: brightness(1.5); }
+.hue        { filter: hue-rotate(180deg); }
+.combo      { filter: contrast(1.5) saturate(2); }`,
+ goal:"Change .blur from blur(4px) to blur(12px) — much more blur.",
+ source:"MDN — filter property",
+ hint:"Find .blur { filter: blur(4px); } and change to blur(12px)."},
+
+{id:725,title:"CSS backdrop-filter (frosted glass)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>backdrop-filter</code> applies filters to whatever's BEHIND the element. Combined with translucent background, creates the iOS \"frosted glass\" effect.",
+ start:`.scene {
+  height: 200px;
+  background: linear-gradient(135deg, #a855f7, #6366f1, #10b981, #f59e0b);
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.glass {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 20px 32px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}`,
+ goal:"Change the blur amount from 10px to 20px in both backdrop-filter lines.",
+ source:"MDN — backdrop-filter property",
+ hint:"Find both blur(10px) lines and change to blur(20px)."},
+
+{id:726,title:"CSS mix-blend-mode",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>mix-blend-mode</code> controls how an element's colors blend with what's below — like Photoshop layer modes. <code>multiply</code>, <code>screen</code>, <code>overlay</code>, <code>difference</code>.",
+ start:`.scene {
+  height: 200px;
+  background: linear-gradient(135deg, #a855f7 0%, #f59e0b 100%);
+  position: relative;
+  border-radius: 12px;
+}
+.text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: 900;
+  color: white;
+  mix-blend-mode: difference;
+}`,
+ goal:"Change mix-blend-mode from \"difference\" to \"multiply\" and see the text change.",
+ source:"MDN — mix-blend-mode property",
+ hint:"Find mix-blend-mode: difference; and change to mix-blend-mode: multiply;"},
+
+{id:727,title:"CSS accent-color",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>accent-color</code> recolors native form controls (checkboxes, radios, range inputs) without custom CSS hacks. Modern, browser-handled, accessible.",
+ start:`:root { accent-color: #a855f7; }
+
+.form-area {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+}
+.form-area label { display: flex; gap: 8px; align-items: center; }`,
+ goal:"Change :root's accent-color from #a855f7 to #10b981 — checkboxes and radios go green.",
+ source:"MDN — accent-color property",
+ hint:"Find :root { accent-color: #a855f7; } and change to #10b981."},
+
+{id:728,title:"CSS color-mix()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>color-mix()</code> blends two colors at a given ratio. Great for hover states, themes, opacity-without-rgba.",
+ start:`:root {
+  --brand: #a855f7;
+}
+
+.box {
+  padding: 16px;
+  margin: 8px 0;
+  color: white;
+  border-radius: 6px;
+}
+
+.b1 { background: var(--brand); }
+.b2 { background: color-mix(in srgb, var(--brand) 60%, white); color: #333; }
+.b3 { background: color-mix(in srgb, var(--brand) 30%, white); color: #333; }
+.b4 { background: color-mix(in srgb, var(--brand), black 30%); }`,
+ goal:"Change --brand from #a855f7 to your favorite color and watch all the mixed versions update.",
+ source:"MDN — color-mix() function",
+ hint:"Find --brand: #a855f7; and change to your preferred hex (e.g. #10b981)."},
+
+{id:729,title:"CSS nesting",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Modern CSS supports nesting — write selectors inside other selectors. Reduces repetition and groups related styles. Use <code>&amp;</code> to reference the parent.",
+ start:`.card {
+  background: white;
+  border: 2px solid #a855f7;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 8px 0;
+
+  & h3 {
+    color: #a855f7;
+    margin: 0 0 8px;
+  }
+
+  & p {
+    color: #6b21a8;
+    line-height: 1.5;
+  }
+
+  &:hover {
+    background: #f3e8ff;
+  }
+}`,
+ goal:"Add nested styles for & button { background: #a855f7; color: white; padding: 6px 12px; }",
+ source:"MDN — CSS nesting",
+ hint:"Inside .card { ... }, before the closing brace, add: & button { background: #a855f7; color: white; padding: 6px 12px; }"},
+
+{id:730,title:"CSS ::placeholder",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>::placeholder</code> styles the placeholder text inside inputs and textareas. Color, opacity, font — all controllable.",
+ start:`input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #a855f7;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+input::placeholder {
+  color: #c084fc;
+  font-style: italic;
+  opacity: 1;
+}
+input:focus::placeholder {
+  color: #ddd;
+}`,
+ goal:"Change the placeholder color from #c084fc to #f59e0b (orange).",
+ source:"MDN — ::placeholder pseudo-element",
+ hint:"Find color: #c084fc; in input::placeholder and change to #f59e0b."},
+
+{id:731,title:"CSS ::selection",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>::selection</code> styles text the user has highlighted with their cursor. Only color and background-color work (and a few others).",
+ start:`body {
+  font-size: 16px;
+  padding: 12px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: #a855f7;
+  color: white;
+}
+
+p.special::selection {
+  background: #f59e0b;
+  color: #1a1a1a;
+}`,
+ goal:"Change the global ::selection background from #a855f7 to #10b981.",
+ source:"MDN — ::selection pseudo-element",
+ hint:"Find ::selection { background: #a855f7; ... } and change the hex."},
+
+{id:732,title:"CSS ::marker (list bullets)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>::marker</code> styles the bullet or number of a list item — without removing the bullet entirely.",
+ start:`ul.custom {
+  font-size: 16px;
+  padding: 12px 0 12px 24px;
+}
+ul.custom li::marker {
+  color: #a855f7;
+  font-size: 1.5em;
+}
+ol.numbered li::marker {
+  color: #f59e0b;
+  font-weight: 900;
+  content: "⚡ " counter(list-item) ". ";
+}`,
+ goal:"Change the bullet color in ul.custom from #a855f7 to #ef4444 (red).",
+ source:"MDN — ::marker pseudo-element",
+ hint:"Find color: #a855f7; in ul.custom li::marker and change to #ef4444."},
+
+{id:733,title:"CSS :focus-visible",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>:focus-visible</code> applies focus styling ONLY when the browser thinks the user needs it (keyboard navigation, not mouse clicks). Keeps mouse clicks clean, keyboard users supported.",
+ start:`button {
+  padding: 10px 20px;
+  background: #a855f7;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin: 8px;
+}
+button:focus { outline: none; }
+button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 3px;
+}`,
+ goal:"Change :focus-visible outline color from #f59e0b to #10b981 (green).",
+ source:"MDN — :focus-visible + web.dev — focus-visible",
+ hint:"Find outline: 3px solid #f59e0b; in :focus-visible and change to #10b981."},
+
+{id:734,title:"CSS :focus-within",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>:focus-within</code> matches an element when any of its DESCENDANTS has focus. Perfect for highlighting form fieldsets, dropdowns, search containers.",
+ start:`.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 12px;
+  background: white;
+  max-width: 320px;
+  transition: all 0.2s;
+}
+.search-box:focus-within {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.2);
+}
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 6px;
+}`,
+ goal:"Change the :focus-within border-color from #a855f7 to #10b981 (green).",
+ source:"MDN — :focus-within",
+ hint:"Find border-color: #a855f7; in .search-box:focus-within and change to #10b981."},
+
+{id:735,title:"CSS currentColor keyword",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>currentColor</code> is the element's current text color — usable in any color-accepting property. Perfect for SVG icons that inherit color from their parent.",
+ start:`.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid currentColor;
+  border-radius: 6px;
+  background: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 4px;
+}
+.btn-purple { color: #a855f7; }
+.btn-green  { color: #10b981; }
+.btn-red    { color: #ef4444; }
+
+.icon {
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  border-radius: 50%;
+}`,
+ goal:"Add a new button class .btn-orange with color: #f59e0b.",
+ source:"MDN — color keywords + currentColor",
+ hint:"Add: .btn-orange { color: #f59e0b; }"},
+
+{id:736,title:"CSS @property (custom property types)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>@property</code> declares a CSS variable with a TYPE — enabling animations on it. Without @property, you can't animate custom properties.",
+ start:`@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes spinGradient {
+  to { --gradient-angle: 360deg; }
+}
+
+.spin {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(var(--gradient-angle), #a855f7, #10b981, #f59e0b, #a855f7);
+  animation: spinGradient 4s linear infinite;
+  border-radius: 12px;
+}`,
+ goal:"Change the animation duration from 4s to 1s for a faster spin.",
+ source:"MDN — @property at-rule",
+ hint:"Find animation: spinGradient 4s linear infinite; and change 4s to 1s."},
+/* ══ BEGINNER LESSONS — JS DEEP DIVE (737–770) — MDN Web Docs ══ */
+// Continues 651-670. Covers Promises/async, modern syntax, DOM events, classes, and Object/Array advanced methods.
+
+{id:737,title:"JS Promises: the basics",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>Promise</strong> represents a value that will arrive later. It has three states: pending, fulfilled, or rejected. Used for anything async — fetching data, reading files, timers.",
+ start:`const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Done after 1 second!");
+  }, 1000);
+});
+
+console.log("Created the promise");
+promise.then((result) => {
+  console.log("Promise resolved:", result);
+});`,
+ goal:"Change the timeout from 1000ms to 500ms — promise resolves faster.",
+ source:"MDN — Using promises",
+ hint:"Find }, 1000); and change 1000 to 500."},
+
+{id:738,title:"JS Promises: .then() chaining",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.then()</code> runs when a promise resolves. Each .then() returns a NEW promise, so you can chain them — pass values down the chain, transform along the way.",
+ start:`Promise.resolve(5)
+  .then(n => {
+    console.log("Got:", n);
+    return n * 2;
+  })
+  .then(n => {
+    console.log("Doubled:", n);
+    return n + 10;
+  })
+  .then(n => {
+    console.log("Plus ten:", n);
+  });`,
+ goal:"Add a fourth .then that subtracts 3 from the value and logs it.",
+ source:"MDN — Promise.prototype.then()",
+ hint:"After the third .then, add: .then(n => { console.log(\"Minus three:\", n - 3); });"},
+
+{id:739,title:"JS Promises: .catch() for errors",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.catch()</code> handles promise rejections. Place at the end of a chain to catch errors from ANY step in the chain — much cleaner than try/catch for async code.",
+ start:`function divide(a, b) {
+  return new Promise((resolve, reject) => {
+    if (b === 0) reject(new Error("Cannot divide by zero!"));
+    else resolve(a / b);
+  });
+}
+
+divide(10, 2)
+  .then(result => console.log("Result:", result))
+  .catch(err => console.log("Error:", err.message));
+
+divide(10, 0)
+  .then(result => console.log("Result:", result))
+  .catch(err => console.log("Error:", err.message));`,
+ goal:"Add a third call: divide(20, 4) — verify the .then path runs and .catch is skipped.",
+ source:"MDN — Promise.prototype.catch()",
+ hint:"Add: divide(20, 4).then(r => console.log(\"Result:\", r)).catch(e => console.log(\"Error:\", e.message));"},
+
+{id:740,title:"JS async function",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>async function</code> automatically returns a Promise. Inside, you can use <code>await</code> to pause until a promise resolves. Code reads top-to-bottom instead of nested callbacks.",
+ start:`async function greet() {
+  return "Hello from async!";
+}
+
+// async functions ALWAYS return promises
+const result = greet();
+console.log(result);            // Promise { 'Hello from async!' }
+
+result.then(msg => console.log(msg));  // "Hello from async!"
+
+// Can also use await in another async function
+async function show() {
+  const message = await greet();
+  console.log("Awaited:", message);
+}
+show();`,
+ goal:"Change greet() to return a different string and watch all the logs update.",
+ source:"MDN — async function",
+ hint:"Find return \"Hello from async!\"; and change the string."},
+
+{id:741,title:"JS await keyword",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>await</code> pauses an async function until a promise resolves. The result of the await IS the resolved value. Only works inside async functions.",
+ start:`function wait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function countdown() {
+  console.log("3...");
+  await wait(500);
+  console.log("2...");
+  await wait(500);
+  console.log("1...");
+  await wait(500);
+  console.log("🚀 Go!");
+}
+
+countdown();`,
+ goal:"Change wait time from 500ms to 200ms — countdown speeds up.",
+ source:"MDN — await operator",
+ hint:"Find all three await wait(500); and change to await wait(200);"},
+
+{id:742,title:"JS fetch: GET request (intro)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>fetch(url)</code> sends an HTTP request. Returns a Promise that resolves to a Response. Call <code>.json()</code> on the response to parse JSON data.",
+ start:`async function loadData() {
+  try {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+    const data = await response.json();
+    console.log("Title:", data.title);
+    console.log("Completed:", data.completed);
+    console.log("Full:", data);
+  } catch (err) {
+    console.log("Error:", err.message);
+  }
+}
+
+loadData();`,
+ goal:"Change the URL's /todos/1 to /todos/5 — fetches a different todo.",
+ source:"MDN — fetch() global function",
+ hint:"Find /todos/1 and change to /todos/5."},
+
+{id:743,title:"JS fetch: response handling",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Fetch's promise resolves even on 404 or 500 errors — only network failures reject. Always check <code>response.ok</code> or <code>response.status</code> before parsing.",
+ start:`async function safeFetch(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.log("Server responded with:", response.status);
+      return;
+    }
+    const data = await response.json();
+    console.log("Success:", data.title);
+  } catch (err) {
+    console.log("Network error:", err.message);
+  }
+}
+
+safeFetch("https://jsonplaceholder.typicode.com/todos/1");  // success
+safeFetch("https://jsonplaceholder.typicode.com/missing");   // 404`,
+ goal:"Add a third safeFetch call with /todos/999 to see another 404 path.",
+ source:"MDN — Response.ok property",
+ hint:"Add: safeFetch(\"https://jsonplaceholder.typicode.com/todos/999\");"},
+
+{id:744,title:"JS destructuring: objects",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Object destructuring pulls properties into variables in one line: <code>const { name, age } = user;</code> — same as <code>const name = user.name; const age = user.age;</code>.",
+ start:`const user = {
+  name: "Ada",
+  age: 30,
+  email: "ada@example.com",
+  city: "London"
+};
+
+// Old way
+const oldName = user.name;
+const oldAge = user.age;
+
+// New way — destructuring
+const { name, age } = user;
+console.log(name, age);
+
+// Rename while destructuring
+const { city: location } = user;
+console.log("Lives in:", location);
+
+// Default values
+const { phone = "not provided" } = user;
+console.log("Phone:", phone);`,
+ goal:"Add a destructuring line to extract email and log it.",
+ source:"MDN — Destructuring assignment",
+ hint:"Add: const { email } = user; console.log(\"Email:\", email);"},
+
+{id:745,title:"JS destructuring: arrays",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Array destructuring uses brackets and ORDER (not names): <code>const [first, second] = arr;</code>. Use commas to skip items. The rest pattern <code>...rest</code> captures remaining.",
+ start:`const colors = ["red", "green", "blue", "yellow", "purple"];
+
+const [first, second] = colors;
+console.log(first, second);            // red green
+
+// Skip with commas
+const [, , third] = colors;
+console.log("Third:", third);           // blue
+
+// Rest pattern
+const [head, ...tail] = colors;
+console.log("Head:", head);             // red
+console.log("Tail:", tail);             // [green, blue, yellow, purple]
+
+// Default values
+const [a, b, c, d, e, f = "missing"] = colors;
+console.log("Sixth:", f);               // missing`,
+ goal:"Add a destructuring line that pulls the LAST color into a variable named \"last\".",
+ source:"MDN — Array destructuring",
+ hint:"const [, , , , last] = colors; console.log(\"Last:\", last);"},
+
+{id:746,title:"JS optional chaining (?.)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>?.</code> safely accesses nested properties. If anything in the chain is null/undefined, the expression returns undefined instead of throwing. Lifesaver for API responses.",
+ start:`const user1 = {
+  name: "Ada",
+  address: { city: "London", zip: "EC1" }
+};
+const user2 = { name: "Bo" };  // no address
+
+// Without ?.
+// console.log(user2.address.city); // ERROR — can't read city of undefined
+
+// With ?.
+console.log(user1?.address?.city);      // "London"
+console.log(user2?.address?.city);      // undefined (no error)
+console.log(user2?.address?.zip);       // undefined
+
+// Works on function calls too
+const obj = { greet: () => "Hi!" };
+console.log(obj.greet?.());              // "Hi!"
+console.log(obj.farewell?.());           // undefined`,
+ goal:"Add a fourth user const with name only, and log user4?.address?.city — should be undefined.",
+ source:"MDN — Optional chaining (?.)",
+ hint:"Add: const user4 = { name: \"Cy\" }; console.log(user4?.address?.city);"},
+
+{id:747,title:"JS nullish coalescing (??)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>??</code> returns the right side ONLY if the left is null or undefined. Unlike <code>||</code>, it doesn't treat 0 or empty string as fallback-worthy.",
+ start:`const count = 0;
+const name = "";
+const missing = undefined;
+
+// || treats 0, "", false as falsy — often wrong
+console.log("|| count:", count || 10);    // 10 (probably wrong!)
+console.log("|| name:", name || "Anon");  // "Anon" (maybe wrong)
+
+// ?? only triggers on null/undefined
+console.log("?? count:", count ?? 10);    // 0 (correct!)
+console.log("?? name:", name ?? "Anon");  // "" (preserves empty)
+console.log("?? missing:", missing ?? "Default"); // "Default"`,
+ goal:"Add: const score = null; console.log(\"?? score:\", score ?? 0); — should print 0.",
+ source:"MDN — Nullish coalescing operator (??)",
+ hint:"Add: const score = null; console.log(\"?? score:\", score ?? 0);"},
+
+{id:748,title:"JS Object.keys()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Object.keys(obj)</code> returns an array of an object's keys. Combined with .forEach, .map, etc. to iterate over object properties.",
+ start:`const scores = {
+  Ada: 95,
+  Bo: 82,
+  Cy: 78,
+  Dan: 91
+};
+
+const names = Object.keys(scores);
+console.log("Names:", names);
+console.log("Count:", names.length);
+
+// Iterate
+names.forEach(name => {
+  console.log(name + ": " + scores[name]);
+});`,
+ goal:"Use Object.keys to log only the names whose score is >= 90.",
+ source:"MDN — Object.keys()",
+ hint:"Object.keys(scores).filter(n => scores[n] >= 90).forEach(n => console.log(n));"},
+
+{id:749,title:"JS Object.values()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Object.values(obj)</code> returns an array of the values. Perfect for summing, averaging, or finding max in an object's numeric fields.",
+ start:`const sales = {
+  jan: 4500,
+  feb: 5200,
+  mar: 4800,
+  apr: 6100
+};
+
+const values = Object.values(sales);
+console.log("All values:", values);
+
+const total = values.reduce((sum, v) => sum + v, 0);
+console.log("Total:", total);
+
+const avg = total / values.length;
+console.log("Average:", avg);
+
+const max = Math.max(...values);
+console.log("Max:", max);`,
+ goal:"Log the minimum value using Math.min(...values).",
+ source:"MDN — Object.values()",
+ hint:"console.log(\"Min:\", Math.min(...values));"},
+
+{id:750,title:"JS Object.entries()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Object.entries(obj)</code> returns [key, value] pairs. Great with destructuring: <code>for (const [key, val] of Object.entries(obj))</code>.",
+ start:`const inventory = {
+  apples: 30,
+  bread: 5,
+  cheese: 12,
+  donuts: 0
+};
+
+for (const [item, count] of Object.entries(inventory)) {
+  console.log(item + ": " + count);
+}
+
+// Filter to only stocked items
+const stocked = Object.entries(inventory)
+  .filter(([, count]) => count > 0)
+  .map(([item]) => item);
+
+console.log("In stock:", stocked);`,
+ goal:"Find items with count less than 10 and log just their names.",
+ source:"MDN — Object.entries()",
+ hint:"Object.entries(inventory).filter(([, c]) => c < 10).forEach(([name]) => console.log(name));"},
+
+{id:751,title:"JS Object.assign()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Object.assign(target, ...sources)</code> copies properties from source objects into the target. Returns the target. Used to merge objects or clone shallowly.",
+ start:`const defaults = { theme: "light", fontSize: 14, autoSave: true };
+const userPrefs = { theme: "dark", fontSize: 16 };
+
+// Merge — user prefs override defaults
+const final = Object.assign({}, defaults, userPrefs);
+console.log("Final:", final);
+
+// Spread syntax does the same thing
+const altFinal = { ...defaults, ...userPrefs };
+console.log("Same with spread:", altFinal);
+
+// Cloning
+const clone = Object.assign({}, final);
+clone.theme = "purple";
+console.log("Original:", final.theme); // still "dark"
+console.log("Clone:", clone.theme);    // "purple"`,
+ goal:"Add a third source object { notifications: true } to the Object.assign call.",
+ source:"MDN — Object.assign()",
+ hint:"Change Object.assign({}, defaults, userPrefs) to Object.assign({}, defaults, userPrefs, { notifications: true })."},
+
+{id:752,title:"JS Array.from()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Array.from()</code> turns array-like values into real arrays. Also accepts a mapper function — generating arrays of N items in one line.",
+ start:`// Turn a string into a character array
+const chars = Array.from("hello");
+console.log("Chars:", chars);   // ["h","e","l","l","o"]
+
+// Generate an array of 5 numbers
+const fives = Array.from({ length: 5 }, (_, i) => i * 5);
+console.log("Fives:", fives);   // [0, 5, 10, 15, 20]
+
+// Random dice roll x10
+const rolls = Array.from({ length: 10 }, () => Math.floor(Math.random() * 6) + 1);
+console.log("Rolls:", rolls);`,
+ goal:"Create an array of 7 squares (1, 4, 9, 16, 25, 36, 49) using Array.from.",
+ source:"MDN — Array.from()",
+ hint:"const squares = Array.from({ length: 7 }, (_, i) => (i + 1) ** 2); console.log(squares);"},
+
+{id:753,title:"JS Classes: intro",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <code>class</code> is a blueprint for objects. Use <code>new ClassName()</code> to create instances. <code>this</code> refers to the instance being created.",
+ start:`class Dragon {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+    this.flames = 0;
+  }
+
+  roar() {
+    return this.name + " says ROAR!";
+  }
+
+  breathe() {
+    this.flames++;
+    return this.name + " breathed fire. Flame count: " + this.flames;
+  }
+}
+
+const sparky = new Dragon("Sparky", "purple");
+console.log(sparky.roar());
+console.log(sparky.breathe());
+console.log(sparky.breathe());`,
+ goal:"Create a second dragon called \"Ember\" in color \"red\" and call its roar method.",
+ source:"MDN — Classes",
+ hint:"const ember = new Dragon(\"Ember\", \"red\"); console.log(ember.roar());"},
+{id:754,title:"JS Classes: constructor and methods",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"The <code>constructor</code> runs when you call <code>new ClassName()</code>. Other methods can use <code>this</code> to access properties. Each instance has its own state.",
+ start:`class Counter {
+  constructor(startValue = 0) {
+    this.count = startValue;
+  }
+
+  increment(step = 1) {
+    this.count += step;
+    return this.count;
+  }
+
+  decrement(step = 1) {
+    this.count -= step;
+    return this.count;
+  }
+
+  reset() {
+    this.count = 0;
+    return this.count;
+  }
+}
+
+let myCounter = new Counter(10);
+console.log("Start:", myCounter.count);
+console.log("After +1:", myCounter.increment());
+console.log("After +5:", myCounter.increment(5));
+console.log("After reset:", myCounter.reset());`,
+ goal:"Create another counter starting at 100 and call decrement(25) twice.",
+ source:"MDN — Class constructor + methods",
+ hint:"let big = new Counter(100); console.log(big.decrement(25)); console.log(big.decrement(25));"},
+
+{id:755,title:"JS Classes: inheritance (extends)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>extends</code> creates a subclass that inherits methods. <code>super()</code> calls the parent's constructor. Subclasses can add new methods or override inherited ones.",
+ start:`class Animal {
+  constructor(name) { this.name = name; }
+  speak() { return this.name + " makes a sound"; }
+}
+
+class Dragon extends Animal {
+  constructor(name, color) {
+    super(name);          // call Animal's constructor
+    this.color = color;
+  }
+  speak() {               // override parent's method
+    return this.name + " roars in " + this.color + "!";
+  }
+  fly() {
+    return this.name + " takes flight!";
+  }
+}
+
+const generic = new Animal("Cat");
+console.log(generic.speak());
+
+const sparky = new Dragon("Sparky", "purple");
+console.log(sparky.speak());
+console.log(sparky.fly());`,
+ goal:"Create a third class Phoenix extends Animal with its own speak() method.",
+ source:"MDN — Class inheritance (extends)",
+ hint:"class Phoenix extends Animal { speak() { return this.name + \" rises from ashes!\"; } } const p = new Phoenix(\"Blaze\"); console.log(p.speak());"},
+
+{id:756,title:"JS Classes: getters and setters",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>get propName()</code> defines a computed property. <code>set propName(value)</code> validates assignment. Looks like a normal property to the user.",
+ start:`class Person {
+  constructor(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+  }
+
+  get fullName() {
+    return this.firstName + " " + this.lastName;
+  }
+
+  set fullName(value) {
+    const parts = value.split(" ");
+    this.firstName = parts[0];
+    this.lastName = parts[1] || "";
+  }
+}
+
+const p = new Person("Ada", "Lovelace");
+console.log(p.fullName);      // getter — "Ada Lovelace"
+
+p.fullName = "Grace Hopper";  // setter
+console.log(p.firstName);     // "Grace"
+console.log(p.lastName);      // "Hopper"`,
+ goal:"Set p.fullName to a new name (your name) and log the firstName and lastName.",
+ source:"MDN — get + set in classes",
+ hint:"p.fullName = \"Your Name\"; console.log(p.firstName, p.lastName);"},
+
+{id:757,title:"JS Map data structure",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <code>Map</code> stores key-value pairs. Unlike objects, keys can be ANY type (numbers, objects, even functions). Order is preserved. Has <code>.size</code> (not .length).",
+ start:`const userScores = new Map();
+
+userScores.set("Ada", 95);
+userScores.set("Bo", 82);
+userScores.set("Cy", 78);
+
+console.log("Size:", userScores.size);
+console.log("Ada's score:", userScores.get("Ada"));
+console.log("Has Cy?", userScores.has("Cy"));
+
+// Iterate
+for (const [name, score] of userScores) {
+  console.log(name + " -> " + score);
+}
+
+// Delete
+userScores.delete("Bo");
+console.log("After delete:", userScores.size);`,
+ goal:"Add a new entry: userScores.set(\"Dan\", 100); then log Dan's score.",
+ source:"MDN — Map",
+ hint:"userScores.set(\"Dan\", 100); console.log(userScores.get(\"Dan\"));"},
+
+{id:758,title:"JS Symbol basics",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>Symbol()</code> creates a unique value — even two Symbols with the same description aren't equal. Used for: unique object keys, well-known constants, hidden properties.",
+ start:`const id1 = Symbol("user");
+const id2 = Symbol("user");
+
+console.log(id1 === id2);     // false — always unique
+console.log(typeof id1);       // "symbol"
+
+// Use as object keys (truly unique, never collide)
+const obj = {};
+const KEY = Symbol("private");
+obj[KEY] = "secret value";
+
+console.log(obj[KEY]);                       // "secret value"
+console.log(Object.keys(obj));                // [] — symbols hidden from .keys()
+console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(private)]`,
+ goal:"Create a third Symbol with description \"id\" and verify it's not equal to id1 or id2.",
+ source:"MDN — Symbol",
+ hint:"const id3 = Symbol(\"id\"); console.log(id3 === id1, id3 === id2);"},
+
+{id:759,title:"JS Regex: test and match",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>/pattern/.test(str)</code> returns true/false. <code>str.match(/pattern/)</code> returns the match details. Regex powers search, validation, replace.",
+ start:`const emailRegex = /^[\\w.-]+@[\\w.-]+\\.\\w+$/;
+
+console.log(emailRegex.test("hello@example.com"));   // true
+console.log(emailRegex.test("not-an-email"));         // false
+console.log(emailRegex.test("user@code.ranger.io")); // true
+
+const phoneRegex = /\\d{3}-\\d{3}-\\d{4}/;
+const text = "Call me at 555-867-5309 today.";
+
+const match = text.match(phoneRegex);
+console.log("Matched:", match[0]);  // "555-867-5309"
+console.log("At index:", match.index);`,
+ goal:"Use phoneRegex.test() to check if the string \"my number is 123-456-7890\" matches.",
+ source:"MDN — RegExp.test() + String.match()",
+ hint:"console.log(phoneRegex.test(\"my number is 123-456-7890\"));"},
+
+{id:760,title:"JS Regex: replace",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>str.replace(/pattern/g, replacement)</code> swaps matches. The <code>g</code> flag means \"global\" (all matches, not just first). <code>i</code> means case-insensitive.",
+ start:`const text = "I love cats. Cats are amazing!";
+
+console.log(text.replace(/cats/, "dogs"));        // first only
+console.log(text.replace(/cats/g, "dogs"));       // all
+console.log(text.replace(/cats/gi, "dogs"));      // all, ignore case
+
+// Mask emails
+const message = "Email me at ada@example.com or bo@code.io";
+const masked = message.replace(/[\\w.-]+@[\\w.-]+\\.\\w+/g, "***@***");
+console.log(masked);`,
+ goal:"Use .replace with /\\d+/g to replace all numbers in \"3 cats and 5 dogs\" with \"X\".",
+ source:"MDN — String.replace() with RegExp",
+ hint:"console.log(\"3 cats and 5 dogs\".replace(/\\\\d+/g, \"X\"));"},
+
+{id:761,title:"JS DOM: querySelector",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>document.querySelector(selector)</code> finds the FIRST element matching a CSS selector. <code>querySelectorAll</code> finds all of them (returns NodeList).",
+ start:`document.body.innerHTML = \`
+  <h2 id="title">My List</h2>
+  <ul>
+    <li class="item">Apple</li>
+    <li class="item">Banana</li>
+    <li class="item">Cherry</li>
+  </ul>
+\`;
+
+// First match
+const title = document.querySelector("#title");
+console.log("Title:", title.textContent);
+
+const firstItem = document.querySelector(".item");
+console.log("First item:", firstItem.textContent);
+
+// All matches
+const allItems = document.querySelectorAll(".item");
+console.log("Item count:", allItems.length);
+
+allItems.forEach(item => {
+  console.log("Item:", item.textContent);
+});`,
+ goal:"Add a query to find the <ul> element and log how many children it has using .children.length.",
+ source:"MDN — document.querySelector",
+ hint:"const ul = document.querySelector(\"ul\"); console.log(\"UL children:\", ul.children.length);"},
+
+{id:762,title:"JS DOM: dataset (data-* attributes)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>data-*</code> attributes store custom data on elements. Access via <code>element.dataset</code>. <code>data-user-id</code> becomes <code>dataset.userId</code> (camelCase).",
+ start:`document.body.innerHTML = \`
+  <button class="action" data-user-id="42" data-role="admin">Click me</button>
+\`;
+
+const btn = document.querySelector(".action");
+console.log("User ID:", btn.dataset.userId);
+console.log("Role:", btn.dataset.role);
+
+// Set via dataset too
+btn.dataset.lastClicked = Date.now();
+console.log("Last clicked stamp:", btn.dataset.lastClicked);
+
+// View all data attributes
+console.log("All data:", Object.assign({}, btn.dataset));`,
+ goal:"Add a data-color attribute to the button HTML and read it via btn.dataset.color.",
+ source:"MDN — HTMLElement.dataset",
+ hint:"Change <button class=\"action\" data-user-id=\"42\" data-role=\"admin\"> to add data-color=\"purple\", then console.log(btn.dataset.color);"},
+
+{id:763,title:"JS DOM: classList methods",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>element.classList</code> manages classes cleanly. <code>.add()</code>, <code>.remove()</code>, <code>.toggle()</code>, <code>.contains()</code>. Way cleaner than manipulating className strings.",
+ start:`document.body.innerHTML = \`
+  <style>
+    .active { background: #a855f7; color: white; }
+    .big { font-size: 24px; }
+  </style>
+  <p id="target" class="message">Hello!</p>
+  <button id="btn">Toggle Active</button>
+\`;
+
+const target = document.querySelector("#target");
+const btn = document.querySelector("#btn");
+
+target.classList.add("big");                 // add
+console.log("Has 'big'?", target.classList.contains("big"));
+
+btn.addEventListener("click", () => {
+  target.classList.toggle("active");          // toggle on/off
+});
+
+// Programmatically click 3 times to see
+btn.click();
+btn.click();
+btn.click();`,
+ goal:"After the existing code, add: target.classList.remove(\"big\"); — removes the big class.",
+ source:"MDN — Element.classList",
+ hint:"At the bottom add: target.classList.remove(\"big\"); console.log(\"Has 'big' now?\", target.classList.contains(\"big\"));"},
+
+{id:764,title:"JS DOM: event.target",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>event.target</code> is the element that triggered the event. Combined with event delegation (one listener for many elements), it's a powerful pattern.",
+ start:`document.body.innerHTML = \`
+  <ul id="list">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Cherry</li>
+    <li>Date</li>
+  </ul>
+  <p id="output"></p>
+\`;
+
+const list = document.querySelector("#list");
+const out = document.querySelector("#output");
+
+// One listener on the parent — catches all child clicks
+list.addEventListener("click", (event) => {
+  if (event.target.tagName === "LI") {
+    out.textContent = "You clicked: " + event.target.textContent;
+  }
+});
+
+// Simulate clicks
+list.children[0].click();
+list.children[2].click();`,
+ goal:"Add two more <li> items (\"Elderberry\", \"Fig\") and simulate a click on Fig.",
+ source:"MDN — Event.target",
+ hint:"Add <li>Elderberry</li><li>Fig</li> to the innerHTML, then list.children[5].click();"},
+
+{id:765,title:"JS DOM: event.preventDefault()",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>event.preventDefault()</code> stops the browser's default action. Use on form submits to handle them in JS, or on links to prevent navigation.",
+ start:`document.body.innerHTML = \`
+  <form id="testForm">
+    <label for="qInput">Question:</label>
+    <input type="text" id="qInput" value="Why use preventDefault?">
+    <button type="submit">Submit</button>
+  </form>
+  <p id="result"></p>
+\`;
+
+const form = document.querySelector("#testForm");
+const input = document.querySelector("#qInput");
+const result = document.querySelector("#result");
+
+form.addEventListener("submit", (event) => {
+  event.preventDefault();  // stops page reload
+  result.textContent = "Captured: " + input.value;
+});
+
+// Simulate a submit
+form.requestSubmit();`,
+ goal:"Change the input's initial value to your own question and re-run.",
+ source:"MDN — Event.preventDefault()",
+ hint:"Find value=\"Why use preventDefault?\" and change to your own question."},
+
+{id:766,title:"JS DOM: event bubbling",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Events bubble UP the DOM tree — click an inner element, every ancestor's listener fires too. Use <code>event.stopPropagation()</code> to stop the bubble.",
+ start:`document.body.innerHTML = \`
+  <div id="outer" style="padding:20px;background:#f3e8ff;border-radius:8px">
+    OUTER
+    <div id="middle" style="padding:20px;background:#ddd6fe;border-radius:8px;margin-top:8px">
+      MIDDLE
+      <button id="inner" style="padding:10px;background:#a855f7;color:white">INNER</button>
+    </div>
+  </div>
+  <p id="log"></p>
+\`;
+
+const log = document.querySelector("#log");
+const lines = [];
+
+document.querySelector("#outer").addEventListener("click", () => lines.push("outer"));
+document.querySelector("#middle").addEventListener("click", () => lines.push("middle"));
+document.querySelector("#inner").addEventListener("click", () => lines.push("inner"));
+
+document.querySelector("#inner").click();
+
+log.textContent = "Fired (in order): " + lines.join(" -> ");`,
+ goal:"Add event.stopPropagation() inside the middle div's listener — then outer's listener won't fire.",
+ source:"MDN — Event bubbling + stopPropagation",
+ hint:"Change addEventListener(\"click\", () => lines.push(\"middle\")) to addEventListener(\"click\", (e) => { e.stopPropagation(); lines.push(\"middle\"); })"},
+
+{id:767,title:"JS requestAnimationFrame",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>requestAnimationFrame(callback)</code> runs your function right before the next repaint. Smoother and more efficient than setInterval for animations.",
+ start:`document.body.innerHTML = \`
+  <div id="ball" style="width:40px;height:40px;background:#a855f7;border-radius:50%;position:relative"></div>
+\`;
+
+const ball = document.querySelector("#ball");
+let position = 0;
+let direction = 2;
+
+function animate() {
+  position += direction;
+  if (position > 200 || position < 0) direction = -direction;
+  ball.style.left = position + "px";
+  requestAnimationFrame(animate);
+}
+
+animate();`,
+ goal:"Change direction's speed from 2 to 5 for faster bouncing.",
+ source:"MDN — requestAnimationFrame",
+ hint:"Find let direction = 2; and change to let direction = 5;"},
+
+{id:768,title:"JS Closures: counter with private state",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>closure</strong> lets an inner function remember variables from its outer function — even after the outer function has returned. Perfect for private state.",
+ start:`function makeCounter() {
+  let count = 0;  // private — only the inner functions can see this
+
+  return {
+    increment: () => { count++; return count; },
+    decrement: () => { count--; return count; },
+    value: () => count
+  };
+}
+
+const counter = makeCounter();
+console.log(counter.increment());  // 1
+console.log(counter.increment());  // 2
+console.log(counter.decrement());  // 1
+console.log(counter.value());      // 1
+
+// Try to access directly — fails (closure protects it)
+console.log(counter.count);        // undefined`,
+ goal:"Add a third counter method: reset: () => { count = 0; return count; }. Then call counter.reset().",
+ source:"MDN — Closures",
+ hint:"Inside the return object, add: reset: () => { count = 0; return count; }, — then console.log(counter.reset());"},
+
+{id:769,title:"JS DOM: build a tiny todo list",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Combine closure-based state, textContent for safe rendering, and label+for accessibility. This is what an interview-ready DOM mini-app looks like.",
+ start:`document.body.innerHTML = \`
+  <h3>My Todos</h3>
+  <label for="todoField">New task:</label>
+  <input type="text" id="todoField" placeholder="What needs doing?">
+  <button id="addBtn">Add</button>
+  <ul id="todoList"></ul>
+\`;
+
+const makeTodoStore = () => {
+  let items = [];
+  return {
+    add: (text) => { items.push(text); },
+    all: () => [...items]
+  };
+};
+
+const store = makeTodoStore();
+const field = document.querySelector("#todoField");
+const list = document.querySelector("#todoList");
+
+const render = () => {
+  list.textContent = ""; // clear safely
+  store.all().forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = item;  // textContent — safe from XSS
+    list.appendChild(li);
+  });
+};
+
+document.querySelector("#addBtn").addEventListener("click", () => {
+  if (field.value.trim()) {
+    store.add(field.value.trim());
+    field.value = "";
+    render();
+  }
+});
+
+// Seed a couple
+store.add("Learn closures");
+store.add("Use textContent");
+render();`,
+ goal:"Add a third seeded todo using store.add (something you want to learn this week).",
+ source:"MDN — Closures + textContent + label for=",
+ hint:"Add: store.add(\"Your goal here\"); before the final render(); call."},
+
+{id:770,title:"JS Putting it together: a typeahead search",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Capstone lesson: combines querySelector, textContent, closures, label for, .filter(), and event handling. Type to filter a list. The kind of feature shipped in real apps.",
+ start:`document.body.innerHTML = \`
+  <h3>Type-ahead Search</h3>
+  <label for="searchField">Search dragons:</label>
+  <input type="search" id="searchField" placeholder="Type a name...">
+  <ul id="resultList" style="margin-top:8px;list-style:none;padding:0"></ul>
+\`;
+
+const dragons = ["Sparky", "Ember", "Frostbite", "Stormwing", "Coral", "Mint", "Sand", "Sky"];
+
+// Closure preserves the dataset privately
+const createSearchEngine = (items) => {
+  const data = [...items];
+  return {
+    find: (query) => data.filter(d => d.toLowerCase().includes(query.toLowerCase()))
+  };
+};
+
+const engine = createSearchEngine(dragons);
+const field = document.querySelector("#searchField");
+const list = document.querySelector("#resultList");
+
+const render = (matches) => {
+  list.textContent = "";  // safe clear
+  matches.forEach((name) => {
+    const li = document.createElement("li");
+    li.textContent = name;  // textContent — safe insert
+    li.style.padding = "6px 10px";
+    li.style.background = "#f3e8ff";
+    li.style.marginBottom = "4px";
+    li.style.borderRadius = "4px";
+    list.appendChild(li);
+  });
+};
+
+field.addEventListener("input", () => {
+  render(engine.find(field.value));
+});
+
+// Initial render — show all
+render(dragons);`,
+ goal:"Add three more dragon names to the dragons array and re-run.",
+ source:"MDN — putting it all together (closures, DOM, events)",
+ hint:"Find const dragons = [...] and add three more names like \"Inferno\", \"Tempest\", \"Glacier\"."},
+
 ];
 
 /* ══════════════════════════════════
-   TROPHIES — updated for 500
+   TROPHIES — updated for 770
 ══════════════════════════════════ */
-const TOTAL = 610;
+const TOTAL = 770;
 const CATS = ['All','Web Basics','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing'];
 const CAT_ICONS = {'All':'🎮','Web Basics':'🌱','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪'};
 
@@ -5047,7 +8466,88 @@ const WIN_TROPHIES=[
   {id:"w200",e:"🥇",n:"Gold Medal",d:"Solve 200 challenges",t:200,c:"#FFD700"},
   {id:"w300",e:"🏆",n:"Large Trophy",d:"Solve 300 challenges",t:300,c:"#f59e0b"},
   {id:"w400",e:"💎",n:"Diamond",d:"Solve 400 challenges",t:400,c:"#67e8f9"},
-  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 610!",t:610,c:"#FBBC04"},
+  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 770!",t:770,c:"#FBBC04"},
+
+  // ══════════════════════════════════════════════════════════════════
+  // NEW TROPHIES — 16 dragon-themed additions across 4 thematic groups.
+  // These use the `cond` function pattern (handled by extended
+  // checkAllTrophies) instead of the legacy `t` threshold pattern.
+  // ══════════════════════════════════════════════════════════════════
+
+  // ──── DIRECTION 1: ELEMENTAL DRAGONS ────
+  {id:"e_flame",e:"🔥",n:"Flame Dragon",d:"Complete 5 lessons in a single day",
+   c:"#dc2626",hue:340,sat:1.8,bright:1.1,
+   cond:()=>dailyLessonCount>=5},
+
+  {id:"e_tide",e:"🌊",n:"Tide Dragon",d:"Solve 75 challenges",
+   c:"#06b6d4",hue:170,sat:1.5,
+   cond:()=>solved.size>=75},
+
+  {id:"e_storm",e:"⚡",n:"Storm Dragon",d:"Get a 3-solve streak (3 correct in a row)",
+   c:"#8b5cf6",hue:260,sat:1.6,
+   cond:()=>bestSolveStreak>=3},
+
+  {id:"e_frost",e:"❄️",n:"Frost Dragon",d:"Solve 10 challenges without using a hint",
+   c:"#64748b",hue:0,sat:0.5,bright:0.95,
+   cond:()=>noHintSolves>=10},
+
+  // ──── DIRECTION 2: DRAGON LIFE CYCLE (EXTENDED) ────
+  {id:"l_wyrm",e:"🦎",n:"Mint Wyrmling",d:"Complete 75 lessons",
+   c:"#10b981",hue:80,sat:1.4,
+   cond:()=>CHS.filter(c=>c.mode==='lesson'&&solved.has(c.id)).length>=75},
+
+  {id:"l_adolescent",e:"🦖",n:"Adolescent Dragon",d:"Complete 100 lessons",
+   c:"#f59e0b",hue:30,sat:1.8,bright:1.2,
+   cond:()=>CHS.filter(c=>c.mode==='lesson'&&solved.has(c.id)).length>=100},
+
+  {id:"l_ancient",e:"🐲",n:"Ancient Dragon",d:"Solve 500 challenges",
+   c:"#8b5cf6",hue:260,sat:1.6,
+   cond:()=>solved.size>=500},
+
+  {id:"l_elder",e:"🏯",n:"Elder Dragon's Keep",d:"Master every category",
+   c:"#f59e0b",hue:30,sat:1.8,bright:1.2,
+   cond:()=>countMasteredCategories()>=CATS.filter(c=>c!=='All').length},
+
+  // ──── DIRECTION 3: DRAGON'S HOARD ────
+  {id:"h_scroll",e:"📜",n:"Dragon Scroll",d:"Read every lesson description",
+   c:"#f59e0b",hue:30,sat:1.5,bright:1.1,
+   cond:()=>hasReadAllLessons()},
+
+  {id:"h_ring",e:"💍",n:"Ruby Ring",d:"Practice 7 days in a row",
+   c:"#f43f5e",hue:330,sat:1.5,
+   cond:()=>dayStreak>=7},
+
+  {id:"h_key",e:"🗝️",n:"Lair Key",d:"Unlock the Interview Lab (5 wins)",
+   c:"#6366f1",hue:220,sat:1.6,
+   cond:()=>solved.size>=5},
+
+  {id:"h_shield",e:"🛡️",n:"Dragon Scale Shield",d:"Solve 50 challenges errorlessly (passed first try)",
+   c:"#10b981",hue:80,sat:1.4,
+   cond:()=>errorlessSolves>=50},
+
+  // ──── DIRECTION 4: DRAGON RIDER RANKS ────
+  {id:"r_initiate",e:"🎓",n:"Dragon Initiate",d:"Complete every Web Basics lesson",
+   c:"#10b981",hue:80,sat:1.4,
+   cond:()=>{
+     const wb=CHS.filter(c=>c.cat==='Web Basics').map(c=>c.id);
+     return wb.length>0 && wb.every(id=>solved.has(id));
+   }},
+
+  {id:"r_squire",e:"⚔️",n:"Dragon Squire",d:"Solve 50 challenges in any single category",
+   c:"#06b6d4",hue:170,sat:1.5,
+   cond:()=>{
+     return CATS.filter(c=>c!=='All').some(cat=>{
+       return CHS.filter(c=>c.cat===cat && solved.has(c.id)).length>=50;
+     });
+   }},
+
+  {id:"r_knight",e:"🪶",n:"Dragon Knight",d:"Master 3 categories",
+   c:"#8b5cf6",hue:260,sat:1.6,
+   cond:()=>countMasteredCategories()>=3},
+
+  {id:"r_lord",e:"👑",n:"Dragon Lord",d:"Master 10 categories",
+   c:"#f59e0b",hue:30,sat:1.8,bright:1.2,
+   cond:()=>countMasteredCategories()>=10},
 ];
 const CAT_TROPHIES=[
   {id:"cweb",e:"🌱🏆",n:"Web Basics Master",d:"Complete all Web Basics lessons",cat:"Web Basics",c:"#10b981"},
@@ -5088,6 +8588,19 @@ let hintOpen=false,codeCache={},completedLog=[],optionShuffles={};
 let lang='js';
 let filteredCHS=[];
 
+/* ══ NEW TROPHY-TRACKING STATE ══
+   Persisted via save()/load() — supports the 16 new dragon trophies. */
+let solveStreak=0;              // current consecutive correct-submit streak
+let bestSolveStreak=0;          // best streak ever achieved
+let dayStreak=0;                // current consecutive days active
+let lastActiveDate='';          // YYYY-MM-DD of last activity
+let dailyLessonCount=0;         // lessons completed today
+let dailyLessonDate='';         // YYYY-MM-DD this counter belongs to
+let noHintSolves=0;             // challenges solved without hints
+let errorlessSolves=0;          // challenges solved on first submit (all passing)
+let lessonsRead=new Set();      // lesson IDs whose description was opened
+let firstSubmitMap={};          // {chId: bool} tracks first-submit eligibility for errorless
+
 /* Expose state on window so other modules in this file (resume builder,
    build lab) can read it. `let` declarations do NOT auto-attach to window,
    unlike `var`, so we expose them explicitly. We re-expose after any
@@ -5102,6 +8615,18 @@ function load(){
   hintUsed=new Set(JSON.parse(localStorage.getItem('dp4_hu')||'[]'));
   earned=new Set(JSON.parse(localStorage.getItem('dp4_ea')||'[]'));
   completedLog=JSON.parse(localStorage.getItem('dp4_log')||'[]');
+  // ──── NEW: behavior-tracking state ────
+  solveStreak=parseInt(localStorage.getItem('dp4_ss')||'0');
+  bestSolveStreak=parseInt(localStorage.getItem('dp4_bss')||'0');
+  dayStreak=parseInt(localStorage.getItem('dp4_ds')||'0');
+  lastActiveDate=localStorage.getItem('dp4_lad')||'';
+  dailyLessonCount=parseInt(localStorage.getItem('dp4_dlc')||'0');
+  dailyLessonDate=localStorage.getItem('dp4_dld')||'';
+  noHintSolves=parseInt(localStorage.getItem('dp4_nhs')||'0');
+  errorlessSolves=parseInt(localStorage.getItem('dp4_es')||'0');
+  lessonsRead=new Set(JSON.parse(localStorage.getItem('dp4_lr')||'[]'));
+  firstSubmitMap=JSON.parse(localStorage.getItem('dp4_fsm')||'{}');
+  // ──────────────────────────────────────
   // Re-sync window references after `solved` and `earned` are reassigned
   window.solved = solved;
   window.earned = earned;
@@ -5112,12 +8637,31 @@ function save(){
   localStorage.setItem('dp4_hu',JSON.stringify([...hintUsed]));
   localStorage.setItem('dp4_ea',JSON.stringify([...earned]));
   localStorage.setItem('dp4_log',JSON.stringify(completedLog));
+  // ──── NEW: persist behavior tracking ────
+  localStorage.setItem('dp4_ss',solveStreak);
+  localStorage.setItem('dp4_bss',bestSolveStreak);
+  localStorage.setItem('dp4_ds',dayStreak);
+  localStorage.setItem('dp4_lad',lastActiveDate);
+  localStorage.setItem('dp4_dlc',dailyLessonCount);
+  localStorage.setItem('dp4_dld',dailyLessonDate);
+  localStorage.setItem('dp4_nhs',noHintSolves);
+  localStorage.setItem('dp4_es',errorlessSolves);
+  localStorage.setItem('dp4_lr',JSON.stringify([...lessonsRead]));
+  localStorage.setItem('dp4_fsm',JSON.stringify(firstSubmitMap));
+  // ────────────────────────────────────────
 }
 function resetProgress(){
   if(!confirm('Reset all progress? This clears your score, solved challenges, and trophies. This cannot be undone.')) return;
-  ['dp4_sc','dp4_sv','dp4_hu','dp4_ea','dp4_log'].forEach(k=>localStorage.removeItem(k));
+  ['dp4_sc','dp4_sv','dp4_hu','dp4_ea','dp4_log',
+   'dp4_ss','dp4_bss','dp4_ds','dp4_lad','dp4_dlc',
+   'dp4_dld','dp4_nhs','dp4_es','dp4_lr','dp4_fsm'].forEach(k=>localStorage.removeItem(k));
   score=0; solved=new Set(); hintUsed=new Set(); earned=new Set();
   completedLog=[]; codeCache={}; optionShuffles={}; idx=0;
+  // ──── NEW: reset behavior tracking ────
+  solveStreak=0; bestSolveStreak=0; dayStreak=0; lastActiveDate='';
+  dailyLessonCount=0; dailyLessonDate=''; noHintSolves=0;
+  errorlessSolves=0; lessonsRead=new Set(); firstSubmitMap={};
+  // ──────────────────────────────────────
   // Re-sync window references after `solved` and `earned` are reassigned
   window.solved = solved;
   window.earned = earned;
@@ -5133,6 +8677,76 @@ function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function escOpt(s){return String(s).replace(/'/g,"\\'");}
 function escAttr(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function getFiltered(){return filterCat==='All'?CHS:CHS.filter(c=>c.cat===filterCat);}
+
+/* ══ TROPHY-TRACKING HELPERS ══
+   Date math + behavior counters used by the new 16-trophy system. */
+
+// Returns today's date as YYYY-MM-DD (local time)
+function getToday(){
+  const d=new Date();
+  const yyyy=d.getFullYear();
+  const mm=String(d.getMonth()+1).padStart(2,'0');
+  const dd=String(d.getDate()).padStart(2,'0');
+  return yyyy+'-'+mm+'-'+dd;
+}
+
+// Returns yesterday's date as YYYY-MM-DD (local time)
+function getYesterday(){
+  const d=new Date();
+  d.setDate(d.getDate()-1);
+  const yyyy=d.getFullYear();
+  const mm=String(d.getMonth()+1).padStart(2,'0');
+  const dd=String(d.getDate()).padStart(2,'0');
+  return yyyy+'-'+mm+'-'+dd;
+}
+
+// Call when user does a trophy-eligible action. Maintains dayStreak (consecutive
+// active days) and dailyLessonCount (today's lesson completions).
+function recordDailyActivity(isLessonCompletion){
+  const today=getToday();
+  // Day streak logic
+  if(lastActiveDate!==today){
+    if(lastActiveDate===getYesterday()) dayStreak++;
+    else if(lastActiveDate==='') dayStreak=1;
+    else dayStreak=1; // gap reset
+    lastActiveDate=today;
+  }
+  // Daily lesson counter — resets each new day
+  if(isLessonCompletion){
+    if(dailyLessonDate!==today){
+      dailyLessonDate=today;
+      dailyLessonCount=1;
+    } else {
+      dailyLessonCount++;
+    }
+  }
+}
+
+// Updates solve streak. true on correct submit, false on wrong answer.
+function recordSolveResult(isCorrect){
+  if(isCorrect){
+    solveStreak++;
+    if(solveStreak>bestSolveStreak) bestSolveStreak=solveStreak;
+  } else {
+    solveStreak=0; // any wrong answer resets streak
+  }
+}
+
+// Count categories the user has fully mastered (every challenge solved).
+function countMasteredCategories(){
+  let count=0;
+  CATS.filter(c=>c!=='All').forEach(cat=>{
+    const catChs=CHS.filter(c=>c.cat===cat).map(c=>c.id);
+    if(catChs.length>0 && catChs.every(id=>solved.has(id))) count++;
+  });
+  return count;
+}
+
+// Has the user opened every lesson description? (Used for Dragon Scroll trophy)
+function hasReadAllLessons(){
+  const allLessonIds=CHS.filter(c=>c.mode==='lesson').map(c=>c.id);
+  return allLessonIds.length>0 && allLessonIds.every(id=>lessonsRead.has(id));
+}
 
 /* ══ HUD ══ */
 function updateHUD(){
@@ -5208,6 +8822,12 @@ function render(){
   const wrap=document.getElementById('mainContent');
   const isSolved=solved.has(ch.id);
   const isLesson=ch.mode==='lesson';
+  // ──── NEW: mark lesson description as read on first view ────
+  if(isLesson && !lessonsRead.has(ch.id)){
+    lessonsRead.add(ch.id);
+    save();
+  }
+  // ────────────────────────────────────────────────────────────
   const isEasy=ch.options!==undefined && !isLesson;
   const ext=ch.cat==='Python'?'py':'js';
 
@@ -5344,6 +8964,8 @@ function pickOption(chosen,correct,clickedIdx){
       if(el.dataset.val===correct) el.classList.add('correct');
     });
     showMsg('❌ Not quite — correct answer highlighted above','no');
+    recordSolveResult(false); // ──── NEW: wrong answer breaks streak ────
+    save();
   }
 }
 function showMsg(msg,type){document.getElementById('chResultMsg').innerHTML=`<span class="ch-result-msg ${type}">${msg}</span>`;}
@@ -5440,6 +9062,10 @@ function markLessonSolved(chId){
     solved.add(chId);
     score += 50; // beginner lessons worth 50 pts
     wins += 1;
+    // ──── NEW: behavior tracking for lesson dragons ────
+    recordSolveResult(true);
+    recordDailyActivity(true);
+    // ──────────────────────────────────────────────────
     save();
     updateHUD();
     flashNotif('🐉 +50 · Dragon earned!');
@@ -5469,14 +9095,36 @@ function submitCode(){
   if(!document.getElementById('codeArea'))return;
   const{passed,total,res}=runTests(document.getElementById('codeArea').value,ch);
   showOutput(res,passed,total,true);
+  // ──── NEW: lock out errorless eligibility on first failed submit ────
+  // If they fail at least once, firstSubmitMap[id]=false prevents the
+  // errorlessSolves++ from happening in markSolved when they eventually pass.
+  if(firstSubmitMap[ch.id]===undefined && passed!==total){
+    firstSubmitMap[ch.id]=false;
+  }
+  // ──────────────────────────────────────────────────────────────────
   if(passed===total&&!solved.has(ch.id)){
     const pts=hintUsed.has(ch.id)?60:100;markSolved(pts);showMsg(`✅ +${pts} pts`,'ok');
-  } else if(passed!==total){showMsg(`❌ ${passed}/${total} — keep trying!`,'no');}
+  } else if(passed!==total){
+    recordSolveResult(false); // ──── NEW: wrong answer breaks streak ────
+    save();
+    showMsg(`❌ ${passed}/${total} — keep trying!`,'no');
+  }
 }
 function markSolved(pts){
   const fc=getFiltered();const ch=fc[idx];
   score+=pts;solved.add(ch.id);
   completedLog.push({id:ch.id,title:ch.title,diff:ch.diff,cat:ch.cat,pts,time:Date.now()});
+  // ──── NEW: behavior tracking ────
+  recordSolveResult(true);
+  recordDailyActivity(ch.mode==='lesson');
+  if(!hintUsed.has(ch.id)) noHintSolves++;
+  // Errorless: passed on the very first submit attempt for this challenge.
+  // submitCode() flips firstSubmitMap[id] to false on any failed attempt.
+  if(firstSubmitMap[ch.id]===undefined){
+    errorlessSolves++;
+    firstSubmitMap[ch.id]=true;
+  }
+  // ────────────────────────────────
   save();updateHUD();updateScoreWindow();flashNotif(`✅ +${pts}`);checkAllTrophies();buildNav();
 }
 function resetCode(){
@@ -5525,11 +9173,28 @@ function checkAllTrophies(){
   const completedLessons=CHS.filter(c=>c.mode==='lesson'&&solved.has(c.id)).length;
   WIN_TROPHIES.forEach(t=>{
     if(earned.has(t.id))return;
+
+    // ──── NEW: cond-based trophies (function pattern) ────
+    // Used by the 16 new dragon-themed trophies. If `cond` exists,
+    // call it and award when it returns true. Skips the legacy
+    // threshold branch entirely so there's no collision.
+    if(typeof t.cond === 'function'){
+      if(t.cond()){
+        earned.add(t.id);
+        save();
+        showTrophyToast(t);
+      }
+      return;
+    }
+    // ─────────────────────────────────────────────────────
+
+    // LEGACY behavior — unchanged for backward compatibility.
+    // Only runs when trophy has `t` (threshold), not `cond`.
     // Hatchling trophies (id starts with 'h') fire on "tried" count
     // Chick trophies (id starts with 'c') fire on "completed lessons" count
     // All others fire on total solved count
-    const isHatchling=t.id.startsWith('h');
-    const isChick=t.id.startsWith('c');
+    const isHatchling=t.id.startsWith('h') && t.t!==undefined;
+    const isChick=t.id.startsWith('c') && t.t!==undefined;
     let count;
     if(isHatchling)count=tries;
     else if(isChick)count=completedLessons;
@@ -6745,7 +10410,7 @@ function openCertificate() {
       </div>
     </div>
     <div class="cert-actions">
-      <button class="cap-action-btn green" onclick="window.print()">🖨️ Print / Save PDF</button>
+      <button class="cap-action-btn green" onclick="capPrintCert()">🖨️ Print / Save PDF</button>
       <button class="cap-action-btn blue"  onclick="closeCert();openShareCard()">📤 Share</button>
     </div>`;
 
@@ -6755,6 +10420,17 @@ function openCertificate() {
 function closeCert(ev) {
   if (!ev || ev.target === document.getElementById('certModal'))
     document.getElementById('certModal').classList.remove('open');
+}
+
+/* Print the certificate using scoped @media print CSS */
+function capPrintCert() {
+  document.documentElement.classList.add('printing-cert');
+  const cleanup = () => {
+    document.documentElement.classList.remove('printing-cert');
+    window.removeEventListener('afterprint', cleanup);
+  };
+  window.addEventListener('afterprint', cleanup);
+  setTimeout(() => window.print(), 100);
 }
 
 /* ──────────────────────────────────────────────────────
@@ -7807,6 +11483,1502 @@ document.getElementById('reset').addEventListener('click', () => {
 });`,
             py: BL_DEFAULT_FILES.py
         }
+    },
+
+    /* ════════════════════════════════════════════════════════════════
+       NEW EXAMPLES — Added today's session
+       ════════════════════════════════════════════════════════════════ */
+
+    dogwalking: {
+        name: 'Dog Walking Business Site',
+        files: {
+            html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Happy Tails — Dog Walking & Pet Care</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header / Hero -->
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">🐾 Happy Tails</div>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Tail-wagging walks. Every single day.</h1>
+      <p>Trusted dog walking and pet care in the neighborhood since 2019.</p>
+      <a href="#contact" class="cta">Book a Walk</a>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="services">
+    <h2>Services</h2>
+    <div class="service-grid">
+      <article class="service-card">
+        <div class="service-icon">🚶</div>
+        <h3>30-min Walk</h3>
+        <p>A brisk neighborhood loop. Perfect for high-energy pups.</p>
+        <div class="price">$22</div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">🐕</div>
+        <h3>60-min Adventure</h3>
+        <p>An extended walk with park time and sniff breaks.</p>
+        <div class="price">$38</div>
+      </article>
+      <article class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Drop-in Visit</h3>
+        <p>Feeding, fresh water, and 20 minutes of play.</p>
+        <div class="price">$28</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="about-img">🐶</div>
+    <div class="about-text">
+      <h2>Hi, I'm Sam</h2>
+      <p>Licensed, bonded, and insured. I've cared for 200+ dogs across our neighborhood. Every walk includes photo updates and a written report so you know exactly how your pup's day went.</p>
+      <ul class="badges">
+        <li>✓ Pet First Aid Certified</li>
+        <li>✓ Background Checked</li>
+        <li>✓ 5-star reviews on Google</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section id="contact" class="contact">
+    <h2>Book a Walk</h2>
+    <p class="contact-sub">Fill out the form and I'll get back to you within 2 hours.</p>
+    <form class="contact-form" id="bookingForm">
+
+      <label for="ownerName">Your name</label>
+      <input type="text" id="ownerName" name="ownerName" required>
+
+      <label for="dogName">Your dog's name</label>
+      <input type="text" id="dogName" name="dogName" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="serviceType">Service</label>
+      <select id="serviceType" name="serviceType">
+        <option value="30min">30-min Walk ($22)</option>
+        <option value="60min">60-min Adventure ($38)</option>
+        <option value="dropin">Drop-in Visit ($28)</option>
+      </select>
+
+      <label for="notes">Anything I should know? (treats, leash quirks, fears)</label>
+      <textarea id="notes" name="notes" rows="3"></textarea>
+
+      <button type="button" id="submitBtn">Send Booking Request</button>
+      <p id="confirmMsg" class="confirm"></p>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>🐾 Happy Tails Pet Care · Licensed & Insured</p>
+    <p class="footer-sub">© 2026 · hello@happytails.example</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>`,
+            css: `* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #2a1f3d;
+  background: #faf7ff;
+  line-height: 1.6;
+}
+
+/* ─── HERO ─── */
+.hero {
+  background: linear-gradient(135deg, #fef3c7 0%, #fbcfe8 100%);
+  padding-bottom: 80px;
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.logo { font-size: 22px; font-weight: 800; color: #6b21a8; }
+.nav-links { display: flex; gap: 24px; list-style: none; }
+.nav-links a {
+  color: #6b21a8;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
+.nav-links a:hover { color: #db2777; }
+
+.hero-content {
+  max-width: 700px;
+  margin: 60px auto 0;
+  text-align: center;
+  padding: 0 24px;
+}
+.hero-content h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  color: #581c87;
+  margin-bottom: 16px;
+}
+.hero-content p {
+  font-size: 18px;
+  color: #6b21a8;
+  margin-bottom: 28px;
+}
+.cta {
+  display: inline-block;
+  background: #db2777;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s;
+}
+.cta:hover { transform: translateY(-2px); }
+
+/* ─── SERVICES ─── */
+.services {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+.services h2 {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #581c87;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.service-card {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.25s;
+  box-shadow: 0 2px 12px rgba(168, 85, 247, 0.08);
+}
+.service-card:hover {
+  border-color: #db2777;
+  transform: translateY(-4px);
+}
+.service-icon { font-size: 48px; margin-bottom: 12px; }
+.service-card h3 { color: #581c87; margin-bottom: 8px; }
+.price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #db2777;
+  margin-top: 12px;
+}
+
+/* ─── ABOUT ─── */
+.about {
+  background: white;
+  padding: 80px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  border-radius: 24px;
+}
+.about-img {
+  font-size: 140px;
+  background: linear-gradient(135deg, #fef3c7, #fbcfe8);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-text { max-width: 500px; }
+.about-text h2 { color: #581c87; margin-bottom: 16px; font-size: 32px; }
+.about-text p { margin-bottom: 20px; }
+.badges { list-style: none; }
+.badges li { padding: 4px 0; color: #6b21a8; font-weight: 600; }
+
+/* ─── CONTACT ─── */
+.contact {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  text-align: center;
+}
+.contact h2 { color: #581c87; margin-bottom: 8px; }
+.contact-sub { color: #6b21a8; margin-bottom: 32px; }
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+.contact-form label {
+  font-weight: 600;
+  color: #581c87;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  padding: 12px;
+  border: 2px solid #e9d5ff;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #db2777;
+}
+#submitBtn {
+  margin-top: 16px;
+  background: #db2777;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+#submitBtn:hover { background: #be185d; }
+.confirm {
+  margin-top: 12px;
+  color: #059669;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  color: #6b21a8;
+  font-size: 14px;
+}
+.footer-sub { color: #a78bfa; margin-top: 4px; font-size: 12px; }`,
+            js: `// ═══════════════════════════════════════════════════════════════════════
+// Happy Tails Booking Form
+// ═══════════════════════════════════════════════════════════════════════
+// Demonstrates: label[for], textContent for safe user-input rendering,
+// let (not var), closure-based form-state management.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Closure-based booking state — keeps the form's data private
+const createBookingStore = () => {
+  let bookings = [];
+
+  return {
+    add: (booking) => {
+      bookings.push({ ...booking, id: Date.now() });
+      return bookings[bookings.length - 1];
+    },
+    count: () => bookings.length,
+    latest: () => bookings[bookings.length - 1] || null
+  };
+};
+
+const store = createBookingStore();
+
+// Get form references (cached for efficiency)
+const form = document.getElementById('bookingForm');
+const submitBtn = document.getElementById('submitBtn');
+const confirmMsg = document.getElementById('confirmMsg');
+
+submitBtn.addEventListener('click', () => {
+  // Read values
+  const ownerName = document.getElementById('ownerName').value.trim();
+  const dogName = document.getElementById('dogName').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const serviceType = document.getElementById('serviceType').value;
+  const notes = document.getElementById('notes').value.trim();
+
+  // Basic validation
+  if (!ownerName || !dogName || !email) {
+    confirmMsg.textContent = '⚠ Please fill in name, dog name, and email.';
+    confirmMsg.style.color = '#dc2626';
+    return;
+  }
+
+  // Save booking
+  const booking = store.add({ ownerName, dogName, email, serviceType, notes });
+
+  // Confirm using textContent — safe from any HTML injection in user input
+  confirmMsg.textContent = '✓ Thanks ' + ownerName + '! I will reply about ' + dogName + ' within 2 hours.';
+  confirmMsg.style.color = '#059669';
+
+  // Clear form
+  form.reset();
+
+  console.log('Booking saved:', booking);
+  console.log('Total bookings:', store.count());
+});`,
+            py: BL_DEFAULT_FILES.py
+        }
+    },
+
+    memorymatch: {
+        name: 'Memory Match: Dragon Cards',
+        files: {
+            html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragon Memory Match</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🐉 Dragon Memory Match</h1>
+  <p class="subtitle">Flip two cards. Match the pairs. Win the game.</p>
+
+  <div class="stats">
+    <div class="stat">Moves<strong id="moveCount">0</strong></div>
+    <div class="stat">Matches<strong id="matchCount">0</strong></div>
+    <div class="stat">Time<strong id="timer">0s</strong></div>
+  </div>
+
+  <div class="controls">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty" name="difficulty">
+      <option value="easy">Easy (6 cards)</option>
+      <option value="medium" selected>Medium (12 cards)</option>
+      <option value="hard">Hard (24 cards)</option>
+    </select>
+    <button id="restartBtn" type="button">Restart Game</button>
+  </div>
+
+  <div class="board medium" id="board"></div>
+
+  <div class="win-message" id="winMessage">
+    <h2>🏆 You Won!</h2>
+    <p id="winStats">Stats appear here</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>`,
+            css: `* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-dark: #0a0612;
+  --bg-card: #1a0d2e;
+  --purple: #a78bfa;
+  --purple-deep: #7c3aed;
+  --indigo: #6366f1;
+  --text: #e9e4f5;
+  --text-dim: #9b8bb8;
+  --success: #34d399;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.2) 0%, transparent 60%);
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--purple), var(--indigo));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.stat {
+  background: var(--bg-card);
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+.stat strong { color: var(--purple); margin-left: 6px; }
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls label { color: var(--text-dim); font-size: 14px; cursor: pointer; }
+
+.controls select {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.controls button {
+  background: linear-gradient(135deg, var(--purple-deep), var(--indigo));
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s ease;
+}
+
+.controls button:hover { transform: translateY(-1px); }
+
+.board { display: grid; gap: 12px; perspective: 1000px; }
+.board.easy   { grid-template-columns: repeat(3, 90px); }
+.board.medium { grid-template-columns: repeat(4, 90px); }
+.board.hard   { grid-template-columns: repeat(6, 80px); }
+
+.card { aspect-ratio: 3 / 4; cursor: pointer; background: transparent; }
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.card.flipped .card-inner { transform: rotateY(180deg); }
+.card.matched .card-inner {
+  transform: rotateY(180deg);
+  box-shadow: 0 0 24px rgba(52, 211, 153, 0.4);
+  border-radius: 12px;
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  font-size: 38px;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+}
+.card-back {
+  background: linear-gradient(135deg, var(--purple-deep), var(--indigo));
+  color: white;
+  font-weight: 800;
+}
+.card-front {
+  background: var(--bg-card);
+  transform: rotateY(180deg);
+}
+
+.win-message {
+  margin-top: 24px;
+  padding: 20px 32px;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(99, 102, 241, 0.2));
+  border: 1px solid var(--purple);
+  border-radius: 12px;
+  text-align: center;
+  display: none;
+}
+.win-message.show { display: block; }
+.win-message h2 { color: var(--purple); margin-bottom: 8px; }`,
+            js: `// ═══════════════════════════════════════════════════════════════════════
+// Memory Match — closure-based game state
+// ═══════════════════════════════════════════════════════════════════════
+// Demonstrates: IIFE module pattern, label[for=], let (not var),
+// textContent for safe rendering, event delegation, Fisher–Yates shuffle.
+// ═══════════════════════════════════════════════════════════════════════
+
+const Game = (function() {
+  // PRIVATE STATE (only accessible inside the closure)
+  let moves = 0;
+  let matches = 0;
+  let firstCard = null;
+  let secondCard = null;
+  let isLocked = false;
+  let startTime = null;
+  let timerInterval = null;
+
+  const dragonEmojis = ['🐉', '🔥', '🐲', '⚔️', '🛡️', '🗡️',
+                        '👑', '💎', '⚡', '🌙', '⭐', '🏰'];
+
+  const board = document.getElementById('board');
+  const moveCountEl = document.getElementById('moveCount');
+  const matchCountEl = document.getElementById('matchCount');
+  const timerEl = document.getElementById('timer');
+  const winMessage = document.getElementById('winMessage');
+  const winStats = document.getElementById('winStats');
+  const difficultySelect = document.getElementById('difficulty');
+  const restartBtn = document.getElementById('restartBtn');
+
+  // Fisher–Yates shuffle (truly random)
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function buildDeck(difficulty) {
+    const pairCounts = { easy: 3, medium: 6, hard: 12 };
+    const pairCount = pairCounts[difficulty];
+    const chosen = dragonEmojis.slice(0, pairCount);
+    return shuffle([...chosen, ...chosen]);
+  }
+
+  function createCard(emoji, index) {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.emoji = emoji;
+    card.dataset.index = index;
+
+    const inner = document.createElement('div');
+    inner.className = 'card-inner';
+
+    const back = document.createElement('div');
+    back.className = 'card-face card-back';
+    back.textContent = '?';  // textContent — safe
+
+    const front = document.createElement('div');
+    front.className = 'card-face card-front';
+    front.textContent = emoji;  // textContent — safe
+
+    inner.appendChild(back);
+    inner.appendChild(front);
+    card.appendChild(inner);
+    return card;
+  }
+
+  function handleCardClick(event) {
+    const card = event.target.closest('.card');
+    if (!card) return;
+    if (isLocked) return;
+    if (card.classList.contains('flipped')) return;
+    if (card.classList.contains('matched')) return;
+
+    card.classList.add('flipped');
+
+    if (startTime === null) {
+      startTime = Date.now();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    if (firstCard === null) {
+      firstCard = card;
+    } else {
+      secondCard = card;
+      moves++;
+      moveCountEl.textContent = moves;
+      checkForMatch();
+    }
+  }
+
+  function checkForMatch() {
+    const isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+    if (isMatch) {
+      firstCard.classList.add('matched');
+      secondCard.classList.add('matched');
+      matches++;
+      matchCountEl.textContent = matches;
+      resetPairTracking();
+      const totalPairs = board.children.length / 2;
+      if (matches === totalPairs) endGame();
+    } else {
+      isLocked = true;
+      setTimeout(() => {
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        resetPairTracking();
+        isLocked = false;
+      }, 900);
+    }
+  }
+
+  function resetPairTracking() { firstCard = null; secondCard = null; }
+
+  function updateTimer() {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    timerEl.textContent = elapsed + 's';
+  }
+
+  function endGame() {
+    clearInterval(timerInterval);
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    winStats.textContent = 'Completed in ' + moves + ' moves and ' + elapsed + ' seconds!';
+    winMessage.classList.add('show');
+  }
+
+  function startGame() {
+    moves = 0; matches = 0;
+    firstCard = null; secondCard = null;
+    isLocked = false; startTime = null;
+    if (timerInterval) clearInterval(timerInterval);
+
+    moveCountEl.textContent = '0';
+    matchCountEl.textContent = '0';
+    timerEl.textContent = '0s';
+    winMessage.classList.remove('show');
+
+    const difficulty = difficultySelect.value;
+    board.className = 'board ' + difficulty;
+    board.textContent = ''; // safe clear
+
+    const deck = buildDeck(difficulty);
+    deck.forEach((emoji, index) => {
+      board.appendChild(createCard(emoji, index));
+    });
+  }
+
+  // Event delegation — one listener handles all card clicks
+  board.addEventListener('click', handleCardClick);
+  restartBtn.addEventListener('click', startGame);
+  difficultySelect.addEventListener('change', startGame);
+
+  // Only \`start\` is exposed — everything else is private
+  return { start: startGame };
+})();
+
+Game.start();`,
+            py: BL_DEFAULT_FILES.py
+        }
+    },
+
+    magazine: {
+        name: 'Magazine / Lifestyle Landing',
+        files: {
+            html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atelier — Slow Living Magazine</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="mag-header">
+    <div class="mag-meta">Issue 47 · Spring 2026</div>
+    <h1 class="mag-title">ATELIER</h1>
+    <div class="mag-tag">A quarterly journal of slow living, craft, and considered design</div>
+    <nav class="mag-nav">
+      <a href="#features">Features</a>
+      <a href="#interviews">Interviews</a>
+      <a href="#essays">Essays</a>
+      <a href="#shop">Shop</a>
+    </nav>
+  </header>
+
+  <!-- Hero feature -->
+  <section class="hero-feature">
+    <div class="hero-img" style="background-image:url('https://images.unsplash.com/photo-1490604001847-b712b0c2f967?w=900')"></div>
+    <div class="hero-text">
+      <div class="kicker">— Cover Story</div>
+      <h2>The quiet revolution in pottery studios</h2>
+      <p class="hero-deck">A new generation of ceramicists is rejecting Instagram in favor of slower, more deliberate work. We spent three months in their studios.</p>
+      <div class="byline">By Elena Marchetti · 18 min read</div>
+    </div>
+  </section>
+
+  <!-- Three-column features -->
+  <section id="features" class="features">
+    <div class="section-head">
+      <div class="kicker">— This Issue</div>
+      <h2>Three perspectives on making</h2>
+    </div>
+    <div class="feature-grid">
+      <article class="feature">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=600')"></div>
+        <div class="cat-label">Craft</div>
+        <h3>The bookbinders of Lyon</h3>
+        <p>Inside the workshops where books are still sewn by hand, one signature at a time.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600')"></div>
+        <div class="cat-label">Style</div>
+        <h3>Capsule wardrobes, ten years on</h3>
+        <p>Six women share what they actually wear after a decade of practicing intentional dressing.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-img" style="background-image:url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=600')"></div>
+        <div class="cat-label">Design</div>
+        <h3>The case against minimalism</h3>
+        <p>An essay on why less isn't always more — and what we lose in the pursuit of empty rooms.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Editor's pick -->
+  <section class="editors-pick">
+    <div class="ep-text">
+      <div class="kicker">— Editor's Pick</div>
+      <h2>"I quit my job to make sourdough."</h2>
+      <p>For fifteen years, Marin Tate ran ad campaigns for a Fortune 500. Then she discovered fermentation. Read her essay on starting over at 47, and what bread taught her about ambition.</p>
+      <a href="#" class="ep-link">Read the essay →</a>
+    </div>
+    <div class="ep-img" style="background-image:url('https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800')"></div>
+  </section>
+
+  <!-- Newsletter signup -->
+  <section class="newsletter">
+    <div class="kicker centered">— Stay in Touch</div>
+    <h2>A letter every Sunday morning</h2>
+    <p>Essays, recommendations, and behind-the-scenes from the issue. No ads, ever.</p>
+    <form class="news-form" id="newsForm">
+      <label for="newsEmail" class="sr-only">Email address</label>
+      <input type="email" id="newsEmail" name="newsEmail" placeholder="your@email.com" required>
+      <button type="button" id="newsBtn">Subscribe</button>
+    </form>
+    <p id="newsMsg" class="news-msg"></p>
+  </section>
+
+  <footer class="mag-footer">
+    <div class="footer-title">ATELIER</div>
+    <div class="footer-meta">Issue 47 · Printed quarterly · Published in Brooklyn</div>
+    <div class="footer-meta">© 2026 Atelier Press</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>`,
+            css: `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@400;500;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  color: #1a1a1a;
+  background: #faf8f4;
+  line-height: 1.7;
+}
+
+/* ─── HEADER ─── */
+.mag-header {
+  text-align: center;
+  padding: 48px 24px 32px;
+  border-bottom: 1px solid #1a1a1a;
+}
+.mag-meta {
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 16px;
+}
+.mag-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(64px, 12vw, 120px);
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+.mag-tag {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 32px;
+}
+.mag-nav {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.mag-nav a {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.mag-nav a:hover { border-bottom-color: #1a1a1a; }
+
+/* ─── KICKER (shared label) ─── */
+.kicker {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 12px;
+}
+.kicker.centered { text-align: center; }
+
+/* ─── HERO FEATURE ─── */
+.hero-feature {
+  max-width: 1100px;
+  margin: 64px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.hero-img {
+  height: 480px;
+  background-size: cover;
+  background-position: center;
+  background-color: #d4c8b4;
+}
+.hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+.hero-deck {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 20px;
+}
+.byline {
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ─── FEATURES GRID ─── */
+.features {
+  max-width: 1100px;
+  margin: 96px auto;
+  padding: 0 24px;
+}
+.section-head { text-align: center; margin-bottom: 48px; }
+.section-head h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+.feature-img {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-color: #d4c8b4;
+  margin-bottom: 16px;
+}
+.cat-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 8px;
+}
+.feature h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.feature p { color: #444; font-size: 15px; }
+
+/* ─── EDITOR'S PICK ─── */
+.editors-pick {
+  background: #f3ede2;
+  max-width: 1100px;
+  margin: 0 auto 96px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 64px;
+  gap: 48px;
+}
+.ep-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.ep-text p { color: #444; margin-bottom: 20px; }
+.ep-link {
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid #1a1a1a;
+  padding-bottom: 2px;
+}
+.ep-img {
+  height: 420px;
+  background-size: cover;
+  background-position: center;
+  background-color: #d4c8b4;
+}
+
+/* ─── NEWSLETTER ─── */
+.newsletter {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 96px;
+  padding: 0 24px;
+}
+.newsletter h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+.newsletter p { color: #444; margin-bottom: 28px; }
+.news-form {
+  display: flex;
+  gap: 8px;
+  margin: 0 auto;
+  max-width: 420px;
+}
+.news-form input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid #1a1a1a;
+  font-family: inherit;
+  font-size: 15px;
+  background: transparent;
+}
+.news-form input:focus { outline: 2px solid #1a1a1a; outline-offset: -2px; }
+.news-form button {
+  padding: 14px 24px;
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #1a1a1a;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.news-form button:hover { background: transparent; color: #1a1a1a; }
+.news-msg {
+  margin-top: 16px;
+  color: #059669;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0);
+}
+
+/* ─── FOOTER ─── */
+.mag-footer {
+  border-top: 1px solid #1a1a1a;
+  text-align: center;
+  padding: 48px 24px;
+}
+.footer-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 28px;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.footer-meta { color: #666; font-size: 13px; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .hero-feature, .editors-pick { grid-template-columns: 1fr; gap: 24px; }
+  .editors-pick { padding: 32px; }
+  .hero-img, .ep-img { height: 280px; }
+}`,
+            js: `// ═══════════════════════════════════════════════════════════════════════
+// Atelier — Newsletter signup
+// ═══════════════════════════════════════════════════════════════════════
+// Demonstrates: label[for=] (sr-only for visual minimalism), let,
+// closure-based subscriber state, textContent for safe rendering.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Closure keeps subscriber data private and de-duped
+const createSubscriberList = () => {
+  const emails = new Set();
+  return {
+    add: (email) => {
+      if (emails.has(email)) return { ok: false, reason: 'duplicate' };
+      emails.add(email);
+      return { ok: true, count: emails.size };
+    },
+    size: () => emails.size
+  };
+};
+
+const list = createSubscriberList();
+const form = document.getElementById('newsForm');
+const input = document.getElementById('newsEmail');
+const btn = document.getElementById('newsBtn');
+const msg = document.getElementById('newsMsg');
+
+btn.addEventListener('click', () => {
+  const email = input.value.trim().toLowerCase();
+
+  if (!email || !email.includes('@')) {
+    msg.textContent = 'Please enter a valid email.';
+    msg.style.color = '#dc2626';
+    return;
+  }
+
+  const result = list.add(email);
+
+  if (!result.ok) {
+    msg.textContent = "You're already on the list — thanks again.";
+    msg.style.color = '#888';
+  } else {
+    // textContent — safe even if user pastes HTML in the email field
+    msg.textContent = '✓ Thank you. Sunday letters will arrive soon.';
+    msg.style.color = '#059669';
+    input.value = '';
+  }
+
+  console.log('Subscriber count:', list.size());
+});`,
+            py: BL_DEFAULT_FILES.py
+        }
+    },
+
+    pacman: {
+        name: 'Mini Pac-Man',
+        files: {
+            html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mini Pac-Man</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>👻 Mini Pac-Man</h1>
+  <div class="game-info">
+    <div class="info-box">Score<strong id="score">0</strong></div>
+    <div class="info-box">Lives<strong id="lives">3</strong></div>
+  </div>
+
+  <canvas id="board" width="380" height="420"></canvas>
+
+  <div class="controls-help">
+    <label for="restartBtn" class="control-label">Use arrow keys to move</label>
+    <button id="restartBtn" type="button">New Game</button>
+  </div>
+
+  <p id="status" class="status"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>`,
+            css: `* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: #000;
+  color: #fde047;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 16px;
+  color: #fde047;
+  text-shadow: 0 0 20px rgba(253, 224, 71, 0.5);
+}
+
+.game-info {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+}
+
+.info-box {
+  background: rgba(253, 224, 71, 0.08);
+  padding: 8px 18px;
+  border: 1px solid rgba(253, 224, 71, 0.3);
+  border-radius: 8px;
+  letter-spacing: 0.05em;
+}
+
+.info-box strong { margin-left: 8px; color: white; }
+
+#board {
+  background: #000;
+  border: 2px solid #1e40af;
+  border-radius: 6px;
+  box-shadow: 0 0 24px rgba(30, 64, 175, 0.4);
+}
+
+.controls-help {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.control-label {
+  color: #fde047;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+#restartBtn {
+  background: #fde047;
+  color: #000;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+#restartBtn:hover { background: #fbbf24; }
+
+.status {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  min-height: 24px;
+}`,
+            js: `// ═══════════════════════════════════════════════════════════════════════
+// Mini Pac-Man — simplified, readable
+// ═══════════════════════════════════════════════════════════════════════
+// Demonstrates: label[for=], let (not var), closure-based game state,
+// textContent for safe DOM updates, canvas 2D rendering, requestAnimationFrame.
+//
+// SIMPLIFIED FROM ARCADE PAC-MAN:
+//   • 1 ghost instead of 4 (simple "chase player" AI)
+//   • Smaller maze (19 cols x 21 rows)
+//   • No power pellets / fruit
+//   • No level progression — single endless level
+// ═══════════════════════════════════════════════════════════════════════
+
+const Game = (function() {
+  const canvas = document.getElementById('board');
+  const ctx = canvas.getContext('2d');
+  const scoreEl = document.getElementById('score');
+  const livesEl = document.getElementById('lives');
+  const statusEl = document.getElementById('status');
+  const restartBtn = document.getElementById('restartBtn');
+
+  // ─── MAZE LAYOUT (1 = wall, 0 = dot, 2 = empty) ───
+  // Classic Pac-Man-inspired shape, simplified to fit our canvas
+  const MAZE_TEMPLATE = [
+    "1111111111111111111",
+    "1000000000000000001",
+    "1011110111110111101",
+    "1000000000000000001",
+    "1011011111111101101",
+    "1000010000000100001",
+    "1110111110111110111",
+    "0000010000000100000",
+    "1110010111110100111",
+    "0000000100010000000",
+    "1110010111110100111",
+    "0000010000000100000",
+    "1110010111110100111",
+    "1000000000000000001",
+    "1011110111110111101",
+    "1000100000000010001",
+    "1110101111111010111",
+    "1000000010000000001",
+    "1011110101011110101",
+    "1000000000000000001",
+    "1111111111111111111"
+  ];
+
+  const CELL = 20;     // pixels per maze cell
+  const ROWS = MAZE_TEMPLATE.length;
+  const COLS = MAZE_TEMPLATE[0].length;
+
+  // PRIVATE STATE
+  let maze = [];
+  let score = 0;
+  let lives = 3;
+  let pacman = { col: 9, row: 13, dir: 'right', nextDir: 'right' };
+  let ghost = { col: 9, row: 9, dir: 'left' };
+  let dotsRemaining = 0;
+  let gameOver = false;
+  let won = false;
+  let animFrame = null;
+  let lastMove = 0;
+  const MOVE_INTERVAL = 180; // ms between moves (controls game speed)
+
+  function resetMaze() {
+    maze = MAZE_TEMPLATE.map(row => row.split('').map(c => parseInt(c, 10)));
+    dotsRemaining = 0;
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        if (maze[r][c] === 0) dotsRemaining++;
+      }
+    }
+  }
+
+  function isWall(col, row) {
+    if (col < 0 || col >= COLS || row < 0 || row >= ROWS) return true;
+    return maze[row][col] === 1;
+  }
+
+  function tryMove(entity, dir) {
+    let dc = 0, dr = 0;
+    if (dir === 'left')  dc = -1;
+    if (dir === 'right') dc = 1;
+    if (dir === 'up')    dr = -1;
+    if (dir === 'down')  dr = 1;
+    const newCol = entity.col + dc;
+    const newRow = entity.row + dr;
+    if (!isWall(newCol, newRow)) {
+      entity.col = newCol;
+      entity.row = newRow;
+      entity.dir = dir;
+      return true;
+    }
+    return false;
+  }
+
+  // Simple ghost AI: try to move toward Pac-Man, avoid reversing
+  function moveGhost() {
+    const options = ['up', 'down', 'left', 'right'].filter(d => {
+      // Don't reverse direction unless trapped
+      const opposite = { left: 'right', right: 'left', up: 'down', down: 'up' };
+      if (d === opposite[ghost.dir]) return false;
+      let dc = 0, dr = 0;
+      if (d === 'left')  dc = -1;
+      if (d === 'right') dc = 1;
+      if (d === 'up')    dr = -1;
+      if (d === 'down')  dr = 1;
+      return !isWall(ghost.col + dc, ghost.row + dr);
+    });
+
+    if (options.length === 0) {
+      // Trapped — allow reverse
+      ['up', 'down', 'left', 'right'].some(d => tryMove(ghost, d));
+      return;
+    }
+
+    // Pick the option that moves toward Pac-Man
+    let best = options[0];
+    let bestDist = Infinity;
+    options.forEach(d => {
+      let dc = 0, dr = 0;
+      if (d === 'left')  dc = -1;
+      if (d === 'right') dc = 1;
+      if (d === 'up')    dr = -1;
+      if (d === 'down')  dr = 1;
+      const dist = Math.abs((ghost.col + dc) - pacman.col) +
+                   Math.abs((ghost.row + dr) - pacman.row);
+      if (dist < bestDist) { bestDist = dist; best = d; }
+    });
+    tryMove(ghost, best);
+  }
+
+  function checkCollision() {
+    if (pacman.col === ghost.col && pacman.row === ghost.row) {
+      lives--;
+      livesEl.textContent = lives;
+      if (lives <= 0) {
+        gameOver = true;
+        statusEl.textContent = '💀 Game Over — Press New Game';
+        statusEl.style.color = '#ef4444';
+      } else {
+        // Respawn
+        pacman.col = 9; pacman.row = 13;
+        ghost.col = 9; ghost.row = 9;
+      }
+    }
+  }
+
+  function eatDot() {
+    if (maze[pacman.row][pacman.col] === 0) {
+      maze[pacman.row][pacman.col] = 2;
+      score += 10;
+      scoreEl.textContent = score;
+      dotsRemaining--;
+      if (dotsRemaining === 0) {
+        won = true;
+        gameOver = true;
+        statusEl.textContent = '🏆 You Won! Score: ' + score;
+        statusEl.style.color = '#10b981';
+      }
+    }
+  }
+
+  function step() {
+    // Try queued direction first
+    if (pacman.nextDir !== pacman.dir) {
+      if (tryMove(pacman, pacman.nextDir)) {
+        eatDot();
+        moveGhost();
+        checkCollision();
+        return;
+      }
+    }
+    if (tryMove(pacman, pacman.dir)) eatDot();
+    moveGhost();
+    checkCollision();
+  }
+
+  function draw() {
+    ctx.fillStyle = '#000';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Maze
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        const x = c * CELL;
+        const y = r * CELL;
+        if (maze[r][c] === 1) {
+          ctx.fillStyle = '#1e40af';
+          ctx.fillRect(x + 2, y + 2, CELL - 4, CELL - 4);
+        } else if (maze[r][c] === 0) {
+          ctx.fillStyle = '#fde047';
+          ctx.beginPath();
+          ctx.arc(x + CELL / 2, y + CELL / 2, 2.5, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+
+    // Pac-Man
+    const px = pacman.col * CELL + CELL / 2;
+    const py = pacman.row * CELL + CELL / 2;
+    ctx.fillStyle = '#fde047';
+    ctx.beginPath();
+    let mouthStart = 0.2, mouthEnd = 1.8;
+    if (pacman.dir === 'left')  { mouthStart += Math.PI; mouthEnd += Math.PI; }
+    if (pacman.dir === 'up')    { mouthStart += -Math.PI/2; mouthEnd += -Math.PI/2; }
+    if (pacman.dir === 'down')  { mouthStart += Math.PI/2; mouthEnd += Math.PI/2; }
+    ctx.arc(px, py, CELL / 2 - 2, mouthStart * Math.PI, mouthEnd * Math.PI);
+    ctx.lineTo(px, py);
+    ctx.fill();
+
+    // Ghost
+    const gx = ghost.col * CELL + CELL / 2;
+    const gy = ghost.row * CELL + CELL / 2;
+    ctx.fillStyle = '#ec4899';
+    ctx.beginPath();
+    ctx.arc(gx, gy, CELL / 2 - 2, Math.PI, 0);
+    ctx.lineTo(gx + CELL / 2 - 2, gy + CELL / 2 - 2);
+    ctx.lineTo(gx + 3, gy + CELL / 2 - 4);
+    ctx.lineTo(gx, gy + CELL / 2 - 2);
+    ctx.lineTo(gx - 3, gy + CELL / 2 - 4);
+    ctx.lineTo(gx - CELL / 2 + 2, gy + CELL / 2 - 2);
+    ctx.closePath();
+    ctx.fill();
+    // Ghost eyes
+    ctx.fillStyle = 'white';
+    ctx.beginPath(); ctx.arc(gx - 4, gy - 2, 2.5, 0, Math.PI * 2); ctx.fill();
+    ctx.beginPath(); ctx.arc(gx + 4, gy - 2, 2.5, 0, Math.PI * 2); ctx.fill();
+  }
+
+  function loop(timestamp) {
+    if (gameOver) { draw(); return; }
+    if (timestamp - lastMove >= MOVE_INTERVAL) {
+      step();
+      lastMove = timestamp;
+    }
+    draw();
+    animFrame = requestAnimationFrame(loop);
+  }
+
+  function startGame() {
+    resetMaze();
+    score = 0;
+    lives = 3;
+    pacman = { col: 9, row: 13, dir: 'right', nextDir: 'right' };
+    ghost = { col: 9, row: 9, dir: 'left' };
+    gameOver = false;
+    won = false;
+    lastMove = 0;
+    scoreEl.textContent = '0';
+    livesEl.textContent = '3';
+    statusEl.textContent = '';
+    if (animFrame) cancelAnimationFrame(animFrame);
+    animFrame = requestAnimationFrame(loop);
+  }
+
+  // Keyboard input
+  document.addEventListener('keydown', (e) => {
+    const map = { ArrowLeft: 'left', ArrowRight: 'right', ArrowUp: 'up', ArrowDown: 'down' };
+    if (map[e.key]) {
+      pacman.nextDir = map[e.key];
+      e.preventDefault();
+    }
+  });
+
+  restartBtn.addEventListener('click', startGame);
+
+  return { start: startGame };
+})();
+
+Game.start();`,
+            py: BL_DEFAULT_FILES.py
+        }
     }
 };
 
@@ -8296,55 +13468,56 @@ function rbGetFilenameBase() {
 }
 
 function rbDownloadPDF() {
-    if (typeof html2pdf === 'undefined') {
-        alert('PDF library still loading. Wait a moment and try again.');
-        return;
-    }
+    // ─────────────────────────────────────────────────────────────────────
+    // PDF generation via window.print()
+    //
+    // Why we switched away from html2pdf.js:
+    //   • html2pdf uses html2canvas under the hood, which rasterizes the DOM
+    //   • Rasterization was producing blank pages in this app (no error logs)
+    //   • Browser native print produces a TEXT-BASED, selectable PDF — better
+    //     for ATS scanners that parse resume content
+    //
+    // How it works:
+    //   1. Add 'printing-resume' class to <html> to activate scoped print CSS
+    //      (the @media print rules in style.css are scoped to this class so
+    //      they don't conflict with the certificate's print rules).
+    //   2. Update document.title — browsers use this as the default PDF filename.
+    //   3. Call window.print() — opens native print dialog where user can
+    //      pick "Save as PDF" as the destination.
+    //   4. afterprint event fires — we clean up the class and restore title.
+    //
+    // Trade-off: requires one extra click (the user picks "Save as PDF"
+    // in the print dialog). In exchange, the output is:
+    //   • Text-based, not rasterized (smaller files, ATS-readable)
+    //   • Always renders correctly (no html2canvas blank-canvas bugs)
+    //   • Honors the @media print CSS we wrote
+    // ─────────────────────────────────────────────────────────────────────
 
     const resumeEl = document.getElementById('rbResumeOutput');
     if (!resumeEl) return;
 
+    // Refresh content before printing
     rbUpdate();
 
-    const filename = rbGetFilenameBase() + '.pdf';
+    // Activate scoped print CSS
+    document.documentElement.classList.add('printing-resume');
 
-    const options = {
-        margin:       [0.5, 0.5, 0.5, 0.5],
-        filename:     filename,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  {
-            scale: 2,
-            useCORS: true,
-            backgroundColor: '#ffffff',
-            logging: false
-        },
-        jsPDF:        {
-            unit: 'in',
-            format: 'letter',
-            orientation: 'portrait'
-        },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+    // Set document title — browsers use it as the default PDF filename
+    const originalTitle = document.title;
+    document.title = rbGetFilenameBase();
+
+    // Clean up after print dialog closes (whether user saved or cancelled)
+    const cleanup = () => {
+        document.documentElement.classList.remove('printing-resume');
+        document.title = originalTitle;
+        window.removeEventListener('afterprint', cleanup);
     };
+    window.addEventListener('afterprint', cleanup);
 
-    const btns = document.querySelectorAll('.rb-dl-btn');
-    btns.forEach(b => b.disabled = true);
-    const originalText = btns[0] ? btns[0].textContent : '';
-    if (btns[0]) btns[0].textContent = '⏳ Generating PDF...';
-
-    html2pdf()
-        .set(options)
-        .from(resumeEl)
-        .save()
-        .then(() => {
-            btns.forEach(b => b.disabled = false);
-            if (btns[0]) btns[0].textContent = originalText;
-        })
-        .catch(err => {
-            console.error('PDF generation failed:', err);
-            alert('Sorry, PDF generation failed. Try refreshing the page.');
-            btns.forEach(b => b.disabled = false);
-            if (btns[0]) btns[0].textContent = originalText;
-        });
+    // Give the DOM a moment to update before the print dialog opens
+    setTimeout(() => {
+        window.print();
+    }, 100);
 }
 
 function rbDownloadDOCX() {
@@ -8355,8 +13528,25 @@ function rbDownloadDOCX() {
 
     rbUpdate();
 
-    const { Document, Packer, Paragraph, TextRun, AlignmentType, BorderStyle,
-            TabStopType, TabStopPosition } = docx;
+    // Destructure what we need from docx (UMD global)
+    const { Document, Packer, Paragraph, TextRun } = docx;
+
+    // DEFENSIVE FALLBACKS: in some UMD builds, the "enum" exports
+    // (AlignmentType, BorderStyle, TabStopType, TabStopPosition) come
+    // through as undefined when destructured. Resolve them with safe
+    // string-literal fallbacks so formatting still applies.
+    const AlignCenter = (docx.AlignmentType && docx.AlignmentType.CENTER) || 'center';
+    const AlignLeft   = (docx.AlignmentType && docx.AlignmentType.LEFT)   || 'left';
+    const BorderSingle = (docx.BorderStyle && docx.BorderStyle.SINGLE) || 'single';
+    const TabRight = (docx.TabStopType && docx.TabStopType.RIGHT) || 'right';
+    const TabMax   = (docx.TabStopPosition && docx.TabStopPosition.MAX) || 9026;
+
+    // Log once for debugging — tells us which props were missing
+    console.log('docx enums resolved:', {
+        AlignCenter, AlignLeft, BorderSingle, TabRight, TabMax,
+        rawAlignmentType: typeof docx.AlignmentType,
+        rawBorderStyle: typeof docx.BorderStyle
+    });
 
     const heading = (text) => new Paragraph({
         children: [new TextRun({
@@ -8367,7 +13557,7 @@ function rbDownloadDOCX() {
         })],
         spacing: { before: 240, after: 80 },
         border: {
-            bottom: { color: '1A1A1A', space: 1, style: BorderStyle.SINGLE, size: 8 }
+            bottom: { color: '1A1A1A', space: 1, style: BorderSingle, size: 8 }
         }
     });
 
@@ -8381,7 +13571,7 @@ function rbDownloadDOCX() {
             color: opts.color || '1A1A1A'
         })],
         spacing: { after: opts.after != null ? opts.after : 80 },
-        alignment: opts.align || AlignmentType.LEFT
+        alignment: opts.align || AlignLeft
     });
 
     const bullet = (text) => new Paragraph({
@@ -8400,7 +13590,7 @@ function rbDownloadDOCX() {
             size: 44,
             font: 'Calibri'
         })],
-        alignment: AlignmentType.CENTER,
+        alignment: AlignCenter,
         spacing: { after: 60 }
     }));
 
@@ -8412,7 +13602,7 @@ function rbDownloadDOCX() {
                 font: 'Calibri',
                 color: '555555'
             })],
-            alignment: AlignmentType.CENTER,
+            alignment: AlignCenter,
             spacing: { after: 80 }
         }));
     }
@@ -8426,10 +13616,10 @@ function rbDownloadDOCX() {
                 font: 'Calibri',
                 color: '555555'
             })],
-            alignment: AlignmentType.CENTER,
+            alignment: AlignCenter,
             spacing: { after: 200 },
             border: {
-                bottom: { color: '1A1A1A', space: 8, style: BorderStyle.SINGLE, size: 12 }
+                bottom: { color: '1A1A1A', space: 8, style: BorderSingle, size: 12 }
             }
         }));
     }
@@ -8486,7 +13676,7 @@ function rbDownloadDOCX() {
                     new TextRun({ text: '\t', size: 22, font: 'Calibri' }),
                     new TextRun({ text: e.date || '', italics: true, size: 22, font: 'Calibri', color: '555555' })
                 ],
-                tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+                tabStops: [{ type: TabRight, position: TabMax }],
                 spacing: { after: 20 }
             }));
             if (e.org) {
@@ -8508,7 +13698,7 @@ function rbDownloadDOCX() {
                     new TextRun({ text: '\t', size: 22, font: 'Calibri' }),
                     new TextRun({ text: e.date || '', italics: true, size: 22, font: 'Calibri', color: '555555' })
                 ],
-                tabStops: [{ type: TabStopType.RIGHT, position: TabStopPosition.MAX }],
+                tabStops: [{ type: TabRight, position: TabMax }],
                 spacing: { after: 60 }
             }));
         });

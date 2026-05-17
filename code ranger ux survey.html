@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code Ranger — UX Feedback Survey</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg-dark: #0a0612;
+    --bg-card: #1a0d2e;
+    --bg-card-hover: #251440;
+    --purple-light: #c4b5fd;
+    --purple: #a78bfa;
+    --purple-mid: #8b5cf6;
+    --purple-deep: #7c3aed;
+    --indigo: #6366f1;
+    --border: rgba(139, 92, 246, 0.25);
+    --border-hover: rgba(167, 139, 250, 0.6);
+    --text: #e9e4f5;
+    --text-dim: #9b8bb8;
+    --yellow: #fde047;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 32px 16px;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 85% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 50%);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 16px;
+    border-radius: 18px;
+    background: linear-gradient(180deg, #1a0d2e 0%, #0a0612 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 32px rgba(139, 92, 246, 0.3);
+    border: 1px solid var(--border);
+    font-size: 36px;
+  }
+
+  h1 {
+    font-size: 36px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--indigo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 15px;
+  }
+
+  /* Progress bar */
+  .progress-wrap {
+    margin-bottom: 32px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--indigo) 100%);
+    width: 0%;
+    transition: width 0.3s ease;
+    border-radius: 3px;
+  }
+
+  /* Question card */
+  .question {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    transition: border-color 0.2s ease;
+  }
+
+  .question:focus-within {
+    border-color: var(--border-hover);
+  }
+
+  .q-number {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--purple);
+    background: rgba(139, 92, 246, 0.15);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .q-text {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .q-text .required {
+    color: var(--purple);
+    margin-left: 4px;
+  }
+
+  /* Options */
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    background: rgba(139, 92, 246, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+
+  .option:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+  }
+
+  .option input {
+    margin-right: 12px;
+    accent-color: var(--purple-mid);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+  }
+
+  .option input:checked + span {
+    color: var(--purple-light);
+    font-weight: 500;
+  }
+
+  .option:has(input:checked) {
+    background: rgba(139, 92, 246, 0.15);
+    border-color: var(--purple-mid);
+  }
+
+  .option span {
+    font-size: 15px;
+    color: var(--text);
+  }
+
+  /* Text inputs */
+  textarea, input[type="text"] {
+    width: 100%;
+    background: rgba(10, 6, 18, 0.6);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+    transition: border-color 0.2s ease;
+  }
+
+  textarea {
+    min-height: 90px;
+  }
+
+  textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--purple-mid);
+    background: rgba(10, 6, 18, 0.9);
+  }
+
+  textarea::placeholder, input[type="text"]::placeholder {
+    color: var(--text-dim);
+  }
+
+  /* Rating scale */
+  .rating {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .rating label {
+    flex: 1;
+    min-width: 48px;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 92, 246, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .rating label:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+  }
+
+  .rating input {
+    display: none;
+  }
+
+  .rating input:checked + label,
+  .rating label:has(input:checked) {
+    background: linear-gradient(135deg, var(--purple-mid) 0%, var(--indigo) 100%);
+    border-color: var(--purple);
+    color: white;
+  }
+
+  .rating-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* Submit */
+  .submit-wrap {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  .submit-btn {
+    background: linear-gradient(135deg, var(--purple-mid) 0%, var(--indigo) 100%);
+    color: white;
+    border: none;
+    padding: 14px 48px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 24px rgba(139, 92, 246, 0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 32px rgba(139, 92, 246, 0.55);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* Thank you screen */
+  .thanks {
+    text-align: center;
+    padding: 60px 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    display: none;
+  }
+
+  .thanks.show { display: block; }
+  .survey.hide { display: none; }
+
+  .thanks-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+
+  .thanks h2 {
+    font-size: 28px;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, var(--purple) 0%, var(--indigo) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .thanks p {
+    color: var(--text-dim);
+    margin-bottom: 24px;
+  }
+
+  .response-summary {
+    text-align: left;
+    background: rgba(10, 6, 18, 0.6);
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .response-summary strong {
+    color: var(--purple-light);
+  }
+
+  /* Helper text */
+  .helper {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 600px) {
+    h1 { font-size: 28px; }
+    .question { padding: 18px; }
+    .rating label { min-width: 40px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="survey" id="survey">
+      <div class="header">
+        <div class="logo">🐉</div>
+        <h1>Code Ranger Feedback</h1>
+        <p class="subtitle">Help us make the experience sharper. Takes ~3 minutes.</p>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-label">
+          <span><span id="answered">0</span> of 10 answered</span>
+          <span id="percent">0%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+
+      <form id="surveyForm">
+
+        <!-- Q1 -->
+        <div class="question">
+          <span class="q-number">QUESTION 1</span>
+          <div class="q-text">How did you hear about Code Ranger?</div>
+          <div class="options" data-q="q1">
+            <label class="option"><input type="radio" name="q1" value="Friend or colleague"><span>Friend or colleague</span></label>
+            <label class="option"><input type="radio" name="q1" value="Social media"><span>Social media (X, LinkedIn, Reddit, etc.)</span></label>
+            <label class="option"><input type="radio" name="q1" value="Search engine"><span>Google or search engine</span></label>
+            <label class="option"><input type="radio" name="q1" value="GitHub"><span>GitHub</span></label>
+            <label class="option"><input type="radio" name="q1" value="Other"><span>Other</span></label>
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+          <span class="q-number">QUESTION 2</span>
+          <div class="q-text">What's your current coding experience level?</div>
+          <div class="options" data-q="q2">
+            <label class="option"><input type="radio" name="q2" value="Complete beginner"><span>Complete beginner — never written code</span></label>
+            <label class="option"><input type="radio" name="q2" value="Learning"><span>Learning — taking courses or bootcamp</span></label>
+            <label class="option"><input type="radio" name="q2" value="Junior"><span>Junior developer (0–2 years)</span></label>
+            <label class="option"><input type="radio" name="q2" value="Mid-senior"><span>Mid to senior developer (3+ years)</span></label>
+            <label class="option"><input type="radio" name="q2" value="Career changer"><span>Career changer — coming from another field</span></label>
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+          <span class="q-number">QUESTION 3</span>
+          <div class="q-text">How easy was it to find your first challenge and get started?</div>
+          <div class="rating" data-q="q3">
+            <label><input type="radio" name="q3" value="1">1</label>
+            <label><input type="radio" name="q3" value="2">2</label>
+            <label><input type="radio" name="q3" value="3">3</label>
+            <label><input type="radio" name="q3" value="4">4</label>
+            <label><input type="radio" name="q3" value="5">5</label>
+          </div>
+          <div class="rating-labels"><span>Confusing</span><span>Super easy</span></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+          <span class="q-number">QUESTION 4</span>
+          <div class="q-text">Which feature have you used the most so far?</div>
+          <div class="options" data-q="q4">
+            <label class="option"><input type="radio" name="q4" value="Challenges"><span>500 Challenges</span></label>
+            <label class="option"><input type="radio" name="q4" value="Interview Lab"><span>Interview Lab</span></label>
+            <label class="option"><input type="radio" name="q4" value="Build Lab"><span>Build Lab</span></label>
+            <label class="option"><input type="radio" name="q4" value="Resume Builder"><span>Resume Builder</span></label>
+            <label class="option"><input type="radio" name="q4" value="AI Collaborator"><span>AI Collaborator</span></label>
+            <label class="option"><input type="radio" name="q4" value="None yet"><span>Haven't really used it yet</span></label>
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+          <span class="q-number">QUESTION 5</span>
+          <div class="q-text">How would you rate the difficulty curve of the challenges?</div>
+          <div class="options" data-q="q5">
+            <label class="option"><input type="radio" name="q5" value="Too easy"><span>Too easy — I'm not learning much</span></label>
+            <label class="option"><input type="radio" name="q5" value="Just right"><span>Just right — challenging but doable</span></label>
+            <label class="option"><input type="radio" name="q5" value="Uneven"><span>Uneven — some too easy, some way too hard</span></label>
+            <label class="option"><input type="radio" name="q5" value="Too hard"><span>Too hard — I get stuck a lot</span></label>
+            <label class="option"><input type="radio" name="q5" value="Not enough"><span>Haven't done enough to say</span></label>
+          </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+          <span class="q-number">QUESTION 6</span>
+          <div class="q-text">What's one thing you wish Code Ranger had that it doesn't?</div>
+          <textarea name="q6" placeholder="A feature, a category, a UI improvement — anything missing for you..."></textarea>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+          <span class="q-number">QUESTION 7</span>
+          <div class="q-text">How likely are you to recommend Code Ranger to a friend learning to code?</div>
+          <div class="rating" data-q="q7">
+            <label><input type="radio" name="q7" value="1">1</label>
+            <label><input type="radio" name="q7" value="2">2</label>
+            <label><input type="radio" name="q7" value="3">3</label>
+            <label><input type="radio" name="q7" value="4">4</label>
+            <label><input type="radio" name="q7" value="5">5</label>
+            <label><input type="radio" name="q7" value="6">6</label>
+            <label><input type="radio" name="q7" value="7">7</label>
+            <label><input type="radio" name="q7" value="8">8</label>
+            <label><input type="radio" name="q7" value="9">9</label>
+            <label><input type="radio" name="q7" value="10">10</label>
+          </div>
+          <div class="rating-labels"><span>Not likely</span><span>Very likely</span></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+          <span class="q-number">QUESTION 8</span>
+          <div class="q-text">Which of these did you find confusing or frustrating? <em style="font-weight:400;color:var(--text-dim);font-size:14px;">(pick all that apply)</em></div>
+          <div class="options" data-q="q8">
+            <label class="option"><input type="checkbox" name="q8" value="Navigation"><span>Finding my way around the app</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="Hints"><span>Hints system / when they unlock</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="API key"><span>Setting up the AI Collaborator / API key</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="Progress tracking"><span>Tracking my progress / scores</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="Unlocks"><span>Knowing what unlocks when</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="Build Lab"><span>The Build Lab workspace</span></label>
+            <label class="option"><input type="checkbox" name="q8" value="Nothing"><span>Nothing — it all made sense</span></label>
+          </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+          <span class="q-number">QUESTION 9</span>
+          <div class="q-text">What's your favorite thing about Code Ranger so far?</div>
+          <textarea name="q9" placeholder="What's working? What keeps you coming back?"></textarea>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">
+          <span class="q-number">QUESTION 10</span>
+          <div class="q-text">Anything else you want to tell us? <em style="font-weight:400;color:var(--text-dim);font-size:14px;">(optional)</em></div>
+          <textarea name="q10" placeholder="Bugs, ideas, hot takes — leave it all here."></textarea>
+          <input type="text" name="email" placeholder="Email (optional, if you want a reply)" style="margin-top:10px;">
+        </div>
+
+        <div class="submit-wrap">
+          <button type="submit" class="submit-btn">Submit Feedback →</button>
+          <p class="helper" style="margin-top:12px;">Your responses help shape what we build next.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Thanks screen -->
+    <div class="thanks" id="thanks">
+      <div class="thanks-icon">🐉</div>
+      <h2>Thanks for the feedback!</h2>
+      <p>Every response helps us make Code Ranger better. Now get back to those challenges.</p>
+      <div class="response-summary" id="summary"></div>
+    </div>
+  </div>
+
+<script>
+  const form = document.getElementById('surveyForm');
+  const progressFill = document.getElementById('progressFill');
+  const answeredEl = document.getElementById('answered');
+  const percentEl = document.getElementById('percent');
+
+  // Track which of the 10 questions have an answer
+  function updateProgress() {
+    const fd = new FormData(form);
+    const questions = ['q1','q2','q3','q4','q5','q6','q7','q8','q9'];
+    // q10 is optional, so we don't count it
+    let count = 0;
+    questions.forEach(q => {
+      const val = fd.getAll(q);
+      if (val.length && val.some(v => v.trim() !== '')) count++;
+    });
+    const pct = Math.round((count / 9) * 100);
+    answeredEl.textContent = count + (count === 9 ? ' (+1 optional)' : '');
+    percentEl.textContent = pct + '%';
+    progressFill.style.width = pct + '%';
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    const data = {};
+    for (const [key, value] of fd.entries()) {
+      if (data[key]) {
+        data[key] = Array.isArray(data[key]) ? [...data[key], value] : [data[key], value];
+      } else {
+        data[key] = value;
+      }
+    }
+
+    // Show thank you screen with summary
+    document.getElementById('survey').classList.add('hide');
+    const thanks = document.getElementById('thanks');
+    thanks.classList.add('show');
+
+    const summary = document.getElementById('summary');
+    let html = '<strong>Your responses:</strong><br><br>';
+    Object.entries(data).forEach(([k, v]) => {
+      if (v && (Array.isArray(v) ? v.length : v.trim())) {
+        const display = Array.isArray(v) ? v.join(', ') : v;
+        html += `<strong>${k}:</strong> ${display}<br>`;
+      }
+    });
+    summary.innerHTML = html;
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>

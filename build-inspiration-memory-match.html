@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════
+  CODE RANGER — BUILD INSPIRATION #X
+  Memory Match: Dragon Cards
+═══════════════════════════════════════════════════════════════════════════
+  WHAT THIS TEACHES:
+    • CSS 3D transforms (rotateY) for the card flip effect
+    • CSS transitions for smooth animation
+    • JavaScript closures to keep game state private
+    • Event delegation for clicking many cards efficiently
+    • DOM manipulation with textContent and classList
+    • Array shuffling with the Fisher–Yates algorithm
+    • Form labels with the `for` attribute (accessibility)
+
+  DIFFICULTY: Intermediate
+  TAGS: HTML · CSS · JavaScript
+═══════════════════════════════════════════════════════════════════════════
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dragon Memory Match — Code Ranger</title>
+<style>
+  /* ───────────────────────────────────────────────────────────────
+     SECTION 1: BASE STYLES
+     Sets up the page background, fonts, and centers the game.
+     ─────────────────────────────────────────────────────────────── */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* CSS custom properties (variables) — easy to theme the whole game
+     by changing values here instead of hunting through the file. */
+  :root {
+    --bg-dark: #0a0612;
+    --bg-card: #1a0d2e;
+    --purple: #a78bfa;
+    --purple-deep: #7c3aed;
+    --indigo: #6366f1;
+    --text: #e9e4f5;
+    --text-dim: #9b8bb8;
+    --success: #34d399;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px;
+    /* Subtle radial glow behind the game, like the Code Ranger app */
+    background-image:
+      radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.2) 0%, transparent 60%);
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     SECTION 2: HEADER & CONTROLS
+     Title, stats display, difficulty selector, restart button.
+     ─────────────────────────────────────────────────────────────── */
+  h1 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(90deg, var(--purple), var(--indigo));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    margin-bottom: 24px;
+    font-size: 14px;
+  }
+
+  .stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .stat {
+    background: var(--bg-card);
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.25);
+  }
+
+  .stat strong { color: var(--purple); margin-left: 6px; }
+
+  /* Difficulty form — uses <label for="..."> pattern so clicking
+     the text focuses the matching input. Good accessibility practice. */
+  .controls {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .controls label {
+    color: var(--text-dim);
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .controls select {
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .controls button {
+    background: linear-gradient(135deg, var(--purple-deep), var(--indigo));
+    color: white;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s ease;
+  }
+
+  .controls button:hover { transform: translateY(-1px); }
+
+  /* ───────────────────────────────────────────────────────────────
+     SECTION 3: THE GAME BOARD
+     Grid layout adapts to difficulty (more cards = more columns).
+     ─────────────────────────────────────────────────────────────── */
+  .board {
+    display: grid;
+    gap: 12px;
+    perspective: 1000px; /* Enables 3D flip — required for rotateY effect */
+  }
+
+  /* Three difficulty layouts. JS adds one of these classes to .board */
+  .board.easy   { grid-template-columns: repeat(3, 90px); }
+  .board.medium { grid-template-columns: repeat(4, 90px); }
+  .board.hard   { grid-template-columns: repeat(6, 80px); }
+
+  /* ───────────────────────────────────────────────────────────────
+     SECTION 4: THE FLIPPING CARD
+     This is the centerpiece of the lesson. The trick:
+       1. .card is a wrapper with perspective.
+       2. .card-inner rotates 180° on the Y-axis when flipped.
+       3. Two children (.front and .back) are positioned on top of
+          each other, both with backface-visibility: hidden, so only
+          one is visible at a time during the flip.
+     ─────────────────────────────────────────────────────────────── */
+  .card {
+    aspect-ratio: 3 / 4;       /* Cards keep card-like proportions */
+    cursor: pointer;
+    background: transparent;   /* The wrapper itself is invisible */
+  }
+
+  .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s; /* Smooth flip animation */
+    transform-style: preserve-3d; /* Children render in 3D space */
+  }
+
+  /* When the card has the .flipped class, rotate the inner half-turn */
+  .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+
+  /* Matched cards get a slight glow + locked-in feel */
+  .card.matched .card-inner {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 24px rgba(52, 211, 153, 0.4);
+    border-radius: 12px;
+  }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden; /* Hides the side facing away */
+    font-size: 38px;
+    border: 2px solid rgba(139, 92, 246, 0.3);
+  }
+
+  /* The back is what shows by default (face down) */
+  .card-back {
+    background: linear-gradient(135deg, var(--purple-deep), var(--indigo));
+    color: white;
+    font-weight: 800;
+  }
+
+  /* The front is what's revealed when flipped.
+     Rotated 180° so it shows correctly when the wrapper flips. */
+  .card-front {
+    background: var(--bg-card);
+    transform: rotateY(180deg);
+  }
+
+  /* ───────────────────────────────────────────────────────────────
+     SECTION 5: WIN MESSAGE
+     Shown when all pairs are matched.
+     ─────────────────────────────────────────────────────────────── */
+  .win-message {
+    margin-top: 24px;
+    padding: 20px 32px;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(99, 102, 241, 0.2));
+    border: 1px solid var(--purple);
+    border-radius: 12px;
+    text-align: center;
+    display: none; /* JS toggles to 'block' on win */
+  }
+
+  .win-message.show { display: block; }
+  .win-message h2 { color: var(--purple); margin-bottom: 8px; }
+</style>
+</head>
+<body>
+
+  <!-- ─────────────────────────────────────────────────────────────
+       HTML STRUCTURE
+       Semantic sections: header > controls > board > win message
+       ───────────────────────────────────────────────────────────── -->
+  <h1>🐉 Dragon Memory Match</h1>
+  <p class="subtitle">Flip two cards. Match the pairs. Win the game.</p>
+
+  <div class="stats">
+    <div class="stat">Moves<strong id="moveCount">0</strong></div>
+    <div class="stat">Matches<strong id="matchCount">0</strong></div>
+    <div class="stat">Time<strong id="timer">0s</strong></div>
+  </div>
+
+  <!--
+    DIFFICULTY FORM
+    Note: every <label> uses `for` to associate with its input by ID.
+    This is required for accessibility (screen readers) and a Code Ranger constraint.
+  -->
+  <div class="controls">
+    <label for="difficulty">Difficulty:</label>
+    <select id="difficulty" name="difficulty">
+      <option value="easy">Easy (6 cards)</option>
+      <option value="medium" selected>Medium (12 cards)</option>
+      <option value="hard">Hard (24 cards)</option>
+    </select>
+    <button id="restartBtn" type="button">Restart Game</button>
+  </div>
+
+  <!-- The board itself — JS will fill it with .card elements -->
+  <div class="board medium" id="board"></div>
+
+  <!-- Win screen, hidden by default -->
+  <div class="win-message" id="winMessage">
+    <h2>🏆 You Won!</h2>
+    <p id="winStats">Stats appear here</p>
+  </div>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════
+   JAVASCRIPT — Memory Match Game Logic
+   ═══════════════════════════════════════════════════════════════════════
+   ARCHITECTURE OVERVIEW:
+     We wrap everything in an IIFE (Immediately Invoked Function Expression)
+     to create a closure. This keeps all game state (moves, matches, timer)
+     PRIVATE — nothing leaks into the global window object. Only the methods
+     we explicitly return become accessible from outside.
+
+     This pattern is called the "Module Pattern" and is one of the most
+     important JavaScript techniques for organizing real-world code.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+const Game = (function() {
+  /* ─── PRIVATE STATE (only accessible inside this closure) ─── */
+  let moves = 0;          // Count of card pairs flipped
+  let matches = 0;        // Count of matched pairs
+  let firstCard = null;   // The first card in a pair being checked
+  let secondCard = null;  // The second card in a pair being checked
+  let isLocked = false;   // Prevents clicking during animation
+  let startTime = null;   // Timestamp when game started
+  let timerInterval = null; // setInterval ID so we can clear it
+
+  /* ─── DRAGON EMOJI POOL (the card faces) ─── */
+  /* We pick a subset of these based on difficulty. */
+  const dragonEmojis = ['🐉', '🔥', '🐲', '⚔️', '🛡️', '🗡️',
+                        '👑', '💎', '⚡', '🌙', '⭐', '🏰'];
+
+  /* ─── DOM REFERENCES (cached so we don't query repeatedly) ─── */
+  const board = document.getElementById('board');
+  const moveCountEl = document.getElementById('moveCount');
+  const matchCountEl = document.getElementById('matchCount');
+  const timerEl = document.getElementById('timer');
+  const winMessage = document.getElementById('winMessage');
+  const winStats = document.getElementById('winStats');
+  const difficultySelect = document.getElementById('difficulty');
+  const restartBtn = document.getElementById('restartBtn');
+
+  /* ─── HELPER: Fisher–Yates shuffle ─────────────────────────────
+     Classic algorithm for randomizing an array in-place.
+     Works by walking backward through the array and swapping each
+     element with a random earlier one. Genuinely random — better
+     than `sort(() => Math.random() - 0.5)` which is biased.
+     ─────────────────────────────────────────────────────────────── */
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]; // destructuring swap
+    }
+    return arr;
+  }
+
+  /* ─── BUILD CARD DECK BASED ON DIFFICULTY ─────────────────────── */
+  function buildDeck(difficulty) {
+    const pairCounts = { easy: 3, medium: 6, hard: 12 };
+    const pairCount = pairCounts[difficulty];
+    const chosen = dragonEmojis.slice(0, pairCount);
+    /* Each emoji appears twice (the pair), then we shuffle */
+    return shuffle([...chosen, ...chosen]);
+  }
+
+  /* ─── CREATE A SINGLE CARD ELEMENT ────────────────────────────── */
+  function createCard(emoji, index) {
+    /* Outer wrapper */
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.dataset.emoji = emoji; // Store value for matching logic
+    card.dataset.index = index; // Unique position identifier
+
+    /* Inner element that does the rotation */
+    const inner = document.createElement('div');
+    inner.className = 'card-inner';
+
+    /* The back face (purple gradient, shown by default) */
+    const back = document.createElement('div');
+    back.className = 'card-face card-back';
+    back.textContent = '?';  // Using textContent — Code Ranger constraint
+
+    /* The front face (revealed when flipped) */
+    const front = document.createElement('div');
+    front.className = 'card-face card-front';
+    front.textContent = emoji;  // Using textContent — Code Ranger constraint
+
+    /* Assemble: card > inner > [back, front] */
+    inner.appendChild(back);
+    inner.appendChild(front);
+    card.appendChild(inner);
+
+    return card;
+  }
+
+  /* ─── HANDLE A CARD CLICK ─────────────────────────────────────── */
+  function handleCardClick(event) {
+    /* Find the .card element that was clicked (event delegation).
+       The click might land on the inner div or a face — closest()
+       walks up the DOM tree to find the nearest .card ancestor. */
+    const card = event.target.closest('.card');
+    if (!card) return; // Click wasn't on a card
+
+    /* Ignore clicks on already-flipped, matched, or during animation */
+    if (isLocked) return;
+    if (card.classList.contains('flipped')) return;
+    if (card.classList.contains('matched')) return;
+
+    /* Flip the card */
+    card.classList.add('flipped');
+
+    /* Start the timer on the very first click of the game */
+    if (startTime === null) {
+      startTime = Date.now();
+      timerInterval = setInterval(updateTimer, 1000);
+    }
+
+    /* First or second card in a pair? */
+    if (firstCard === null) {
+      firstCard = card;
+    } else {
+      secondCard = card;
+      moves++;
+      moveCountEl.textContent = moves;  // textContent — Code Ranger constraint
+      checkForMatch();
+    }
+  }
+
+  /* ─── CHECK IF THE TWO FLIPPED CARDS MATCH ────────────────────── */
+  function checkForMatch() {
+    const isMatch = firstCard.dataset.emoji === secondCard.dataset.emoji;
+
+    if (isMatch) {
+      /* Lock them in as matched */
+      firstCard.classList.add('matched');
+      secondCard.classList.add('matched');
+      matches++;
+      matchCountEl.textContent = matches;
+      resetPairTracking();
+
+      /* Check if all pairs are matched (win condition) */
+      const totalPairs = board.children.length / 2;
+      if (matches === totalPairs) {
+        endGame();
+      }
+    } else {
+      /* No match — flip both back after a brief delay so the player
+         has time to see what was there */
+      isLocked = true;
+      setTimeout(() => {
+        firstCard.classList.remove('flipped');
+        secondCard.classList.remove('flipped');
+        resetPairTracking();
+        isLocked = false;
+      }, 900);
+    }
+  }
+
+  function resetPairTracking() {
+    firstCard = null;
+    secondCard = null;
+  }
+
+  /* ─── TIMER UPDATE (called every second) ──────────────────────── */
+  function updateTimer() {
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    timerEl.textContent = elapsed + 's';
+  }
+
+  /* ─── END GAME (win condition met) ────────────────────────────── */
+  function endGame() {
+    clearInterval(timerInterval);
+    const elapsed = Math.floor((Date.now() - startTime) / 1000);
+    winStats.textContent = `Completed in ${moves} moves and ${elapsed} seconds!`;
+    winMessage.classList.add('show');
+  }
+
+  /* ─── START / RESTART THE GAME ────────────────────────────────── */
+  function startGame() {
+    /* Reset all state */
+    moves = 0;
+    matches = 0;
+    firstCard = null;
+    secondCard = null;
+    isLocked = false;
+    startTime = null;
+    if (timerInterval) clearInterval(timerInterval);
+
+    /* Reset UI */
+    moveCountEl.textContent = '0';
+    matchCountEl.textContent = '0';
+    timerEl.textContent = '0s';
+    winMessage.classList.remove('show');
+
+    /* Clear and rebuild board */
+    const difficulty = difficultySelect.value;
+    board.className = 'board ' + difficulty;
+    board.textContent = ''; // Clear children (textContent='' is fastest)
+
+    const deck = buildDeck(difficulty);
+    deck.forEach((emoji, index) => {
+      board.appendChild(createCard(emoji, index));
+    });
+  }
+
+  /* ─── EVENT LISTENERS ─────────────────────────────────────────── */
+  /* Event delegation: one listener on the board catches all card clicks.
+     Far more efficient than attaching a listener to every card. */
+  board.addEventListener('click', handleCardClick);
+  restartBtn.addEventListener('click', startGame);
+  difficultySelect.addEventListener('change', startGame);
+
+  /* ─── PUBLIC API (returned from the closure) ──────────────────── */
+  /* Only `start` is exposed. Everything else is private. */
+  return {
+    start: startGame
+  };
+})();
+
+/* Kick off the game on page load */
+Game.start();
+
+/* ═══════════════════════════════════════════════════════════════════════
+   END OF GAME LOGIC
+   Total lines of meaningful code: ~120
+   Concepts demonstrated:
+     ✓ IIFE / Module Pattern (closure-based encapsulation)
+     ✓ 3D CSS transforms with backface-visibility
+     ✓ Event delegation
+     ✓ Fisher–Yates shuffle
+     ✓ DOM manipulation with textContent (not innerHTML, for safety)
+     ✓ State machine logic (first card → second card → match check)
+     ✓ setInterval / clearInterval for the timer
+   ═══════════════════════════════════════════════════════════════════════ */
+</script>
+</body>
+</html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Ranger — 610 Challenges</title>
+  <title>Code Ranger — 770 Challenges</title>
 
   <!-- Google Fonts — loaded async by browser, non-blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="dragonfly.png" type="image/svg">
+  <link rel="icon" href="favicon.svg" type="image/svg">
   <!-- All styles in one external file — cached independently by the browser -->
   <link rel="stylesheet" href="style.css">
 </head>
@@ -21,15 +21,15 @@
   <div id="startScreen">
     <div class="start-logo" onclick="startGame()">  
       <p>  
-  <img src="dragonfly.png" alt="Code Ranger Logo" width="240" style="margin: 20px; align-items: center;">
+  <img src="favicon.svg" alt="Code Ranger Logo" width="140" style="margin: 20px; align-items: center;">
     </p>
       <span class="logo-grad">Code Ranger</span>
     </div>
-    <p class="start-sub">610 sourced challenges · 20 categories · Beginner Lessons · Interview Lab</p>
+    <p class="start-sub">770 sourced challenges · 20 categories · Beginner Lessons · Interview Lab</p>
 
     <div class="start-stats">
       <div class="stat-box">
-        <div class="stat-num">610</div>
+        <div class="stat-num">770</div>
         <div class="stat-lbl">Challenges</div>
       </div>
       <div class="stat-box">
@@ -61,7 +61,7 @@
     <div class="start-cat-wrap">
       <label class="start-cat-lbl" for="startCatSelect">Choose a category to start with:</label>
       <select class="start-cat-select" id="startCatSelect">
-        <option value="All">🎯 All 610 Challenges</option>
+        <option value="All">🎯 All 770 Challenges</option>
         <optgroup label="Languages">
           <option value="JS Fundamentals">⚡ JS Fundamentals · 30</option>
           <option value="Python">🐍 Python · 25</option>
@@ -94,7 +94,7 @@
     </div>
 
     <button class="play-btn" onclick="startGame()">▶ &nbsp;START</button>
-    <a href="https://tally.so/r/J9eLMK" target="_blank" rel="noopener noreferrer" class="feedback-link">
+    <a href="https://tally.so/r/ODbJGY" target="_blank" rel="noopener noreferrer" class="feedback-link">
   💬 Share feedback — help shape Code Ranger
     </a>
   </div>
@@ -139,7 +139,7 @@
     <div class="progress-area">
       <div class="ch-nav" id="chNav"></div>
       <div class="prog-right">
-        <span class="prog-lbl" id="progLbl">0/610</span>
+        <span class="prog-lbl" id="progLbl">0/770</span>
         <div class="prog-bar-wrap">
           <div class="prog-bar-fill" id="progFill" style="width:0%"></div>
         </div>
@@ -291,7 +291,7 @@
 
     <!-- ── Examples ── -->
     <div class="bl-section">
-      <div class="bl-section-title">✨ Build Inspiration — 4 examples</div>
+      <div class="bl-section-title">✨ Build Inspiration — 8 examples</div>
       <p class="bl-section-sub">Click any example to load its starter code into your workspace below.</p>
       <div class="bl-examples-grid">
 
@@ -336,6 +336,57 @@
           <div class="bl-example-name">Interactive Counter Widget</div>
           <div class="bl-example-tech">HTML · CSS · JavaScript</div>
           <div class="bl-example-desc">A working counter you click — your first taste of interactivity.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('dogwalking')">
+          <div class="bl-example-preview" id="bl-prev-dogwalking">
+            <div class="bl-prev-dog-bg"></div>
+            <div class="bl-prev-dog-emoji">🐾</div>
+            <div class="bl-prev-dog-line bl-prev-dog-line-1"></div>
+            <div class="bl-prev-dog-line bl-prev-dog-line-2"></div>
+          </div>
+          <div class="bl-example-name">Dog Walking Business Site</div>
+          <div class="bl-example-tech">HTML · CSS · JavaScript</div>
+          <div class="bl-example-desc">A real small-business template with services, about, and a booking form — ready to launch.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('memorymatch')">
+          <div class="bl-example-preview" id="bl-prev-memorymatch">
+            <div class="bl-prev-mm-card bl-prev-mm-card-1">🐉</div>
+            <div class="bl-prev-mm-card bl-prev-mm-card-2">?</div>
+            <div class="bl-prev-mm-card bl-prev-mm-card-3">🔥</div>
+            <div class="bl-prev-mm-card bl-prev-mm-card-4">?</div>
+          </div>
+          <div class="bl-example-name">Memory Match: Dragon Cards</div>
+          <div class="bl-example-tech">HTML · CSS · JavaScript</div>
+          <div class="bl-example-desc">A full memory game — flip cards, find matches, beat the timer. Teaches closures and 3D transforms.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('magazine')">
+          <div class="bl-example-preview" id="bl-prev-magazine">
+            <div class="bl-prev-mag-title">ATELIER</div>
+            <div class="bl-prev-mag-rule"></div>
+            <div class="bl-prev-mag-h"></div>
+            <div class="bl-prev-mag-p"></div>
+            <div class="bl-prev-mag-p short"></div>
+          </div>
+          <div class="bl-example-name">Magazine / Lifestyle Landing</div>
+          <div class="bl-example-tech">HTML · CSS · JavaScript</div>
+          <div class="bl-example-desc">An image-heavy editorial layout with serif type — perfect for portfolio sites or blogs.</div>
+        </button>
+
+        <button class="bl-example-card" onclick="blLoadExample('pacman')">
+          <div class="bl-example-preview" id="bl-prev-pacman">
+            <div class="bl-prev-pac-bg"></div>
+            <div class="bl-prev-pac-dot bl-prev-pac-dot-1"></div>
+            <div class="bl-prev-pac-dot bl-prev-pac-dot-2"></div>
+            <div class="bl-prev-pac-dot bl-prev-pac-dot-3"></div>
+            <div class="bl-prev-pac-pacman"></div>
+            <div class="bl-prev-pac-ghost"></div>
+          </div>
+          <div class="bl-example-name">Mini Pac-Man</div>
+          <div class="bl-example-tech">HTML · CSS · JavaScript</div>
+          <div class="bl-example-desc">A real arcade game in ~250 lines — maze, dots, ghost AI. Show learners what's possible.</div>
         </button>
 
       </div>
@@ -536,12 +587,12 @@
       <!-- Download buttons -->
       <div class="rb-download-bar">
         <button class="rb-dl-btn rb-dl-btn-primary" onclick="rbDownloadPDF()">
-          📄 Download PDF
+          📄 Save as PDF
         </button>
         <button class="rb-dl-btn" onclick="rbDownloadDOCX()">
           📝 Download Word (.docx)
         </button>
-        <span class="rb-dl-hint">PDF for sending. Word for editing.</span>
+        <span class="rb-dl-hint">PDF: choose "Save as PDF" in the print dialog. Word for editing.</span>
       </div>
 
       <article class="rb-resume" id="rbResumeOutput"></article>
@@ -636,7 +687,7 @@
   <!-- Resume download libraries — loaded from CDN -->
   <!-- html2pdf for PDF generation, docx for Word document generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script src="https://unpkg.com/docx@8.5.0/build/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
 
   <script src="game.js" defer></script>
 

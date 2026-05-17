@@ -894,14 +894,14 @@ body::before{content:'';position:fixed;inset:0;background:
 }
 .cap-action-btn.green:hover { background: rgba(52,168,83,0.22); box-shadow: 0 5px 16px rgba(52,168,83,0.3); }
 
-/* ── PRINT STYLES (Certificate) ── */
+/* ── PRINT STYLES (Certificate) — activated by class on <html> ── */
 @media print {
-  body > *:not(#certModal) { display: none !important; }
-  #certModal { display: block !important; position: static !important; background: #fff !important; }
-  #certModal .modal { box-shadow: none !important; border: none !important; max-height: none !important; }
-  .cert-actions { display: none !important; }
-  .m-close     { display: none !important; }
-  #confettiCanvas { display: none !important; }
+  html.printing-cert body > *:not(#certModal) { display: none !important; }
+  html.printing-cert #certModal { display: block !important; position: static !important; background: #fff !important; }
+  html.printing-cert #certModal .modal { box-shadow: none !important; border: none !important; max-height: none !important; }
+  html.printing-cert .cert-actions { display: none !important; }
+  html.printing-cert .m-close     { display: none !important; }
+  html.printing-cert #confettiCanvas { display: none !important; }
 }
 
 /* ── RESPONSIVE ── */
@@ -1315,13 +1315,39 @@ body::before{content:'';position:fixed;inset:0;background:
   .rb-skill-row { grid-template-columns: 100px 1fr; gap: 8px; }
 }
 
+/* Resume print mode — activated by JavaScript before window.print() */
 @media print {
-  body > *:not(#resumeBuilder) { display: none !important; }
-  #resumeBuilder { background: white !important; padding: 0; border: none; box-shadow: none; max-width: 100%; }
-  .rb-header, .rb-tier-toggle, .rb-form, .rb-preview-label, .rb-preview-rev { display: none !important; }
-  .rb-grid { grid-template-columns: 1fr; }
-  .rb-preview-frame { padding: 0; border: none; background: white; box-shadow: none; }
-  .rb-resume { box-shadow: none; max-width: 100%; padding: 0.5in; }
+  html.printing-resume {
+    /* Page setup — letter size, half-inch margins, no headers/footers */
+  }
+
+  @page {
+    size: letter;
+    margin: 0.5in;
+  }
+
+  /* Hide everything except the resume section, when printing the resume */
+  html.printing-resume body > *:not(#resumeBuilder) { display: none !important; }
+
+  /* Reset Code Ranger dark theme — print needs white page */
+  html.printing-resume body { background: white !important; color: black !important; }
+
+  html.printing-resume #resumeBuilder { background: white !important; padding: 0; border: none; box-shadow: none; max-width: 100%; margin: 0; }
+
+  /* Hide the form, header, preview labels, AND download buttons */
+  html.printing-resume .rb-header,
+  html.printing-resume .rb-tier-toggle,
+  html.printing-resume .rb-form,
+  html.printing-resume .rb-preview-label,
+  html.printing-resume .rb-preview-rev,
+  html.printing-resume .rb-download-bar { display: none !important; }
+
+  html.printing-resume .rb-grid { grid-template-columns: 1fr; gap: 0; }
+  html.printing-resume .rb-preview-frame { padding: 0; border: none; background: white; box-shadow: none; }
+  html.printing-resume .rb-resume { box-shadow: none; max-width: 100%; padding: 0; margin: 0; }
+
+  /* Ensure colors print correctly (some browsers strip backgrounds by default) */
+  html.printing-resume * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
 }
 
 
@@ -1587,6 +1613,148 @@ body::before{content:'';position:fixed;inset:0;background:
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; color: #fff;
   font-size: 16px;
+}
+
+/* ── DOG WALKING PREVIEW ── */
+.bl-prev-dog-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #fef3c7 0%, #fbcfe8 100%);
+}
+.bl-prev-dog-emoji {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  animation: blDogBounce 1.6s ease-in-out infinite;
+}
+@keyframes blDogBounce {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50%      { transform: translate(-50%, -50%) translateY(-6px); }
+}
+.bl-prev-dog-line {
+  position: absolute;
+  height: 4px;
+  background: #db2777;
+  border-radius: 2px;
+}
+.bl-prev-dog-line-1 { bottom: 18px; left: 16px; width: 40%; }
+.bl-prev-dog-line-2 { bottom: 10px; left: 16px; width: 25%; opacity: 0.6; }
+
+/* ── MEMORY MATCH PREVIEW ── */
+#bl-prev-memorymatch {
+  background: #0a0612;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+}
+.bl-prev-mm-card {
+  width: 32px;
+  height: 44px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: white;
+  font-weight: 700;
+  animation: blMmFlip 3s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+.bl-prev-mm-card-1 { animation-delay: 0s; background: #1a0d2e; color: #fde047; }
+.bl-prev-mm-card-2 { animation-delay: 0.4s; }
+.bl-prev-mm-card-3 { animation-delay: 0.8s; background: #1a0d2e; color: #fde047; }
+.bl-prev-mm-card-4 { animation-delay: 1.2s; }
+@keyframes blMmFlip {
+  0%, 100% { transform: rotateY(0); }
+  40%      { transform: rotateY(180deg); }
+  60%      { transform: rotateY(180deg); }
+}
+
+/* ── MAGAZINE PREVIEW ── */
+#bl-prev-magazine {
+  background: #faf8f4;
+  padding: 14px 16px;
+}
+.bl-prev-mag-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.bl-prev-mag-rule {
+  height: 1px;
+  background: #1a1a1a;
+  margin-bottom: 10px;
+}
+.bl-prev-mag-h {
+  width: 70%;
+  height: 8px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+.bl-prev-mag-p {
+  width: 90%;
+  height: 4px;
+  background: #888;
+  border-radius: 2px;
+  margin-bottom: 3px;
+}
+.bl-prev-mag-p.short { width: 60%; }
+
+/* ── PAC-MAN PREVIEW ── */
+#bl-prev-pacman {
+  background: #000;
+}
+.bl-prev-pac-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(#1e40af, #1e40af) 20px 30px / 6px 30px no-repeat,
+    linear-gradient(#1e40af, #1e40af) 50px 30px / 30px 6px no-repeat,
+    linear-gradient(#1e40af, #1e40af) 130px 30px / 6px 30px no-repeat,
+    linear-gradient(#1e40af, #1e40af) 20px 70px / 30px 6px no-repeat,
+    linear-gradient(#1e40af, #1e40af) 100px 70px / 36px 6px no-repeat,
+    #000;
+}
+.bl-prev-pac-dot {
+  position: absolute;
+  width: 4px; height: 4px;
+  background: #fde047;
+  border-radius: 50%;
+  box-shadow: 0 0 4px rgba(253, 224, 71, 0.6);
+}
+.bl-prev-pac-dot-1 { top: 50px; left: 80px; }
+.bl-prev-pac-dot-2 { top: 50px; left: 100px; }
+.bl-prev-pac-dot-3 { top: 50px; left: 120px; }
+.bl-prev-pac-pacman {
+  position: absolute;
+  top: 46px;
+  left: 40px;
+  width: 14px;
+  height: 14px;
+  background: #fde047;
+  border-radius: 50%;
+  clip-path: polygon(0 0, 100% 0, 100% 35%, 50% 50%, 100% 65%, 100% 100%, 0 100%);
+  animation: blPacMove 3s linear infinite;
+}
+@keyframes blPacMove {
+  0%   { left: 24px; }
+  100% { left: 140px; }
+}
+.bl-prev-pac-ghost {
+  position: absolute;
+  top: 46px;
+  left: 154px;
+  width: 14px;
+  height: 14px;
+  background: #ec4899;
+  border-radius: 7px 7px 2px 2px;
 }
 
 .bl-example-name {
