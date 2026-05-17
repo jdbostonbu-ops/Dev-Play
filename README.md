@@ -1,14 +1,19 @@
 
 
-[![Code Ranger Logo](banner-compact.svg)](banner-compact.svg)
+<p align="center">
+  <img src="banner-compact.svg" alt="Code Ranger Logo" width="940">
+</p>
 
 A **795-challenge** coding game with an AI-powered Build Lab, Interview Lab, and a Developer's AI Toolbelt. Players progress through bite-sized challenges across **21 categories**, unlock a real coding workspace seeded with 8 production-style example builds, get AI-driven code review on their projects, and build a downloadable resume that auto-fills from the categories they've mastered. The whole experience is a single continuous flow — *play to learn, learn to build, build to ship*.
 
 ## 👤 Author
+**Jacqueline**
+[Check out my GitHub Profile](https://github.com/jdbostonbu-ops)
+🚀 **[Try the Live App](https://dev-play-nine.vercel.app/)**
 
-**Jacqueline** — [Check out my GitHub Profile](https://github.com/jdbostonbu-ops) 🚀 **[Try the Live App](https://dev-play-nine.vercel.app/)**
-
-[![Code Ranger Showcase Demo](coderanger.gif)](coderanger.gif)
+<p align="center">
+  <img src="coderanger.gif" alt="Code Ranger Showcase Demo" width="600">
+</p>
 
 ## 🎓 Built During Next Chapter — Phase I
 
@@ -161,4 +166,6 @@ Code Ranger is what I built during Phase I of Thinking with AI — a single cont
 
 ⭐ Love this project? Give it a star and explore the other deployed projects in this portfolio.
 
-[![Code Ranger Logo](favicon.svg)](favicon.svg)
+<p align="center">
+  <img src="favicon.svg" alt="Code Ranger Logo" width="240">
+</p>
