@@ -3905,13 +3905,13 @@ And so are you!</p>`,
  hint:"<p style=\"color:#a855f7;font-weight:bold\">Your text</p> — separate properties with semicolons."},
 
 {id:533,title:"Audio Player",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
- desc:"The <code>&lt;audio&gt;</code> tag embeds a sound player. Add <code>controls</code> to show play/pause buttons. The browser handles everything.",
+ desc:"The <code>&lt;audio&gt;</code> tag embeds a sound player. Add <code>controls</code> to show play/pause buttons. The browser handles everything — playback, volume, scrubbing.",
  start:`<audio controls>
-  <source src="https://www.soundjay.com/buttons/sounds/button-1.mp3" type="audio/mpeg">
+  <source src="audio/latin-guitar.mp3" type="audio/mpeg">
   Your browser doesn't support audio.
 </audio>
-<p>An audio player above plays a button click sound.</p>`,
- goal:"Add the loop attribute to the audio tag so it repeats.",
+<p>Press play above — a 30-second latin guitar clip will start.</p>`,
+ goal:"Add the loop attribute to the audio tag so the clip repeats automatically.",
  source:"MDN — <audio>",
  hint:"Change <audio controls> to <audio controls loop>."},
 
@@ -10577,7 +10577,6 @@ let rbCurrentTier = 'junior';
 
 const rbState = {
     name: 'Your Name',
-    title: 'Junior Software Engineer',
     email: '',
     phone: '',
     github: '',
@@ -10598,27 +10597,35 @@ const rbState = {
    DYNAMIC SKILLS — earned by demonstrating 80% mastery in-game
    ════════════════════════════════════════════════════════════════ */
 
-/* Map a game category to the resume "Languages/Frameworks/etc."
-   group it should appear in, and the keyword to add. */
+/* Map a game category to the resume "Languages/Web Technologies/Frameworks/..."
+   group it should appear in, and the keyword to add.
+
+   Groups are designed to match real resume conventions:
+     • Languages              → things you write code/logic in
+     • Web Technologies       → HTML/CSS (markup + styling, not languages)
+     • Frameworks & Libraries → pre-built code you build on top of (React, Node)
+     • Concepts               → theoretical knowledge (algorithms, APIs)
+     • Security               → security-specific knowledge
+     • Tools                  → developer tooling (Git, testing) */
 const RB_CATEGORY_MAP = {
-    'JS Fundamentals':  { group: 'Languages',    keyword: 'JavaScript' },
-    'JS Advanced':      { group: 'Languages',    keyword: 'JavaScript (ES6+)' },
-    'Python':           { group: 'Languages',    keyword: 'Python' },
-    'Python Advanced':  { group: 'Languages',    keyword: 'Python (advanced)' },
-    'TypeScript':       { group: 'Languages',    keyword: 'TypeScript' },
-    'SQL':              { group: 'Languages',    keyword: 'SQL' },
-    'HTML & CSS':       { group: 'Frameworks',   keyword: 'HTML5 / CSS3' },
-    'CSS Advanced':     { group: 'Frameworks',   keyword: 'Advanced CSS / Layouts' },
-    'React & Async':    { group: 'Frameworks',   keyword: 'React' },
-    'Node.js':          { group: 'Frameworks',   keyword: 'Node.js / Express' },
-    'HTTP & APIs':      { group: 'Concepts',     keyword: 'REST APIs, HTTP' },
-    'Algorithms':       { group: 'Concepts',     keyword: 'Algorithms' },
-    'Data Structures':  { group: 'Concepts',     keyword: 'Data structures' },
-    'String Methods':   { group: 'Concepts',     keyword: 'String manipulation' },
-    'Array Methods':    { group: 'Concepts',     keyword: 'Array methods (map / filter / reduce)' },
-    'Web Security':     { group: 'Security',     keyword: 'OWASP Top 10, secure coding' },
-    'Git & CLI':        { group: 'Tools',        keyword: 'Git, GitHub, Linux CLI' },
-    'Testing':          { group: 'Tools',        keyword: 'Jest, unit / integration testing' }
+    'JS Fundamentals':  { group: 'Languages',              keyword: 'JavaScript' },
+    'JS Advanced':      { group: 'Languages',              keyword: 'JavaScript (ES6+)' },
+    'Python':           { group: 'Languages',              keyword: 'Python' },
+    'Python Advanced':  { group: 'Languages',              keyword: 'Python (advanced)' },
+    'TypeScript':       { group: 'Languages',              keyword: 'TypeScript' },
+    'SQL':              { group: 'Languages',              keyword: 'SQL' },
+    'HTML & CSS':       { group: 'Web Technologies',       keyword: 'HTML5, CSS3' },
+    'CSS Advanced':     { group: 'Web Technologies',       keyword: 'Advanced CSS / Layouts' },
+    'React & Async':    { group: 'Frameworks & Libraries', keyword: 'React' },
+    'Node.js':          { group: 'Frameworks & Libraries', keyword: 'Node.js / Express' },
+    'HTTP & APIs':      { group: 'Concepts',               keyword: 'REST APIs, HTTP' },
+    'Algorithms':       { group: 'Concepts',               keyword: 'Algorithms' },
+    'Data Structures':  { group: 'Concepts',               keyword: 'Data structures' },
+    'String Methods':   { group: 'Concepts',               keyword: 'String manipulation' },
+    'Array Methods':    { group: 'Concepts',               keyword: 'Array methods (map / filter / reduce)' },
+    'Web Security':     { group: 'Security',               keyword: 'OWASP Top 10, secure coding' },
+    'Git & CLI':        { group: 'Tools',                  keyword: 'Git, GitHub, Linux CLI' },
+    'Testing':          { group: 'Tools',                  keyword: 'Jest, unit / integration testing' }
 };
 
 /* THRESHOLD: 80% of category questions must be solved
@@ -10822,9 +10829,6 @@ function rbUpdate() {
     const nameEl = document.getElementById('rbName');
     if (nameEl) rbState.name = nameEl.value;
 
-    const titleEl = document.getElementById('rbTitle');
-    if (titleEl) rbState.title = titleEl.value;
-
     const emailEl = document.getElementById('rbEmail');
     if (emailEl) rbState.email = emailEl.value;
 
@@ -10880,7 +10884,7 @@ function rbRenderResume() {
         skillsHTML = '<div class="rb-skills-empty">You haven\'t unlocked any skills yet. Solve at least 80% of a category in the game to earn that skill on your resume.</div>';
     } else {
         // Display in this canonical order
-        const groupOrder = ['Languages', 'Frameworks', 'Tools', 'Security', 'Concepts'];
+        const groupOrder = ['Languages', 'Web Technologies', 'Frameworks & Libraries', 'Tools', 'Security', 'Concepts'];
         skillsHTML = groupOrder
             .filter(g => groups[g] && groups[g].length)
             .map(g => `
@@ -10935,7 +10939,6 @@ function rbRenderResume() {
     out.innerHTML = `
         <header class="rb-resume-header">
             <div class="rb-resume-name">${rbEscapeHtml(rbState.name) || 'Your Name'}</div>
-            <div class="rb-resume-title">${rbEscapeHtml(rbState.title) || 'Software Engineer'}</div>
             <div class="rb-resume-contact">${contactHTML}</div>
         </header>
 
@@ -12761,7 +12764,10 @@ const Game = (function() {
   let score = 0;
   let lives = 3;
   let pacman = { col: 9, row: 13, dir: 'right', nextDir: 'right' };
-  let ghost = { col: 9, row: 9, dir: 'left' };
+  // Ghost starts at a true 3-way junction (col 9, row 5) directly above
+  // Pac-Man. From here the ghost can immediately chase down — much more
+  // dynamic than spawning it in a dead-end corridor.
+  let ghost = { col: 9, row: 5, dir: 'down' };
   let dotsRemaining = 0;
   let gameOver = false;
   let won = false;
@@ -12821,9 +12827,12 @@ const Game = (function() {
       return;
     }
 
-    // Pick the option that moves toward Pac-Man
-    let best = options[0];
+    // Pick the option that moves toward Pac-Man.
+    // When multiple options tie (same distance), pick one randomly —
+    // this prevents the ghost from feeling like it always picks the same
+    // direction at junctions, making the chase feel alive.
     let bestDist = Infinity;
+    const bestOptions = [];
     options.forEach(d => {
       let dc = 0, dr = 0;
       if (d === 'left')  dc = -1;
@@ -12832,9 +12841,16 @@ const Game = (function() {
       if (d === 'down')  dr = 1;
       const dist = Math.abs((ghost.col + dc) - pacman.col) +
                    Math.abs((ghost.row + dr) - pacman.row);
-      if (dist < bestDist) { bestDist = dist; best = d; }
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestOptions.length = 0;
+        bestOptions.push(d);
+      } else if (dist === bestDist) {
+        bestOptions.push(d);
+      }
     });
-    tryMove(ghost, best);
+    const choice = bestOptions[Math.floor(Math.random() * bestOptions.length)];
+    tryMove(ghost, choice);
   }
 
   function checkCollision() {
@@ -12846,9 +12862,9 @@ const Game = (function() {
         statusEl.textContent = '💀 Game Over — Press New Game';
         statusEl.style.color = '#ef4444';
       } else {
-        // Respawn
+        // Respawn — same junctions as initial spawn
         pacman.col = 9; pacman.row = 13;
-        ghost.col = 9; ghost.row = 9;
+        ghost.col = 9; ghost.row = 5; ghost.dir = 'down';
       }
     }
   }
@@ -12951,7 +12967,7 @@ const Game = (function() {
     score = 0;
     lives = 3;
     pacman = { col: 9, row: 13, dir: 'right', nextDir: 'right' };
-    ghost = { col: 9, row: 9, dir: 'left' };
+    ghost = { col: 9, row: 5, dir: 'down' };
     gameOver = false;
     won = false;
     lastMove = 0;
@@ -13468,275 +13484,350 @@ function rbGetFilenameBase() {
 }
 
 function rbDownloadPDF() {
-    // ─────────────────────────────────────────────────────────────────────
-    // PDF generation via window.print()
-    //
-    // Why we switched away from html2pdf.js:
-    //   • html2pdf uses html2canvas under the hood, which rasterizes the DOM
-    //   • Rasterization was producing blank pages in this app (no error logs)
-    //   • Browser native print produces a TEXT-BASED, selectable PDF — better
-    //     for ATS scanners that parse resume content
-    //
-    // How it works:
-    //   1. Add 'printing-resume' class to <html> to activate scoped print CSS
-    //      (the @media print rules in style.css are scoped to this class so
-    //      they don't conflict with the certificate's print rules).
-    //   2. Update document.title — browsers use this as the default PDF filename.
-    //   3. Call window.print() — opens native print dialog where user can
-    //      pick "Save as PDF" as the destination.
-    //   4. afterprint event fires — we clean up the class and restore title.
-    //
-    // Trade-off: requires one extra click (the user picks "Save as PDF"
-    // in the print dialog). In exchange, the output is:
-    //   • Text-based, not rasterized (smaller files, ATS-readable)
-    //   • Always renders correctly (no html2canvas blank-canvas bugs)
-    //   • Honors the @media print CSS we wrote
-    // ─────────────────────────────────────────────────────────────────────
+    /* ═══════════════════════════════════════════════════════════════════
+       PDF generation via NEW WINDOW (the "Next Chapter" pattern)
+
+       Why this approach (after html2pdf.js failed twice with blank output):
+         • Opens a fresh window with its own document — no CSS conflicts,
+           no @media print collisions, no html2canvas rasterization issues
+         • The new window loads resume-print.css (separate file) which
+           defines a clean letter-paper layout
+         • User clicks "Print / Save as PDF" in the new window's toolbar →
+           browser's native print dialog handles the actual PDF generation
+         • Browser's print engine is the most reliable HTML→PDF path that
+           exists; it produces selectable text-based PDFs (good for ATS)
+
+       Architecture:
+         1. Grab the already-rendered resume HTML from #rbResumeOutput
+         2. window.open() a blank tab — MUST happen synchronously inside
+            the click handler or popup blockers will eat it
+         3. document.write() the new window's HTML: links resume-print.css,
+            includes the toolbar, embeds the resume HTML
+         4. The new window's toolbar buttons handle print + close + copy
+       ═══════════════════════════════════════════════════════════════════ */
 
     const resumeEl = document.getElementById('rbResumeOutput');
     if (!resumeEl) return;
 
-    // Refresh content before printing
+    // Refresh content from rbState into the DOM, then snapshot the HTML
     rbUpdate();
+    const resumeHTML = resumeEl.innerHTML;
+    const filename = rbGetFilenameBase();
 
-    // Activate scoped print CSS
-    document.documentElement.classList.add('printing-resume');
+    // Open the new window SYNCHRONOUSLY (critical for popup blockers)
+    const printWin = window.open('', '_blank', 'width=900,height=1000');
 
-    // Set document title — browsers use it as the default PDF filename
-    const originalTitle = document.title;
-    document.title = rbGetFilenameBase();
-
-    // Clean up after print dialog closes (whether user saved or cancelled)
-    const cleanup = () => {
-        document.documentElement.classList.remove('printing-resume');
-        document.title = originalTitle;
-        window.removeEventListener('afterprint', cleanup);
-    };
-    window.addEventListener('afterprint', cleanup);
-
-    // Give the DOM a moment to update before the print dialog opens
-    setTimeout(() => {
-        window.print();
-    }, 100);
-}
-
-function rbDownloadDOCX() {
-    if (typeof docx === 'undefined') {
-        alert('Word library still loading. Wait a moment and try again.');
+    if (!printWin) {
+        alert('Pop-up blocked. Please allow pop-ups for this site, then try again.');
         return;
     }
 
+    // Plain-text version of the resume — used by the "Copy as Text" button
+    const plainText = rbBuildPlainTextResume();
+
+    // Build the full HTML document for the new window
+    // Note: we link to resume-print.css (separate file) rather than inline
+    // styles. The toolbar buttons use addEventListener (no inline onclick).
+    const html = '<!DOCTYPE html>\n' +
+        '<html lang="en">\n' +
+        '<head>\n' +
+        '  <meta charset="UTF-8">\n' +
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+        '  <title>' + rbEscapeHtml(filename) + '</title>\n' +
+        '  <link rel="stylesheet" href="resume-print.css">\n' +
+        '</head>\n' +
+        '<body>\n' +
+        '  <div class="print-toolbar">\n' +
+        '    <h1>📄 ' + rbEscapeHtml(filename) + '</h1>\n' +
+        '    <button type="button" id="printBtn" class="print-btn print-btn-primary">🖨️ Print / Save as PDF</button>\n' +
+        '    <button type="button" id="copyBtn" class="print-btn print-btn-secondary">📋 Copy as Text</button>\n' +
+        '    <button type="button" id="closeBtn" class="print-btn print-btn-secondary">✕ Close</button>\n' +
+        '    <span class="print-hint">Tip: choose "Save as PDF" in the print dialog\'s destination dropdown</span>\n' +
+        '  </div>\n' +
+        '  <article class="rb-resume">' + resumeHTML + '</article>\n' +
+        '  <div id="toast" class="print-toast">Copied to clipboard</div>\n' +
+        '  <script>\n' +
+        '    // Plain-text resume payload, escaped for safe insertion into a JS string\n' +
+        '    const plainText = ' + JSON.stringify(plainText) + ';\n' +
+        '    document.getElementById("printBtn").addEventListener("click", () => window.print());\n' +
+        '    document.getElementById("closeBtn").addEventListener("click", () => window.close());\n' +
+        '    document.getElementById("copyBtn").addEventListener("click", async () => {\n' +
+        '      const toast = document.getElementById("toast");\n' +
+        '      try {\n' +
+        '        await navigator.clipboard.writeText(plainText);\n' +
+        '        toast.textContent = "✓ Copied to clipboard";\n' +
+        '      } catch (err) {\n' +
+        '        toast.textContent = "Could not copy — try selecting and pressing Cmd+C";\n' +
+        '      }\n' +
+        '      toast.classList.add("show");\n' +
+        '      setTimeout(() => toast.classList.remove("show"), 2200);\n' +
+        '    });\n' +
+        '  </script>\n' +
+        '</body>\n' +
+        '</html>';
+
+    printWin.document.open();
+    printWin.document.write(html);
+    printWin.document.close();
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   rbEditInNewWindow()
+   Opens the resume in a new browser window with contenteditable="true"
+   on every editable section. User can tweak text in-browser, then:
+     • Print/Save as PDF from the toolbar
+     • Copy as Text (clean ASCII version, rebuilt from edited DOM)
+     • Manually select + copy to paste into Word with formatting
+
+   Honest UX trade-off documented in the banner: edits made in the
+   new window do NOT sync back to the Code Ranger resume builder.
+   For permanent changes, the user must edit in Code Ranger's form.
+   ═══════════════════════════════════════════════════════════════════ */
+function rbEditInNewWindow() {
+    const resumeEl = document.getElementById('rbResumeOutput');
+    if (!resumeEl) return;
+
     rbUpdate();
+    const resumeHTML = resumeEl.innerHTML;
+    const filename = rbGetFilenameBase();
 
-    // Destructure what we need from docx (UMD global)
-    const { Document, Packer, Paragraph, TextRun } = docx;
-
-    // DEFENSIVE FALLBACKS: in some UMD builds, the "enum" exports
-    // (AlignmentType, BorderStyle, TabStopType, TabStopPosition) come
-    // through as undefined when destructured. Resolve them with safe
-    // string-literal fallbacks so formatting still applies.
-    const AlignCenter = (docx.AlignmentType && docx.AlignmentType.CENTER) || 'center';
-    const AlignLeft   = (docx.AlignmentType && docx.AlignmentType.LEFT)   || 'left';
-    const BorderSingle = (docx.BorderStyle && docx.BorderStyle.SINGLE) || 'single';
-    const TabRight = (docx.TabStopType && docx.TabStopType.RIGHT) || 'right';
-    const TabMax   = (docx.TabStopPosition && docx.TabStopPosition.MAX) || 9026;
-
-    // Log once for debugging — tells us which props were missing
-    console.log('docx enums resolved:', {
-        AlignCenter, AlignLeft, BorderSingle, TabRight, TabMax,
-        rawAlignmentType: typeof docx.AlignmentType,
-        rawBorderStyle: typeof docx.BorderStyle
-    });
-
-    const heading = (text) => new Paragraph({
-        children: [new TextRun({
-            text: text.toUpperCase(),
-            bold: true,
-            size: 22,
-            font: 'Calibri'
-        })],
-        spacing: { before: 240, after: 80 },
-        border: {
-            bottom: { color: '1A1A1A', space: 1, style: BorderSingle, size: 8 }
-        }
-    });
-
-    const body = (text, opts = {}) => new Paragraph({
-        children: [new TextRun({
-            text: text,
-            size: 22,
-            font: 'Calibri',
-            bold: opts.bold || false,
-            italics: opts.italic || false,
-            color: opts.color || '1A1A1A'
-        })],
-        spacing: { after: opts.after != null ? opts.after : 80 },
-        alignment: opts.align || AlignLeft
-    });
-
-    const bullet = (text) => new Paragraph({
-        children: [new TextRun({ text: text, size: 22, font: 'Calibri' })],
-        bullet: { level: 0 },
-        spacing: { after: 40 }
-    });
-
-    const children = [];
-
-    // Header — name centered, large
-    children.push(new Paragraph({
-        children: [new TextRun({
-            text: rbState.name || 'Your Name',
-            bold: true,
-            size: 44,
-            font: 'Calibri'
-        })],
-        alignment: AlignCenter,
-        spacing: { after: 60 }
-    }));
-
-    if (rbState.title) {
-        children.push(new Paragraph({
-            children: [new TextRun({
-                text: rbState.title,
-                size: 22,
-                font: 'Calibri',
-                color: '555555'
-            })],
-            alignment: AlignCenter,
-            spacing: { after: 80 }
-        }));
+    // Open synchronously inside the click handler to dodge popup blockers
+    const editWin = window.open('', '_blank', 'width=900,height=1000');
+    if (!editWin) {
+        alert('Pop-up blocked. Please allow pop-ups for this site, then try again.');
+        return;
     }
 
+    // Build the editable HTML — same structure as rbRenderResume produces,
+    // but with contenteditable="true" attributes on each editable region.
+    // We do this by post-processing the snapshot HTML: add contenteditable
+    // to the section classes we know are user content.
+    const editableHTML = resumeHTML
+        .replace(/<div class="rb-resume-name"/g, '<div contenteditable="true" class="rb-resume-name"')
+        .replace(/<div class="rb-resume-contact"/g, '<div contenteditable="true" class="rb-resume-contact"')
+        .replace(/<p class="rb-resume-summary"/g, '<p contenteditable="true" class="rb-resume-summary"')
+        .replace(/<span class="rb-skill-list"/g, '<span contenteditable="true" class="rb-skill-list"')
+        .replace(/<div class="rb-resume-item-title"/g, '<div contenteditable="true" class="rb-resume-item-title"')
+        .replace(/<div class="rb-resume-item-meta"/g, '<div contenteditable="true" class="rb-resume-item-meta"')
+        .replace(/<div class="rb-resume-item-org"/g, '<div contenteditable="true" class="rb-resume-item-org"')
+        .replace(/<ul class="rb-resume-bullets"/g, '<ul contenteditable="true" class="rb-resume-bullets"');
+
+    const html = '<!DOCTYPE html>\n' +
+        '<html lang="en">\n' +
+        '<head>\n' +
+        '  <meta charset="UTF-8">\n' +
+        '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+        '  <title>Editing — ' + rbEscapeHtml(filename) + '</title>\n' +
+        '  <link rel="stylesheet" href="resume-print.css">\n' +
+        '</head>\n' +
+        '<body class="edit-mode">\n' +
+        '  <div class="print-toolbar">\n' +
+        '    <h1>✏️ Editing — ' + rbEscapeHtml(filename) + '</h1>\n' +
+        '    <button type="button" id="printBtn" class="print-btn print-btn-primary">🖨️ Print / Save as PDF</button>\n' +
+        '    <button type="button" id="copyBtn" class="print-btn print-btn-secondary">📋 Copy as Text</button>\n' +
+        '    <button type="button" id="selectBtn" class="print-btn print-btn-secondary">📑 Select All</button>\n' +
+        '    <button type="button" id="closeBtn" class="print-btn print-btn-secondary">✕ Close</button>\n' +
+        '  </div>\n' +
+        '  <div class="edit-banner">\n' +
+        '    <strong>📝 You\'re editing a copy.</strong> Click any underlined area to edit it. Changes here do NOT sync back to Code Ranger \u2014 for permanent edits, update the form on the main page. From here you can: Print to PDF, Copy as Text, or Select All \u2192 copy \u2192 paste into Word (formatting mostly preserved).\n' +
+        '  </div>\n' +
+        '  <article class="rb-resume">' + editableHTML + '</article>\n' +
+        '  <div id="toast" class="print-toast">Done</div>\n' +
+        '  <script>\n' +
+        '    document.getElementById("printBtn").addEventListener("click", () => window.print());\n' +
+        '    document.getElementById("closeBtn").addEventListener("click", () => window.close());\n' +
+        '\n' +
+        '    // Select All — selects the entire resume so user can Cmd+C to copy\n' +
+        '    document.getElementById("selectBtn").addEventListener("click", () => {\n' +
+        '      const resume = document.querySelector(".rb-resume");\n' +
+        '      if (!resume) return;\n' +
+        '      const range = document.createRange();\n' +
+        '      range.selectNodeContents(resume);\n' +
+        '      const sel = window.getSelection();\n' +
+        '      sel.removeAllRanges();\n' +
+        '      sel.addRange(range);\n' +
+        '      showToast("Selected \u2014 press " + (navigator.platform.includes("Mac") ? "Cmd+C" : "Ctrl+C") + " to copy with formatting");\n' +
+        '    });\n' +
+        '\n' +
+        '    // Copy as Text \u2014 rebuilds plain-text version from the EDITED DOM\n' +
+        '    // (not from rbState, so it reflects user\'s edits)\n' +
+        '    document.getElementById("copyBtn").addEventListener("click", async () => {\n' +
+        '      const text = buildPlainTextFromDOM();\n' +
+        '      try {\n' +
+        '        await navigator.clipboard.writeText(text);\n' +
+        '        showToast("\u2713 Copied to clipboard");\n' +
+        '      } catch (err) {\n' +
+        '        showToast("Could not copy \u2014 try Select All instead");\n' +
+        '      }\n' +
+        '    });\n' +
+        '\n' +
+        '    function showToast(msg) {\n' +
+        '      const toast = document.getElementById("toast");\n' +
+        '      toast.textContent = msg;\n' +
+        '      toast.classList.add("show");\n' +
+        '      setTimeout(() => toast.classList.remove("show"), 2400);\n' +
+        '    }\n' +
+        '\n' +
+        '    // Walk the resume DOM and turn it into clean ASCII text\n' +
+        '    function buildPlainTextFromDOM() {\n' +
+        '      const lines = [];\n' +
+        '      const name = document.querySelector(".rb-resume-name");\n' +
+        '      const contact = document.querySelector(".rb-resume-contact");\n' +
+        '      if (name) lines.push(name.textContent.trim().toUpperCase());\n' +
+        '      if (contact) lines.push(contact.textContent.trim().replace(/\\s+/g, " "));\n' +
+        '      lines.push("");\n' +
+        '\n' +
+        '      const sections = document.querySelectorAll(".rb-resume-section");\n' +
+        '      sections.forEach(sec => {\n' +
+        '        const label = sec.querySelector(".rb-resume-section-label");\n' +
+        '        if (label) {\n' +
+        '          const labelText = label.textContent.trim().toUpperCase();\n' +
+        '          lines.push(labelText);\n' +
+        '          lines.push("-".repeat(labelText.length));\n' +
+        '        }\n' +
+        '\n' +
+        '        // Summary paragraph\n' +
+        '        const summary = sec.querySelector(".rb-resume-summary");\n' +
+        '        if (summary) lines.push(summary.textContent.trim());\n' +
+        '\n' +
+        '        // Skill rows\n' +
+        '        sec.querySelectorAll(".rb-skill-row").forEach(row => {\n' +
+        '          const cat = row.querySelector(".rb-skill-cat");\n' +
+        '          const list = row.querySelector(".rb-skill-list");\n' +
+        '          if (cat && list) lines.push(cat.textContent.trim() + ": " + list.textContent.trim());\n' +
+        '        });\n' +
+        '\n' +
+        '        // Experience / project / education items\n' +
+        '        sec.querySelectorAll(".rb-resume-item").forEach(item => {\n' +
+        '          const title = item.querySelector(".rb-resume-item-title");\n' +
+        '          const meta = item.querySelector(".rb-resume-item-meta");\n' +
+        '          const org = item.querySelector(".rb-resume-item-org");\n' +
+        '          const head = [title ? title.textContent.trim() : "", meta ? meta.textContent.trim() : ""]\n' +
+        '            .filter(Boolean).join("  \u2014  ");\n' +
+        '          if (head) lines.push(head);\n' +
+        '          if (org) lines.push(org.textContent.trim());\n' +
+        '          item.querySelectorAll(".rb-resume-bullets li").forEach(li => {\n' +
+        '            lines.push("  \u2022 " + li.textContent.trim());\n' +
+        '          });\n' +
+        '          lines.push("");\n' +
+        '        });\n' +
+        '\n' +
+        '        lines.push("");\n' +
+        '      });\n' +
+        '\n' +
+        '      return lines.join("\\n").replace(/\\n{3,}/g, "\\n\\n").trim();\n' +
+        '    }\n' +
+        '  </script>\n' +
+        '</body>\n' +
+        '</html>';
+
+    editWin.document.open();
+    editWin.document.write(html);
+    editWin.document.close();
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   rbBuildPlainTextResume()
+   Returns the resume as clean ASCII for pasting into LinkedIn, email,
+   application forms, etc. Used by the "Copy as Text" button.
+   ═══════════════════════════════════════════════════════════════════ */
+function rbBuildPlainTextResume() {
+    const lines = [];
+
+    // Header
+    lines.push((rbState.name || 'Your Name').toUpperCase());
     const contactBits = [rbState.email, rbState.phone, rbState.github].filter(Boolean);
-    if (contactBits.length) {
-        children.push(new Paragraph({
-            children: [new TextRun({
-                text: contactBits.join('  ·  '),
-                size: 20,
-                font: 'Calibri',
-                color: '555555'
-            })],
-            alignment: AlignCenter,
-            spacing: { after: 200 },
-            border: {
-                bottom: { color: '1A1A1A', space: 8, style: BorderSingle, size: 12 }
-            }
-        }));
-    }
+    if (contactBits.length) lines.push(contactBits.join(' · '));
+    lines.push('');
 
+    // Summary
     if (rbState.summary) {
-        children.push(heading('Summary'));
-        children.push(body(rbState.summary, { after: 160 }));
+        lines.push('SUMMARY');
+        lines.push('-------');
+        lines.push(rbState.summary);
+        lines.push('');
     }
 
-    children.push(heading('Technical Skills'));
+    // Technical Skills (filtered by 80% mastery)
     const { groups, anyEarned } = rbComputeEarnedSkills();
     if (anyEarned) {
-        const groupOrder = ['Languages', 'Frameworks', 'Tools', 'Security', 'Concepts'];
+        lines.push('TECHNICAL SKILLS');
+        lines.push('----------------');
+        const groupOrder = ['Languages', 'Web Technologies', 'Frameworks & Libraries', 'Tools', 'Security', 'Concepts'];
         groupOrder.forEach(g => {
             if (groups[g] && groups[g].length) {
-                children.push(new Paragraph({
-                    children: [
-                        new TextRun({ text: g + ': ', bold: true, size: 22, font: 'Calibri' }),
-                        new TextRun({ text: groups[g].join(', '), size: 22, font: 'Calibri' })
-                    ],
-                    spacing: { after: 60 }
-                }));
+                lines.push(g + ': ' + groups[g].join(', '));
             }
         });
-    } else {
-        children.push(body('Skills will appear here as you reach 80% mastery in each category in the Code Ranger game.',
-            { italic: true, color: '888888', after: 160 }));
+        lines.push('');
     }
 
+    // Projects
     const realProjects = rbState.projects.filter(p => p.tools || p.url || p.bullets);
     if (realProjects.length) {
-        children.push(heading('Projects'));
+        lines.push('PROJECTS');
+        lines.push('--------');
         realProjects.forEach(p => {
-            children.push(new Paragraph({
-                children: [
-                    new TextRun({ text: p.url || 'Project', bold: true, size: 22, font: 'Calibri' }),
-                    new TextRun({ text: '  ' + (p.tools || ''), italics: true, size: 22, font: 'Calibri', color: '555555' })
-                ],
-                spacing: { after: 40 }
-            }));
+            const head = (p.url || 'Project') + (p.tools ? '  —  ' + p.tools : '');
+            lines.push(head);
             (p.bullets || '').split('\n').filter(line => line.trim()).forEach(line => {
-                children.push(bullet(line.trim()));
+                lines.push('  • ' + line.trim());
             });
+            lines.push('');
         });
     }
 
+    // Experience
     const realExperience = rbState.experience.filter(e => e.title || e.org || e.bullets);
     if (realExperience.length) {
-        children.push(heading('Experience'));
+        lines.push('EXPERIENCE');
+        lines.push('----------');
         realExperience.forEach(e => {
-            children.push(new Paragraph({
-                children: [
-                    new TextRun({ text: e.title || '', bold: true, size: 22, font: 'Calibri' }),
-                    new TextRun({ text: '\t', size: 22, font: 'Calibri' }),
-                    new TextRun({ text: e.date || '', italics: true, size: 22, font: 'Calibri', color: '555555' })
-                ],
-                tabStops: [{ type: TabRight, position: TabMax }],
-                spacing: { after: 20 }
-            }));
-            if (e.org) {
-                children.push(body(e.org, { italic: true, after: 60 }));
-            }
+            const head = (e.title || '') + (e.date ? '  —  ' + e.date : '');
+            lines.push(head);
+            if (e.org) lines.push(e.org);
             (e.bullets || '').split('\n').filter(line => line.trim()).forEach(line => {
-                children.push(bullet(line.trim()));
+                lines.push('  • ' + line.trim());
             });
+            lines.push('');
         });
     }
 
+    // Education
     const realEducation = rbState.education.filter(e => e.name);
     if (realEducation.length) {
-        children.push(heading('Education & Certifications'));
+        lines.push('EDUCATION & CERTIFICATIONS');
+        lines.push('--------------------------');
         realEducation.forEach(e => {
-            children.push(new Paragraph({
-                children: [
-                    new TextRun({ text: e.name, bold: true, size: 22, font: 'Calibri' }),
-                    new TextRun({ text: '\t', size: 22, font: 'Calibri' }),
-                    new TextRun({ text: e.date || '', italics: true, size: 22, font: 'Calibri', color: '555555' })
-                ],
-                tabStops: [{ type: TabRight, position: TabMax }],
-                spacing: { after: 60 }
-            }));
+            lines.push((e.name || '') + (e.date ? '  —  ' + e.date : ''));
         });
+        lines.push('');
     }
 
-    const doc = new Document({
-        creator: 'Code Ranger',
-        title: rbGetFilenameBase(),
-        description: 'Resume generated by Code Ranger',
-        sections: [{
-            properties: {
-                page: { margin: { top: 720, right: 720, bottom: 720, left: 720 } }
-            },
-            children: children
-        }]
-    });
+    return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
 
+/* ═══════════════════════════════════════════════════════════════════
+   rbCopyAsText()
+   Copies the plain-text resume to the clipboard from the MAIN window
+   (separate from the print window's copy button). Wired to the
+   "📋 Copy as Text" button in the resume builder toolbar.
+   ═══════════════════════════════════════════════════════════════════ */
+function rbCopyAsText() {
+    rbUpdate();
+    const text = rbBuildPlainTextResume();
     const btns = document.querySelectorAll('.rb-dl-btn');
-    btns.forEach(b => b.disabled = true);
-    const originalText = btns[1] ? btns[1].textContent : '';
-    if (btns[1]) btns[1].textContent = '⏳ Generating Word doc...';
+    const targetBtn = Array.from(btns).find(b => b.textContent.includes('Copy'));
 
-    Packer.toBlob(doc).then(blob => {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = rbGetFilenameBase() + '.docx';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+    const showStatus = (msg) => {
+        if (targetBtn) {
+            const original = targetBtn.textContent;
+            targetBtn.textContent = msg;
+            setTimeout(() => { targetBtn.textContent = original; }, 1800);
+        }
+    };
 
-        btns.forEach(b => b.disabled = false);
-        if (btns[1]) btns[1].textContent = originalText;
-    }).catch(err => {
-        console.error('DOCX generation failed:', err);
-        alert('Sorry, Word document generation failed. Try refreshing the page.');
-        btns.forEach(b => b.disabled = false);
-        if (btns[1]) btns[1].textContent = originalText;
-    });
+    navigator.clipboard.writeText(text)
+        .then(() => showStatus('✓ Copied!'))
+        .catch(() => showStatus('⚠ Copy failed'));
 }

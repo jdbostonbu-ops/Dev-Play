@@ -1,0 +1,309 @@
+/* ═══════════════════════════════════════════════════════════════════
+   resume-print.css
+   Loaded ONLY by the resume print window (opened via "Save as PDF").
+
+   This file is standalone — it has no dependency on style.css and
+   defines its own typography, colors, and layout. Everything is
+   optimized for printing to letter-size paper.
+
+   Architecture:
+     • Print window is a separate document with no Code Ranger UI
+     • White paper, black text, Calibri font — standard resume look
+     • Two-button toolbar at the top (hidden on print)
+     • The resume itself fills the rest of the window
+     • @media print rules hide the toolbar and reset page sizing
+═══════════════════════════════════════════════════════════════════ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Calibri', 'Inter', Arial, sans-serif;
+    color: #1A1A1A;
+    background: #f3f1ed;
+    line-height: 1.4;
+    padding: 24px;
+}
+
+/* ── TOOLBAR (top of the print window) ── */
+.print-toolbar {
+    max-width: 8.5in;
+    margin: 0 auto 16px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.print-toolbar h1 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-right: auto;
+}
+
+.print-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.18s;
+}
+
+.print-btn-primary {
+    background: linear-gradient(135deg, #a78bfa, #6366f1);
+    color: white;
+}
+.print-btn-primary:hover {
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    transform: translateY(-1px);
+}
+
+.print-btn-secondary {
+    background: #f3f4f6;
+    color: #1A1A1A;
+    border: 1px solid #d1d5db;
+}
+.print-btn-secondary:hover { background: #e5e7eb; }
+
+.print-hint {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ── THE RESUME ITSELF ── */
+.rb-resume {
+    background: #FFFFFF;
+    color: #1A1A1A;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 56px 64px;
+    font-family: 'Calibri', 'Inter', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.4;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-radius: 4px;
+}
+
+.rb-resume-header {
+    text-align: center;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid #1A1A1A;
+}
+
+.rb-resume-name {
+    font-size: 22pt;
+    font-weight: 700;
+    color: #1A1A1A;
+    margin-bottom: 4px;
+    letter-spacing: 0.03em;
+}
+
+.rb-resume-title {
+    font-size: 11pt;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 400;
+}
+
+.rb-resume-contact {
+    font-size: 10pt;
+    color: #555;
+}
+.rb-resume-contact span { margin: 0 4px; }
+
+.rb-resume-section {
+    margin-top: 20px;
+}
+
+.rb-resume-section-label {
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #1A1A1A;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #1A1A1A;
+    margin-bottom: 10px;
+}
+
+.rb-resume-summary {
+    font-size: 11pt;
+    color: #1A1A1A;
+    line-height: 1.5;
+}
+
+.rb-skill-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    margin-bottom: 4px;
+    font-size: 11pt;
+}
+.rb-skill-cat {
+    font-weight: 700;
+    color: #1A1A1A;
+}
+.rb-skill-list {
+    color: #1A1A1A;
+}
+
+.rb-resume-item {
+    margin-bottom: 14px;
+}
+.rb-resume-item:last-child { margin-bottom: 0; }
+
+.rb-resume-item-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.rb-resume-item-title {
+    font-weight: 700;
+    font-size: 11pt;
+}
+
+.rb-resume-item-meta {
+    font-size: 10pt;
+    color: #666;
+    font-style: italic;
+}
+
+.rb-resume-item-org {
+    font-size: 10.5pt;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 4px;
+}
+
+.rb-resume-bullets {
+    margin: 4px 0 0 18px;
+    padding: 0;
+}
+.rb-resume-bullets li {
+    font-size: 11pt;
+    margin-bottom: 2px;
+    line-height: 1.45;
+}
+
+.rb-skills-empty {
+    font-size: 10pt;
+    color: #888;
+    font-style: italic;
+    padding: 10px;
+    text-align: center;
+    background: #f8f8f8;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+}
+
+/* ── TOAST NOTIFICATION (for "Copy as Text" feedback) ── */
+.print-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1A1A1A;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+}
+.print-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ── @MEDIA PRINT — hide toolbar, reset page ── */
+@media print {
+    @page {
+        size: letter;
+        margin: 0.5in;
+    }
+
+    body {
+        background: white !important;
+        padding: 0 !important;
+    }
+
+    .print-toolbar,
+    .print-toast {
+        display: none !important;
+    }
+
+    .rb-resume {
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Force colors to print exactly as designed */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   EDIT MODE — applied when the new window is opened in "Edit Resume"
+   mode. Adds visual cues showing which areas can be edited.
+═══════════════════════════════════════════════════════════════════ */
+
+body.edit-mode .rb-resume [contenteditable="true"] {
+    border-radius: 3px;
+    transition: background 0.15s, outline-color 0.15s;
+    outline: 1px dashed transparent;
+    outline-offset: 4px;
+}
+
+body.edit-mode .rb-resume [contenteditable="true"]:hover {
+    outline-color: #c4b5fd;
+    background: rgba(196, 181, 253, 0.08);
+}
+
+body.edit-mode .rb-resume [contenteditable="true"]:focus {
+    outline: 2px solid #7c3aed;
+    background: rgba(124, 58, 237, 0.06);
+    outline-offset: 4px;
+}
+
+/* Banner explaining edit mode + warning that changes don't sync back */
+.edit-banner {
+    max-width: 8.5in;
+    margin: 0 auto 16px;
+    padding: 12px 16px;
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #78350f;
+    line-height: 1.5;
+}
+
+.edit-banner strong { font-weight: 700; }
+
+/* Hide edit-mode chrome when printing */
+@media print {
+    .edit-banner { display: none !important; }
+    body.edit-mode .rb-resume [contenteditable="true"] {
+        outline: none !important;
+        background: transparent !important;
+    }
+}
