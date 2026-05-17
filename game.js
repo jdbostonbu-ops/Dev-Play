@@ -3565,28 +3565,1492 @@ controller.abort();`,
  start:"function twoSum(nums, target) {\n  const map = {};\n  for (let i = 0; i < nums.length; i++) {\n    const complement = target - nums[i];\n    if (map[complement] !== undefined) return [map[complement], i];\n    map[nums[i]] = i;\n  }\n}",
  fn:"twoSum",tests:[{a:[[2,7,11,15],9],e:[0,1]},{a:[[3,2,4],6],e:[1,2]},{a:[[3,3],6],e:[0,1]}]},
 
+/* ══ BEGINNER LESSONS — HTML FUNDAMENTALS (501–535) — MDN + web.dev + W3Schools ══ */
+// Run-and-observe format for first-time coders. No multiple choice.
+// Lessons added May 16, 2026.
+
+{id:501,title:"Your First HTML Page",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Every web page is built with HTML. An HTML <strong>tag</strong> looks like <code>&lt;h1&gt;</code> and it tells the browser what kind of content is inside. Click <strong>Run</strong> below to see your first page, then change the text and click Run again.",
+ start:`<h1>Hello, world!</h1>
+<p>This is my first web page.</p>`,
+ goal:"Change 'Hello, world!' to your name, then click Run.",
+ source:"MDN — Getting started with HTML",
+ hint:"Whatever you put between the opening tag <h1> and the closing tag </h1> appears as a big heading on the page."},
+
+{id:502,title:"Headings: h1 to h6",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"HTML has six heading sizes — <code>&lt;h1&gt;</code> is the largest, <code>&lt;h6&gt;</code> is the smallest. Use h1 for the main title of a page, then h2 for sections, h3 for subsections.",
+ start:`<h1>This is heading 1</h1>
+<h2>This is heading 2</h2>
+<h3>This is heading 3</h3>
+<h4>This is heading 4</h4>`,
+ goal:"Add an h5 and h6 to the list. Click Run to see all six sizes.",
+ source:"MDN — Heading elements",
+ hint:"Just copy the pattern: open with &lt;h5&gt;, write your text, close with &lt;/h5&gt;."},
+
+{id:503,title:"Paragraphs",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;p&gt;</code> tag is for paragraphs of text. The browser automatically adds space above and below each paragraph so your writing is easy to read.",
+ start:`<p>This is the first paragraph.</p>
+<p>This is the second paragraph.</p>`,
+ goal:"Add a third paragraph that says something about you.",
+ source:"MDN — <p>: The Paragraph element",
+ hint:"Paragraphs are wrapped with &lt;p&gt; at the start and &lt;/p&gt; at the end."},
+
+{id:504,title:"Bold and Italic",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Use <code>&lt;strong&gt;</code> to make text bold for emphasis, and <code>&lt;em&gt;</code> to make text italic. Use them sparingly — when everything is emphasized, nothing is.",
+ start:`<p>This is <strong>important</strong> and this is <em>emphasized</em>.</p>`,
+ goal:"Write a sentence about your favorite food with one word in bold and one in italic.",
+ source:"MDN — <strong> and <em>",
+ hint:"You can use both inside the same paragraph. Just wrap individual words like &lt;strong&gt;word&lt;/strong&gt;."},
+
+{id:505,title:"Links",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Links use the <code>&lt;a&gt;</code> tag with an <code>href</code> attribute. The href tells the browser where to go. Adding <code>target=\"_blank\"</code> opens the link in a new tab.<br><br><strong>Note about this practice playground:</strong> in real webpages, clicking a link redirects you to that page. Here, the link is rendered but the click is sandboxed (you stay in Code Ranger). To see where a link points, <strong>hover over it</strong> — the URL appears in the lower-left corner of your browser. On a real website, clicking would actually take you there.",
+ start:`<p>Check out my website:</p>
+<a href="https://jdbostonbu-ops.github.io/Dev-Play/" target="_blank">Visit my site</a>`,
+ goal:"Change the URL to any website you like. Hover over the link — see the URL in the lower-left? In a real page, clicking would take you there.",
+ source:"MDN — <a>: The Anchor element",
+ hint:"Replace the URL inside href=\"...\" with any website address. The text between &lt;a&gt; and &lt;/a&gt; is what users click."},
+
+{id:506,title:"Images",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;img&gt;</code> tag shows an image. It needs <code>src</code> (the image address) and <code>alt</code> (a text description for screen readers and when the image fails to load). Alt text is required for accessibility.",
+ start:`<img src="https://picsum.photos/200" alt="A random placeholder image" width="200">`,
+ goal:"Change the size from 200 to 300 in both places. Click Run.",
+ source:"MDN — <img>: The Image element",
+ hint:"There are two places with 200 — in the URL and in the width attribute. Change both."},
+
+{id:507,title:"Lists",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Use <code>&lt;ul&gt;</code> for an unordered list (bullets) or <code>&lt;ol&gt;</code> for an ordered list (numbers). Each item inside goes in a <code>&lt;li&gt;</code> tag.",
+ start:`<h3>My favorite fruits</h3>
+<ul>
+  <li>Apples</li>
+  <li>Bananas</li>
+  <li>Cherries</li>
+</ul>`,
+ goal:"Change <ul> to <ol> (and the closing tag too) to switch to numbers.",
+ source:"MDN — <ul>, <ol>, and <li>",
+ hint:"Don't forget to change both the opening &lt;ul&gt; AND the closing &lt;/ul&gt;."},
+
+{id:508,title:"Comments",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"HTML comments are notes for yourself. They start with <code>&lt;!--</code> and end with <code>--&gt;</code>. The browser ignores them. Use comments to explain tricky code or to temporarily hide things.",
+ start:`<!-- This is a comment. The browser does not show it. -->
+<h1>You can see this heading</h1>
+<!-- <p>This paragraph is hidden because it's commented out.</p> -->`,
+ goal:"Remove the comment markers around the second paragraph so it becomes visible.",
+ source:"MDN — HTML comments",
+ hint:"Delete the &lt;!-- at the start and the --&gt; at the end of the paragraph line."},
+
+{id:509,title:"Line Breaks",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;br&gt;</code> tag forces a line break without starting a new paragraph. It's a self-closing tag — no closing tag needed. Use sparingly — for poetry or addresses, not as a way to add spacing.",
+ start:`<p>Roses are red<br>
+Violets are blue<br>
+HTML is fun<br>
+And so are you!</p>`,
+ goal:"Add one more line of your own to the poem.",
+ source:"MDN — <br>: The Line Break element",
+ hint:"Just put &lt;br&gt; at the end of the line where you want a break."},
+
+{id:510,title:"Horizontal Rule",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;hr&gt;</code> tag draws a horizontal line. Like &lt;br&gt;, it's self-closing. Use it to visually separate sections of content.",
+ start:`<h2>Chapter One</h2>
+<p>This is the first chapter.</p>
+<hr>
+<h2>Chapter Two</h2>
+<p>This is the second chapter.</p>`,
+ goal:"Add a third chapter with its own <hr> separator above it.",
+ source:"MDN — <hr>: The Thematic Break element",
+ hint:"Copy the pattern: &lt;hr&gt; on its own line, then your &lt;h2&gt; and &lt;p&gt;."},
+
+{id:511,title:"Div Containers",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A <code>&lt;div&gt;</code> is a generic container that groups other elements together. Divs have no built-in meaning — they're for layout. You'll style them with CSS later.",
+ start:`<div style="background:#fef3c7;padding:16px;border-radius:8px">
+  <h3>Welcome!</h3>
+  <p>This whole box is inside one div.</p>
+</div>`,
+ goal:"Change the background color from #fef3c7 to #dbeafe and click Run.",
+ source:"MDN — <div>: The Content Division element",
+ hint:"Find #fef3c7 in the style attribute and replace it with #dbeafe."},
+
+{id:512,title:"Span Inline",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A <code>&lt;span&gt;</code> is like a div but for inline text — it stays on the same line. Use it to style just part of a sentence.",
+ start:`<p>The word <span style="color:#ef4444;font-weight:bold">red</span> appears in red, but the rest of the sentence is normal.</p>`,
+ goal:"Add a span around another word and color it blue (#3b82f6).",
+ source:"MDN — <span>: The Content Span element",
+ hint:"Wrap a word: &lt;span style=\"color:#3b82f6\"&gt;word&lt;/span&gt;."},
+
+{id:513,title:"Quotes",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Use <code>&lt;blockquote&gt;</code> for a long quoted passage (it indents). Use <code>&lt;q&gt;</code> for a short inline quote (it adds quotation marks automatically).",
+ start:`<p>The sign read <q>No entry after 5 PM</q>.</p>
+<blockquote>
+  The only way to do great work is to love what you do.
+  — Steve Jobs
+</blockquote>`,
+ goal:"Add your own short inline quote using <q> in a new paragraph.",
+ source:"MDN — <q> and <blockquote>",
+ hint:"&lt;p&gt;She said &lt;q&gt;hello&lt;/q&gt; to me.&lt;/p&gt;"},
+
+{id:514,title:"Tables",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Tables organize data into rows and columns. Use <code>&lt;table&gt;</code> for the table, <code>&lt;tr&gt;</code> for each row, <code>&lt;th&gt;</code> for header cells, and <code>&lt;td&gt;</code> for data cells.",
+ start:`<table border="1" cellpadding="8">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Maria</td>
+    <td>28</td>
+  </tr>
+</table>`,
+ goal:"Add a second person to the table (a new <tr> row with two <td> cells).",
+ source:"MDN — <table>: The Table element",
+ hint:"Copy the Maria row and change the name and age."},
+
+{id:515,title:"Buttons",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;button&gt;</code> tag creates a clickable button. Clicking won't do anything yet (that needs JavaScript) but visually it works. Buttons should have clear text describing what they do.",
+ start:`<button>Click Me!</button>
+<button>Save</button>
+<button>Cancel</button>`,
+ goal:"Add a fourth button labeled 'Delete'.",
+ source:"MDN — <button>: The Button element",
+ hint:"&lt;button&gt;Delete&lt;/button&gt; on a new line."},
+
+{id:516,title:"Text Input",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;input&gt;</code> tag with <code>type=\"text\"</code> creates a text box. The <code>&lt;label&gt;</code> tag describes what the input is for. The label's <code>for</code> attribute must match the input's <code>id</code> — this is required for accessibility.",
+ start:`<label for="username">Your name:</label>
+<input type="text" id="username" placeholder="Type your name here">`,
+ goal:"Add a second label + input pair for an email field. Use id=\"email\" and type=\"email\".",
+ source:"MDN — <input> and <label>",
+ hint:"&lt;label for=\"email\"&gt;Email:&lt;/label&gt; followed by &lt;input type=\"email\" id=\"email\"&gt;"},
+
+{id:517,title:"Checkboxes",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Checkboxes let users select multiple options. Each checkbox needs a unique <code>id</code>, and each label's <code>for</code> matches that id.",
+ start:`<label for="pizza">Pizza</label>
+<input type="checkbox" id="pizza">
+<br>
+<label for="sushi">Sushi</label>
+<input type="checkbox" id="sushi">`,
+ goal:"Add a third checkbox for 'Tacos' with id=\"tacos\".",
+ source:"MDN — <input type=\"checkbox\">",
+ hint:"Don't forget the &lt;br&gt; between items and the matching for/id pair."},
+
+{id:518,title:"Radio Buttons",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Radio buttons let users pick exactly ONE option from a group. The trick: all buttons in the group share the same <code>name</code> attribute — that's what groups them.",
+ start:`<p>Pick one:</p>
+<label for="small">Small</label>
+<input type="radio" id="small" name="size">
+<br>
+<label for="medium">Medium</label>
+<input type="radio" id="medium" name="size">`,
+ goal:"Add a 'Large' option. Make sure name=\"size\" so it's part of the same group.",
+ source:"MDN — <input type=\"radio\">",
+ hint:"Same pattern, with id=\"large\" and name=\"size\" — name must match for grouping."},
+
+{id:519,title:"Dropdowns",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A dropdown is <code>&lt;select&gt;</code> with <code>&lt;option&gt;</code> tags inside. Use it when there are too many options for radio buttons.",
+ start:`<label for="country">Country:</label>
+<select id="country">
+  <option>USA</option>
+  <option>Mexico</option>
+  <option>Canada</option>
+</select>`,
+ goal:"Add at least two more countries to the dropdown.",
+ source:"MDN — <select>",
+ hint:"Just add more &lt;option&gt;Country Name&lt;/option&gt; lines inside the &lt;select&gt;."},
+
+{id:520,title:"Forms",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"A <code>&lt;form&gt;</code> groups inputs together. When the user clicks submit, the form would send the data to a server (but for now we'll just see the layout).",
+ start:`<form>
+  <label for="name">Name:</label>
+  <input type="text" id="name">
+  <br><br>
+  <label for="msg">Message:</label>
+  <textarea id="msg" rows="3"></textarea>
+  <br><br>
+  <button type="submit">Send</button>
+</form>`,
+ goal:"Add an email field between the name and message. Use id=\"em\" with type=\"email\".",
+ source:"MDN — <form>",
+ hint:"Copy the name pattern — &lt;label for=\"em\"&gt; then &lt;input type=\"email\" id=\"em\"&gt;."},
+
+{id:521,title:"Page Title and Head",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Every full HTML page has a <code>&lt;head&gt;</code> section with metadata. The <code>&lt;title&gt;</code> shows in the browser tab. The body is what's visible.",
+ start:`<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Page</title>
+  </head>
+  <body>
+    <h1>Welcome to my page</h1>
+    <p>The title above shows in the browser tab.</p>
+  </body>
+</html>`,
+ goal:"Change the title text to something with your name.",
+ source:"MDN — <title>",
+ hint:"Find &lt;title&gt;My First Page&lt;/title&gt; and replace 'My First Page' with your text."},
+
+{id:522,title:"Semantic Tags: header",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;header&gt;</code> is a semantic tag — it tells assistive tools that this is the top section of a page. Screen readers announce it. Use one header per page for the main site header.",
+ start:`<header style="background:#1f2937;color:white;padding:16px">
+  <h1>My Website</h1>
+  <p>The best little website on the internet</p>
+</header>
+<main style="padding:16px">
+  <p>This is the main content.</p>
+</main>`,
+ goal:"Change the header background color from #1f2937 to #4338ca.",
+ source:"MDN — <header>",
+ hint:"Find #1f2937 in the header's style attribute and replace it."},
+
+{id:523,title:"Semantic Tags: nav",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;nav&gt;</code> marks the navigation menu of a page. Screen readers can jump straight to it. Wrap your main menu links inside a nav.",
+ start:`<nav style="background:#f3f4f6;padding:12px">
+  <a href="#home">Home</a> |
+  <a href="#about">About</a> |
+  <a href="#contact">Contact</a>
+</nav>`,
+ goal:"Add a fourth link called 'Blog' to the navigation.",
+ source:"MDN — <nav>",
+ hint:"Add &lt;a href=\"#blog\"&gt;Blog&lt;/a&gt; with a separator (the | character) before it."},
+
+{id:524,title:"Semantic Tags: footer",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;footer&gt;</code> goes at the bottom of a page. It usually has copyright text, contact info, or links to legal pages.",
+ start:`<main style="padding:16px">
+  <h1>Welcome</h1>
+  <p>Main content goes here.</p>
+</main>
+<footer style="background:#1f2937;color:white;padding:16px;text-align:center">
+  <p>&copy; 2026 My Name. All rights reserved.</p>
+</footer>`,
+ goal:"Add a second paragraph inside the footer with a link to your favorite site.",
+ source:"MDN — <footer>",
+ hint:"Inside the &lt;footer&gt;, add &lt;p&gt;&lt;a href=\"URL\"&gt;Site name&lt;/a&gt;&lt;/p&gt;."},
+
+{id:525,title:"Semantic Tags: article",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;article&gt;</code> wraps a piece of content that makes sense on its own — like a blog post, news story, or product card. Each article should be self-contained.",
+ start:`<article style="border:1px solid #e5e7eb;padding:16px;border-radius:8px;margin:8px">
+  <h2>How to Make Pancakes</h2>
+  <p>Mix flour, eggs, milk, and a pinch of salt.</p>
+</article>`,
+ goal:"Copy the article block and add a second article about another recipe.",
+ source:"MDN — <article>",
+ hint:"Select the whole &lt;article&gt;...&lt;/article&gt; block, copy it, paste below, change the content."},
+
+{id:526,title:"Semantic Tags: section",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"<code>&lt;section&gt;</code> groups related content under a heading. A page might have multiple sections (Introduction, Features, Pricing, Contact).",
+ start:`<section>
+  <h2>About Me</h2>
+  <p>I'm learning to code.</p>
+</section>
+<section>
+  <h2>My Projects</h2>
+  <p>I built Code Ranger.</p>
+</section>`,
+ goal:"Add a third section called 'Contact' with a paragraph inviting people to reach out.",
+ source:"MDN — <section>",
+ hint:"Copy the pattern: &lt;section&gt; &lt;h2&gt;Contact&lt;/h2&gt; &lt;p&gt;Your text&lt;/p&gt; &lt;/section&gt;."},
+
+{id:527,title:"Symbols and Entities",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"Some characters are special in HTML. Use entities to show them: <code>&amp;lt;</code> for &lt;, <code>&amp;gt;</code> for &gt;, <code>&amp;amp;</code> for &amp;, <code>&amp;copy;</code> for ©.",
+ start:`<p>To write a less-than sign, type &amp;lt; like this: &lt;</p>
+<p>To write an ampersand, type &amp;amp; like this: &amp;</p>
+<p>Copyright symbol: &amp;copy; shows as &copy;</p>`,
+ goal:"Add a paragraph that displays a greater-than symbol using &amp;gt;.",
+ source:"MDN — Character entity references",
+ hint:"&lt;p&gt;Greater than: &amp;gt; shows as &gt;&lt;/p&gt;"},
+
+{id:528,title:"Emojis in HTML",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"You can put emoji characters directly into HTML — modern browsers handle them automatically. They work just like any other text.",
+ start:`<h1>Welcome 👋</h1>
+<p>I love coding 💻 and coffee ☕</p>
+<p>Try changing or adding your own!</p>`,
+ goal:"Add a paragraph with three emojis that describe your hobbies.",
+ source:"web.dev — Emoji and accessibility",
+ hint:"&lt;p&gt;I enjoy 🎨 painting and 📚 reading&lt;/p&gt; — you can copy emojis from anywhere."},
+
+{id:529,title:"Title Attribute (Tooltips)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>title</code> attribute creates a tooltip — text that appears when the user hovers over the element. Useful for extra info, but don't rely on it for critical content (mobile users can't hover).",
+ start:`<p>Hover over <span title="This is a tooltip!" style="text-decoration:underline;cursor:help">this word</span> to see a tooltip.</p>
+<button title="Click to submit your answer">Submit</button>`,
+ goal:"Change the button's tooltip text to something more specific.",
+ source:"MDN — title attribute",
+ hint:"Find title=\"Click to submit your answer\" and change the text inside the quotes."},
+
+{id:530,title:"Class Attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>class</code> attribute labels elements so CSS can style them in groups. Multiple elements can share the same class. We'll use CSS to color them.",
+ start:`<style>
+  .highlight { background: #fef08a; padding: 4px; }
+</style>
+<p>This paragraph has a <span class="highlight">highlighted word</span>.</p>
+<p>This paragraph has <span class="highlight">two</span> <span class="highlight">highlights</span>.</p>`,
+ goal:"Add a third paragraph with at least one highlighted word using class=\"highlight\".",
+ source:"MDN — class attribute",
+ hint:"&lt;p&gt;Some text with &lt;span class=\"highlight\"&gt;highlight&lt;/span&gt;.&lt;/p&gt;"},
+
+{id:531,title:"ID Attribute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>id</code> attribute is a unique name for a single element. Only ONE element on a page can have a given id. We used ids earlier for label/input pairs.",
+ start:`<style>
+  #main-title { color: #4338ca; }
+</style>
+<h1 id="main-title">My Special Title</h1>
+<p>The CSS targeted that heading by id.</p>`,
+ goal:"Add a paragraph with id=\"intro\" and add a CSS rule #intro { font-style: italic; } inside the <style> tag.",
+ source:"MDN — id attribute",
+ hint:"Inside &lt;style&gt;, add: #intro { font-style: italic; } — then add &lt;p id=\"intro\"&gt;Your text&lt;/p&gt;."},
+
+{id:532,title:"Inline Styles",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>style</code> attribute lets you write CSS directly on an element. It's quick but messy — for one-offs only. Normally CSS lives in a stylesheet (next lesson section).",
+ start:`<p style="color:#ef4444">This is red.</p>
+<p style="color:#3b82f6">This is blue.</p>
+<p style="color:#10b981;font-size:24px">This is big and green.</p>`,
+ goal:"Add a fourth paragraph that's purple (#a855f7) and bold using font-weight:bold.",
+ source:"MDN — Using inline CSS",
+ hint:"&lt;p style=\"color:#a855f7;font-weight:bold\"&gt;Your text&lt;/p&gt; — separate properties with semicolons."},
+
+{id:533,title:"Audio Player",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;audio&gt;</code> tag embeds a sound player. Add <code>controls</code> to show play/pause buttons. The browser handles everything.",
+ start:`<audio controls>
+  <source src="https://www.soundjay.com/buttons/sounds/button-1.mp3" type="audio/mpeg">
+  Your browser doesn't support audio.
+</audio>
+<p>An audio player above plays a button click sound.</p>`,
+ goal:"Add the loop attribute to the audio tag so it repeats.",
+ source:"MDN — <audio>",
+ hint:"Change &lt;audio controls&gt; to &lt;audio controls loop&gt;."},
+
+{id:534,title:"Video Player",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"The <code>&lt;video&gt;</code> tag embeds video. Like audio, add <code>controls</code> for play buttons. You can also set width and height.",
+ start:`<video controls width="320">
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  Your browser doesn't support video.
+</video>`,
+ goal:"Add a poster image that shows before the video plays. Use poster=\"https://picsum.photos/320/180\".",
+ source:"MDN — <video>",
+ hint:"Add the attribute inside the &lt;video&gt; tag: &lt;video controls width=\"320\" poster=\"...\"&gt;."},
+
+{id:535,title:"Put It All Together",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"html",
+ desc:"You've learned the basics! Now build a small profile page using everything: a header, paragraphs, a list, an image, and a link. This is the same pattern real websites use.",
+ start:`<header style="background:#4338ca;color:white;padding:20px;text-align:center">
+  <h1>Hi, I'm [Your Name]</h1>
+  <p>Learning to code at Code Ranger</p>
+</header>
+
+<main style="padding:20px;max-width:600px;margin:auto">
+  <h2>About Me</h2>
+  <p>Write a sentence or two about yourself here.</p>
+
+  <h2>Things I Like</h2>
+  <ul>
+    <li>Item one</li>
+    <li>Item two</li>
+    <li>Item three</li>
+  </ul>
+
+  <h2>Find Me</h2>
+  <p><a href="https://jdbostonbu-ops.github.io/Dev-Play/" target="_blank">My website</a></p>
+</main>
+
+<footer style="background:#1f2937;color:white;padding:12px;text-align:center;font-size:14px">
+  <p>&copy; 2026 — Built with Code Ranger</p>
+</footer>`,
+ goal:"Replace every placeholder with your real info. Click Run to see YOUR personal page!",
+ source:"MDN — HTML basics + web.dev — Learn HTML",
+ hint:"Replace [Your Name], the About text, the three list items, and the link URL. Everything else can stay."},
+
+/* ══ BEGINNER LESSONS — CSS FUNDAMENTALS (536–560) — MDN + web.dev + W3Schools ══ */
+// Live CSS preview in iframe (preview:"css") wraps your CSS around a minimal HTML scaffold.
+// The preview shows: a heading, a paragraph, a list, and a button. Style those elements!
+
+{id:536,title:"CSS Syntax: selector and property",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"CSS rules have three parts: a <strong>selector</strong> (what to style), a <strong>property</strong> (what aspect), and a <strong>value</strong> (how). The format is <code>selector { property: value; }</code>. Don't forget the semicolon after each value.",
+ start:`h1 {
+  color: blue;
+}`,
+ goal:"Add another rule that makes p (paragraph) text red.",
+ source:"MDN — CSS syntax",
+ hint:"Just add: p { color: red; } on a new line below the existing rule."},
+
+{id:537,title:"Color values",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"CSS accepts colors three ways: by name (<code>red</code>, <code>blue</code>), by hex code (<code>#ef4444</code>), or by RGB (<code>rgb(239, 68, 68)</code>). Hex is most common in real code.",
+ start:`h1 { color: tomato; }
+p  { color: #4338ca; }
+ul { color: rgb(16, 185, 129); }`,
+ goal:"Change the h1 color from 'tomato' to the hex value #f59e0b (amber).",
+ source:"MDN — CSS color values",
+ hint:"Replace 'tomato' with #f59e0b in the h1 rule."},
+
+{id:538,title:"Background color",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>background-color</code> sets the area behind an element. You can also use the shorthand <code>background</code> which handles colors, images, and gradients in one declaration.",
+ start:`body {
+  background-color: #fef3c7;
+}
+h1 {
+  background-color: #4338ca;
+  color: white;
+  padding: 10px;
+}`,
+ goal:"Change the body background to #dbeafe (pale blue).",
+ source:"MDN — background-color",
+ hint:"Replace #fef3c7 with #dbeafe in the body rule."},
+
+{id:539,title:"Font size",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>font-size</code> controls text size. Common units: <code>px</code> (pixels, fixed), <code>em</code> (relative to parent), <code>rem</code> (relative to root). Beginners can stick with px.",
+ start:`h1 { font-size: 48px; }
+p  { font-size: 18px; }
+ul { font-size: 14px; }`,
+ goal:"Make the paragraph (p) text bigger — try 24px instead of 18px.",
+ source:"MDN — font-size",
+ hint:"Change p font-size from 18px to 24px."},
+
+{id:540,title:"Font family",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>font-family</code> picks the typeface. Always provide a fallback — if the first font isn't available, the browser tries the next one. End with a generic family (serif, sans-serif, monospace).",
+ start:`body {
+  font-family: 'Georgia', serif;
+}
+h1 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}`,
+ goal:"Change the body font to 'Courier New', monospace.",
+ source:"MDN — font-family",
+ hint:"Replace 'Georgia', serif with 'Courier New', monospace in the body rule."},
+
+{id:541,title:"Font weight",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>font-weight</code> controls boldness. Common values: <code>normal</code> (400), <code>bold</code> (700), or numbers from 100 (thin) to 900 (heavy).",
+ start:`h1 { font-weight: 900; }
+p  { font-weight: normal; }
+button { font-weight: bold; }`,
+ goal:"Make the paragraph text bold instead of normal.",
+ source:"MDN — font-weight",
+ hint:"Change p font-weight from normal to bold (or 700)."},
+
+{id:542,title:"Text alignment",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>text-align</code> positions text horizontally: <code>left</code> (default), <code>center</code>, <code>right</code>, or <code>justify</code> (stretches both edges).",
+ start:`h1 { text-align: center; }
+p  { text-align: left; }`,
+ goal:"Center the paragraph too — change text-align from left to center.",
+ source:"MDN — text-align",
+ hint:"In the p rule, change left to center."},
+
+{id:543,title:"Borders",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>border</code> draws a line around an element. Shorthand: <code>border: width style color;</code>. Common styles: <code>solid</code>, <code>dashed</code>, <code>dotted</code>.",
+ start:`h1 { border: 2px solid #4338ca; padding: 10px; }
+button { border: 3px dashed #f59e0b; }`,
+ goal:"Add a dotted border to the paragraph: 1px dotted #10b981.",
+ source:"MDN — border",
+ hint:"Add a new rule: p { border: 1px dotted #10b981; padding: 8px; }"},
+
+{id:544,title:"Border radius (rounded corners)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>border-radius</code> rounds corners. Use a number with units (e.g., <code>8px</code>) for slight rounding, or <code>50%</code> to make a square element a circle.",
+ start:`button {
+  border-radius: 8px;
+  padding: 10px 20px;
+  background: #4338ca;
+  color: white;
+  border: 0;
+}
+h1 {
+  border-radius: 16px;
+  background: #fef3c7;
+  padding: 16px;
+}`,
+ goal:"Change the button's border-radius from 8px to 999px (fully rounded pill shape).",
+ source:"MDN — border-radius",
+ hint:"In the button rule, change 8px to 999px."},
+
+{id:545,title:"Padding",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>padding</code> adds space INSIDE an element (between content and border). One value applies to all sides. Four values go top, right, bottom, left (clockwise).",
+ start:`button {
+  padding: 20px;
+  background: #4338ca;
+  color: white;
+  border: 0;
+}
+h1 {
+  padding: 10px 30px;
+  background: #fef3c7;
+}`,
+ goal:"Add padding to the paragraph — 16px on all sides.",
+ source:"MDN — padding",
+ hint:"Add a new rule: p { padding: 16px; background: #dbeafe; } so you can see it."},
+
+{id:546,title:"Margin",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>margin</code> adds space OUTSIDE an element (pushes other elements away). Same syntax as padding. <code>margin: auto</code> with a fixed width centers horizontally.",
+ start:`h1 {
+  margin: 40px 0;
+  background: #fef3c7;
+  padding: 16px;
+}
+button {
+  margin: 10px;
+  padding: 10px 20px;
+}`,
+ goal:"Center the h1 by giving it width:300px and margin:0 auto.",
+ source:"MDN — margin",
+ hint:"In the h1 rule, add: width: 300px; margin: 0 auto;"},
+
+{id:547,title:"Width and height",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>width</code> and <code>height</code> size an element. Use units like <code>px</code>, <code>%</code> (of parent), or <code>vh</code>/<code>vw</code> (% of viewport).",
+ start:`h1 {
+  width: 200px;
+  height: 80px;
+  background: #4338ca;
+  color: white;
+  padding: 10px;
+}`,
+ goal:"Make the h1 take up half the screen width — change width from 200px to 50%.",
+ source:"MDN — width and height",
+ hint:"Replace width: 200px with width: 50%."},
+
+{id:548,title:"Box model",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Every element is a box with 4 layers: content, padding (inside), border, margin (outside). <code>box-sizing: border-box</code> makes width INCLUDE padding+border (more intuitive).",
+ start:`* { box-sizing: border-box; }
+
+h1 {
+  width: 300px;
+  padding: 20px;
+  border: 4px solid #4338ca;
+  background: #fef3c7;
+}`,
+ goal:"Add a margin of 20px to the h1 to push it away from the page edge.",
+ source:"MDN — box-sizing + The box model",
+ hint:"In the h1 rule, add: margin: 20px;"},
+
+{id:549,title:"Display: block vs inline",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>display: block</code> takes a full line (like h1, p, div). <code>display: inline</code> sits in a line with other content (like span, a). <code>inline-block</code> is the best of both.",
+ start:`button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background: #4338ca;
+  color: white;
+  border: 0;
+}`,
+ goal:"Change display from block to inline-block — buttons will sit side by side instead of stacked.",
+ source:"MDN — display",
+ hint:"Replace display: block with display: inline-block."},
+
+{id:550,title:"Hiding elements",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>display: none</code> removes an element completely (no space). <code>visibility: hidden</code> hides but keeps the space. Different uses!",
+ start:`h1 { display: none; }
+p  { visibility: hidden; }
+button { display: inline-block; padding: 10px; }`,
+ goal:"Make the h1 visible again by removing or commenting out the h1 rule.",
+ source:"MDN — display: none",
+ hint:"Delete the line h1 { display: none; } or change to display: block."},
+
+{id:551,title:"Flexbox basics",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Flexbox arranges children in a row or column. Set <code>display: flex</code> on the parent. Children automatically lay out side by side. Use <code>gap</code> for spacing.",
+ start:`body {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: #fef3c7;
+}`,
+ goal:"Add flex-direction: column to body to stack children vertically instead of side by side.",
+ source:"MDN — Flexbox + web.dev — Flexbox",
+ hint:"In the body rule, add: flex-direction: column;"},
+
+{id:552,title:"Flexbox: justify and align",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>justify-content</code> aligns along the main axis (horizontal for row). <code>align-items</code> aligns the cross axis (vertical for row). <code>center</code> is the most common value for both.",
+ start:`body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background: #dbeafe;
+  gap: 20px;
+}`,
+ goal:"Change justify-content from center to space-between — items spread to opposite ends.",
+ source:"MDN — justify-content",
+ hint:"Replace justify-content: center with justify-content: space-between."},
+
+{id:553,title:"CSS Grid basics",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Grid creates two-dimensional layouts. <code>grid-template-columns</code> defines column tracks. Use <code>fr</code> units for fractional widths or <code>repeat()</code> for evenly-sized columns.",
+ start:`body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  background: #fef3c7;
+}`,
+ goal:"Change grid-template-columns to 3 equal columns: repeat(3, 1fr).",
+ source:"MDN — CSS Grid + web.dev — Grid",
+ hint:"Replace 1fr 1fr with repeat(3, 1fr)."},
+
+{id:554,title:"Hover effect",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"The <code>:hover</code> pseudo-class targets an element when the mouse is over it. Use it to make buttons and links feel interactive. Doesn't work on touch devices — provide a tap state too.",
+ start:`button {
+  background: #4338ca;
+  color: white;
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+}
+button:hover {
+  background: #6366f1;
+}`,
+ goal:"Add a hover style for the h1 — make it turn orange (#f59e0b) when hovered.",
+ source:"MDN — :hover",
+ hint:"Add a new rule: h1:hover { color: #f59e0b; }"},
+
+{id:555,title:"Transitions (smooth changes)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>transition</code> animates a CSS change over time. Format: <code>transition: property duration timing;</code>. Hover over the button to see it grow smoothly.",
+ start:`button {
+  background: #4338ca;
+  color: white;
+  padding: 10px 20px;
+  border: 0;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+button:hover {
+  transform: scale(1.1);
+}`,
+ goal:"Change transition duration from 0.3s to 1s for a slower effect.",
+ source:"MDN — transition",
+ hint:"In the button rule, change transform 0.3s to transform 1s."},
+
+{id:556,title:"Box shadow",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>box-shadow</code> adds depth. Format: <code>box-shadow: x-offset y-offset blur color;</code>. Use it sparingly — too many shadows feel cluttered.",
+ start:`h1 {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}`,
+ goal:"Make the shadow more dramatic — change the y-offset to 12px and blur to 30px.",
+ source:"MDN — box-shadow",
+ hint:"Change 0 4px 12px to 0 12px 30px in the box-shadow value."},
+
+{id:557,title:"CSS variables",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"Define reusable values with custom properties. Declare in <code>:root</code>, use with <code>var()</code>. Change one variable, update everywhere — like a theme switcher.",
+ start:`:root {
+  --brand: #4338ca;
+  --accent: #f59e0b;
+}
+h1 { color: var(--brand); }
+button {
+  background: var(--accent);
+  color: white;
+  padding: 10px;
+  border: 0;
+}`,
+ goal:"Change --brand from #4338ca to #10b981 — every element using var(--brand) updates automatically.",
+ source:"MDN — CSS Custom Properties",
+ hint:"In :root, replace #4338ca with #10b981."},
+
+{id:558,title:"Pseudo-classes: first-child, last-child",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>:first-child</code> and <code>:last-child</code> target the first or last child of a parent. Useful for list styling without adding extra classes.",
+ start:`li {
+  padding: 8px;
+  background: #dbeafe;
+  margin: 4px 0;
+}
+li:first-child {
+  background: #fef3c7;
+  font-weight: bold;
+}
+li:last-child {
+  background: #fee2e2;
+}`,
+ goal:"Add a rule for li:nth-child(2) that makes the second item green (#d1fae5).",
+ source:"MDN — :first-child, :nth-child",
+ hint:"Add: li:nth-child(2) { background: #d1fae5; }"},
+
+{id:559,title:"Position absolute",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"<code>position: absolute</code> takes an element out of normal flow and positions it relative to its closest positioned ancestor. Use <code>top</code>/<code>right</code>/<code>bottom</code>/<code>left</code> to place it.",
+ start:`body { position: relative; min-height: 300px; }
+h1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #4338ca;
+  color: white;
+  padding: 10px;
+}`,
+ goal:"Move the h1 to the bottom-left — change top to bottom and right to left.",
+ source:"MDN — position",
+ hint:"Replace 'top: 20px' with 'bottom: 20px' and 'right: 20px' with 'left: 20px'."},
+
+{id:560,title:"Put CSS together: a card",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
+ desc:"You've learned the essentials! Now combine them to style a simple card. Try changing values and see how each property affects the design.",
+ start:`body {
+  background: #f3f4f6;
+  font-family: 'Helvetica', sans-serif;
+  padding: 40px;
+}
+h1 {
+  background: white;
+  color: #4338ca;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  border-left: 6px solid #f59e0b;
+}
+p {
+  background: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  color: #4b5563;
+  margin-top: 16px;
+}
+button {
+  background: #4338ca;
+  color: white;
+  border: 0;
+  padding: 12px 24px;
+  border-radius: 999px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+button:hover { transform: scale(1.05); }`,
+ goal:"Make it yours — change the accent color (#4338ca) to your favorite hex code and the border-left color (#f59e0b) to a contrasting one.",
+ source:"MDN — CSS basics + web.dev — Learn CSS",
+ hint:"Find every #4338ca and replace with your color. Find #f59e0b and replace with a contrasting one."},
+
+/* ══ BEGINNER LESSONS — JS FUNDAMENTALS (561–585) — MDN + web.dev ══ */
+// Live JS preview: console.log output appears in the iframe's #output div.
+// All starter code uses let/const (no var) per founder code-quality standards.
+
+{id:561,title:"console.log: your first JS",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>console.log()</code> prints things. It's how programmers check their work and debug. Whatever you put inside the parentheses shows up in the output below.",
+ start:`console.log("Hello, world!");
+console.log("My first JavaScript program.");`,
+ goal:"Add a third console.log line that prints your name.",
+ source:"MDN — console.log",
+ hint:"Add: console.log(\"Your Name Here\"); on a new line."},
+
+{id:562,title:"Variables: let",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>let</code> creates a variable — a named box that holds a value. The value CAN change later. Use let when the value will need to update.",
+ start:`let greeting = "Hello";
+console.log(greeting);
+
+greeting = "Goodbye";
+console.log(greeting);`,
+ goal:"Add a let variable called 'name' set to your name, then console.log it.",
+ source:"MDN — let",
+ hint:"let name = \"Maria\"; then console.log(name);"},
+
+{id:563,title:"Variables: const",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>const</code> creates a constant — a variable that CAN'T be reassigned. Use const for values that never change. Most variables should be const. (We never use <code>var</code> in this course — let and const are safer.)",
+ start:`const PI = 3.14159;
+const greeting = "Hello!";
+
+console.log(PI);
+console.log(greeting);`,
+ goal:"Add a const called 'year' set to 2026 and log it.",
+ source:"MDN — const",
+ hint:"const year = 2026; then console.log(year);"},
+
+{id:564,title:"Strings",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Strings are text wrapped in quotes — either <code>'single'</code> or <code>\"double\"</code>. Use the + operator to join (concatenate) them.",
+ start:`const first = "Code";
+const second = "Ranger";
+const full = first + " " + second;
+console.log(full);`,
+ goal:"Change the strings to your first and last name, then log the full name.",
+ source:"MDN — String",
+ hint:"Replace \"Code\" with your first name and \"Ranger\" with your last name."},
+
+{id:565,title:"Template literals",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Template literals use backticks (<code>\`</code>) instead of quotes. They let you embed variables with <code>${}</code>. Cleaner than +.",
+ start:`const name = "Jacqueline";
+const age = 28;
+const message = \`Hi, I'm \${name} and I'm \${age}.\`;
+console.log(message);`,
+ goal:"Change the name and age, then add a second template literal sentence using both variables.",
+ source:"MDN — Template literals",
+ hint:"Add: console.log(\`Next year, \${name} will be \${age + 1}.\`);"},
+
+{id:566,title:"Numbers and math",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"JavaScript handles numbers with the usual operators: <code>+</code> add, <code>-</code> subtract, <code>*</code> multiply, <code>/</code> divide, <code>%</code> remainder.",
+ start:`const a = 10;
+const b = 3;
+console.log(a + b);
+console.log(a - b);
+console.log(a * b);
+console.log(a / b);
+console.log(a % b);`,
+ goal:"Add a line that calculates and logs a squared (a times itself).",
+ source:"MDN — Arithmetic operators",
+ hint:"console.log(a * a);"},
+
+{id:567,title:"Booleans and comparisons",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A boolean is <code>true</code> or <code>false</code>. Comparisons return booleans. Use <code>===</code> (strict equal) — never <code>==</code> (loose equal) — to compare values.",
+ start:`const age = 18;
+console.log(age === 18);
+console.log(age > 21);
+console.log(age >= 18);
+console.log(age !== 16);`,
+ goal:"Add a line that checks if age is less than 100, log the result.",
+ source:"MDN — Comparison operators",
+ hint:"console.log(age < 100);"},
+
+{id:568,title:"typeof",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>typeof</code> tells you what kind of value something is — \"string\", \"number\", \"boolean\", etc.",
+ start:`console.log(typeof "hello");
+console.log(typeof 42);
+console.log(typeof true);
+console.log(typeof undefined);`,
+ goal:"Add a const called 'list' set to an empty array [] and log typeof list. (Quirk: arrays log as 'object'.)",
+ source:"MDN — typeof",
+ hint:"const list = []; then console.log(typeof list);"},
+
+{id:569,title:"If statements",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>if</code> runs code only when a condition is true. Add <code>else</code> for a fallback. Conditions go in parentheses, code goes in braces.",
+ start:`const age = 18;
+
+if (age >= 18) {
+  console.log("You can vote!");
+} else {
+  console.log("Not yet — keep waiting.");
+}`,
+ goal:"Change age to 15, run again, and see the other branch run.",
+ source:"MDN — if...else",
+ hint:"Change 18 to 15 in const age = 18."},
+
+{id:570,title:"Else if",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>else if</code> chains multiple conditions. The first one that's true wins. Use it instead of nested ifs.",
+ start:`const grade = 85;
+
+if (grade >= 90) {
+  console.log("A");
+} else if (grade >= 80) {
+  console.log("B");
+} else if (grade >= 70) {
+  console.log("C");
+} else {
+  console.log("Try again");
+}`,
+ goal:"Change grade to 65 and run again to see the \"Try again\" branch.",
+ source:"MDN — if...else if",
+ hint:"Change const grade = 85 to const grade = 65."},
+
+{id:571,title:"For loop",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <code>for</code> loop repeats code. Three parts in the parentheses: start, condition (when to stop), and step (what changes each time).",
+ start:`for (let i = 1; i <= 5; i++) {
+  console.log("Count: " + i);
+}`,
+ goal:"Change the loop to count from 1 to 10 instead of 1 to 5.",
+ source:"MDN — for loop",
+ hint:"Change i <= 5 to i <= 10."},
+
+{id:572,title:"While loop",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <code>while</code> loop repeats AS LONG AS the condition is true. Make sure something inside the loop eventually makes the condition false — or it loops forever!",
+ start:`let count = 0;
+while (count < 3) {
+  console.log("count is " + count);
+  count = count + 1;
+}`,
+ goal:"Change the condition from count < 3 to count < 7.",
+ source:"MDN — while loop",
+ hint:"Change count < 3 to count < 7."},
+
+{id:573,title:"Arrays",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"An array is an ordered list of values, wrapped in <code>[]</code>. Access items by index, starting at 0.",
+ start:`const fruits = ["apple", "banana", "cherry"];
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+console.log("Total: " + fruits.length);`,
+ goal:"Add a fourth fruit to the array. The length should now be 4.",
+ source:"MDN — Array",
+ hint:"Add a comma and a new string inside the brackets, like: \"apple\", \"banana\", \"cherry\", \"date\"."},
+
+{id:574,title:"Array push and pop",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.push()</code> adds an item to the end. <code>.pop()</code> removes the last item and returns it. Both modify the original array.",
+ start:`const colors = ["red", "green"];
+console.log(colors);
+
+colors.push("blue");
+console.log(colors);
+
+const removed = colors.pop();
+console.log("Removed: " + removed);
+console.log(colors);`,
+ goal:"Add a colors.push(\"yellow\") line after the pop, then log colors.",
+ source:"MDN — Array.push and Array.pop",
+ hint:"After the existing pop, add: colors.push(\"yellow\"); console.log(colors);"},
+
+{id:575,title:"Array forEach",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.forEach()</code> runs a function for each item in an array. Cleaner than a for loop when you just need to do something with each item.",
+ start:`const names = ["Maria", "Olga", "Rosita"];
+
+names.forEach((name) => {
+  console.log("Hello, " + name + "!");
+});`,
+ goal:"Add your own name to the array and run again.",
+ source:"MDN — Array.forEach",
+ hint:"Add a comma and your name in quotes inside the brackets."},
+
+{id:576,title:"Array map",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>.map()</code> creates a NEW array by transforming each item. Use it when you want to convert one list into another (e.g., numbers to strings).",
+ start:`const nums = [1, 2, 3, 4, 5];
+const doubled = nums.map((n) => n * 2);
+console.log("Original:", nums);
+console.log("Doubled:", doubled);`,
+ goal:"Change map to triple each number (n * 3) instead of doubling.",
+ source:"MDN — Array.map",
+ hint:"Change n * 2 to n * 3."},
+
+{id:577,title:"Objects",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Objects group related values with named keys. Access with <code>.property</code> or <code>[\"property\"]</code>.",
+ start:`const person = {
+  name: "Maria",
+  age: 30,
+  city: "New London"
+};
+
+console.log(person.name);
+console.log(person.age);
+console.log(person.city);`,
+ goal:"Add a fourth property — favoriteColor — and log it.",
+ source:"MDN — Object",
+ hint:"Inside the braces, add a comma after \"New London\" and then: favoriteColor: \"blue\". Then console.log(person.favoriteColor);"},
+
+{id:578,title:"Functions: declaration",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A function is reusable code with a name. Call it by name + parentheses. <code>return</code> sends a value back to where the function was called.",
+ start:`function add(a, b) {
+  return a + b;
+}
+
+console.log(add(2, 3));
+console.log(add(10, 25));
+console.log(add(100, -50));`,
+ goal:"Add a new function called 'multiply' that returns a * b. Test it with multiply(4, 5).",
+ source:"MDN — Functions",
+ hint:"function multiply(a, b) { return a * b; } then console.log(multiply(4, 5));"},
+
+{id:579,title:"Arrow functions",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Arrow functions are a shorter syntax. <code>const fn = (a, b) =&gt; a + b;</code> is the same as a regular function that returns a + b. Common in modern JS.",
+ start:`const greet = (name) => "Hello, " + name + "!";
+const square = (n) => n * n;
+
+console.log(greet("Maria"));
+console.log(square(7));`,
+ goal:"Add a new arrow function called 'cube' that returns n * n * n. Test with cube(3).",
+ source:"MDN — Arrow functions",
+ hint:"const cube = (n) => n * n * n; then console.log(cube(3));"},
+
+{id:580,title:"Closures",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>closure</strong> is a function that REMEMBERS variables from where it was created — even after that outer function returns. This is one of JS's most powerful features. Try clicking Run multiple times to see the counter keep going up — it remembers its count between calls.",
+ start:`function makeCounter() {
+  let count = 0;
+  return () => {
+    count = count + 1;
+    return count;
+  };
+}
+
+const counter = makeCounter();
+console.log(counter());
+console.log(counter());
+console.log(counter());`,
+ goal:"Make a second counter from the same makeCounter — it starts at 0 separately. Log it twice.",
+ source:"MDN — Closures",
+ hint:"After the existing code: const counter2 = makeCounter(); console.log(counter2()); console.log(counter2());"},
+
+{id:581,title:"Closure-based private state",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Closures can hide variables from outside code — a way to make \"private\" state. The outer function returns an object with methods that have access to the variable. Nothing else does.",
+ start:`function makeWallet() {
+  let balance = 0;
+  return {
+    deposit: (amount) => { balance = balance + amount; return balance; },
+    withdraw: (amount) => { balance = balance - amount; return balance; },
+    check: () => balance
+  };
+}
+
+const wallet = makeWallet();
+console.log(wallet.deposit(100));
+console.log(wallet.deposit(50));
+console.log(wallet.withdraw(30));
+console.log("Balance:", wallet.check());`,
+ goal:"Try to access wallet.balance directly with console.log(wallet.balance) — see how it returns undefined (the variable is hidden by the closure).",
+ source:"MDN — Closures + web.dev — JavaScript",
+ hint:"Add: console.log(\"Direct access:\", wallet.balance); — you'll see 'undefined' because balance is private."},
+
+{id:582,title:"DOM: textContent (safe text)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>document.querySelector</code> finds an element. <code>.textContent</code> sets its text safely. Always use textContent (never innerHTML) when inserting user input — it prevents XSS attacks.",
+ start:`document.body.innerHTML = '<h1 id="title">Click Run to change me</h1>';
+
+const title = document.querySelector("#title");
+title.textContent = "Updated by JavaScript!";`,
+ goal:"Change the textContent to your own message.",
+ source:"MDN — Node.textContent + web.dev — Trusted Types",
+ hint:"Change \"Updated by JavaScript!\" to any text you like."},
+
+{id:583,title:"DOM: addEventListener (click)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>addEventListener</code> runs a function when something happens — like a click. Use a closure-based function so each event has its own state if needed.",
+ start:`document.body.innerHTML = '<button id="btn">Click me</button><p id="msg">Waiting...</p>';
+
+const btn = document.querySelector("#btn");
+const msg = document.querySelector("#msg");
+let clicks = 0;
+
+btn.addEventListener("click", () => {
+  clicks = clicks + 1;
+  msg.textContent = "Clicked " + clicks + " times";
+});`,
+ goal:"After clicking the button a few times, change the initial message from \"Waiting...\" to a custom welcome.",
+ source:"MDN — EventTarget.addEventListener",
+ hint:"Find msg.textContent = ... no wait — find the innerHTML line and change \"Waiting...\" to your welcome."},
+
+{id:584,title:"DOM: form input with label",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Read input values with <code>.value</code>. Every <code>&lt;label&gt;</code> uses <code>for</code> matching the input's <code>id</code> — required for accessibility. Use textContent when displaying the user's input to stay safe.",
+ start:`document.body.innerHTML = \`
+  <label for="nameField">Your name:</label>
+  <input type="text" id="nameField" placeholder="Type something">
+  <button id="greetBtn">Greet me</button>
+  <p id="greeting"></p>
+\`;
+
+const nameField = document.querySelector("#nameField");
+const greetBtn = document.querySelector("#greetBtn");
+const greeting = document.querySelector("#greeting");
+
+greetBtn.addEventListener("click", () => {
+  const userName = nameField.value;
+  greeting.textContent = "Hello, " + userName + "!";
+});`,
+ goal:"Type your name, click Greet me, and watch the greeting appear. Try changing the greeting text in the code.",
+ source:"MDN — HTMLInputElement.value",
+ hint:"Change \"Hello, \" + userName + \"!\" to a different greeting like \"Welcome, \" + userName + \"!\""},
+
+{id:585,title:"Put JS together: a counter app",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"You've learned the essentials! Now combine them: a counter with three buttons. Uses closures to encapsulate state, textContent to display safely, and addEventListener for clicks.",
+ start:`document.body.innerHTML = \`
+  <h2 id="display" style="font-size:48px;text-align:center;color:#4338ca">0</h2>
+  <div style="text-align:center">
+    <button id="dec">−</button>
+    <button id="reset">Reset</button>
+    <button id="inc">+</button>
+  </div>
+\`;
+
+const makeCounter = () => {
+  let count = 0;
+  return {
+    inc: () => { count = count + 1; return count; },
+    dec: () => { count = count - 1; return count; },
+    reset: () => { count = 0; return count; }
+  };
+};
+
+const counter = makeCounter();
+const display = document.querySelector("#display");
+
+document.querySelector("#inc").addEventListener("click", () => {
+  display.textContent = counter.inc();
+});
+document.querySelector("#dec").addEventListener("click", () => {
+  display.textContent = counter.dec();
+});
+document.querySelector("#reset").addEventListener("click", () => {
+  display.textContent = counter.reset();
+});`,
+ goal:"Make it yours — change the display color from #4338ca to a different hex code. Try clicking the buttons.",
+ source:"MDN — DOM events + Closures + web.dev",
+ hint:"Find color:#4338ca and change it to color:#10b981 or any hex you like."},
+
+/* ══ JS SYNTAX LESSONS (586–610) — w3schools JS Syntax curriculum ══ */
+// Deeper syntax coverage: literals, statements, comments, keywords, operators, identifiers.
+// All examples use let/const (NEVER var) per founder code quality standards.
+
+{id:586,title:"JS Syntax: literals (numbers)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>literal</strong> is a fixed value you write directly in code. Number literals can have decimals or not. Both <code>10.50</code> and <code>1001</code> are valid number literals.",
+ start:`console.log(10.50);
+console.log(1001);
+console.log(3.14159);`,
+ goal:"Add a fourth console.log with your favorite number — try one with decimals and one without.",
+ source:"w3schools — JS Syntax · Numbers",
+ hint:"console.log(42); or console.log(99.99);"},
+
+{id:587,title:"JS Syntax: literals (strings)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A string literal is text wrapped in quotes. You can use double quotes <code>\"John Doe\"</code> OR single quotes <code>'John Doe'</code>. Just be consistent — pick one style and stick with it.",
+ start:`console.log("John Doe");
+console.log('Jane Smith');
+console.log("Both work the same!");`,
+ goal:"Add two more string literals — one with double quotes, one with single quotes. Try your own name.",
+ source:"w3schools — JS Syntax · Strings",
+ hint:"console.log(\"Your Name\"); and console.log('Your City');"},
+
+{id:588,title:"JS Syntax: statements end with semicolons",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>statement</strong> is a complete instruction. Each statement ends with a semicolon <code>;</code>. JavaScript can sometimes guess where statements end, but using semicolons makes your code clearer and safer.",
+ start:`const a = 5;
+const b = 10;
+const sum = a + b;
+console.log(sum);`,
+ goal:"Add two more statements — declare a const called 'difference' equal to a - b, then log it.",
+ source:"w3schools — JS Statements",
+ hint:"const difference = a - b; then console.log(difference);"},
+
+{id:589,title:"JS Syntax: line comments",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Comments are notes for humans — JavaScript ignores them. A <strong>line comment</strong> starts with <code>//</code> and goes to the end of the line. Use comments to explain WHY, not WHAT (the code already shows what).",
+ start:`// This is a single-line comment
+const price = 19.99; // The price in dollars
+
+// The next line calculates tax (6% in CT)
+const tax = price * 0.06;
+console.log("Tax: " + tax);`,
+ goal:"Add a line comment above the console.log explaining what it does.",
+ source:"w3schools — JS Comments",
+ hint:"Add a new line above console.log starting with // — like: // Print the tax amount"},
+
+{id:590,title:"JS Syntax: block comments",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"A <strong>block comment</strong> spans multiple lines. It starts with <code>/*</code> and ends with <code>*/</code>. Use block comments for longer explanations at the top of files or functions.",
+ start:`/*
+  This program calculates the total cost
+  including a 6% tax (Connecticut sales tax).
+  Author: Your Name
+  Date: 2026
+*/
+
+const subtotal = 50;
+const total = subtotal * 1.06;
+console.log("Total: $" + total.toFixed(2));`,
+ goal:"Change the block comment to describe a different calculation, then update the math accordingly.",
+ source:"w3schools — JS Comments",
+ hint:"Edit the text between /* and */ — the code below doesn't have to match exactly, just update the math if you change the description."},
+
+{id:591,title:"JS Syntax: case sensitivity",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"JavaScript is <strong>case-sensitive</strong>. <code>myName</code>, <code>MyName</code>, and <code>MYNAME</code> are three DIFFERENT variables. The convention is camelCase — lowercase first word, capital first letter of each later word.",
+ start:`const myName = "Maria";
+const MyName = "Olga";
+const MYNAME = "Rosita";
+
+console.log(myName);
+console.log(MyName);
+console.log(MYNAME);`,
+ goal:"Add a fourth variable using camelCase: 'firstName' set to your name, and log it.",
+ source:"w3schools — JS Syntax",
+ hint:"const firstName = \"YourName\"; then console.log(firstName);"},
+
+{id:592,title:"JS Syntax: identifiers",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"An <strong>identifier</strong> is a name for a variable, function, or other thing. Rules: must start with a letter, $, or _. Can include letters, numbers, $, or _. Cannot start with a digit. Use descriptive names.",
+ start:`const score = 100;
+const _privateValue = "hidden";
+const $dollarPrefix = "valid too";
+const userAge2 = 25;
+
+console.log(score, _privateValue, $dollarPrefix, userAge2);`,
+ goal:"Add a const called 'firstName' (a valid identifier) set to your name, log it.",
+ source:"w3schools — JS Syntax · Identifiers",
+ hint:"const firstName = \"Maria\"; then console.log(firstName);"},
+
+{id:593,title:"JS Syntax: assignment operator",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"The <code>=</code> sign is the <strong>assignment operator</strong> — it puts a value into a variable. It is NOT equality (that's <code>===</code>). Read <code>x = 5</code> as 'put 5 into x'.",
+ start:`let x = 5;
+console.log(x);
+
+x = 10;
+console.log(x);
+
+x = x + 1;
+console.log(x);`,
+ goal:"Add a line that reassigns x to 100, then log it.",
+ source:"w3schools — JS Operators",
+ hint:"x = 100; then console.log(x);"},
+
+{id:594,title:"JS Syntax: arithmetic operators",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"JavaScript uses standard math: <code>+</code> add, <code>-</code> subtract, <code>*</code> multiply, <code>/</code> divide, <code>%</code> remainder (modulo), <code>**</code> power.",
+ start:`console.log(10 + 3);
+console.log(10 - 3);
+console.log(10 * 3);
+console.log(10 / 3);
+console.log(10 % 3);
+console.log(10 ** 2);`,
+ goal:"Add a line that calculates 2 to the power of 10 (2**10).",
+ source:"w3schools — JS Arithmetic",
+ hint:"console.log(2 ** 10);"},
+
+{id:595,title:"JS Syntax: shorthand assignment",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Shorthand operators combine math and assignment: <code>x += 5</code> means <code>x = x + 5</code>. Works with <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code>.",
+ start:`let counter = 0;
+counter += 10;
+console.log(counter);
+
+counter -= 3;
+console.log(counter);
+
+counter *= 2;
+console.log(counter);`,
+ goal:"Add a line that divides counter in half (counter /= 2), then log it.",
+ source:"w3schools — JS Assignment",
+ hint:"counter /= 2; then console.log(counter);"},
+
+{id:596,title:"JS Syntax: comparison operators",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Comparison operators return true or false: <code>===</code> strict equal, <code>!==</code> strict not equal, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>. <strong>Always use <code>===</code></strong>, never <code>==</code> — strict comparison is safer.",
+ start:`console.log(5 === 5);
+console.log(5 === "5");
+console.log(5 !== 10);
+console.log(5 > 3);
+console.log(5 <= 5);`,
+ goal:"Add a comparison: is 100 strictly equal to 100? Log the result.",
+ source:"w3schools — JS Comparisons",
+ hint:"console.log(100 === 100);"},
+
+{id:597,title:"JS Syntax: logical operators",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Combine booleans with: <code>&amp;&amp;</code> AND (both must be true), <code>||</code> OR (at least one true), <code>!</code> NOT (flip the value).",
+ start:`const age = 25;
+const hasLicense = true;
+
+console.log(age >= 18 && hasLicense);
+console.log(age > 100 || hasLicense);
+console.log(!hasLicense);`,
+ goal:"Add a check: is age between 18 and 65 (inclusive)? Use && with two conditions.",
+ source:"w3schools — JS Logical Operators",
+ hint:"console.log(age >= 18 && age <= 65);"},
+
+{id:598,title:"JS Syntax: string concatenation with +",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"The <code>+</code> operator joins (concatenates) strings. When + is used with at least one string, JavaScript treats everything as a string.",
+ start:`const first = "Code";
+const second = "Ranger";
+
+console.log(first + " " + second);
+console.log("Score: " + 100);
+console.log("1" + 1);
+console.log(1 + "1");`,
+ goal:"Add a line that joins three strings: \"Hello\", a space, and your name.",
+ source:"w3schools — JS String Operators",
+ hint:"console.log(\"Hello\" + \" \" + \"Maria\");"},
+
+{id:599,title:"JS Syntax: typeof operator",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>typeof</code> tells you what kind of value something is. Returns a string. The six basic types are: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>undefined</code>, <code>object</code>, <code>function</code>.",
+ start:`console.log(typeof "hello");
+console.log(typeof 42);
+console.log(typeof true);
+console.log(typeof undefined);
+console.log(typeof {});
+console.log(typeof []);`,
+ goal:"Add a line: typeof a function. Define const fn = () => {} and log typeof fn.",
+ source:"w3schools — JS typeof",
+ hint:"const fn = () => {}; then console.log(typeof fn);"},
+
+{id:600,title:"JS Syntax: declaring with let",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>let</code> declares a variable whose value CAN change. The value lives in the block where you declare it. Use let when the variable will be reassigned.",
+ start:`let count = 0;
+console.log(count);
+
+count = count + 1;
+console.log(count);
+
+count = 100;
+console.log(count);`,
+ goal:"Declare a new let variable called 'name', log it, change its value, log again.",
+ source:"w3schools — JS Let",
+ hint:"let name = \"Maria\"; console.log(name); name = \"Olga\"; console.log(name);"},
+
+{id:601,title:"JS Syntax: declaring with const",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<code>const</code> declares a variable that CANNOT be reassigned. Default to const — only use let when you need to change the value. <strong>Never use <code>var</code></strong> — it's the old way and has confusing rules.",
+ start:`const PI = 3.14159;
+const APP_NAME = "Code Ranger";
+const MAX_SCORE = 100;
+
+console.log(PI);
+console.log(APP_NAME);
+console.log(MAX_SCORE);`,
+ goal:"Add a const for your favorite color, then log it.",
+ source:"w3schools — JS Const",
+ hint:"const favoriteColor = \"indigo\"; then console.log(favoriteColor);"},
+
+{id:602,title:"JS Syntax: const can't be reassigned",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Try to reassign a const and you'll get an error. This is GOOD — it catches bugs where you accidentally changed something you didn't mean to.",
+ start:`const greeting = "Hello";
+console.log(greeting);
+
+// Uncomment this line to see the error:
+// greeting = "Goodbye";
+
+// This works fine:
+let mood = "happy";
+mood = "excited";
+console.log(mood);`,
+ goal:"Uncomment the // greeting = \"Goodbye\" line and run. You'll see a TypeError. Re-comment it to fix.",
+ source:"w3schools — JS Const",
+ hint:"Delete the // in front of greeting = \"Goodbye\"; — then run. After seeing the error, add the // back."},
+
+{id:603,title:"JS Syntax: types overview",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"JavaScript has primitives (string, number, boolean, undefined, null, bigint, symbol) and objects (object, array, function). Each value has a type — sometimes obvious, sometimes surprising.",
+ start:`console.log(typeof "hello");
+console.log(typeof 42);
+console.log(typeof 3.14);
+console.log(typeof true);
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof [1, 2, 3]);`,
+ goal:"Notice: typeof null returns 'object' (a famous JS quirk!). Add typeof of an empty string \"\" and see what it returns.",
+ source:"w3schools — JS Data Types",
+ hint:"console.log(typeof \"\"); — the answer is 'string' even though the string is empty."},
+
+{id:604,title:"JS Syntax: number operations",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Numbers in JavaScript are all the same type (no separate int/float). Special values: <code>Infinity</code>, <code>-Infinity</code>, and <code>NaN</code> (Not a Number — from invalid math).",
+ start:`console.log(10 / 0);
+console.log(-10 / 0);
+console.log("hello" * 2);
+
+const x = 3;
+console.log(Number.isNaN(x));
+console.log(Number.isNaN("text" * 1));`,
+ goal:"Add a line that computes 0/0 and logs it. You'll see NaN.",
+ source:"w3schools — JS Numbers",
+ hint:"console.log(0 / 0);"},
+
+{id:605,title:"JS Syntax: keywords are reserved",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"<strong>Keywords</strong> are words with special meaning in JS — like <code>let</code>, <code>const</code>, <code>if</code>, <code>function</code>, <code>return</code>. You can't use them as variable names — JS will throw an error.",
+ start:`// These all work as variable names:
+const score = 100;
+const userName = "Maria";
+const isReady = true;
+
+// These would NOT work (commented out so the file runs):
+// const let = 5;     // ❌ 'let' is reserved
+// const if = "yes";  // ❌ 'if' is reserved
+// const return = 1;  // ❌ 'return' is reserved
+
+console.log(score, userName, isReady);`,
+ goal:"Uncomment one of the bad lines (delete the //), run, and see the error. Then put the // back.",
+ source:"w3schools — JS Reserved Words",
+ hint:"Try deleting the // in front of const let = 5; — run and see SyntaxError. Then restore the //."},
+
+{id:606,title:"JS Syntax: identifiers can't start with numbers",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Identifiers must start with a letter, <code>$</code>, or <code>_</code>. They CAN contain numbers, just not at the start. <code>userAge2</code> is valid; <code>2userAge</code> is not.",
+ start:`// Valid identifiers:
+const age2 = 25;
+const _private = "hidden";
+const $element = "valid";
+const firstName = "Maria";
+
+console.log(age2, _private, $element, firstName);
+
+// Invalid (would error if uncommented):
+// const 2age = 25;       // ❌ starts with number
+// const my-name = "x";   // ❌ hyphens not allowed
+// const my name = "x";   // ❌ spaces not allowed`,
+ goal:"Try declaring a variable with a hyphen (uncomment the my-name line), see the error, then re-comment it.",
+ source:"w3schools — JS Identifiers",
+ hint:"Delete the // in front of const my-name. Run, see SyntaxError, restore the //."},
+
+{id:607,title:"JS Syntax: whitespace doesn't matter (mostly)",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"JavaScript ignores extra spaces, tabs, and blank lines. Both versions below produce the same result. Use whitespace generously to make code readable.",
+ start:`// Compact (still valid):
+const x=5;const y=10;console.log(x+y);
+
+// Readable (preferred):
+const a = 5;
+const b = 10;
+const total = a + b;
+
+console.log(total);`,
+ goal:"Reformat the compact line into three readable lines like the preferred version.",
+ source:"w3schools — JS Syntax",
+ hint:"Split const x=5;const y=10;console.log(x+y); into three lines, with spaces around =."},
+
+{id:608,title:"JS Syntax: dot notation for object properties",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"Access an object's properties with dot notation: <code>object.property</code>. The dot is the operator that says 'look inside this object for this key'.",
+ start:`const user = {
+  name: "Maria",
+  age: 30,
+  city: "New London"
+};
+
+console.log(user.name);
+console.log(user.age);
+console.log(user.city);`,
+ goal:"Add a new property to the user object — a string called 'role' — then log user.role.",
+ source:"w3schools — JS Object Properties",
+ hint:"Inside the braces add: , role: \"Developer\" — then console.log(user.role);"},
+
+{id:609,title:"JS Syntax: bracket notation",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"You can also access object properties with bracket notation: <code>object[\"property\"]</code>. Bracket notation lets you use a variable as the key — useful when the property name is dynamic.",
+ start:`const colors = {
+  primary: "#4338ca",
+  accent: "#f59e0b",
+  danger: "#ef4444"
+};
+
+console.log(colors["primary"]);
+console.log(colors["accent"]);
+
+const which = "danger";
+console.log(colors[which]);`,
+ goal:"Use bracket notation to access the 'accent' color via a variable. Set a const called 'pick' to \"accent\" and log colors[pick].",
+ source:"w3schools — JS Object Properties",
+ hint:"const pick = \"accent\"; then console.log(colors[pick]);"},
+
+{id:610,title:"JS Syntax: putting it all together",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"js",
+ desc:"You've covered the core syntax! Here's a small program that uses literals, comments, variables (let and const), operators, comparisons, and string concatenation.",
+ start:`/*
+  Simple grade calculator
+  Uses everything we learned in this section
+*/
+
+// Score literals (numbers)
+const score1 = 92;
+const score2 = 85;
+const score3 = 78;
+
+// Calculate average
+const average = (score1 + score2 + score3) / 3;
+
+// Assign a letter grade using comparisons
+let grade;
+if (average >= 90) {
+  grade = "A";
+} else if (average >= 80) {
+  grade = "B";
+} else if (average >= 70) {
+  grade = "C";
+} else {
+  grade = "Needs work";
+}
+
+// Use string concatenation in the output
+console.log("Average: " + average.toFixed(1));
+console.log("Grade: " + grade);`,
+ goal:"Change the three scores to your own numbers and see the grade update.",
+ source:"w3schools — JS Syntax (all sections combined)",
+ hint:"Change 92, 85, and 78 to your own test scores. Try low values to see the \"Needs work\" branch."},
+
 ];
 
 /* ══════════════════════════════════
    TROPHIES — updated for 500
 ══════════════════════════════════ */
-const TOTAL = 500;
-const CATS = ['All','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing'];
-const CAT_ICONS = {'All':'🎮','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪'};
+const TOTAL = 610;
+const CATS = ['All','Web Basics','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing'];
+const CAT_ICONS = {'All':'🎮','Web Basics':'🌱','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪'};
 
 const WIN_TROPHIES=[
+  // Beginner lesson dragons — pale shades, awarded for completing Web Basics lessons
+  {id:"l1",e:"🐉",n:"Mint Dragon",d:"Complete your first beginner lesson",t:1,c:"#A7F3D0",hue:30,sat:1.4},
+  {id:"l10",e:"🐉",n:"Sky Dragon",d:"Complete 10 beginner lessons",t:10,c:"#7DD3FC",hue:140,sat:1.5},
+  {id:"l20",e:"🐉",n:"Coral Dragon",d:"Complete 20 beginner lessons",t:20,c:"#FCA5A5",hue:250,sat:1.2},
+  {id:"l35",e:"🐉",n:"Sand Dragon",d:"Complete all 35 HTML lessons",t:35,c:"#FDE68A",hue:320,sat:0.6,bright:1.2},
+  // Hatchlings — awarded for ATTEMPTING (clicking Run on a lesson)
+  {id:"h1",e:"🥚",n:"Mint Hatchling",d:"Try your first lesson",t:1,c:"#D1FAE5",hue:30,sat:1.4},
+  {id:"h5",e:"🥚",n:"Sky Hatchling",d:"Try 5 lessons",t:5,c:"#E0F2FE",hue:140,sat:1.5},
+  {id:"h10",e:"🥚",n:"Coral Hatchling",d:"Try 10 lessons",t:10,c:"#FEE2E2",hue:250,sat:1.2},
+  {id:"h20",e:"🥚",n:"Sand Hatchling",d:"Try 20 lessons",t:20,c:"#FEF3C7",hue:320,sat:0.6,bright:1.2},
+  // Hatched chicks — awarded for COMPLETING lessons (next tier above hatchling)
+  {id:"c1",e:"🐣",n:"Mint Hatched",d:"Complete your first lesson",t:1,c:"#A7F3D0",hue:30,sat:1.4},
+  {id:"c5",e:"🐣",n:"Sky Hatched",d:"Complete 5 lessons",t:5,c:"#7DD3FC",hue:140,sat:1.5},
+  {id:"c15",e:"🐣",n:"Coral Hatched",d:"Complete 15 lessons",t:15,c:"#FCA5A5",hue:250,sat:1.2},
+  {id:"c30",e:"🐣",n:"Sand Hatched",d:"Complete 30 lessons",t:30,c:"#FDE68A",hue:320,sat:0.6,bright:1.2},
+  {id:"c50",e:"🐣",n:"Rainbow Hatched",d:"Complete 50 lessons (all beginner content!)",t:50,c:"#a78bfa",hue:330,sat:1.8},
+  // Original dragons + medals
   {id:"w3",e:"🐉",n:"Green Dragon",d:"Solve 3 challenges",t:3,c:"#34A853"},
-  {id:"w5",e:"🐉",n:"Blue Dragon",d:"Solve 5 challenges",t:5,c:"#4285F4",hue:120},
-  {id:"w25",e:"🐉",n:"Red Dragon",d:"Solve 25 challenges",t:25,c:"#EA4335",hue:240},
-  {id:"w50",e:"🐉",n:"Gold Dragon",d:"Solve 50 challenges",t:50,c:"#FBBC04",hue:300},
+  {id:"w5",e:"🐉",n:"Blue Dragon",d:"Solve 5 challenges",t:5,c:"#4285F4",hue:120,sat:1.6},
+  {id:"w25",e:"🐉",n:"Red Dragon",d:"Solve 25 challenges",t:25,c:"#EA4335",hue:280,sat:2.5,bright:0.95},
+  {id:"w50",e:"🐉",n:"Gold Dragon",d:"Solve 50 challenges",t:50,c:"#FBBC04",hue:300,sat:1.8,bright:1.2},
   {id:"w100",e:"🥉",n:"Bronze Medal",d:"Solve 100 challenges",t:100,c:"#CD7F32"},
   {id:"w150",e:"🥈",n:"Silver Medal",d:"Solve 150 challenges",t:150,c:"#C0C0C0"},
   {id:"w200",e:"🥇",n:"Gold Medal",d:"Solve 200 challenges",t:200,c:"#FFD700"},
   {id:"w300",e:"🏆",n:"Large Trophy",d:"Solve 300 challenges",t:300,c:"#f59e0b"},
   {id:"w400",e:"💎",n:"Diamond",d:"Solve 400 challenges",t:400,c:"#67e8f9"},
-  {id:"w500",e:"👑",n:"Champion",d:"Solve ALL 500!",t:500,c:"#FBBC04"},
+  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 610!",t:610,c:"#FBBC04"},
 ];
 const CAT_TROPHIES=[
+  {id:"cweb",e:"🌱🏆",n:"Web Basics Master",d:"Complete all Web Basics lessons",cat:"Web Basics",c:"#10b981"},
   {id:"cjs",e:"⚡🏆",n:"JS Master",d:"Complete all JS Fundamentals",cat:"JS Fundamentals",c:"#FBBC04"},
   {id:"cpy",e:"🐍🏆",n:"Python Master",d:"Complete all Python",cat:"Python",c:"#4285F4"},
   {id:"css2",e:"🎨🏆",n:"CSS Master",d:"Complete all HTML & CSS",cat:"HTML & CSS",c:"#f97316"},
@@ -3743,7 +5207,8 @@ function render(){
   const ch=fc[idx];
   const wrap=document.getElementById('mainContent');
   const isSolved=solved.has(ch.id);
-  const isEasy=ch.options!==undefined;
+  const isLesson=ch.mode==='lesson';
+  const isEasy=ch.options!==undefined && !isLesson;
   const ext=ch.cat==='Python'?'py':'js';
 
   const chCard=`
@@ -3792,6 +5257,34 @@ function render(){
             </div>`).join('')}
         </div>
       </div>`;
+  } else if(isLesson){
+    // BEGINNER LESSON — Run-and-observe with live iframe preview
+    const code=codeCache[ch.id]!==undefined?codeCache[ch.id]:ch.start;
+    const previewType=ch.preview||'html';
+    codePanel=`
+      <div class="code-display-card lesson-card">
+        <div class="code-header">
+          <div class="cd" style="background:#ff5f57"></div>
+          <div class="cd" style="background:#febc2e"></div>
+          <div class="cd" style="background:#28c840"></div>
+          <span class="code-filename">lesson_${ch.id}.${previewType}</span>
+          <span style="margin-left:auto;font-size:9px;color:#10b981;font-weight:700">LESSON · RUN-AND-OBSERVE</span>
+        </div>
+        <textarea class="code-editor lesson-editor" id="lessonCode" spellcheck="false" onkeydown="handleTab(event)">${escHtml(code)}</textarea>
+        <div class="lesson-goal" style="padding:10px 12px;background:rgba(16,185,129,0.08);border-top:1px solid rgba(16,185,129,0.2);font-size:12px;color:#a7f3d0;line-height:1.6">
+          <strong style="color:#10b981">🎯 Try this:</strong> ${escHtml(ch.goal||'')}
+        </div>
+        <div class="ed-actions" style="border-top:1px solid rgba(255,255,255,0.06)">
+          <button class="btn-run" onclick="runLessonPreview(${ch.id},'${previewType}')">▶ Run</button>
+          <button class="btn-sub" onclick="markLessonComplete(${ch.id})">✓ I Tried · 🥚</button>
+          <button class="btn-sub" style="background:#10b981" onclick="markLessonSolved(${ch.id})">🎉 I Got It · 🐉</button>
+          <button class="btn-rst" onclick="resetCode()">↺</button>
+        </div>
+        <div class="lesson-preview-wrap" style="border-top:1px solid rgba(255,255,255,0.08);background:white;min-height:200px">
+          <iframe id="lessonPreview" sandbox="allow-scripts" style="width:100%;height:300px;border:0;background:white"></iframe>
+        </div>
+        ${ch.source?`<div style="padding:8px 12px;font-size:10px;color:var(--dim);border-top:1px solid rgba(255,255,255,0.06)">Source: ${escHtml(ch.source)}</div>`:''}
+      </div>`;
   } else {
     const code=codeCache[ch.id]!==undefined?codeCache[ch.id]:ch.start;
     codePanel=`
@@ -3817,8 +5310,11 @@ function render(){
   }
 
   wrap.innerHTML=chCard+codePanel;
-  if(!isEasy) document.getElementById('codeArea').addEventListener('input',e=>{codeCache[ch.id]=e.target.value;});
-  else {
+  if(isLesson){
+    document.getElementById('lessonCode').addEventListener('input',e=>{codeCache[ch.id]=e.target.value;});
+  } else if(!isEasy) {
+    document.getElementById('codeArea').addEventListener('input',e=>{codeCache[ch.id]=e.target.value;});
+  } else {
     wrap.querySelectorAll('.option').forEach(el=>{
       el.addEventListener('click',()=>{
         const chosen=el.dataset.val;
@@ -3879,6 +5375,95 @@ function runCode(){
   const{passed,total,res}=runTests(document.getElementById('codeArea').value,ch);
   showOutput(res,passed,total,false);
 }
+
+/* ══ LESSON MODE — Run-and-observe preview ══ */
+function runLessonPreview(chId, previewType){
+  const editor = document.getElementById('lessonCode');
+  const iframe = document.getElementById('lessonPreview');
+  if (!editor || !iframe) return;
+  const code = editor.value;
+  codeCache[chId] = code;
+
+  // Auto-award the hatchling on first Run for this lesson
+  if (!window.triedLessons) window.triedLessons = new Set();
+  if (!window.triedLessons.has(chId)) {
+    window.triedLessons.add(chId);
+    saveTriedLessons();
+    checkAllTrophies();
+  }
+
+  let html;
+  if (previewType === 'html') {
+    html = code;
+  } else if (previewType === 'css') {
+    html = '<!DOCTYPE html><html><head><style>' + code + '</style></head>'
+         + '<body><h1>Heading</h1><p>Paragraph</p>'
+         + '<ul><li>Item 1</li><li>Item 2</li></ul>'
+         + '<button>Button</button></body></html>';
+  } else if (previewType === 'js') {
+    html = '<!DOCTYPE html><html><body>'
+         + '<div id="output" style="font-family:monospace;padding:8px;font-size:13px"></div>'
+         + '<script>'
+         + 'const out = document.getElementById("output");'
+         + 'const origLog = console.log;'
+         + 'console.log = (...args) => {'
+         + '  const line = document.createElement("div");'
+         + '  line.textContent = args.map(a => typeof a === "object" ? JSON.stringify(a) : String(a)).join(" ");'
+         + '  out.appendChild(line);'
+         + '  origLog(...args);'
+         + '};'
+         + 'try {' + code + '} catch (err) {'
+         + '  const errLine = document.createElement("div");'
+         + '  errLine.style.color = "#ef4444";'
+         + '  errLine.textContent = "Error: " + err.message;'
+         + '  out.appendChild(errLine);'
+         + '}'
+         + '<\/script></body></html>';
+  } else {
+    html = code;
+  }
+  iframe.srcdoc = html;
+}
+
+function markLessonComplete(chId){
+  // Awards the hatchling — just for trying
+  if (!window.triedLessons) window.triedLessons = new Set();
+  window.triedLessons.add(chId);
+  saveTriedLessons();
+  checkAllTrophies();
+  flashNotif('🥚 Hatchling awarded! Keep going!');
+}
+
+function markLessonSolved(chId){
+  // Awards the dragon — learner self-reports they got it
+  if (!solved.has(chId)) {
+    solved.add(chId);
+    score += 50; // beginner lessons worth 50 pts
+    wins += 1;
+    save();
+    updateHUD();
+    flashNotif('🐉 +50 · Dragon earned!');
+    checkAllTrophies();
+    buildNav();
+  } else {
+    flashNotif('Already complete!');
+  }
+}
+
+function saveTriedLessons(){
+  try {
+    localStorage.setItem('triedLessons', JSON.stringify([...(window.triedLessons || new Set())]));
+  } catch(e){}
+}
+
+function loadTriedLessons(){
+  try {
+    const raw = localStorage.getItem('triedLessons');
+    window.triedLessons = new Set(raw ? JSON.parse(raw) : []);
+  } catch(e){
+    window.triedLessons = new Set();
+  }
+}
 function submitCode(){
   const fc=getFiltered();const ch=fc[idx];
   if(!document.getElementById('codeArea'))return;
@@ -3896,9 +5481,16 @@ function markSolved(pts){
 }
 function resetCode(){
   const fc=getFiltered();const ch=fc[idx];
-  document.getElementById('codeArea').value=ch.start;
-  codeCache[ch.id]=ch.start;
-  document.getElementById('outPanel').innerHTML='<div class="out-lbl">▶ Output</div><div style="color:var(--dim);font-size:11px;font-style:italic">Run to see results…</div>';
+  const lessonEl=document.getElementById('lessonCode');
+  const challEl=document.getElementById('codeArea');
+  if(lessonEl){
+    lessonEl.value=ch.start;
+    codeCache[ch.id]=ch.start;
+  } else if(challEl){
+    challEl.value=ch.start;
+    codeCache[ch.id]=ch.start;
+    document.getElementById('outPanel').innerHTML='<div class="out-lbl">▶ Output</div><div style="color:var(--dim);font-size:11px;font-style:italic">Run to see results…</div>';
+  }
 }
 function handleTab(e){
   if(e.key==='Tab'){e.preventDefault();const t=e.target,s=t.selectionStart;
@@ -3928,17 +5520,42 @@ function goHome(){
 /* ══ TROPHIES ══ */
 function checkAllTrophies(){
   const wins=solved.size;
-  WIN_TROPHIES.forEach(t=>{if(!earned.has(t.id)&&wins>=t.t){earned.add(t.id);save();showTrophyToast(t);}});
+  const tries=(window.triedLessons||new Set()).size;
+  // Count lessons specifically that have been completed (solved with mode=lesson)
+  const completedLessons=CHS.filter(c=>c.mode==='lesson'&&solved.has(c.id)).length;
+  WIN_TROPHIES.forEach(t=>{
+    if(earned.has(t.id))return;
+    // Hatchling trophies (id starts with 'h') fire on "tried" count
+    // Chick trophies (id starts with 'c') fire on "completed lessons" count
+    // All others fire on total solved count
+    const isHatchling=t.id.startsWith('h');
+    const isChick=t.id.startsWith('c');
+    let count;
+    if(isHatchling)count=tries;
+    else if(isChick)count=completedLessons;
+    else count=wins;
+    if(count>=t.t){earned.add(t.id);save();showTrophyToast(t);}
+  });
   CAT_TROPHIES.forEach(t=>{
     const catChs=CHS.filter(c=>c.cat===t.cat).map(c=>c.id);
-    if(!earned.has(t.id)&&catChs.every(id=>solved.has(id))){earned.add(t.id);save();showTrophyToast(t);}
+    if(!earned.has(t.id)&&catChs.length>0&&catChs.every(id=>solved.has(id))){earned.add(t.id);save();showTrophyToast(t);}
   });
   updateHUD();
 }
 function showTrophyToast(t){
   const tuE=document.getElementById('tuE');
   tuE.textContent=t.e;
-  tuE.style.filter=t.hue!==undefined?`hue-rotate(${t.hue}deg) saturate(1.6)`:'';
+  const isToastHatchling=t.id&&t.id.startsWith('h');
+  const isToastChick=t.id&&t.id.startsWith('c')&&t.id!=='cweb';
+  const tSat=t.sat!==undefined?t.sat:1.6;
+  const tBright=t.bright!==undefined?t.bright:1;
+  if(isToastHatchling||isToastChick){
+    tuE.style.filter=`sepia(1) hue-rotate(${t.hue||0}deg) saturate(${tSat*2}) brightness(${tBright*1.1})`;
+  } else if(t.hue!==undefined){
+    tuE.style.filter=`hue-rotate(${t.hue}deg) saturate(${tSat}) brightness(${tBright})`;
+  } else {
+    tuE.style.filter='';
+  }
   document.getElementById('tuN').textContent=t.n;
   document.getElementById('tuD').textContent=t.d;
   const el=document.getElementById('tuToast');
@@ -3949,9 +5566,23 @@ function openTrophies(){
   const build=(title,list)=>`<div class="tr-section">
     <div class="tr-section-title">${title}</div>
     <div class="tr-grid">${list.map(t=>{const e=earned.has(t.id);
-      return`<div class="tr-item ${e?'earned':'locked'}" style="${e?`border-color:${t.c};box-shadow:0 0 10px ${t.c}25`:''}">
+      const isHatchling=t.id&&t.id.startsWith('h');
+      const isChick=t.id&&t.id.startsWith('c')&&t.id!=='cweb';
+      // Hatchlings and chicks get a colored background tint and stronger emoji filter
+      const needsTint=isHatchling||isChick;
+      const cardBgStyle=needsTint?`background:linear-gradient(135deg, ${t.c}30, ${t.c}10);`:'';
+      // Build filter using per-trophy sat and bright values (defaults: sat=1.6, bright=1)
+      const sat=t.sat!==undefined?t.sat:1.6;
+      const bright=t.bright!==undefined?t.bright:1;
+      let emojiFilter='';
+      if(needsTint){
+        emojiFilter=`style="filter:sepia(1) hue-rotate(${t.hue||0}deg) saturate(${sat*2}) brightness(${bright*1.1})"`;
+      } else if(t.hue!==undefined){
+        emojiFilter=`style="filter:hue-rotate(${t.hue}deg) saturate(${sat}) brightness(${bright})"`;
+      }
+      return`<div class="tr-item ${e?'earned':'locked'}" style="${e?`border-color:${t.c};box-shadow:0 0 10px ${t.c}25;${cardBgStyle}`:cardBgStyle}">
         ${e?'<span class="earned-tag">EARNED</span>':''}
-        <div class="tr-e" ${t.hue!==undefined?`style="filter:hue-rotate(${t.hue}deg) saturate(1.6)"`:''}>${t.e}</div><div class="tr-n">${t.n}</div><div class="tr-r">${t.d}</div>
+        <div class="tr-e" ${emojiFilter}>${t.e}</div><div class="tr-n">${t.n}</div><div class="tr-r">${t.d}</div>
       </div>`;}).join('')}</div></div>`;
   document.getElementById('trContent').innerHTML=
     build('🏆 Win Milestones',WIN_TROPHIES)+build('🎯 Category Masters',CAT_TROPHIES);
@@ -4728,7 +6359,7 @@ function startGame(){
   gs.style.display='flex';gs.style.flexDirection='column';
   buildCatFilter();buildNav();updateHUD();updateScoreWindow();render();
 }
-function init(){load();checkAllTrophies();}
+function init(){load();loadTriedLessons();checkAllTrophies();}
 init();
 
 /* ═══════════════════════════════════════════════════════
