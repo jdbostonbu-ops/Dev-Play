@@ -101,6 +101,21 @@ body::before{content:'';position:fixed;inset:0;background:
 .cf-btn[data-cat="Array Methods"].active{background:var(--teal);color:#000}
 .cf-btn[data-cat="SQL"].active{background:var(--purple)}
 .cf-btn[data-cat="React & Async"].active{background:var(--pink)}
+.cf-btn[data-cat="AI Prompting"].active{background:linear-gradient(135deg,#0ea5e9,#0284c7)}
+
+/* Locked state — AI Prompting before unlock gate (50% of Web Basics).
+   Visually muted to signal "available but gated". Click still works
+   (shows informative alert). */
+.cf-btn.locked{
+  opacity:0.55;
+  border-style:dashed;
+  cursor:help;
+}
+.cf-btn.locked:hover{
+  opacity:0.8;
+  border-color:#0ea5e9;
+  color:#7dd3fc;
+}
 
 /* ── HINT DRAWER ── */
 .hint-drawer{position:fixed;top:54px;left:0;right:0;z-index:90;
@@ -1826,7 +1841,10 @@ body::before{content:'';position:fixed;inset:0;background:
   padding: 14px;
   resize: none;
   outline: none;
-  min-height: 300px;
+  /* Sized to fit a full Pac-Man maze (~420px) plus the score/lives HUD and
+     game-over text in the matching preview pane. Larger than the original
+     300px so learners don't have to scroll to play or read the code. */
+  min-height: 600px;
   tab-size: 2;
 }
 
@@ -1901,7 +1919,10 @@ body::before{content:'';position:fixed;inset:0;background:
   width: 100%;
   border: none;
   background: white;
-  min-height: 360px;
+  /* Tall enough to fit a 19×21 Pac-Man maze (~420px canvas + score HUD +
+     game-over text) without forcing the user to scroll mid-game. Matches
+     the editor's min-height so the two columns stay visually balanced. */
+  min-height: 600px;
 }
 
 /* ── AI EDU PANEL ── */

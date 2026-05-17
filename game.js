@@ -3968,7 +3968,7 @@ And so are you!</p>`,
  hint:"Just add: p { color: red; } on a new line below the existing rule."},
 
 {id:537,title:"Color values",diff:"Easy",cat:"Web Basics",mode:"lesson",preview:"css",
- desc:"CSS accepts colors three ways: by name (<code>red</code>, <code>blue</code>), by hex code (<code>#ef4444</code>), or by RGB (<code>rgb(239, 68, 68)</code>). Hex is most common in real code.",
+ desc:"CSS accepts colors three ways: by name (<code>red</code>, <code>blue</code>), by hex code (<code>#ef4444</code>), or by RGB (<code>rgb(239, 68, 68)</code>). RGB stands for Red, Green, Blue — the three numbers control how much of each from 0 to 255. Hex is most common in real code.",
  start:`h1 { color: tomato; }
 p  { color: #4338ca; }
 ul { color: rgb(16, 185, 129); }`,
@@ -8430,14 +8430,256 @@ render(dragons);`,
  source:"MDN — putting it all together (closures, DOM, events)",
  hint:"Find const dragons = [...] and add three more names like \"Inferno\", \"Tempest\", \"Glacier\"."},
 
+
+
+/* ══ DEVELOPER'S AI TOOLBELT — AI PROMPTING (771–795) ══════════════════════
+   Source: Verizon × Next Street — "Get more from your AI tools with the
+   right prompts" worksheet (5 pages, IBM glossary definitions).
+
+   Format: Multiple-choice questions. Code Ranger's existing quiz schema is
+   reused so the renderer handles these without any new UI work:
+     { id, title, diff, cat, desc, code?, options, ansIdx, hint, source }
+
+   Pedagogical structure:
+     • 771–777 (7) — Definitions: one per prompt type
+     • 778–784 (7) — Scenarios: "you need to do X, which prompt type fits?"
+     • 785–791 (7) — Pick the better prompt: two prompts, choose stronger one
+     • 792–794 (3) — Do's & don'ts: best practices
+     • 795     (1) — Capstone: AI vs. Prompt Engineering glossary
+
+   Constraints respected: no var (none used in data), no inline JS, source
+   citations on every lesson, hints reinforce the concept without giving
+   away the answer.
+═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── DEFINITIONS: one per prompt type (771–777) ── */
+
+{id:771,title:"AI Prompting: Creative Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to produce engaging content tailored to a specific audience?",
+ code:`"Write a caption about my new product that will elicit responses
+from my target audience: busy parents with toddler-aged children."`,
+ options:["Creative","Reasoning","Listicle","Keyword"],ansIdx:0,
+ hint:"Look for the type that emphasizes engagement + audience targeting. The example reads like marketing copy, not analysis or a list.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:772,title:"AI Prompting: Informational Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to summarize or extract details from data to guide a decision?",
+ code:`"Research popular fitness classes around my neighborhood
+and list the top 3-5 reasons for their popularity."`,
+ options:["Creative","Informational","Interactive","Instructional"],ansIdx:1,
+ hint:"The prompt asks for research + summarization to inform a choice. It's not asking the AI to generate art or have a conversation.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:773,title:"AI Prompting: Reasoning Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to draw conclusions or build an argument?",
+ code:`"Based on the descriptions of our services on our website,
+how can we improve the language to highlight benefits with
+the most appeal to our target audience?"`,
+ options:["Listicle","Keyword","Reasoning","Creative"],ansIdx:2,
+ hint:"The prompt asks the AI to ANALYZE existing content and recommend an improvement — that's reasoning, not list-making or content generation.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:774,title:"AI Prompting: Listicle Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to generate a list of ideas, options, or items?",
+ code:`"Create a list of the top 10 customer service questions
+people ask about how to use our products."`,
+ options:["Informational","Listicle","Instructional","Creative"],ansIdx:1,
+ hint:"The keyword 'list' and the count ('top 10') give it away. The output will be enumerated items, not flowing prose.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:775,title:"AI Prompting: Instructional Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to create a guide or step-by-step instructions?",
+ code:`"Using my blog post, create a downloadable guide that
+customers can use to continue their workout at home."`,
+ options:["Reasoning","Creative","Instructional","Listicle"],ansIdx:2,
+ hint:"The user wants steps the reader can follow. Listicle gives bare items; this asks for a complete how-to guide.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:776,title:"AI Prompting: Interactive Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to create a conversation or role-play a scenario?",
+ code:`"Act as a branding consultant. Ask me five questions
+about my business to help me write a tagline."`,
+ options:["Interactive","Creative","Reasoning","Keyword"],ansIdx:0,
+ hint:"The phrase 'Act as...' is the giveaway — the user is setting up a back-and-forth dialogue, not asking for a finished piece of content.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:777,title:"AI Prompting: Keyword Prompts",diff:"Easy",cat:"AI Prompting",
+ desc:"Which prompt type asks the AI to generate content or insights using specific words or phrases the user provides?",
+ code:`"I want to test the title of my new blog post. Based on
+this original title, suggest four variations using these
+keywords while keeping the same core message."`,
+ options:["Listicle","Creative","Keyword","Informational"],ansIdx:2,
+ hint:"The user supplies a fixed set of words and wants the AI to weave them in. The AI's freedom is constrained by specific terms.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+/* ── SCENARIOS: which prompt type fits the situation (778–784) ── */
+
+{id:778,title:"AI Prompting: Scenario — Portfolio Headline",diff:"Easy",cat:"AI Prompting",
+ desc:"You're a junior developer building your portfolio site. You want a catchy hero headline that speaks to hiring managers at startups. Which prompt type fits best?",
+ options:["Creative — engaging content for an audience","Reasoning — draws conclusions","Instructional — step-by-step guide","Keyword — uses your specific words"],ansIdx:0,
+ hint:"You're producing engaging content tailored to a specific audience (startup hiring managers). That's the textbook Creative prompt use case.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:779,title:"AI Prompting: Scenario — README File",diff:"Easy",cat:"AI Prompting",
+ desc:"You've just finished a small JavaScript project and you want to write a README that walks users through installation, configuration, and usage. Which prompt type fits best?",
+ options:["Interactive — role-play","Listicle — bullet ideas","Instructional — step-by-step","Creative — engagement copy"],ansIdx:2,
+ hint:"A README that 'walks users through' is, by definition, a how-to guide. That's the Instructional prompt category.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:780,title:"AI Prompting: Scenario — Comparing Frameworks",diff:"Easy",cat:"AI Prompting",
+ desc:"You're choosing between React and Vue for a new project. You ask AI for the top considerations to evaluate. Which prompt type best matches?",
+ options:["Creative","Listicle","Interactive","Keyword"],ansIdx:1,
+ hint:"You want an enumerable set of considerations — discrete items, not flowing prose or a conversation. That's a Listicle.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:781,title:"AI Prompting: Scenario — Code Review Practice",diff:"Easy",cat:"AI Prompting",
+ desc:"You're preparing for technical interviews. You want AI to act like an interviewer who asks you progressively harder JavaScript questions. Which prompt type fits?",
+ options:["Reasoning","Instructional","Interactive","Informational"],ansIdx:2,
+ hint:"You want a back-and-forth conversation where the AI plays a role. That's exactly what Interactive prompts are designed for.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:782,title:"AI Prompting: Scenario — Refactoring Decision",diff:"Easy",cat:"AI Prompting",
+ desc:"You have a 500-line JavaScript file. You ask AI to review it and recommend the most impactful refactor based on the code's structure. Which prompt type fits?",
+ options:["Listicle","Reasoning","Creative","Keyword"],ansIdx:1,
+ hint:"You're asking the AI to analyze evidence (the code) and reach a conclusion (the recommended refactor). That's Reasoning.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:783,title:"AI Prompting: Scenario — Tag Variations",diff:"Easy",cat:"AI Prompting",
+ desc:"You've written meta description tags for SEO, but you want three variations that include 'beginner', 'tutorial', and 'free' while keeping the same meaning. Which prompt type matches?",
+ options:["Creative","Listicle","Keyword","Reasoning"],ansIdx:2,
+ hint:"You're constraining the AI with specific words you want to appear. That's the defining characteristic of a Keyword prompt.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:784,title:"AI Prompting: Scenario — Onboarding Email",diff:"Easy",cat:"AI Prompting",
+ desc:"You launched a SaaS tool. You ask AI to summarize the top 5 features from your product docs so you can send them to new users. Which prompt type matches?",
+ options:["Informational","Creative","Interactive","Instructional"],ansIdx:0,
+ hint:"You're asking the AI to extract and summarize details from existing source material to inform a decision (what to send). That's Informational.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+/* ── PICK THE BETTER PROMPT (785–791) ── */
+
+{id:785,title:"AI Prompting: Sharper Prompt — Caption",diff:"Easy",cat:"AI Prompting",
+ desc:"You want a social caption to promote your new photography portfolio website. Which of these prompts will produce a better, more usable result?",
+ options:[
+   "\"Write a caption for my website.\"",
+   "\"Write an engaging Instagram caption for a junior photographer's new portfolio site, targeting couples and families, with a call-to-action to book a free 15-minute consultation.\"",
+   "\"Write something cool about photos.\"",
+   "\"Captions please.\""],ansIdx:1,
+ hint:"Strong prompts include audience, platform, goal, and call-to-action. The vague options give the AI nothing to work with.",
+ source:"Verizon × Next Street — AI Prompting Worksheet (Action Plan example)"},
+
+{id:786,title:"AI Prompting: Sharper Prompt — Customer Email",diff:"Easy",cat:"AI Prompting",
+ desc:"Your e-commerce store has a 2-day shipping delay due to a busy season. Which prompt produces the most useful template?",
+ options:[
+   "\"Write a customer email about being late.\"",
+   "\"Apologize to customers.\"",
+   "\"Write an empathetic customer response template for a jewelry store explaining a 2-day shipping delay due to higher order volume. Include delivery reassurance and a 15% discount for their next purchase.\"",
+   "\"Email about shipping.\""],ansIdx:2,
+ hint:"The sharper prompt includes tone (empathetic), context (jewelry, why delayed), and concrete next steps (reassurance + discount).",
+ source:"Verizon × Next Street — AI Prompting Worksheet (Action Plan example)"},
+
+{id:787,title:"AI Prompting: Sharper Prompt — Code Review",diff:"Easy",cat:"AI Prompting",
+ desc:"You want AI to review your JavaScript function. Which prompt produces the most actionable feedback?",
+ options:[
+   "\"Check my code.\"",
+   "\"Review this JavaScript function for readability, edge cases, and performance. Suggest specific improvements with brief code examples for each.\"",
+   "\"Is this good?\"",
+   "\"Fix it.\""],ansIdx:1,
+ hint:"Specify what KIND of review you want (readability, edge cases, performance) and what FORMAT you want feedback in (specific examples). Vague reviews produce vague feedback.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:788,title:"AI Prompting: Sharper Prompt — Bug Help",diff:"Easy",cat:"AI Prompting",
+ desc:"You hit a JavaScript bug. Which prompt is most likely to get you a working fix?",
+ options:[
+   "\"My code is broken.\"",
+   "\"Why won't this work??\"",
+   "\"I'm getting 'TypeError: Cannot read property map of undefined' on line 42. Here's the function and the data shape being passed in. Expected behavior: render a list of users. Actual behavior: blank page + that error.\"",
+   "\"Help help help.\""],ansIdx:2,
+ hint:"Include the exact error message, the relevant code, what you EXPECT to happen, and what's ACTUALLY happening. Vague prompts return vague guesses.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:789,title:"AI Prompting: Sharper Prompt — Career Advice",diff:"Easy",cat:"AI Prompting",
+ desc:"You're a self-taught coder considering bootcamp vs. continuing self-study. Which prompt yields the most useful response?",
+ options:[
+   "\"Should I do a bootcamp?\"",
+   "\"Act as a career coach for self-taught developers. Ask me 5 questions about my current skill level, financial situation, learning style, and career goals — then recommend whether a bootcamp or continued self-study fits me better.\"",
+   "\"Bootcamp good or bad?\"",
+   "\"Tell me about coding.\""],ansIdx:1,
+ hint:"This is Interactive — you want the AI to learn YOUR situation first. The other options ask for a one-size-fits-all answer to a deeply personal question.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:790,title:"AI Prompting: Sharper Prompt — Naming Variables",diff:"Easy",cat:"AI Prompting",
+ desc:"You're refactoring and want better variable names. Which prompt gives you the most usable suggestions?",
+ options:[
+   "\"Better names please.\"",
+   "\"Suggest 3 alternative variable names for each of these, prioritizing clarity over brevity. Use camelCase. Keep names under 20 characters: tmpArr, x, data2, fn1.\"",
+   "\"Rename these.\"",
+   "\"Variables?\""],ansIdx:1,
+ hint:"Specify HOW MANY suggestions you want, the CONVENTION (camelCase), the LIMIT (20 chars), and provide the specific names to fix. Constraints help the AI succeed.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+{id:791,title:"AI Prompting: Sharper Prompt — Project Idea",diff:"Easy",cat:"AI Prompting",
+ desc:"You want a portfolio project idea. Which prompt produces the most actionable, scoped suggestion?",
+ options:[
+   "\"Give me a project idea.\"",
+   "\"What should I build?\"",
+   "\"Suggest 3 portfolio project ideas for a junior frontend developer aiming for SaaS startup jobs. Each should: take ~10 hours to build, use React + Tailwind, demonstrate one impressive feature (animation, API, or accessibility), and be deployable on Vercel.\"",
+   "\"Project idea?\""],ansIdx:2,
+ hint:"Audience (junior dev), goal (SaaS jobs), scope (10 hours), stack (React + Tailwind), deliverable shape (3 ideas). The specifics transform a daydream into a plan.",
+ source:"Verizon × Next Street — AI Prompting Worksheet"},
+
+/* ── DO'S AND DON'TS: best practices (792–794) ── */
+
+{id:792,title:"AI Prompting: Do's and Don'ts — Vague Language",diff:"Easy",cat:"AI Prompting",
+ desc:"You're stuck on a prompt that keeps producing generic output. According to the worksheet, what should you DO to fix it?",
+ options:[
+   "Be more vague so the AI can be creative",
+   "Be specific — focus on tone, structure, and audience",
+   "Use shorter sentences and skip context",
+   "Ask the AI to guess what you mean"],ansIdx:1,
+ hint:"Specificity is the #1 do. Tone, structure, and audience are the three dimensions to nail down before pressing send.",
+ source:"Verizon × Next Street — AI Prompting Worksheet (Do's and Don'ts)"},
+
+{id:793,title:"AI Prompting: Do's and Don'ts — Confidentiality",diff:"Easy",cat:"AI Prompting",
+ desc:"You're using a public AI tool to help refactor work code. According to the worksheet's best practices, what should you DO?",
+ options:[
+   "Paste everything in — more context is better",
+   "Focus on confidentiality — never include private data, API keys, customer info, or proprietary code",
+   "Send the AI your entire codebase for analysis",
+   "Skip context to save tokens"],ansIdx:1,
+ hint:"Confidentiality is listed as a top DO. Public AI tools may use your input as training data. Strip secrets and proprietary info before sending.",
+ source:"Verizon × Next Street — AI Prompting Worksheet (Do's and Don'ts)"},
+
+{id:794,title:"AI Prompting: Do's and Don'ts — Don't Overload",diff:"Easy",cat:"AI Prompting",
+ desc:"You need help with three different tasks: writing a README, fixing a bug, and naming variables. What's the WORST way to prompt according to the worksheet?",
+ options:[
+   "Break it into three separate prompts, refining each",
+   "Start with the highest-priority task and iterate",
+   "Cram all three tasks into one prompt and add 12 constraints to each",
+   "Ask the AI to help you decide which task to tackle first"],ansIdx:2,
+ hint:"Overloading with requests is a top DON'T. AI handles focused asks far better than a wall of unrelated requirements.",
+ source:"Verizon × Next Street — AI Prompting Worksheet (Do's and Don'ts)"},
+
+/* ── CAPSTONE: glossary terms (795) ── */
+
+{id:795,title:"AI Prompting: AI vs. Prompt Engineering",diff:"Easy",cat:"AI Prompting",
+ desc:"The IBM glossary distinguishes two terms used throughout the worksheet. Which definition correctly describes <strong>prompt engineering</strong>?",
+ options:[
+   "Technology that enables computers to simulate human learning, comprehension, and decision-making",
+   "The process of writing, refining, and optimizing inputs to encourage generative AI systems to create specific, high-quality outputs",
+   "The hardware infrastructure that runs large language models",
+   "The act of training a neural network from scratch"],ansIdx:1,
+ hint:"Option 1 is the definition of Artificial Intelligence itself. Prompt engineering is about WRITING the inputs — refining and optimizing what you say TO the AI.",
+ source:"IBM glossary, via Verizon × Next Street worksheet"},
+
 ];
 
 /* ══════════════════════════════════
-   TROPHIES — updated for 770
+   TROPHIES — updated for 795 (770 coding + 25 AI Prompting)
 ══════════════════════════════════ */
-const TOTAL = 770;
-const CATS = ['All','Web Basics','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing'];
-const CAT_ICONS = {'All':'🎮','Web Basics':'🌱','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪'};
+const TOTAL = 795;
+const CATS = ['All','Web Basics','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing','AI Prompting'];
+const CAT_ICONS = {'All':'🎮','Web Basics':'🌱','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪','AI Prompting':'🛠️'};
 
 const WIN_TROPHIES=[
   // Beginner lesson dragons — pale shades, awarded for completing Web Basics lessons
@@ -8466,7 +8708,7 @@ const WIN_TROPHIES=[
   {id:"w200",e:"🥇",n:"Gold Medal",d:"Solve 200 challenges",t:200,c:"#FFD700"},
   {id:"w300",e:"🏆",n:"Large Trophy",d:"Solve 300 challenges",t:300,c:"#f59e0b"},
   {id:"w400",e:"💎",n:"Diamond",d:"Solve 400 challenges",t:400,c:"#67e8f9"},
-  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 770!",t:770,c:"#FBBC04"},
+  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 795!",t:795,c:"#FBBC04"},
 
   // ══════════════════════════════════════════════════════════════════
   // NEW TROPHIES — 16 dragon-themed additions across 4 thematic groups.
@@ -8569,6 +8811,7 @@ const CAT_TROPHIES=[
   {id:"ccssa",e:"🎨✨🏆",n:"CSS Advanced Master",d:"Complete all CSS Advanced",cat:"CSS Advanced",c:"#f97316"},
   {id:"chttp",e:"🌐🏆",n:"HTTP Master",d:"Complete all HTTP & APIs",cat:"HTTP & APIs",c:"#14b8a6"},
   {id:"ctest",e:"🧪🏆",n:"Testing Master",d:"Complete all Testing",cat:"Testing",c:"#a855f7"},
+  {id:"caip",e:"🛠️🏆",n:"AI Toolbelt Master",d:"Complete all 25 AI Prompting lessons",cat:"AI Prompting",c:"#0ea5e9"},
 ];
 const LEADERS=[
   {n:"DragonCoder99",sc:50000,sv:500},{n:"AlgoQueen",sc:35000,sv:350},
@@ -8782,14 +9025,43 @@ function scrollToLab(){
 }
 
 /* ══ CATEGORY FILTER ══ */
+
+/* AI Prompting unlock gate: requires 50% of Web Basics solved.
+   This intentionally lives outside the coding curriculum visually
+   (separate optgroup in dropdown, lock icon in tab bar) to reinforce
+   that AI is a complementary skill, NOT a replacement for coding.
+   Returns { unlocked: bool, solved: int, needed: int, total: int }. */
+function getAIPromptingUnlockStatus(){
+  const webBasics = CHS.filter(ch => ch.cat === 'Web Basics');
+  const total = webBasics.length;
+  const solvedCount = webBasics.filter(ch => solved.has(ch.id)).length;
+  const needed = Math.ceil(total * 0.5);
+  return { unlocked: solvedCount >= needed, solved: solvedCount, needed: needed, total: total };
+}
+
 function buildCatFilter(){
   const bar=document.getElementById('catFilter');
-  bar.innerHTML=CATS.map(c=>`
-    <button class="cf-btn ${filterCat===c?'active':''}" data-cat="${c}" onclick="setCat('${c}')">
-      ${CAT_ICONS[c]||''} ${c} ${c!=='All'?`(${CHS.filter(ch=>ch.cat===c).length})`:''}
-    </button>`).join('');
+  const aiStatus = getAIPromptingUnlockStatus();
+  bar.innerHTML=CATS.map(c=>{
+    const isLocked = (c === 'AI Prompting' && !aiStatus.unlocked);
+    const count = c!=='All' ? `(${CHS.filter(ch=>ch.cat===c).length})` : '';
+    const lockBadge = isLocked ? ' 🔒' : '';
+    const lockClass = isLocked ? 'locked' : '';
+    return `<button class="cf-btn ${filterCat===c?'active':''} ${lockClass}" data-cat="${c}" onclick="setCat('${c}')" title="${isLocked ? `Solve ${aiStatus.needed - aiStatus.solved} more Web Basics lessons to unlock` : ''}">
+      ${CAT_ICONS[c]||''} ${c} ${count}${lockBadge}
+    </button>`;
+  }).join('');
 }
 function setCat(cat){
+  // Gate: prevent navigation into locked AI Prompting category
+  if (cat === 'AI Prompting') {
+    const aiStatus = getAIPromptingUnlockStatus();
+    if (!aiStatus.unlocked) {
+      const remaining = aiStatus.needed - aiStatus.solved;
+      alert(`🛠️ Developer's AI Toolbelt is locked.\n\nSolve ${remaining} more Web Basics lessons (${aiStatus.solved}/${aiStatus.needed}) to unlock the AI Prompting category.\n\nWhy gated? AI is a tool to AUGMENT your coding skills, not replace them. Master the fundamentals first.`);
+      return;
+    }
+  }
   filterCat=cat;idx=0;
   buildCatFilter();buildNav();render();updateHUD();
 }
