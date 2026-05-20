@@ -8672,12 +8672,37 @@ keywords while keeping the same core message."`,
  hint:"Option 1 is the definition of Artificial Intelligence itself. Prompt engineering is about WRITING the inputs — refining and optimizing what you say TO the AI.",
  source:"IBM glossary, via Verizon × Next Street worksheet"},
 
+/* ── LESSON 796: Communicating Constraints to AI (the meta-lesson) ──
+   The single most valuable prompting skill for working developers:
+   how to state your team's conventions so AI respects them. Uses
+   Code Ranger's own constraints as the worked example, but frames
+   the takeaway universally: every team has rules; AI needs to know
+   them. */
+{id:796,title:"AI Prompting: Communicating Constraints to AI",diff:"Easy",cat:"AI Prompting",
+ desc:"You're working on a project where the team has specific conventions: <code>let</code> instead of <code>var</code>, <code>textContent</code> instead of <code>innerHTML</code> for user input, closure-based factory functions instead of classes, and every <code>&lt;label&gt;</code> must have a <code>for</code> attribute. Without telling the AI these rules, it will use whatever it learned from public code on the internet. <strong>What's the BEST way to make sure AI respects your team's conventions when generating code?</strong>",
+ code:`// Constraint preamble template for every coding request:
+"While you code for me, adhere to these constraints:
+• Use let, never var
+• For user input, use textContent (not innerHTML) to prevent XSS
+• Use closure-based factory functions for stateful logic
+• Every <label> must have a 'for' attribute matching its input id
+• No inline CSS — styles live in stylesheets
+
+Now, please [your actual request]..."`,
+ options:[
+   "State constraints clearly upfront in your prompt, BEFORE describing the task. AI follows rules it can see.",
+   "Hope the AI guesses your team's style from context",
+   "Fix all the AI's output afterward by hand",
+   "Use whatever conventions the AI prefers — they're probably industry-standard"],ansIdx:0,
+ hint:"AI is trained on millions of code samples with conflicting conventions. Without explicit constraints, it averages over all of them — producing code that fits no specific team. State your rules upfront, before the request, and it'll honor them. This is the SINGLE highest-leverage prompting skill for working developers.",
+ source:"Code Ranger constraint conventions (MDN, OWASP, modern JS best practices)"},
+
 ];
 
 /* ══════════════════════════════════
-   TROPHIES — updated for 795 (770 coding + 25 AI Prompting)
+   TROPHIES — updated for 796 (770 coding + 26 AI Prompting)
 ══════════════════════════════════ */
-const TOTAL = 795;
+const TOTAL = 796;
 const CATS = ['All','Web Basics','JS Fundamentals','Python','HTML & CSS','Algorithms','String Methods','Array Methods','SQL','React & Async','TypeScript','Git & CLI','Web Security','Node.js','Data Structures','Python Advanced','JS Advanced','CSS Advanced','HTTP & APIs','Testing','AI Prompting'];
 const CAT_ICONS = {'All':'🎮','Web Basics':'🌱','JS Fundamentals':'⚡','Python':'🐍','HTML & CSS':'🎨','Algorithms':'🧩','String Methods':'🔤','Array Methods':'📦','SQL':'🗄️','React & Async':'⚛️','TypeScript':'🔷','Git & CLI':'🌿','Web Security':'🔒','Node.js':'🟢','Data Structures':'🏗️','Python Advanced':'🐍✨','JS Advanced':'⚡✨','CSS Advanced':'🎨✨','HTTP & APIs':'🌐','Testing':'🧪','AI Prompting':'🛠️'};
 
@@ -8708,7 +8733,7 @@ const WIN_TROPHIES=[
   {id:"w200",e:"🥇",n:"Gold Medal",d:"Solve 200 challenges",t:200,c:"#FFD700"},
   {id:"w300",e:"🏆",n:"Large Trophy",d:"Solve 300 challenges",t:300,c:"#f59e0b"},
   {id:"w400",e:"💎",n:"Diamond",d:"Solve 400 challenges",t:400,c:"#67e8f9"},
-  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 795!",t:795,c:"#FBBC04"},
+  {id:"w610",e:"👑",n:"Champion",d:"Solve ALL 796!",t:796,c:"#FBBC04"},
 
   // ══════════════════════════════════════════════════════════════════
   // NEW TROPHIES — 16 dragon-themed additions across 4 thematic groups.
@@ -9026,17 +9051,68 @@ function scrollToLab(){
 
 /* ══ CATEGORY FILTER ══ */
 
-/* AI Prompting unlock gate: requires 50% of Web Basics solved.
-   This intentionally lives outside the coding curriculum visually
-   (separate optgroup in dropdown, lock icon in tab bar) to reinforce
-   that AI is a complementary skill, NOT a replacement for coding.
-   Returns { unlocked: bool, solved: int, needed: int, total: int }. */
+/* ════════════════════════════════════════════════════════════════════
+   AI TOOLBELT UNLOCK GATE — Multi-path (Option B, expanded)
+
+   The AI Toolbelt is for everyone, but coding skill prerequisites
+   ensure users have enough context to apply prompting craft. Multiple
+   paths recognize that mid/senior devs shouldn't be forced through
+   Web Basics — they prove their skill via category mastery.
+
+   ANY of these unlocks the Toolbelt:
+     • 50% of Web Basics solved      (beginner path)
+     • 20+ JS Fundamentals lessons   (intermediate path — proves JS basics)
+     • 25+ JS Advanced lessons       (mid path — proves JS depth)
+     • 20+ Python lessons            (intermediate path — Python proficiency)
+     • 50+ Algorithms lessons        (mid path — proves logic depth)
+     • 20+ Data Structures lessons   (mid path — proves CS fundamentals)
+     • 12+ React & Async lessons     (mid/senior path — framework chops)
+     • 20+ Node.js lessons           (mid/senior path — backend chops)
+     • 15+ TypeScript lessons        (mid/senior path — working dev signal)
+     • 15+ Web Security lessons      (senior path — proves security mindset)
+
+   Returns the gate status + which path(s) are closest to unlocking so
+   the UI can show a tailored "you're X away from unlocking" hint.
+═══════════════════════════════════════════════════════════════════════ */
 function getAIPromptingUnlockStatus(){
-  const webBasics = CHS.filter(ch => ch.cat === 'Web Basics');
-  const total = webBasics.length;
-  const solvedCount = webBasics.filter(ch => solved.has(ch.id)).length;
-  const needed = Math.ceil(total * 0.5);
-  return { unlocked: solvedCount >= needed, solved: solvedCount, needed: needed, total: total };
+  /* Each path = a { cat, needed, label } — solvedCount filled in below */
+  const paths = [
+    { cat: 'Web Basics',      pct: 0.5, label: 'Beginner path' },
+    { cat: 'JS Fundamentals', abs: 20,  label: 'JS basics' },
+    { cat: 'JS Advanced',     abs: 25,  label: 'JS depth' },
+    { cat: 'Python',          abs: 20,  label: 'Python proficiency' },
+    { cat: 'Algorithms',      abs: 50,  label: 'Logic depth' },
+    { cat: 'Data Structures', abs: 20,  label: 'CS fundamentals' },
+    { cat: 'React & Async',   abs: 12,  label: 'Framework chops' },
+    { cat: 'Node.js',         abs: 20,  label: 'Backend chops' },
+    { cat: 'TypeScript',      abs: 15,  label: 'Working dev signal' },
+    { cat: 'Web Security',    abs: 15,  label: 'Security mindset' }
+  ];
+
+  /* Fill in solved counts + compute needed thresholds */
+  const results = paths.map(p => {
+    const lessons = CHS.filter(ch => ch.cat === p.cat);
+    const total = lessons.length;
+    const solvedCount = lessons.filter(ch => solved.has(ch.id)).length;
+    const needed = p.pct ? Math.ceil(total * p.pct) : Math.min(p.abs, total);
+    return {
+      cat: p.cat,
+      label: p.label,
+      solved: solvedCount,
+      needed: needed,
+      total: total,
+      met: solvedCount >= needed,
+      remaining: Math.max(0, needed - solvedCount)
+    };
+  });
+
+  const unlocked = results.some(r => r.met);
+  /* Closest path = the one with fewest lessons remaining (helpful hint) */
+  const closest = results
+    .filter(r => !r.met)
+    .sort((a, b) => a.remaining - b.remaining)[0];
+
+  return { unlocked, paths: results, closest };
 }
 
 function buildCatFilter(){
@@ -9047,18 +9123,29 @@ function buildCatFilter(){
     const count = c!=='All' ? `(${CHS.filter(ch=>ch.cat===c).length})` : '';
     const lockBadge = isLocked ? ' 🔒' : '';
     const lockClass = isLocked ? 'locked' : '';
-    return `<button class="cf-btn ${filterCat===c?'active':''} ${lockClass}" data-cat="${c}" onclick="setCat('${c}')" title="${isLocked ? `Solve ${aiStatus.needed - aiStatus.solved} more Web Basics lessons to unlock` : ''}">
+    const tooltip = isLocked && aiStatus.closest
+      ? `Closest unlock path: ${aiStatus.closest.remaining} more ${aiStatus.closest.cat} lessons`
+      : '';
+    return `<button class="cf-btn ${filterCat===c?'active':''} ${lockClass}" data-cat="${c}" onclick="setCat('${c}')" title="${tooltip}">
       ${CAT_ICONS[c]||''} ${c} ${count}${lockBadge}
     </button>`;
   }).join('');
 }
+
 function setCat(cat){
-  // Gate: prevent navigation into locked AI Prompting category
+  /* Gate: prevent navigation into locked AI Prompting category, but show
+     ALL unlock paths so mid/senior devs see they can bypass Web Basics. */
   if (cat === 'AI Prompting') {
     const aiStatus = getAIPromptingUnlockStatus();
     if (!aiStatus.unlocked) {
-      const remaining = aiStatus.needed - aiStatus.solved;
-      alert(`🛠️ Developer's AI Toolbelt is locked.\n\nSolve ${remaining} more Web Basics lessons (${aiStatus.solved}/${aiStatus.needed}) to unlock the AI Prompting category.\n\nWhy gated? AI is a tool to AUGMENT your coding skills, not replace them. Master the fundamentals first.`);
+      const pathList = aiStatus.paths
+        .map(p => `  ${p.met ? '✓' : '○'} ${p.cat}: ${p.solved}/${p.needed} (${p.label})`)
+        .join('\n');
+      alert(
+        `🛠️ Developer's AI Toolbelt is locked.\n\n` +
+        `Unlock by completing ANY ONE of these paths:\n\n${pathList}\n\n` +
+        `AI is a tool to AUGMENT coding skill, not replace it. Prove your foundation through any path above, then dive in.`
+      );
       return;
     }
   }
@@ -9398,6 +9485,10 @@ function markSolved(pts){
   }
   // ────────────────────────────────
   save();updateHUD();updateScoreWindow();flashNotif(`✅ +${pts}`);checkAllTrophies();buildNav();
+  /* Refresh AI Toolbelt inline preview — unlock paths may have changed */
+  if (typeof Toolbelt !== 'undefined' && Toolbelt.renderInlinePreview) {
+    Toolbelt.renderInlinePreview();
+  }
 }
 function resetCode(){
   const fc=getFiltered();const ch=fc[idx];
@@ -10295,6 +10386,25 @@ function startGame(){
   const gs=document.getElementById('gameScreen');
   gs.style.display='flex';gs.style.flexDirection='column';
   buildCatFilter();buildNav();updateHUD();updateScoreWindow();render();
+}
+
+/* Helper used by Toolbelt jump-to-lesson buttons. Hides all non-game
+   screens and reveals the main game flow. */
+function closeAllSections(){
+  ['toolbeltScreen','buildLab','resumeBuilder'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+}
+function showGame(){
+  document.getElementById('startScreen').style.display='none';
+  const gs = document.getElementById('gameScreen');
+  if (gs) {
+    gs.style.display = 'flex';
+    gs.style.flexDirection = 'column';
+    buildCatFilter(); buildNav(); updateHUD(); render();
+    gs.scrollIntoView({behavior:'smooth'});
+  }
 }
 function init(){load();loadTriedLessons();checkAllTrophies();}
 init();
@@ -14103,3 +14213,835 @@ function rbCopyAsText() {
         .then(() => showStatus('✓ Copied!'))
         .catch(() => showStatus('⚠ Copy failed'));
 }
+
+
+/* ════════════════════════════════════════════════════════════════════
+   DEVELOPER'S AI TOOLBELT — PERSISTENT WORKSPACE
+   ════════════════════════════════════════════════════════════════════
+   Distinct from the 26 AI Prompting lessons (which are quiz-style
+   challenges in the main game flow). The Toolbelt is a workspace
+   users RETURN TO — to save prompts they've crafted, tag them, get
+   AI feedback on them, and build a personal library over time.
+
+   Architecture decisions (locked in v1):
+     • Storage: localStorage only + JSON export for backup
+     • Access: only renders when AI Toolbelt is unlocked (gate above)
+     • AI feedback: BYOK via existing Gemini/Claude infrastructure
+     • Two tracks visible side-by-side: Foundations + Developer Craft
+     • Constraints: let only, textContent only, closure-based factory
+
+   All Toolbelt logic lives in a closure-based factory below — this
+   matches the constraint we teach in lesson 796 (practice what we
+   preach). Internal state is private; only the public API methods
+   are exposed.
+═══════════════════════════════════════════════════════════════════════ */
+
+const Toolbelt = (function createToolbelt() {
+  /* ─────────────── PRIVATE STATE ─────────────── */
+  const STORAGE_KEY = 'codeRangerToolbeltLibrary';
+  const PREFS_KEY = 'codeRangerToolbeltPrefs';
+
+  let library = [];        /* Array of prompt objects */
+  let prefs = { track: 'developer-craft', sortBy: 'recent' };
+  let activeTab = 'lessons'; /* 'lessons' | 'library' | 'feedback' */
+  let activeFilter = 'all';  /* tag filter for library view */
+
+  /* ─────────────── STORAGE ─────────────── */
+  function loadLibrary() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      library = raw ? JSON.parse(raw) : [];
+    } catch (err) {
+      library = [];
+    }
+  }
+  function saveLibrary() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(library));
+    } catch (err) {
+      /* localStorage full or disabled — silently fail; UI shows warning */
+    }
+  }
+  function loadPrefs() {
+    try {
+      const raw = localStorage.getItem(PREFS_KEY);
+      if (raw) prefs = Object.assign(prefs, JSON.parse(raw));
+    } catch (err) { /* defaults stand */ }
+  }
+  function savePrefs() {
+    try { localStorage.setItem(PREFS_KEY, JSON.stringify(prefs)); } catch (err) {}
+  }
+
+  /* ─────────────── PUBLIC HELPERS ─────────────── */
+  function addPrompt(data) {
+    /* data = { title, body, tags, notes, rating } */
+    const entry = {
+      id: 'p_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+      title: (data.title || 'Untitled prompt').slice(0, 120),
+      body: data.body || '',
+      tags: Array.isArray(data.tags) ? data.tags : [],
+      notes: data.notes || '',
+      rating: typeof data.rating === 'number' ? data.rating : 0,
+      created: Date.now(),
+      updated: Date.now()
+    };
+    library.unshift(entry);
+    saveLibrary();
+    renderLibrary();
+    return entry;
+  }
+  function deletePrompt(id) {
+    library = library.filter(p => p.id !== id);
+    saveLibrary();
+    renderLibrary();
+  }
+  function updatePrompt(id, changes) {
+    const idx = library.findIndex(p => p.id === id);
+    if (idx === -1) return;
+    library[idx] = Object.assign(library[idx], changes, { updated: Date.now() });
+    saveLibrary();
+    renderLibrary();
+  }
+  function allTags() {
+    const set = new Set();
+    library.forEach(p => p.tags.forEach(t => set.add(t)));
+    return Array.from(set).sort();
+  }
+
+  /* ─────────────── JSON EXPORT (backup) ─────────────── */
+  function exportLibrary() {
+    const payload = {
+      app: 'Code Ranger — Developer AI Toolbelt',
+      exported: new Date().toISOString(),
+      count: library.length,
+      prompts: library
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `code-ranger-prompts-${new Date().toISOString().slice(0, 10)}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  /* ─────────────── JSON IMPORT (restore backup) ─────────────── */
+  function importLibrary(file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        if (!Array.isArray(data.prompts)) throw new Error('Invalid file format');
+        /* Merge mode: keep existing + add imported (skip duplicates by id) */
+        const existingIds = new Set(library.map(p => p.id));
+        const toAdd = data.prompts.filter(p => p && p.id && !existingIds.has(p.id));
+        library = toAdd.concat(library);
+        saveLibrary();
+        renderLibrary();
+        showToast(`✓ Imported ${toAdd.length} prompt${toAdd.length === 1 ? '' : 's'}`);
+      } catch (err) {
+        showToast('⚠ Invalid backup file');
+      }
+    };
+    reader.readAsText(file);
+  }
+
+  /* ─────────────── UI TOAST ─────────────── */
+  function showToast(msg) {
+    const existing = document.getElementById('tbToast');
+    if (existing) existing.remove();
+    const toast = document.createElement('div');
+    toast.id = 'tbToast';
+    toast.className = 'tb-toast';
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => toast.classList.add('show'), 10);
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => toast.remove(), 300);
+    }, 2400);
+  }
+
+  /* ─────────────── ESCAPE HELPER ─────────────── */
+  function esc(str) {
+    /* For inserting user data into HTML attributes only.
+       Body content uses textContent (XSS-safe by default). */
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+  }
+
+  /* ─────────────── RENDER: LIBRARY VIEW ─────────────── */
+  function renderLibrary() {
+    const container = document.getElementById('tbLibraryList');
+    if (!container) return;
+
+    const countEl = document.getElementById('tbLibraryCount');
+    if (countEl) countEl.textContent = library.length;
+
+    /* Filter by tag if active */
+    let view = library.slice();
+    if (activeFilter !== 'all') {
+      view = view.filter(p => p.tags.includes(activeFilter));
+    }
+
+    /* Sort */
+    if (prefs.sortBy === 'rating') view.sort((a, b) => b.rating - a.rating);
+    else if (prefs.sortBy === 'oldest') view.sort((a, b) => a.created - b.created);
+    else view.sort((a, b) => b.created - a.created); /* recent (default) */
+
+    /* Render tag chips */
+    const tagBar = document.getElementById('tbTagBar');
+    if (tagBar) {
+      const tags = allTags();
+      tagBar.innerHTML = '';
+      const allBtn = document.createElement('button');
+      allBtn.className = 'tb-tag-chip' + (activeFilter === 'all' ? ' active' : '');
+      allBtn.textContent = `All (${library.length})`;
+      allBtn.onclick = () => { activeFilter = 'all'; renderLibrary(); };
+      tagBar.appendChild(allBtn);
+      tags.forEach(t => {
+        const count = library.filter(p => p.tags.includes(t)).length;
+        const btn = document.createElement('button');
+        btn.className = 'tb-tag-chip' + (activeFilter === t ? ' active' : '');
+        btn.textContent = `${t} (${count})`;
+        btn.onclick = () => { activeFilter = t; renderLibrary(); };
+        tagBar.appendChild(btn);
+      });
+    }
+
+    /* Render cards or empty state */
+    if (view.length === 0) {
+      const emptyMsg = library.length === 0
+        ? 'Your library is empty. Save your first prompt below or use the <strong>+ New Prompt</strong> button to add one.'
+        : 'No prompts match the current filter. Click <strong>All</strong> to see everything.';
+      container.innerHTML = `<div class="tb-empty">${emptyMsg}</div>`;
+      return;
+    }
+
+    container.innerHTML = '';
+    view.forEach(p => {
+      const card = document.createElement('article');
+      card.className = 'tb-card';
+      card.dataset.id = p.id;
+      /* Build star rating string */
+      const stars = '★★★★★'.slice(0, p.rating) + '☆☆☆☆☆'.slice(0, 5 - p.rating);
+      const tagsHTML = p.tags.map(t => `<span class="tb-tag">${esc(t)}</span>`).join('');
+      /* Use textContent for the body preview (XSS safety, per constraint) */
+      const preview = document.createElement('div');
+      preview.className = 'tb-card-body-preview';
+      preview.textContent = p.body.length > 200 ? p.body.slice(0, 200) + '…' : p.body;
+
+      card.innerHTML = `
+        <div class="tb-card-head">
+          <div class="tb-card-stars" data-rating="${p.rating}">${stars}</div>
+          <div class="tb-card-title"></div>
+          <div class="tb-card-actions">
+            <button class="tb-btn-icon" data-act="copy" title="Copy prompt body">📋</button>
+            <button class="tb-btn-icon" data-act="edit" title="Edit">✏️</button>
+            <button class="tb-btn-icon" data-act="delete" title="Delete">🗑️</button>
+          </div>
+        </div>
+        <div class="tb-card-tags">${tagsHTML}</div>
+        <div class="tb-card-body-wrap"></div>
+        ${p.notes ? '<div class="tb-card-notes-label">Notes:</div><div class="tb-card-notes"></div>' : ''}
+      `;
+      /* Inject titles & notes via textContent — never innerHTML for user data */
+      card.querySelector('.tb-card-title').textContent = p.title;
+      card.querySelector('.tb-card-body-wrap').appendChild(preview);
+      if (p.notes) card.querySelector('.tb-card-notes').textContent = p.notes;
+
+      /* Wire actions */
+      card.querySelectorAll('[data-act]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const act = btn.dataset.act;
+          if (act === 'copy') {
+            navigator.clipboard.writeText(p.body)
+              .then(() => showToast('✓ Copied to clipboard'))
+              .catch(() => showToast('⚠ Copy failed'));
+          } else if (act === 'edit') {
+            openEditor(p);
+          } else if (act === 'delete') {
+            if (confirm(`Delete "${p.title}"? This cannot be undone.`)) {
+              deletePrompt(p.id);
+              showToast('✓ Deleted');
+            }
+          }
+        });
+      });
+      container.appendChild(card);
+    });
+  }
+
+  /* ─────────────── EDITOR MODAL (add/edit prompts) ─────────────── */
+  function openEditor(existing, opts) {
+    const isEdit = !!existing && !!existing.id;
+    const editor = document.getElementById('tbEditor');
+    if (!editor) return;
+    const fromFeedback = !!(opts && opts.fromFeedback);
+
+    document.getElementById('tbEditorTitle').textContent = isEdit ? 'Edit prompt' : 'Save new prompt';
+    document.getElementById('tbEditorPromptTitle').value = existing ? existing.title : '';
+    document.getElementById('tbEditorBody').value = existing ? existing.body : '';
+    document.getElementById('tbEditorTags').value = existing ? existing.tags.join(', ') : '';
+    document.getElementById('tbEditorNotes').value = existing ? existing.notes : '';
+    document.getElementById('tbEditorRating').value = existing ? existing.rating : 0;
+
+    editor.dataset.editId = existing && existing.id ? existing.id : '';
+    editor.dataset.fromFeedback = fromFeedback ? '1' : '0';
+    editor.classList.add('show');
+  }
+  function closeEditor() {
+    const editor = document.getElementById('tbEditor');
+    if (editor) {
+      editor.classList.remove('show');
+      /* Clear the from-feedback flag so it doesn't leak into next open */
+      delete editor.dataset.fromFeedback;
+    }
+  }
+  function saveFromEditor() {
+    const editor = document.getElementById('tbEditor');
+    const editId = editor.dataset.editId;
+    const fromFeedback = editor.dataset.fromFeedback === '1';
+    const data = {
+      title: document.getElementById('tbEditorPromptTitle').value.trim() || 'Untitled prompt',
+      body: document.getElementById('tbEditorBody').value.trim(),
+      tags: document.getElementById('tbEditorTags').value
+        .split(',').map(t => t.trim()).filter(Boolean),
+      notes: document.getElementById('tbEditorNotes').value.trim(),
+      rating: parseInt(document.getElementById('tbEditorRating').value, 10) || 0
+    };
+    if (!data.body) {
+      showToast('⚠ Prompt body cannot be empty');
+      return;
+    }
+    if (editId) {
+      updatePrompt(editId, data);
+      showToast('✓ Prompt updated');
+    } else {
+      addPrompt(data);
+      showToast('✓ Saved to library');
+    }
+    closeEditor();
+    /* If this save came from the AI Feedback "Save refined version" flow,
+       clear the feedback form so the user can start a fresh session. */
+    if (fromFeedback) {
+      clearFeedbackForm();
+    }
+  }
+
+  /* Clear the AI Feedback textarea + output + reset save-source flag.
+     Called: (1) automatically after Save refined → library, (2) when the
+     user clicks the manual "🗑 Clear" button next to Get AI Feedback. */
+  function clearFeedbackForm() {
+    const inputEl = document.getElementById('tbFeedbackInput');
+    const outputEl = document.getElementById('tbFeedbackOutput');
+    if (inputEl) inputEl.value = '';
+    if (outputEl) {
+      while (outputEl.firstChild) outputEl.removeChild(outputEl.firstChild);
+    }
+    if (inputEl) inputEl.focus();
+  }
+
+  /* ─────────────── AI FEEDBACK PANEL ─────────────── */
+  /* Reuses Code Ranger's existing BYOK infrastructure. The user's API
+     key lives in sessionStorage (set elsewhere in the app) and gets
+     sent with each /api/chat request. We construct a system prompt
+     that asks the AI to critique a user's prompt. */
+  async function getAIFeedback() {
+    const inputEl = document.getElementById('tbFeedbackInput');
+    const outputEl = document.getElementById('tbFeedbackOutput');
+    const btn = document.getElementById('tbFeedbackBtn');
+    if (!inputEl || !outputEl || !btn) return;
+
+    const userPrompt = inputEl.value.trim();
+    if (!userPrompt) {
+      showToast('⚠ Paste a prompt first');
+      return;
+    }
+
+    /* Read API key from sessionStorage — canonical keys shared with Build Lab BYOK */
+    const apiKey = sessionStorage.getItem('cr_ai_key') || '';
+    const provider = sessionStorage.getItem('cr_ai_provider') || 'claude';
+
+    btn.disabled = true;
+    btn.textContent = '🤖 Analyzing…';
+
+    const systemInst =
+      'You are a prompt engineering coach for developers. The user pastes a prompt they wrote ' +
+      'asking an AI to generate code or build something. Your job is to critique the prompt itself, ' +
+      'not the project idea. Return your critique in this EXACT format:\n\n' +
+      'WHAT WORKS:\n' +
+      '- [bullet points of strengths — persona, context, real-world framing, etc.]\n\n' +
+      'WHAT\'S MISSING:\n' +
+      '- Check and explicitly call out if any of these are absent. If absent, name them by name:\n' +
+      '  • OUTPUT STRUCTURE: did the user say whether they want code as INLINE (a chat reply / single code block), INTERNAL (one self-contained file), or EXTERNAL (a project with separate files like index.html + style.css + game.js)? If unclear, flag it.\n' +
+      '  • LANGUAGE / TECH STACK: did the user specify the language (HTML/CSS/JS, Python, React/JSX, TypeScript, Node.js, etc.) and any frameworks? If unclear, flag it.\n' +
+      '  • CONCRETE EXAMPLES: did the user provide a sample input/output, a worked example, or a reference design?\n' +
+      '  • DATA SHAPE: did the user say where data comes from (hardcoded bank, user input, fetched from API)?\n' +
+      '  • TARGET AUDIENCE: did the user say who uses this and at what skill level?\n' +
+      '- Then add any OTHER specific gaps you notice.\n\n' +
+      'REFINED VERSION:\n' +
+      '[a rewritten prompt that fills the gaps above. Make explicit choices on the user\'s behalf — pick a language, pick a file structure — and tell them you made those choices so they can adjust. ' +
+      'DO NOT add a code-length cap, line limit, or scope ceiling (no "under 300 lines", no "MVP only", no "keep it short"). The right size of a feature is determined by what the feature needs to do; arbitrary length caps teach developers to write underpowered prompts and accept underpowered code. If the original prompt already has a length cap, leave it in place but do not introduce a new one.]\n\n' +
+      'WHY THE REFINEMENT IS BETTER:\n' +
+      '[2-3 sentences explaining the key changes, especially which file-structure and language choices you locked in and why. Do not discuss length or line-count choices.]\n\n' +
+      'RECOMMENDED CODE CONSTRAINTS TO ADD:\n' +
+      '[This section is mandatory. Tell the user that whenever they ask any AI to generate code, ' +
+      'they should add the following constraints to their prompt to protect against AI training-data ' +
+      'drift (AI models were trained on millions of code samples including outdated and insecure patterns). ' +
+      'List each constraint and explain WHY it matters in one sentence:\n' +
+      '  • "Use reliable, well-documented platforms and libraries (e.g. MDN-documented APIs over ad-hoc packages)" — protects against AI suggesting deprecated, abandoned, or insecure dependencies.\n' +
+      '  • "Use let (or const), never var" — AI training data heavily includes pre-2015 code with var; this constraint forces modern block-scoping and prevents hoisting bugs.\n' +
+      '  • "Render any user-supplied data with textContent, never innerHTML" — prevents XSS injection attacks because textContent treats input as plain text, not as HTML to execute.\n' +
+      '  • "Use closure-based factory functions for stateful logic, not global variables" — keeps state encapsulated, avoids namespace pollution, makes testing easier, and prevents accidental mutation.\n' +
+      '  • "Every <label> must have a for attribute matching the input id" — improves accessibility for screen readers AND prevents form-binding bugs where the label click doesn\'t focus the input.\n' +
+      'End with: "Adding these as explicit constraints in your prompt is a defense against AI generating outdated, insecure, or buggy code patterns."]';
+
+    /* Clear previous output safely (textContent + remove children) */
+    while (outputEl.firstChild) outputEl.removeChild(outputEl.firstChild);
+    const loading = document.createElement('div');
+    loading.className = 'tb-fb-loading';
+    loading.textContent = 'Asking the AI to critique your prompt…';
+    outputEl.appendChild(loading);
+
+    /* No API key? Don't even try to hit the provider — show clear instructions */
+    if (!apiKey) {
+      while (outputEl.firstChild) outputEl.removeChild(outputEl.firstChild);
+      const errBox = document.createElement('div');
+      errBox.className = 'tb-fb-error';
+      errBox.textContent = '⚠ No API key set. Add your Claude or Gemini key in the AI Provider Setup section above to get prompt feedback.';
+      outputEl.appendChild(errBox);
+      btn.disabled = false;
+      btn.textContent = '🤖 Get AI Feedback';
+      return;
+    }
+
+    /* Direct browser → AI provider POST. No /api/chat dependency.
+       Works in local dev AND production. User's key never touches our server. */
+    try {
+      let text = '';
+      if (provider === 'claude') {
+        text = await callClaude(apiKey, systemInst, userPrompt);
+      } else if (provider === 'gemini') {
+        text = await callGemini(apiKey, systemInst, userPrompt);
+      } else {
+        throw new Error('Unknown provider: ' + provider);
+      }
+
+      /* Render — textContent only, no innerHTML */
+      while (outputEl.firstChild) outputEl.removeChild(outputEl.firstChild);
+      const wrapper = document.createElement('div');
+      wrapper.className = 'tb-fb-result';
+      const pre = document.createElement('pre');
+      pre.className = 'tb-fb-text';
+      pre.textContent = text;
+      wrapper.appendChild(pre);
+
+      /* Add "Save refined version" button if a refined section is detected */
+      const refinedMatch = text.match(/REFINED VERSION:\s*([\s\S]+?)(?:\n\n|WHY THE)/);
+      if (refinedMatch) {
+        const saveBtn = document.createElement('button');
+        saveBtn.className = 'tb-btn tb-btn-primary tb-fb-save-btn';
+        saveBtn.textContent = '💾 Save refined version to library';
+        saveBtn.type = 'button';
+        saveBtn.addEventListener('click', () => {
+          openEditor({
+            id: '',
+            title: 'AI-refined prompt',
+            body: refinedMatch[1].trim(),
+            tags: ['ai-refined'],
+            notes: 'Original: ' + userPrompt.slice(0, 200),
+            rating: 0
+          }, { fromFeedback: true });
+        });
+        wrapper.appendChild(saveBtn);
+      }
+      outputEl.appendChild(wrapper);
+    } catch (err) {
+      while (outputEl.firstChild) outputEl.removeChild(outputEl.firstChild);
+      const errBox = document.createElement('div');
+      errBox.className = 'tb-fb-error';
+      /* Show the actual error message so debugging is easier */
+      const msg = (err && err.message) ? String(err.message) : 'Unknown error';
+      errBox.textContent = '⚠ ' + msg + ' — check your API key is valid and you have credits/quota remaining.';
+      outputEl.appendChild(errBox);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '🤖 Get AI Feedback';
+    }
+  }
+
+  /* ─────────────── DIRECT PROVIDER CALLS (no backend needed) ─────────────── */
+  /* Anthropic Claude — uses the dangerous-direct-browser-access header so
+     the request is allowed from a browser context with the user's own key. */
+  async function callClaude(apiKey, systemInst, userPrompt) {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-haiku-4-5-20251001',
+        max_tokens: 8192,
+        system: systemInst,
+        messages: [{ role: 'user', content: 'Critique this prompt:\n\n' + userPrompt }]
+      })
+    });
+    if (!resp.ok) {
+      let errText = 'HTTP ' + resp.status;
+      try {
+        const errBody = await resp.json();
+        if (errBody && errBody.error && errBody.error.message) {
+          errText = errBody.error.message;
+        }
+      } catch (e) { /* not JSON */ }
+      throw new Error('Claude API: ' + errText);
+    }
+    const data = await resp.json();
+    /* Anthropic response shape: { content: [{ type: 'text', text: '...' }],
+       stop_reason: 'end_turn' | 'max_tokens' | 'stop_sequence' | 'tool_use' |
+                    'pause_turn' | 'refusal' }
+       Surface any non-normal stop reason so the user knows why a short
+       response was short. */
+    if (data && Array.isArray(data.content) && data.content[0] && data.content[0].text) {
+      let text = data.content[0].text;
+      const stop = data.stop_reason;
+      if (stop === 'max_tokens') {
+        text += '\n\n⚠ Response was truncated at the token limit. Try a shorter prompt.';
+      } else if (stop === 'refusal') {
+        text += '\n\n⚠ Claude declined to fully respond to this prompt.';
+      } else if (stop && stop !== 'end_turn' && stop !== 'stop_sequence') {
+        text += '\n\n⚠ Claude stopped early (stop_reason: ' + stop + ').';
+      }
+      return text;
+    }
+    throw new Error('Unexpected Claude response shape');
+  }
+
+  /* Google Gemini — key goes in URL, browser CORS is allowed by default */
+  async function callGemini(apiKey, systemInst, userPrompt) {
+    const url = 'https://generativelanguage.googleapis.com/v1beta/models/' +
+                'gemini-2.5-flash:generateContent?key=' + encodeURIComponent(apiKey);
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemInst }] },
+        contents: [{
+          role: 'user',
+          parts: [{ text: 'Critique this prompt:\n\n' + userPrompt }]
+        }],
+        generationConfig: { maxOutputTokens: 8192, temperature: 0.7 }
+      })
+    });
+    if (!resp.ok) {
+      let errText = 'HTTP ' + resp.status;
+      try {
+        const errBody = await resp.json();
+        if (errBody && errBody.error && errBody.error.message) {
+          errText = errBody.error.message;
+        }
+      } catch (e) { /* not JSON */ }
+      throw new Error('Gemini API: ' + errText);
+    }
+    const data = await resp.json();
+    /* Gemini response shape:
+       { candidates: [{ content: { parts: [{ text: '...' }] },
+                       finishReason: 'STOP' | 'MAX_TOKENS' | 'SAFETY' |
+                                     'RECITATION' | 'OTHER' }],
+         promptFeedback: { blockReason: 'SAFETY' | ... } }
+       Multiple things can cut a response short besides hitting max_tokens. */
+
+    /* Prompt-level block — the entire prompt was rejected, no candidates */
+    if (data && data.promptFeedback && data.promptFeedback.blockReason) {
+      throw new Error('Gemini blocked the prompt itself (reason: ' +
+        data.promptFeedback.blockReason + '). Try rephrasing to avoid ' +
+        'negative framing like "wrong", "bad", "harmful", or adversarial ' +
+        'evaluate-other-AI patterns.');
+    }
+
+    const cand = data && data.candidates && data.candidates[0];
+    const part = cand && cand.content && cand.content.parts && cand.content.parts[0];
+
+    /* No candidate at all — request failed silently */
+    if (!cand) {
+      throw new Error('Gemini returned no candidates. The prompt may have ' +
+        'been blocked. Try rephrasing.');
+    }
+
+    /* Build the response. If we have partial text, show it; then append
+       a clear note about WHY the response is what it is. */
+    let text = (part && part.text) ? part.text : '';
+    const finish = cand.finishReason;
+
+    if (finish === 'MAX_TOKENS') {
+      text += (text ? '\n\n' : '') +
+        '⚠ Response was truncated at the token limit. Try a shorter prompt.';
+    } else if (finish === 'SAFETY') {
+      const safetyDetail = (cand.safetyRatings || [])
+        .filter(r => r.blocked || r.probability === 'HIGH')
+        .map(r => r.category)
+        .join(', ');
+      text += (text ? '\n\n' : '') +
+        '⚠ Gemini\'s safety filter stopped the response' +
+        (safetyDetail ? ' (categories flagged: ' + safetyDetail + ')' : '') +
+        '. Your prompt uses negative-framing language ("weak", "wrong", "too many tokens", ' +
+        '"high probability rate of using too many tokens") that can trip Gemini\'s adversarial-content detector. ' +
+        'Try: (a) switching the provider to Claude, which handles meta-prompts about prompt critique better, ' +
+        'or (b) rephrasing to use positive framing — e.g. "areas to strengthen" instead of "weak", ' +
+        '"token efficiency" instead of "too many tokens".';
+    } else if (finish === 'RECITATION') {
+      text += (text ? '\n\n' : '') +
+        '⚠ Gemini stopped because the response was too close to recited training data.';
+    } else if (finish === 'OTHER' || (finish && finish !== 'STOP' && finish !== 'FINISH_REASON_STOP')) {
+      text += (text ? '\n\n' : '') +
+        '⚠ Gemini stopped for an unspecified reason (finishReason: ' + finish + ').';
+    }
+
+    if (text) return text;
+    throw new Error('Gemini returned no usable content. finishReason: ' + (finish || 'unknown'));
+  }
+
+  /* ─────────────── TAB SWITCHING ─────────────── */
+  function switchTab(tab) {
+    activeTab = tab;
+    document.querySelectorAll('.tb-tab').forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === tab);
+    });
+    document.querySelectorAll('.tb-panel').forEach(p => {
+      p.classList.toggle('active', p.dataset.panel === tab);
+    });
+    if (tab === 'library') renderLibrary();
+  }
+
+  /* ─────────────── ENTRY: open the Toolbelt section ─────────────── */
+  function open() {
+    const aiStatus = getAIPromptingUnlockStatus();
+    if (!aiStatus.unlocked) {
+      const pathList = aiStatus.paths
+        .map(p => `  ${p.met ? '✓' : '○'} ${p.cat}: ${p.solved}/${p.needed} (${p.label})`)
+        .join('\n');
+      alert(
+        `🛠️ Developer's AI Toolbelt is locked.\n\n` +
+        `Unlock by completing ANY ONE of these paths:\n\n${pathList}\n\n` +
+        `AI is a tool to AUGMENT coding skill, not replace it.`
+      );
+      return;
+    }
+    /* Hide other screens, show Toolbelt */
+    const screens = ['startScreen', 'gameScreen'];
+    screens.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    });
+    const tb = document.getElementById('toolbeltScreen');
+    if (tb) {
+      tb.style.display = 'block';
+      /* Scroll to top so user sees the header + Back button */
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      loadLibrary();
+      loadPrefs();
+      loadKeyConfig();      /* pre-fill BYOK fields from sessionStorage */
+      renderLibrary();
+      switchTab(activeTab);
+    }
+  }
+
+  function close() {
+    const tb = document.getElementById('toolbeltScreen');
+    if (tb) tb.style.display = 'none';
+    /* Return to whichever screen the user came from — default to home */
+    const start = document.getElementById('startScreen');
+    if (start) start.style.display = 'flex';
+  }
+
+  /* ─────────────── BYOK API KEY MANAGEMENT (inside Toolbelt) ─────────────── */
+  /* Uses canonical sessionStorage keys 'cr_ai_key' + 'cr_ai_provider' so the
+     same key works for both Build Lab and Toolbelt AI Feedback. */
+  function saveProvider() {
+    const el = document.getElementById('tbAiProvider');
+    if (!el) return;
+    const newProvider = el.value;
+    sessionStorage.setItem('cr_ai_provider', newProvider);
+    /* If a key is already stored, check its prefix against the new provider
+       and surface a soft warning if they look mismatched. */
+    const storedKey = sessionStorage.getItem('cr_ai_key') || '';
+    if (storedKey) {
+      const looksClaude = storedKey.startsWith('sk-ant-');
+      const looksGemini = storedKey.startsWith('AIza');
+      if (newProvider === 'claude' && looksGemini) {
+        showToast('⚠ Stored key looks like a Gemini key — paste a Claude key (sk-ant-...) to match');
+      } else if (newProvider === 'gemini' && looksClaude) {
+        showToast('⚠ Stored key looks like a Claude key — paste a Gemini key (AIza...) to match');
+      }
+    }
+    updateKeyStatus();
+    renderInlinePreview();
+  }
+  function saveKey() {
+    const el = document.getElementById('tbAiKey');
+    if (!el) return;
+    const val = el.value.trim();
+    if (val) {
+      sessionStorage.setItem('cr_ai_key', val);
+      /* Auto-detect provider from key prefix — Anthropic keys start with
+         'sk-ant-', Google Gemini keys start with 'AIza'. If the user pasted
+         a key matching either pattern, switch the dropdown to match so the
+         status pill, dropdown, and storage stay in sync. */
+      let detectedProvider = null;
+      if (val.startsWith('sk-ant-')) detectedProvider = 'claude';
+      else if (val.startsWith('AIza')) detectedProvider = 'gemini';
+      if (detectedProvider) {
+        sessionStorage.setItem('cr_ai_provider', detectedProvider);
+        const provEl = document.getElementById('tbAiProvider');
+        if (provEl) provEl.value = detectedProvider;
+      } else if (!sessionStorage.getItem('cr_ai_provider')) {
+        /* Couldn't auto-detect AND no provider stored — default to claude */
+        sessionStorage.setItem('cr_ai_provider', 'claude');
+      }
+    } else {
+      sessionStorage.removeItem('cr_ai_key');
+    }
+    updateKeyStatus();
+    renderInlinePreview();
+  }
+  function clearKey() {
+    sessionStorage.removeItem('cr_ai_key');
+    sessionStorage.removeItem('cr_ai_provider');
+    const keyEl = document.getElementById('tbAiKey');
+    if (keyEl) keyEl.value = '';
+    /* Also clear the Build Lab's input if it's on the page */
+    const blKeyEl = document.getElementById('blAiKey');
+    if (blKeyEl) blKeyEl.value = '';
+    updateKeyStatus();
+    renderInlinePreview();
+    showToast('🗑 API key cleared');
+  }
+  function loadKeyConfig() {
+    /* Pre-fill the Toolbelt's BYOK fields from sessionStorage on open */
+    const keyEl = document.getElementById('tbAiKey');
+    const provEl = document.getElementById('tbAiProvider');
+    const storedKey = sessionStorage.getItem('cr_ai_key');
+    const storedProv = sessionStorage.getItem('cr_ai_provider');
+    if (keyEl && storedKey) keyEl.value = storedKey;
+    if (provEl && storedProv) provEl.value = storedProv;
+    updateKeyStatus();
+  }
+  function updateKeyStatus() {
+    const el = document.getElementById('tbKeyStatus');
+    if (!el) return;
+    const key = sessionStorage.getItem('cr_ai_key');
+    const prov = sessionStorage.getItem('cr_ai_provider') || 'claude';
+    if (key) {
+      el.textContent = `✓ Key set (${prov === 'claude' ? 'Claude' : 'Gemini'})`;
+      el.classList.add('tb-byok-status-ok');
+      el.classList.remove('tb-byok-status-missing');
+    } else {
+      el.textContent = 'No key set';
+      el.classList.add('tb-byok-status-missing');
+      el.classList.remove('tb-byok-status-ok');
+    }
+  }
+
+  /* ─────────────── INLINE PREVIEW (below resume on gameScreen) ─────────────── */
+  function renderInlinePreview() {
+    const status = getAIPromptingUnlockStatus();
+    const statusEl = document.getElementById('tbInlineStatus');
+    const statusText = document.getElementById('tbInlineStatusText');
+    const libNum = document.getElementById('tbInlineLibraryNum');
+    const provNum = document.getElementById('tbInlineProviderNum');
+    const pathsList = document.getElementById('tbInlinePathsList');
+    const cta = document.getElementById('tbInlineCta');
+    const ctaHint = document.getElementById('tbInlineCtaHint');
+
+    if (!statusEl) return; /* inline section not present on this page */
+
+    /* Status pill */
+    statusEl.classList.remove('unlocked', 'locked');
+    if (status.unlocked) {
+      statusEl.classList.add('unlocked');
+      statusText.textContent = '✓ Unlocked';
+    } else {
+      statusEl.classList.add('locked');
+      statusText.textContent = '🔒 Locked — complete any path below';
+    }
+
+    /* Library count */
+    if (libNum) libNum.textContent = String(library.length);
+
+    /* Provider configured? (BYOK key in sessionStorage) — canonical keys */
+    if (provNum) {
+      const key = sessionStorage.getItem('cr_ai_key');
+      const provider = sessionStorage.getItem('cr_ai_provider');
+      provNum.textContent = (key && provider) ? (provider === 'claude' ? 'Claude' : 'Gemini') : 'Not set';
+    }
+
+    /* Unlock paths list */
+    if (pathsList) {
+      while (pathsList.firstChild) pathsList.removeChild(pathsList.firstChild);
+      status.paths.forEach(p => {
+        const row = document.createElement('div');
+        row.className = 'tb-inline-path-row' + (p.met ? ' met' : '');
+        const check = document.createElement('span');
+        check.className = 'tb-inline-path-check';
+        check.textContent = p.met ? '✓' : '○';
+        const label = document.createElement('span');
+        label.textContent = `${p.cat}: ${p.solved}/${p.needed}`;
+        row.appendChild(check);
+        row.appendChild(label);
+        pathsList.appendChild(row);
+      });
+    }
+
+    /* CTA button + hint */
+    if (cta) {
+      if (status.unlocked) {
+        cta.textContent = '🛠️ Open AI Toolbelt Workspace →';
+        cta.disabled = false;
+      } else {
+        cta.textContent = '🔒 Toolbelt Locked — Tap to see paths';
+        cta.disabled = false; /* still tappable — opens alert with paths */
+      }
+    }
+    if (ctaHint) {
+      ctaHint.textContent = status.unlocked
+        ? 'Full library · AI Feedback · BYOK API key'
+        : 'Click to see your closest unlock path';
+    }
+  }
+
+  /* ─────────────── INIT ─────────────── */
+  loadLibrary();
+  loadPrefs();
+  /* Render inline preview on page load (DOM may not be ready yet) */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderInlinePreview);
+  } else {
+    renderInlinePreview();
+  }
+
+  /* ─────────────── PUBLIC API ─────────────── */
+  return {
+    open, close,
+    addPrompt, deletePrompt, updatePrompt,
+    exportLibrary, importLibrary,
+    openEditor, closeEditor, saveFromEditor,
+    switchTab,
+    getAIFeedback,
+    clearFeedbackForm,
+    renderLibrary,
+    renderInlinePreview,
+    saveProvider, saveKey, clearKey,
+    getLibraryCount: () => library.length
+  };
+})();

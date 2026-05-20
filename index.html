@@ -58,6 +58,19 @@
       </div>
     </div>
 
+    <!-- 🛠️ Developer's AI Toolbelt teaser — entry point to the workspace -->
+    <div style="background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(124,58,237,0.07));border:1px solid rgba(14,165,233,0.35);border-radius:16px;padding:18px 22px;margin-bottom:20px;text-align:left;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s" onclick="Toolbelt.open()" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 24px rgba(14,165,233,0.2)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+      <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#7dd3fc;margin-bottom:6px">🛠️ Developer's AI Toolbelt — Workspace</div>
+      <div style="font-size:14px;font-weight:800;margin-bottom:8px">Master prompt engineering · Save your prompts · AI feedback</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+        <span style="background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#7dd3fc">📚 26 Lessons</span>
+        <span style="background:rgba(124,58,237,0.12);border:1px solid rgba(124,58,237,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#c4b5fd">📋 Personal Library</span>
+        <span style="background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#d4b8f8">🤖 AI Critique (BYOK)</span>
+        <span style="background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);border-radius:8px;padding:5px 11px;font-size:11px;font-weight:700;color:#fcd34d">💾 JSON Export</span>
+        <span style="margin-left:auto;font-size:11px;color:#9b8bb8;font-style:italic">Multiple unlock paths →</span>
+      </div>
+    </div>
+
     <div class="start-cat-wrap">
       <label class="start-cat-lbl" for="startCatSelect">Choose a category to start with:</label>
       <select class="start-cat-select" id="startCatSelect">
@@ -120,6 +133,7 @@
         <button class="nb yellow" onclick="openTrophies()">🏆 Trophies</button>
         <button class="nb purple" onclick="openDashboard()">📊 Dashboard</button>
         <button class="nb" style="border-color:rgba(252,211,77,0.4);color:#fcd34d" onclick="openCertificate()">📜 Cert</button>
+        <button class="nb nb-toolbelt" onclick="Toolbelt.open()" type="button" title="Developer's AI Toolbelt — prompt library + AI feedback">🛠️ Toolbelt</button>
       </div>
       <div class="nav-right">
         <span class="lvl-lbl"  id="lvlLbl">🌱 Seedling</span>
@@ -598,6 +612,210 @@
       </div>
 
       <article class="rb-resume" id="rbResumeOutput"></article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     🛠️ AI TOOLBELT INLINE PREVIEW — Below resume on gameScreen
+     Always visible. Shows unlock status + library count + open button.
+     game.js: Toolbelt.renderInlinePreview() populates this on load.
+═══════════════════════════════════════════════════════════════════ -->
+<section id="toolbeltInline" class="tb-inline">
+  <div class="tb-inline-wrap">
+
+    <div class="tb-inline-header">
+      <div class="tb-inline-title-block">
+        <div class="tb-inline-eyebrow">🛠️ Developer's AI Toolbelt</div>
+        <h2 class="tb-inline-title">Your prompt engineering workspace</h2>
+        <p class="tb-inline-subtitle">Save prompts that work · Get AI feedback · Build a library you reuse forever</p>
+      </div>
+      <div class="tb-inline-status" id="tbInlineStatus">
+        <span class="tb-inline-status-dot" id="tbInlineStatusDot"></span>
+        <span class="tb-inline-status-text" id="tbInlineStatusText">Checking unlock status…</span>
+      </div>
+    </div>
+
+    <div class="tb-inline-grid">
+      <div class="tb-inline-card">
+        <div class="tb-inline-card-icon">📚</div>
+        <div class="tb-inline-card-num" id="tbInlineLessonsNum">26</div>
+        <div class="tb-inline-card-lbl">AI Prompting lessons</div>
+      </div>
+      <div class="tb-inline-card">
+        <div class="tb-inline-card-icon">📋</div>
+        <div class="tb-inline-card-num" id="tbInlineLibraryNum">0</div>
+        <div class="tb-inline-card-lbl">Saved prompts in library</div>
+      </div>
+      <div class="tb-inline-card">
+        <div class="tb-inline-card-icon">🤖</div>
+        <div class="tb-inline-card-num" id="tbInlineProviderNum">—</div>
+        <div class="tb-inline-card-lbl">AI provider configured</div>
+      </div>
+    </div>
+
+    <div class="tb-inline-paths" id="tbInlinePaths">
+      <div class="tb-inline-paths-lbl">Unlock paths (any one):</div>
+      <div class="tb-inline-paths-list" id="tbInlinePathsList"></div>
+    </div>
+
+    <div class="tb-inline-cta-row">
+      <button class="tb-inline-cta" id="tbInlineCta" onclick="Toolbelt.open()" type="button">
+        🛠️ Open AI Toolbelt Workspace →
+      </button>
+      <span class="tb-inline-cta-hint" id="tbInlineCtaHint">Full library · AI Feedback · BYOK API key</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     🛠️ DEVELOPER'S AI TOOLBELT — Full workspace screen
+     Hidden by default. Toolbelt.open() shows it. Closure-based logic
+     lives in game.js; this is the markup it manipulates.
+     All labels use 'for' attributes (per Code Ranger constraint).
+═══════════════════════════════════════════════════════════════════ -->
+<section id="toolbeltScreen" style="display:none;">
+  <div class="tb-wrap">
+
+    <!-- Header -->
+    <div class="tb-header">
+      <button class="tb-back" onclick="Toolbelt.close()" type="button" aria-label="Back to home">← Back</button>
+      <div class="tb-title-block">
+        <h1 class="tb-title">🛠️ Developer's AI Toolbelt</h1>
+        <p class="tb-subtitle">Master prompt engineering. Save what works. Reuse forever.</p>
+      </div>
+    </div>
+
+    <!-- Track selector (informational — both tracks accessible) -->
+    <div class="tb-tracks">
+      <div class="tb-track-card">
+        <div class="tb-track-icon">🌱</div>
+        <div class="tb-track-name">Foundations Track</div>
+        <div class="tb-track-desc">Start here if AI prompting is new. 25 lessons cover prompt types, scenarios, and best practices.</div>
+        <div class="tb-track-tag">Lessons 771–795</div>
+      </div>
+      <div class="tb-track-card tb-track-developer">
+        <div class="tb-track-icon">⚡</div>
+        <div class="tb-track-name">Developer Craft Track</div>
+        <div class="tb-track-desc">Real coding scenarios for working devs. Communicating constraints, refactoring prompts, code-review craft.</div>
+        <div class="tb-track-tag">Lesson 796 + more coming</div>
+      </div>
+    </div>
+
+    <!-- Tabs: Lessons | My Library | AI Feedback -->
+    <div class="tb-tabs">
+      <button class="tb-tab active" data-tab="lessons" onclick="Toolbelt.switchTab('lessons')" type="button">📚 Browse Lessons</button>
+      <button class="tb-tab" data-tab="library" onclick="Toolbelt.switchTab('library')" type="button">📋 My Library <span id="tbLibraryCount">0</span></button>
+      <button class="tb-tab" data-tab="feedback" onclick="Toolbelt.switchTab('feedback')" type="button">🤖 AI Feedback</button>
+    </div>
+
+    <!-- Panel: Browse Lessons -->
+    <div class="tb-panel active" data-panel="lessons">
+      <div class="tb-panel-intro">
+        Lessons live in the main game grid. Pick a track above to jump in, or use the buttons below.
+      </div>
+      <div class="tb-jumpgrid">
+        <button class="tb-jumpbtn" onclick="setCat('AI Prompting');closeAllSections();showGame();" type="button">
+          <div class="tb-jumpicon">🌱</div>
+          <div class="tb-jumphead">Open Foundations</div>
+          <div class="tb-jumpsub">25 prompt-type lessons</div>
+        </button>
+        <button class="tb-jumpbtn" onclick="setCat('AI Prompting');closeAllSections();showGame();go(25);" type="button">
+          <div class="tb-jumpicon">⚡</div>
+          <div class="tb-jumphead">Open Developer Craft</div>
+          <div class="tb-jumpsub">Jump to lesson 796</div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Panel: My Library -->
+    <div class="tb-panel" data-panel="library">
+      <div class="tb-library-toolbar">
+        <button class="tb-btn tb-btn-primary" onclick="Toolbelt.openEditor()" type="button">+ New Prompt</button>
+        <button class="tb-btn" onclick="Toolbelt.exportLibrary()" type="button">📥 Export JSON</button>
+        <label for="tbImportFile" class="tb-btn">📤 Import JSON</label>
+        <input type="file" id="tbImportFile" accept=".json"
+               onchange="if(this.files[0]){Toolbelt.importLibrary(this.files[0]);this.value='';}"
+               style="display:none;">
+      </div>
+
+      <!-- Tag filter bar -->
+      <div class="tb-tagbar" id="tbTagBar"></div>
+
+      <!-- Library cards list -->
+      <div class="tb-library-list" id="tbLibraryList"></div>
+    </div>
+
+    <!-- Panel: AI Feedback -->
+    <div class="tb-panel" data-panel="feedback">
+      <div class="tb-panel-intro">
+        Paste a prompt you wrote. Claude/Gemini will critique it and suggest a refined version.
+        Refined versions can be saved straight to your Library.
+      </div>
+
+      <!-- ── BYOK API Key configuration (inside Toolbelt) ── -->
+      <div class="tb-byok">
+        <div class="tb-byok-title">🔑 AI Provider Setup (Bring Your Own Key)</div>
+        <div class="tb-byok-row">
+          <label for="tbAiProvider">Provider</label>
+          <select id="tbAiProvider" onchange="Toolbelt.saveProvider()">
+            <option value="claude">Anthropic Claude (recommended for prompt critique)</option>
+            <option value="gemini">Google Gemini (has generous free tier)</option>
+          </select>
+        </div>
+        <div class="tb-byok-row">
+          <label for="tbAiKey">API Key</label>
+          <input type="password" id="tbAiKey" placeholder="sk-ant-... or AIza..." autocomplete="off" spellcheck="false" oninput="Toolbelt.saveKey()">
+        </div>
+        <div class="tb-byok-note">
+          🔒 Your key stays in your browser's session storage and is automatically erased when you close this tab. It's never saved to a server.
+        </div>
+        <div class="tb-byok-actions">
+          <span id="tbKeyStatus" class="tb-byok-status">No key set</span>
+          <button class="tb-btn tb-btn-ghost" onclick="Toolbelt.clearKey()" type="button">🗑 Clear Key</button>
+        </div>
+      </div>
+
+      <div class="tb-fb-form">
+        <label for="tbFeedbackInput" class="tb-fb-label">Your prompt:</label>
+        <textarea id="tbFeedbackInput" rows="6" placeholder="Paste your prompt here — what you'd type into Claude, Copilot, Cursor, or ChatGPT..."></textarea>
+        <div class="tb-fb-actions">
+          <button id="tbFeedbackBtn" class="tb-btn tb-btn-primary" onclick="Toolbelt.getAIFeedback()" type="button">🤖 Get AI Feedback</button>
+          <button id="tbFeedbackClearBtn" class="tb-btn tb-btn-ghost" onclick="Toolbelt.clearFeedbackForm()" type="button" title="Clear prompt and feedback to start a fresh session">🗑 Clear &amp; Start Fresh</button>
+        </div>
+      </div>
+      <div id="tbFeedbackOutput" class="tb-fb-output"></div>
+    </div>
+
+  </div>
+
+  <!-- Editor modal — closure-based factory exposes openEditor/saveFromEditor -->
+  <div class="tb-modal" id="tbEditor">
+    <div class="tb-modal-box">
+      <h2 id="tbEditorTitle">Save new prompt</h2>
+
+      <label for="tbEditorPromptTitle" class="tb-fb-label">Title</label>
+      <input id="tbEditorPromptTitle" type="text" placeholder="e.g., Refactor for readability" maxlength="120">
+
+      <label for="tbEditorBody" class="tb-fb-label">Prompt body</label>
+      <textarea id="tbEditorBody" rows="14" placeholder="The exact prompt you'd send to the AI..."></textarea>
+
+      <label for="tbEditorTags" class="tb-fb-label">Tags (comma-separated)</label>
+      <input id="tbEditorTags" type="text" placeholder="refactoring, code-review, claude">
+
+      <label for="tbEditorNotes" class="tb-fb-label">Notes (original prompt, feedback, personal notes)</label>
+      <textarea id="tbEditorNotes" rows="10" placeholder="Original prompt before refinement · AI feedback you received · what you tweaked and why..."></textarea>
+
+      <label for="tbEditorRating" class="tb-fb-label">Rating (0–5)</label>
+      <input id="tbEditorRating" type="number" min="0" max="5" step="1" value="0">
+
+      <div class="tb-modal-actions">
+        <button class="tb-btn" onclick="Toolbelt.closeEditor()" type="button">Cancel</button>
+        <button class="tb-btn tb-btn-primary" onclick="Toolbelt.saveFromEditor()" type="button">Save</button>
+      </div>
     </div>
   </div>
 </section>
