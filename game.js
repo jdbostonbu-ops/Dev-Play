@@ -9,6 +9,7 @@
    Array Methods    — MDN Array Reference (map/filter/reduce)
    SQL              — W3Schools SQL Tutorial
    React & Async    — MDN Fetch API + React docs
+   5-27-2026 Rotated APIKEY
 ══════════════════════════════════════════════════════ */
 const CHS = [
 
