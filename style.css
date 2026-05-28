@@ -2894,3 +2894,60 @@ body::before{content:'';position:fixed;inset:0;background:
   .tb-library-list { grid-template-columns: 1fr; }
   .tb-header { flex-wrap: wrap; }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   BACK TO LESSONS BUTTON
+   Floating button shown when user scrolls past gameScreen.
+   Lets users return to Web Basics / lessons from Interview Lab
+   or Build Lab without manual scrolling.
+═══════════════════════════════════════════════════════════ */
+.back-to-lessons-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4),
+              0 2px 8px rgba(0, 0, 0, 0.15);
+}
+.back-to-lessons-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.back-to-lessons-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(124, 58, 237, 0.55),
+              0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.back-to-lessons-btn:active { transform: translateY(0); }
+.back-to-lessons-btn:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+.btl-arrow { font-size: 18px; font-weight: 900; line-height: 1; }
+.btl-text { white-space: nowrap; }
+
+@media (max-width: 480px) {
+  .back-to-lessons-btn { padding: 12px; bottom: 16px; right: 16px; }
+  .btl-text { display: none; }
+  .btl-arrow { font-size: 20px; }
+}

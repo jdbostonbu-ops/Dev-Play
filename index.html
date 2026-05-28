@@ -909,6 +909,40 @@
 
   <script src="game.js" defer></script>
 
+  <!-- ══════════════════════════════════
+       BACK TO LESSONS BUTTON
+       Floating button that appears when user scrolls past gameScreen,
+       so users can get back to Web Basics from Interview Lab / Build Lab.
+  ══════════════════════════════════ -->
+  <button
+    id="backToLessonsBtn"
+    class="back-to-lessons-btn"
+    type="button"
+    aria-label="Back to lessons"
+    onclick="document.getElementById('gameScreen').scrollIntoView({behavior:'smooth',block:'start'})"
+  >
+    <span class="btl-arrow">↑</span>
+    <span class="btl-text">Back to Lessons</span>
+  </button>
+
+  <script>
+    // Show the button only when the user has scrolled past gameScreen.
+    (function () {
+      var btn = document.getElementById('backToLessonsBtn');
+      var gameScreen = document.getElementById('gameScreen');
+      if (!btn || !gameScreen) return;
+
+      function updateVisibility() {
+        var rect = gameScreen.getBoundingClientRect();
+        var pastLessons = rect.bottom < 100;
+        btn.classList.toggle('visible', pastLessons);
+      }
+
+      window.addEventListener('scroll', updateVisibility, { passive: true });
+      window.addEventListener('resize', updateVisibility);
+      updateVisibility();
+    })();
+  </script>
 
 </body>
 </html>
