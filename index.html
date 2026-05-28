@@ -919,33 +919,29 @@
     class="back-to-lessons-btn"
     type="button"
     aria-label="Back to lessons"
-    onclick="if(typeof closeAllSections==='function')closeAllSections();if(typeof showGame==='function'){showGame();}else{var gs=document.getElementById('gameScreen');if(gs){gs.style.display='flex';gs.style.flexDirection='column';gs.scrollIntoView({behavior:'smooth',block:'start'});}}"
+    onclick="window.scrollTo({top:0,behavior:'smooth'});"
   >
     <span class="btl-arrow">↑</span>
     <span class="btl-text">Back to Lessons</span>
   </button>
 
   <script>
-    // Show the button only when the user has scrolled past gameScreen.
+    // Show "Back to Lessons" button only when the user has scrolled
+    // down far enough that the lessons area is no longer visible.
+    // No DOM manipulation — pure scroll-position UI.
     (function () {
       var btn = document.getElementById('backToLessonsBtn');
-      var gameScreen = document.getElementById('gameScreen');
-      if (!btn || !gameScreen) return;
+      if (!btn) return;
 
       function updateVisibility() {
-        var rect = gameScreen.getBoundingClientRect();
-        // Show button when:
-        //   (a) gameScreen is hidden (user is on Interview/Build Lab), OR
-        //   (b) gameScreen is visible but user has scrolled past its bottom
-        var gsHidden = window.getComputedStyle(gameScreen).display === 'none';
-        var pastLessons = gsHidden || rect.bottom < 100;
-        btn.classList.toggle('visible', pastLessons);
+        // Show button once user has scrolled more than ~600px down
+        // (roughly past the lessons content into the labs area).
+        var scrolled = window.scrollY || window.pageYOffset || 0;
+        btn.classList.toggle('visible', scrolled > 600);
       }
 
       window.addEventListener('scroll', updateVisibility, { passive: true });
       window.addEventListener('resize', updateVisibility);
-      // Also re-check periodically in case JS shows/hides sections without scrolling
-      setInterval(updateVisibility, 500);
       updateVisibility();
     })();
   </script>
