@@ -919,29 +919,42 @@
     class="back-to-lessons-btn"
     type="button"
     aria-label="Back to lessons"
-    onclick="window.scrollTo({top:0,behavior:'smooth'});"
+    onclick="(function(){var tb=document.getElementById('toolbeltScreen');var gs=document.getElementById('gameScreen');var ss=document.getElementById('startScreen');if(tb&&tb.style.display!=='none'&&tb.style.display!==''){tb.style.display='none';}if(ss){ss.style.display='none';}if(gs){gs.style.display='flex';gs.style.flexDirection='column';gs.scrollIntoView({behavior:'smooth',block:'start'});}else{window.scrollTo({top:0,behavior:'smooth'});}})();"
   >
     <span class="btl-arrow">↑</span>
     <span class="btl-text">Back to Lessons</span>
   </button>
 
   <script>
-    // Show "Back to Lessons" button only when the user has scrolled
-    // down far enough that the lessons area is no longer visible.
-    // No DOM manipulation — pure scroll-position UI.
+    // Show "Back to Lessons" button when the user is:
+    //   (a) on the Toolbelt overlay screen (gameScreen is hidden), OR
+    //   (b) scrolled down past the lessons area on the long-scroll page
     (function () {
       var btn = document.getElementById('backToLessonsBtn');
       if (!btn) return;
 
       function updateVisibility() {
-        // Show button once user has scrolled more than ~600px down
-        // (roughly past the lessons content into the labs area).
+        var tb = document.getElementById('toolbeltScreen');
+        var gs = document.getElementById('gameScreen');
+
+        // Toolbelt visible? Show button so user can get back to lessons.
+        var toolbeltVisible = tb && window.getComputedStyle(tb).display !== 'none';
+
+        // Otherwise check scroll position on the main page.
         var scrolled = window.scrollY || window.pageYOffset || 0;
-        btn.classList.toggle('visible', scrolled > 600);
+        var scrolledDown = scrolled > 600;
+
+        // Don't show button on the start/splash screen.
+        var ss = document.getElementById('startScreen');
+        var onStartScreen = ss && window.getComputedStyle(ss).display !== 'none';
+
+        btn.classList.toggle('visible', !onStartScreen && (toolbeltVisible || scrolledDown));
       }
 
       window.addEventListener('scroll', updateVisibility, { passive: true });
       window.addEventListener('resize', updateVisibility);
+      // Re-check periodically so we catch display-changes from Toolbelt.open/close
+      setInterval(updateVisibility, 400);
       updateVisibility();
     })();
   </script>
