@@ -919,7 +919,7 @@
     class="back-to-lessons-btn"
     type="button"
     aria-label="Back to lessons"
-    onclick="document.getElementById('gameScreen').scrollIntoView({behavior:'smooth',block:'start'})"
+    onclick="if(typeof closeAllSections==='function')closeAllSections();if(typeof showGame==='function'){showGame();}else{var gs=document.getElementById('gameScreen');if(gs){gs.style.display='flex';gs.style.flexDirection='column';gs.scrollIntoView({behavior:'smooth',block:'start'});}}"
   >
     <span class="btl-arrow">↑</span>
     <span class="btl-text">Back to Lessons</span>
@@ -934,12 +934,18 @@
 
       function updateVisibility() {
         var rect = gameScreen.getBoundingClientRect();
-        var pastLessons = rect.bottom < 100;
+        // Show button when:
+        //   (a) gameScreen is hidden (user is on Interview/Build Lab), OR
+        //   (b) gameScreen is visible but user has scrolled past its bottom
+        var gsHidden = window.getComputedStyle(gameScreen).display === 'none';
+        var pastLessons = gsHidden || rect.bottom < 100;
         btn.classList.toggle('visible', pastLessons);
       }
 
       window.addEventListener('scroll', updateVisibility, { passive: true });
       window.addEventListener('resize', updateVisibility);
+      // Also re-check periodically in case JS shows/hides sections without scrolling
+      setInterval(updateVisibility, 500);
       updateVisibility();
     })();
   </script>
