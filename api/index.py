@@ -129,7 +129,7 @@ app.add_middleware(
 # ─── Request/response shapes (Pydantic auto-validates) ─────────
 
 class ChatRequest(BaseModel):
-    prompt: str = Field(..., min_length=1, max_length=4000)
+    prompt: str = Field(..., min_length=1, max_length=100000)
     user_api_key: Optional[str] = Field(None, description="BYOK — user's own Gemini key")
     system_instruction: Optional[str] = None
 
