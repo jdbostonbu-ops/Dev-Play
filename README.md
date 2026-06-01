@@ -166,6 +166,3 @@ Code Ranger is what I built during Phase I of Thinking with AI — a single cont
 
 ⭐ Love this project? Give it a star and explore the other deployed projects in this portfolio.
 
-<p align="center">
-  <img src="favicon.svg" alt="Code Ranger Logo" width="240">
-</p>
